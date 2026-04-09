@@ -1,7 +1,7 @@
-const express = require('express');
-const path = require('path');
-const app = express();
-app.use(express.json());
-app.use(express.static(path.join(__dirname, 'public')));
-app.get('*', (req, res) => res.sendFile(path.join(__dirname, 'public', 'index.html')));
-module.exports = app;
+module.exports = (req, res) => {
+  const fs = require('fs');
+  const path = require('path');
+  const file = path.join(__dirname, 'public', 'index.html');
+  res.setHeader('Content-Type', 'text/html');
+  res.end(fs.readFileSync(file));
+};
