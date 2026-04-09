@@ -1,6 +1,1 @@
-{
-  "rewrites": [
-    { "source": "/api/translate", "destination": "/api/translate" },
-    { "source": "/(.*)", "destination": "/public/index.html" }
-  ]
-}
+{"functions":{"api/translate.js":{"memory":512}},"rewrites":[{"source":"/api/translate","destination":"/api/translate"},{"source":"/(.*)","destination":"/public/index.html"}]}
