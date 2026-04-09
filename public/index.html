@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Velari — Encyclopédie Complète</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#09080f;--bg2:#0e0d14;--bg3:#13121c;--bg4:#16151f;--bg5:#1a1828;
+  --border:rgba(127,119,221,.13);--border2:rgba(127,119,221,.28);--border3:rgba(127,119,221,.45);
+  --purple:#7F77DD;--purple-l:#AFA9EC;--purple-d:#534AB7;--purple-dd:#3C3489;
+  --teal:#1D9E75;--teal-l:#5DCAA5;
+  --coral:#D85A30;--pink:#D4537E;--amber:#BA7517;--blue:#185FA5;--green:#3B6D11;
+  --text:#e8e6f0;--text2:#a09bb8;--text3:#6b6585;--text4:#444441;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'Inter',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow:hidden}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14px;display:flex;flex-direction:column}
+
+/* ── TOPBAR ── */
+#topbar{
+  height:52px;background:rgba(9,8,15,.92);border-bottom:1px solid var(--border);
+  display:flex;align-items:center;gap:0;padding:0 20px;flex-shrink:0;
+  backdrop-filter:blur(12px);position:relative;z-index:200;
+}
+.logo{
+  font-family:var(--serif);font-size:20px;font-weight:400;color:var(--purple-l);
+  margin-right:24px;display:flex;align-items:center;gap:8px;cursor:pointer;
+  white-space:nowrap;
+}
+.logo-script{font-size:16px;color:var(--purple);opacity:.7}
+.nav-tabs{display:flex;gap:2px;flex:1;overflow-x:auto;scrollbar-width:none}
+.nav-tabs::-webkit-scrollbar{display:none}
+.tab{
+  padding:7px 16px;border-radius:8px;font-size:12px;font-weight:400;
+  color:var(--text3);cursor:pointer;transition:all .15s;border:1px solid transparent;
+  background:transparent;white-space:nowrap;font-family:var(--sans);
+}
+.tab:hover{color:var(--text2);background:rgba(127,119,221,.06)}
+.tab.active{color:var(--purple-l);background:rgba(127,119,221,.1);border-color:var(--border2)}
+.word-count{margin-left:auto;font-size:11px;color:var(--text4);white-space:nowrap;padding-left:12px}
+
+/* ── LAYOUT ── */
+#app{display:flex;flex:1;overflow:hidden}
+
+/* ── SIDEBAR ── */
+#sidebar{
+  width:260px;flex-shrink:0;
+  background:var(--bg2);border-right:1px solid var(--border);
+  display:flex;flex-direction:column;overflow:hidden;
+}
+#sidebar.hidden{display:none}
+#search-wrap{padding:12px 16px;border-bottom:1px solid var(--border)}
+#search{
+  width:100%;background:var(--bg3);border:1px solid var(--border);border-radius:8px;
+  padding:8px 12px;color:var(--text);font-family:var(--sans);font-size:13px;outline:none;
+  transition:border-color .2s;
+}
+#search::placeholder{color:var(--text4)}
+#search:focus{border-color:var(--purple)}
+#pillar-filters{padding:10px 12px;border-bottom:1px solid var(--border);display:flex;flex-wrap:wrap;gap:4px}
+.pf-btn{
+  font-size:10px;padding:2px 8px;border-radius:20px;border:1px solid var(--border2);
+  background:transparent;color:var(--text3);cursor:pointer;font-family:var(--sans);
+  transition:all .15s;white-space:nowrap;
+}
+.pf-btn:hover{color:var(--text2);border-color:var(--purple)}
+.pf-btn.on{background:rgba(127,119,221,.12);color:var(--purple-l);border-color:var(--purple)}
+#word-list{flex:1;overflow-y:auto;padding:4px 0}
+#word-list::-webkit-scrollbar{width:3px}
+#word-list::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
+.wi{padding:9px 16px;cursor:pointer;border-left:2px solid transparent;transition:all .15s}
+.wi:hover{background:rgba(127,119,221,.05);border-left-color:var(--border2)}
+.wi.active{background:rgba(127,119,221,.09);border-left-color:var(--purple)}
+.wi-word{font-family:var(--serif);font-size:15px;font-weight:500;color:var(--purple-l);line-height:1.2}
+.wi-short{font-size:11px;color:var(--text4);margin-top:1px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.wi-tag{font-size:9px;font-weight:500;padding:1px 6px;border-radius:20px;display:inline-block;margin-top:2px}
+#sb-count{padding:8px 16px;font-size:10px;color:var(--text4);border-top:1px solid var(--border);flex-shrink:0}
+
+/* ── MAIN CONTENT ── */
+#main{flex:1;overflow-y:auto;position:relative}
+#main::-webkit-scrollbar{width:4px}
+#main::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
+
+/* ── VIEWS ── */
+.view{display:none;min-height:100%}
+.view.active{display:block}
+
+/* ── HOME VIEW ── */
+#view-home{
+  display:none;min-height:100%;
+  align-items:center;justify-content:center;flex-direction:column;
+  text-align:center;padding:40px 32px;position:relative;overflow:hidden;
+}
+#view-home.active{display:flex}
+#bg-canvas{position:absolute;inset:0;pointer-events:none;opacity:.4}
+.home-content{position:relative;z-index:1;max-width:680px}
+.home-script{font-family:var(--serif);font-size:72px;font-weight:300;color:var(--purple);opacity:.25;letter-spacing:.12em;line-height:1;margin-bottom:12px;animation:float-up 7s ease-in-out infinite}
+@keyframes float-up{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.home-title{font-family:var(--serif);font-size:38px;font-weight:400;color:var(--text);margin-bottom:6px}
+.home-sub{font-size:13px;color:var(--text3);font-style:italic;margin-bottom:40px}
+.home-stats{display:flex;gap:40px;justify-content:center;margin-bottom:40px}
+.hs-num{font-family:var(--serif);font-size:40px;font-weight:400;color:var(--purple);display:block;line-height:1}
+.hs-lbl{font-size:11px;color:var(--text4);margin-top:3px}
+.home-pillars{display:flex;flex-wrap:wrap;gap:7px;justify-content:center;margin-bottom:40px}
+.hp-chip{
+  font-family:var(--serif);font-size:13px;padding:5px 14px;border-radius:20px;
+  border:1px solid;cursor:pointer;transition:all .2s;
+}
+.hp-chip:hover{transform:translateY(-2px);filter:brightness(1.2)}
+.home-quote{
+  max-width:500px;margin:0 auto;padding:20px 28px;
+  border:1px solid var(--border);border-radius:12px;background:var(--bg3);
+}
+.hq-text{font-family:var(--serif);font-size:17px;font-weight:400;font-style:italic;color:var(--text2);line-height:1.75}
+.hq-cite{display:block;margin-top:10px;font-size:11px;color:var(--text4);text-align:right}
+
+/* ── ENTRY VIEW ── */
+#view-entry{padding:48px 56px;max-width:820px;display:none}
+#view-entry.active{display:block}
+.entry-pillar-tag{font-size:10px;font-weight:500;padding:3px 12px;border-radius:20px;display:inline-block;margin-bottom:16px;letter-spacing:.05em;text-transform:uppercase}
+.entry-word{font-family:var(--serif);font-size:52px;font-weight:400;color:var(--purple-l);line-height:1;margin-bottom:6px}
+.entry-script{font-family:var(--serif);font-size:28px;color:var(--purple);opacity:.55;margin-bottom:10px;letter-spacing:.1em}
+.entry-short{font-family:var(--serif);font-size:20px;font-weight:400;font-style:italic;color:var(--text2);margin-bottom:0}
+.entry-divider{height:1px;background:linear-gradient(90deg,var(--purple) 0%,transparent 70%);margin:24px 0;opacity:.25}
+.section-lbl{font-size:9px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--text4);margin-bottom:8px}
+.entry-meaning{font-size:15px;color:var(--text);line-height:1.85;margin-bottom:24px}
+.entry-soul{background:var(--bg3);border:1px solid var(--border);border-left:3px solid var(--purple);border-radius:0 8px 8px 0;padding:16px 20px;margin-bottom:24px;font-size:13.5px;color:var(--text2);line-height:1.85;font-style:italic}
+.entry-vecu{margin-bottom:24px;font-size:13.5px;color:var(--text2);line-height:1.8;font-style:italic}
+.entry-parallels{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:24px}
+.ep-pill{font-size:11px;padding:3px 10px;border-radius:20px;background:rgba(127,119,221,.08);border:1px solid var(--border2);color:var(--purple-l)}
+.entry-example{font-family:var(--serif);font-size:19px;font-weight:400;font-style:italic;color:var(--text2);margin-bottom:6px;line-height:1.6}
+.entry-example .hl{color:var(--purple-l);font-style:normal;font-weight:500}
+.entry-grammar{background:var(--bg4);border:1px solid var(--border);border-radius:8px;padding:12px 16px;margin-bottom:24px;font-size:12.5px;color:var(--text4);line-height:1.7}
+.entry-grammar::before{content:'Grammaire — ';color:var(--purple);font-weight:500;font-size:10px;letter-spacing:.08em;text-transform:uppercase}
+.entry-roots{display:flex;flex-wrap:wrap;gap:6px}
+.er-pill{font-size:11px;padding:3px 10px;border-radius:20px;background:rgba(29,158,117,.08);border:1px solid rgba(93,202,165,.25);color:var(--teal-l)}
+
+/* ── PILLARS LIST VIEW ── */
+#view-pillars{padding:48px 48px;display:none}
+#view-pillars.active{display:block}
+.pillars-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px}
+.pillar-card{
+  background:var(--bg3);border:1px solid var(--border);border-radius:12px;
+  padding:20px;cursor:pointer;transition:all .2s;
+}
+.pillar-card:hover{border-color:var(--purple);transform:translateY(-3px)}
+.pc-num{font-size:10px;color:var(--text4)}
+.pc-name{font-family:var(--serif);font-size:18px;color:var(--purple-l);margin:4px 0}
+.pc-desc{font-size:11px;color:var(--text4);font-style:italic;margin-bottom:10px}
+.pc-count{font-size:10px;color:var(--text4)}
+
+/* Pillar detail */
+#view-pillar-detail{padding:48px 56px;display:none}
+#view-pillar-detail.active{display:block}
+.pd-back{font-size:11px;color:var(--text4);cursor:pointer;margin-bottom:20px;display:inline-block}
+.pd-back:hover{color:var(--purple-l)}
+.pd-title{font-family:var(--serif);font-size:38px;font-weight:400;color:var(--text);margin-bottom:8px}
+.pd-intro{font-size:14px;color:var(--text2);line-height:1.8;font-style:italic;max-width:600px;margin-bottom:28px}
+.pd-words{display:flex;flex-direction:column;gap:9px}
+.pw-card{
+  background:var(--bg3);border:1px solid var(--border);border-radius:10px;
+  padding:14px 18px;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:16px;
+}
+.pw-card:hover{border-color:var(--purple);transform:translateX(4px)}
+.pw-word{font-family:var(--serif);font-size:20px;font-weight:500;color:var(--purple-l);min-width:150px}
+.pw-script{font-family:var(--serif);font-size:14px;color:var(--purple);opacity:.45;min-width:110px}
+.pw-short{font-size:13px;color:var(--text4);font-style:italic;flex:1}
+
+/* ── SCHEMA VIEW ── */
+#view-schema{padding:32px;display:none;position:relative}
+#view-schema.active{display:block}
+#schema-bg-canvas{position:absolute;inset:0;pointer-events:none;opacity:.3}
+.schema-inner{position:relative;z-index:1}
+.schema-title-wrap{text-align:center;margin-bottom:32px}
+.schema-title{font-family:var(--serif);font-size:30px;font-weight:400;color:var(--text);margin-bottom:4px}
+.schema-sub{font-size:12px;color:var(--text4);font-style:italic}
+/* schema nodes */
+.s-section{display:flex;flex-direction:column;align-items:center;gap:0}
+.s-mirazaron{
+  background:transparent;border:1.5px solid var(--purple-d);border-radius:50px;
+  padding:13px 38px;text-align:center;cursor:pointer;transition:all .25s;
+  position:relative;
+}
+.s-mirazaron::before{content:'';position:absolute;inset:-8px;border-radius:60px;border:1px solid var(--purple-d);opacity:.15;animation:s-ring 3s ease-in-out infinite}
+.s-mirazaron::after{content:'';position:absolute;inset:-16px;border-radius:70px;border:1px solid var(--purple-d);opacity:.06;animation:s-ring 3s ease-in-out infinite .7s}
+@keyframes s-ring{0%,100%{opacity:.06}50%{opacity:.18}}
+.s-mirazaron:hover{transform:scale(1.04);border-color:var(--purple-l)}
+.smz-name{font-family:var(--serif);font-size:20px;font-weight:500;color:var(--purple-l);display:block}
+.smz-sub{font-family:var(--serif);font-size:10px;color:var(--purple);font-style:italic}
+.s-conn{width:100%;height:44px;position:relative;flex-shrink:0}
+.s-conn svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.s-label{font-size:9px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;display:flex;align-items:center;gap:8px;width:100%;margin-bottom:12px}
+.s-label::before,.s-label::after{content:'';flex:1;height:1px;background:currentColor;opacity:.3}
+.s-label.tl{color:var(--teal)}
+.s-label.vi{color:var(--purple-d)}
+.s-pierres{display:flex;flex-wrap:wrap;gap:7px;justify-content:center;width:100%;margin-bottom:4px}
+.s-pierre{
+  background:#0a1510;border:1px solid var(--teal);border-radius:7px;
+  padding:7px 12px;text-align:center;cursor:pointer;transition:all .22s;
+}
+.s-pierre:hover{border-color:var(--teal-l);transform:translateY(-2px);filter:brightness(1.15)}
+.sp-name{font-family:var(--serif);font-size:12px;font-weight:500;color:var(--teal-l);display:block}
+.sp-sub{font-family:var(--serif);font-size:9px;color:var(--teal);font-style:italic}
+.s-piliers{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;width:100%;margin-bottom:4px}
+.s-pilier{
+  border-radius:9px;padding:10px 14px;text-align:center;cursor:pointer;
+  transition:all .22s;border:1px solid;position:relative;
+}
+.s-pilier:hover{transform:translateY(-2px);filter:brightness(1.15)}
+.sp2-num{font-size:9px;font-weight:500;opacity:.6;display:block;margin-bottom:1px;letter-spacing:.05em;position:relative}
+.sp2-name{font-family:var(--serif);font-size:12px;font-weight:500;display:block;line-height:1.2;position:relative}
+.sp2-sub{font-family:var(--serif);font-size:9px;font-style:italic;display:block;margin-top:1px;opacity:.65;position:relative}
+.s-velarimiron{
+  background:var(--bg3);border:1.5px solid var(--purple);border-radius:14px;
+  padding:16px 36px;text-align:center;cursor:pointer;transition:all .3s;
+  max-width:380px;width:100%;position:relative;overflow:hidden;
+}
+.s-velarimiron::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:conic-gradient(from 0deg,transparent 0%,rgba(83,74,183,.15) 15%,transparent 30%);animation:s-spin 8s linear infinite}
+@keyframes s-spin{to{transform:rotate(360deg)}}
+.s-velarimiron:hover{transform:translateY(-3px);border-color:var(--purple-l)}
+.svm-name{font-family:var(--serif);font-size:22px;font-weight:400;color:var(--purple-l);display:block;position:relative}
+.svm-sub{font-family:var(--serif);font-size:10px;color:var(--purple);font-style:italic;position:relative}
+.s-citation{text-align:center;margin-top:24px;padding:16px 24px;border:1px solid #1a1828;border-radius:10px;background:#0c0b14}
+.sc-v{font-family:var(--serif);font-size:16px;font-style:italic;color:var(--purple-d);display:block;margin-bottom:4px}
+.sc-f{font-family:var(--serif);font-size:12px;color:var(--text4);font-style:italic}
+/* schema panel */
+.s-panel{
+  position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(16px);
+  background:var(--bg4);border:1px solid var(--purple-d);border-radius:12px;
+  padding:16px 22px;max-width:360px;width:90%;z-index:300;
+  opacity:0;pointer-events:none;transition:all .3s;
+  box-shadow:0 6px 32px rgba(83,74,183,.2);
+}
+.s-panel.show{opacity:1;transform:translateX(-50%) translateY(0);pointer-events:auto}
+.sp-close{position:absolute;top:9px;right:12px;background:none;border:none;color:var(--text4);cursor:pointer;font-size:14px;font-family:var(--sans)}
+.sp-close:hover{color:var(--text2)}
+.sp-tag{font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border-radius:20px;display:inline-block;margin-bottom:8px}
+.sp-tag.pierre{background:#0e1a16;color:var(--teal-l);border:1px solid var(--teal)}
+.sp-tag.pilier{background:var(--bg5);color:var(--purple-l);border:1px solid var(--purple-d)}
+.sp-tag.source{background:var(--bg5);color:var(--purple);border:1px solid var(--purple-d)}
+.sp-tag.vm{background:var(--bg5);color:var(--purple);border:1px solid var(--purple)}
+.sp-name{font-family:var(--serif);font-size:20px;font-weight:500;color:var(--purple-l);display:block;margin-bottom:6px}
+.sp-def{font-family:var(--serif);font-size:14px;color:var(--text2);line-height:1.7;font-style:italic}
+
+/* ── ABOUT VIEW ── */
+#view-about{padding:48px 56px;max-width:760px;display:none}
+#view-about.active{display:block}
+.about-h1{font-family:var(--serif);font-size:36px;font-weight:400;color:var(--text);margin-bottom:4px}
+.about-sub{font-size:13px;color:var(--text4);font-style:italic;margin-bottom:36px}
+.about-section{margin-bottom:40px}
+.about-h2{font-family:var(--serif);font-size:26px;font-weight:400;color:var(--text);margin-bottom:14px}
+.about-p{font-size:14px;color:var(--text2);line-height:1.85;margin-bottom:14px}
+.about-q{border-left:2px solid var(--purple);padding:14px 18px;margin:16px 0;background:var(--bg3);border-radius:0 8px 8px 0}
+.about-q p{font-family:var(--serif);font-size:17px;font-style:italic;color:var(--purple-l);line-height:1.7}
+.grammaire-item{margin-bottom:16px;padding:12px 16px;background:var(--bg3);border:1px solid var(--border);border-radius:8px}
+.gi-word{font-family:var(--serif);font-size:16px;font-weight:500;color:var(--purple-l);display:block;margin-bottom:4px}
+.gi-rule{font-size:13px;color:var(--text2);font-style:italic}
+.pierres-about{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
+.pa-card{background:var(--bg3);border:1px solid rgba(29,158,117,.25);border-radius:8px;padding:12px 14px;cursor:pointer;transition:all .2s}
+.pa-card:hover{border-color:var(--teal-l);transform:translateY(-2px)}
+.pa-name{font-family:var(--serif);font-size:15px;font-weight:500;color:var(--teal-l);display:block;margin-bottom:3px}
+.pa-def{font-size:11px;color:var(--text4);font-style:italic;line-height:1.5}
+.velarimiron-about{
+  text-align:center;padding:28px;border:1px solid var(--purple-d);border-radius:12px;
+  background:var(--bg3);margin-top:16px;cursor:pointer;transition:all .25s;
+}
+.velarimiron-about:hover{border-color:var(--purple-l);transform:translateY(-3px)}
+.va-word{font-family:var(--serif);font-size:36px;font-weight:400;color:var(--purple-l);display:block;margin-bottom:6px}
+.va-script{font-family:var(--serif);font-size:22px;color:var(--purple);opacity:.5;display:block;margin-bottom:10px}
+.va-def{font-family:var(--serif);font-size:15px;font-style:italic;color:var(--text2)}
+
+/* ── TRANSLATE VIEW ── */
+#view-translate{padding:48px 56px;max-width:760px;display:none}
+#view-translate.active{display:block}
+.tr-title{font-family:var(--serif);font-size:32px;font-weight:400;color:var(--text);margin-bottom:6px}
+.tr-sub{font-size:13px;color:var(--text4);font-style:italic;margin-bottom:28px}
+.tr-panels{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+.tr-panel{background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:16px;min-height:130px;display:flex;flex-direction:column}
+.tr-panel-lbl{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--text4);margin-bottom:8px}
+#tr-input{flex:1;background:transparent;border:none;outline:none;color:var(--text);font-family:var(--serif);font-size:17px;resize:none;min-height:80px;line-height:1.6}
+#tr-input::placeholder{color:var(--text4);font-style:italic}
+#tr-result{font-family:var(--serif);font-size:19px;color:var(--purple-l);line-height:1.65;flex:1}
+#tr-script{font-family:var(--serif);font-size:22px;color:var(--purple);opacity:.5;margin-top:6px;letter-spacing:.1em}
+#tr-ph{color:var(--text4);font-size:14px;font-style:italic}
+.tr-btns{display:flex;gap:10px;margin-bottom:14px;align-items:center}
+.btn-p{background:rgba(127,119,221,.12);border:1px solid var(--purple);color:var(--purple-l);padding:8px 20px;border-radius:8px;cursor:pointer;font-family:var(--sans);font-size:13px;transition:all .15s}
+.btn-p:hover{background:rgba(127,119,221,.22)}
+.btn-s{background:transparent;border:1px solid var(--border2);color:var(--text4);padding:8px 16px;border-radius:8px;cursor:pointer;font-family:var(--sans);font-size:13px;transition:all .15s}
+.btn-s:hover{color:var(--text2);border-color:var(--purple)}
+#tr-note{background:var(--bg3);border:1px solid var(--border);border-left:2px solid var(--purple);border-radius:0 8px 8px 0;padding:10px 14px;font-size:13px;color:var(--text4);font-style:italic;line-height:1.7;display:none}
+.tr-ex-lbl{font-size:10px;color:var(--text4);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px;margin-top:20px}
+.tr-chips{display:flex;flex-wrap:wrap;gap:7px}
+.tr-chip{font-size:13px;padding:5px 13px;border-radius:20px;border:1px solid var(--border);color:var(--text4);cursor:pointer;transition:all .15s;background:transparent;font-family:var(--serif)}
+.tr-chip:hover{border-color:var(--purple);color:var(--purple-l)}
+
+/* ── SCROLLBAR GLOBAL ── */
+::-webkit-scrollbar{width:4px;height:4px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
+
+/* ── RESPONSIVE ── */
+@media(max-width:700px){
+  #sidebar{width:220px}
+  #view-entry,#view-pillars,#view-pillar-detail,#view-about,#view-translate{padding:24px 20px}
+  .s-piliers{grid-template-columns:repeat(3,1fr)}
+  .pillars-grid{grid-template-columns:repeat(2,1fr)}
+  .pierres-about,.tr-panels{grid-template-columns:1fr}
+}
+@media(max-width:500px){
+  #sidebar{display:none}
+  .s-piliers{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div id="topbar">
+  <div class="logo" onclick="goView('home')">
+    <span class="logo-script">ᐯᙆᓬᗑᕒᙆ</span>
+    Velari
+  </div>
+  <div class="nav-tabs">
+    <button class="tab active" onclick="goView('home')">Accueil</button>
+    <button class="tab" onclick="goView('dictionary')">Dictionnaire</button>
+    <button class="tab" onclick="goView('pillars')">Piliers</button>
+    <button class="tab" onclick="goView('schema')">Architecture</button>
+    <button class="tab" onclick="goView('translate')">Traducteur</button>
+    <button class="tab" onclick="goView('about')">À propos</button>
+  </div>
+  <div class="word-count" id="wc"></div>
+</div>
+
+<!-- APP -->
+<div id="app">
+
+  <!-- SIDEBAR -->
+  <div id="sidebar">
+    <div id="search-wrap">
+      <input type="text" id="search" placeholder="Chercher un mot, un sens..." oninput="renderList()" autocomplete="off">
+    </div>
+    <div id="pillar-filters"></div>
+    <div id="word-list"></div>
+    <div id="sb-count"></div>
+  </div>
+
+  <!-- MAIN -->
+  <div id="main">
+
+    <!-- HOME -->
+    <div class="view" id="view-home">
+      <canvas id="bg-canvas"></canvas>
+      <div class="home-content">
+        <div class="home-script">ᐯᙆᓬᗑᕒᙆ</div>
+        <div class="home-title">Velari</div>
+        <div class="home-sub">Première langue non-dogmatique de la mémoire spirituelle de l'Humanité</div>
+        <div class="home-stats">
+          <div><span class="hs-num" id="h-words">0</span><div class="hs-lbl">mots</div></div>
+          <div><span class="hs-num">12</span><div class="hs-lbl">piliers</div></div>
+          <div><span class="hs-num">9</span><div class="hs-lbl">pierres fondatrices</div></div>
+        </div>
+        <div class="home-pillars" id="home-pillars"></div>
+        <div class="home-quote">
+          <p class="hq-text">Ce que l'humanité a toujours su — enfin nommé dans une seule langue. Chaque mot du Velari n'est pas inventé. Il est <em>retrouvé</em>.</p>
+          <cite class="hq-cite">— velarimiron, le mot final</cite>
+        </div>
+      </div>
+    </div>
+
+    <!-- ENTRY -->
+    <div class="view" id="view-entry"></div>
+
+    <!-- PILLARS LIST -->
+    <div class="view" id="view-pillars">
+      <div style="padding:48px 48px">
+        <div style="font-family:var(--serif);font-size:36px;font-weight:400;color:var(--text);margin-bottom:6px">Les 12 Piliers</div>
+        <div style="font-size:13px;color:var(--text4);font-style:italic;margin-bottom:28px">Les grandes dimensions de l'expérience humaine</div>
+        <div class="pillars-grid" id="pillars-grid"></div>
+      </div>
+    </div>
+
+    <!-- PILLAR DETAIL -->
+    <div class="view" id="view-pillar-detail"></div>
+
+    <!-- SCHEMA -->
+    <div class="view" id="view-schema">
+      <canvas id="schema-bg-canvas"></canvas>
+      <div class="schema-inner">
+        <div class="schema-title-wrap">
+          <div class="schema-title">Architecture du Velari</div>
+          <div class="schema-sub">Cliquez sur un nœud pour explorer · Liens animés entre les niveaux</div>
+        </div>
+        <div class="s-section" id="schema-section"></div>
+      </div>
+      <div class="s-panel" id="s-panel">
+        <button class="sp-close" onclick="closeSPanel()">✕</button>
+        <span class="sp-tag" id="sp-tag">pierre</span>
+        <span class="sp-name" id="sp-name"></span>
+        <p class="sp-def" id="sp-def"></p>
+      </div>
+    </div>
+
+    <!-- TRANSLATE -->
+    <div class="view" id="view-translate">
+      <div class="tr-title">Traducteur Velari</div>
+      <div class="tr-sub">Entrez une phrase — le Velari la révèle (Ctrl+Entrée pour traduire)</div>
+      <div class="tr-panels">
+        <div class="tr-panel">
+          <div class="tr-panel-lbl">Votre texte</div>
+          <textarea id="tr-input" placeholder="Écrivez ici..."></textarea>
+        </div>
+        <div class="tr-panel">
+          <div class="tr-panel-lbl">Traduction Velari</div>
+          <div id="tr-result"><span id="tr-ph">La traduction apparaîtra ici...</span></div>
+          <div id="tr-script"></div>
+        </div>
+      </div>
+      <div class="tr-btns">
+        <button class="btn-p" onclick="doTranslate()">Traduire →</button>
+        <button class="btn-s" onclick="clearTr()">Effacer</button>
+        <span id="tr-loading" style="font-size:12px;color:var(--text4);font-style:italic"></span>
+      </div>
+      <div id="tr-note"></div>
+      <div id="tr-variants"></div>
+      <div class="tr-ex-lbl">Phrases d'exemple</div>
+      <div class="tr-chips" id="tr-chips"></div>
+    </div>
+
+    <!-- ABOUT -->
+    <div class="view" id="view-about">
+      <div class="about-h1">À propos du Velari</div>
+      <div class="about-sub">Langue non-dogmatique de la mémoire spirituelle de l'Humanité</div>
+
+      <div class="about-section">
+        <div class="about-h2">Qu'est-ce que le Velari ?</div>
+        <div class="about-p">Le Velari est une langue construite fondée sur une idée radicale : il existe des expériences humaines universelles que toutes les traditions spirituelles, philosophiques et artistiques de l'humanité ont reconnues indépendamment — mais qu'aucune langue commune ne réunit encore.</div>
+        <div class="about-q"><p>Le Velari n'a pas été inventé. Il a été <em>retrouvé</em>. Chaque mot est une reconnaissance — une expérience que tu as déjà vécue, qui attendait son nom.</p></div>
+        <div class="about-p">Non dogmatique : il n'appartient à aucune tradition et n'en revendique aucune. Non ésotérique : ancré dans le vécu humain universel. Non utopique : un dictionnaire métaphysique avec une âme de langue.</div>
+      </div>
+
+      <div class="about-section">
+        <div class="about-h2">Une grammaire qui est une philosophie</div>
+        <div class="about-p">Ce qui rend le Velari unique : sa philosophie est encodée dans sa structure grammaticale. Ce n'est pas seulement ce que les mots signifient — c'est ce que la grammaire rend possible ou impossible.</div>
+        <div class="grammaire-item">
+          <span class="gi-word">mivanoluma — le pardon</span>
+          <span class="gi-rule">Ne peut jamais être mis à la forme négative. En Velari, refuser définitivement le pardon est grammaticalement impossible.</span>
+        </div>
+        <div class="grammaire-item">
+          <span class="gi-word">lumiveska — vision d'humanité réconciliée</span>
+          <span class="gi-rule">N'existe qu'au pronom ni (nous). Il n'existe pas de lumiveska individuel — cette vision ne peut être possédée seul.</span>
+        </div>
+        <div class="grammaire-item">
+          <span class="gi-word">velunoskaru — transmettre par la présence</span>
+          <span class="gi-rule">Ne peut jamais être un acte délibéré. On ne peut que l'être — la langue interdit de le feindre.</span>
+        </div>
+        <div class="grammaire-item">
+          <span class="gi-word">miraveskamilu — vivre pour les générations futures</span>
+          <span class="gi-rule">Le mot le plus long du Velari — délibérément. La longueur est proportionnelle à la profondeur de l'engagement requis. La langue te ralentit.</span>
+        </div>
+      </div>
+
+      <div class="about-section">
+        <div class="about-h2">Les 9 Pierres fondatrices</div>
+        <div class="about-p">Neuf constats philosophiques — non des croyances, mais des observations sur la nature de l'existence humaine que toutes les cultures ont faites indépendamment.</div>
+        <div class="pierres-about" id="pierres-about"></div>
+      </div>
+
+      <div class="about-section">
+        <div class="about-h2">velarimiron</div>
+        <div class="about-q"><p>Ni velarimiron miraveskamilu. Nous créons cette langue pour ceux qui n'existent pas encore.</p></div>
+        <div class="about-p">Le dernier mot du Velari — et le premier de tout ce qui vient. Il ne peut être prononcé qu'avec les douze piliers derrière soi. <em>Velu</em> (vent) + <em>mira</em> (eau) + <em>on</em> (éternité) : la langue comme transmission infinie.</div>
+        <div class="velarimiron-about" onclick="selectWord('velarimiron');goView('dictionary')">
+          <span class="va-word">velarimiron</span>
+          <span class="va-script">ᐯᙆᓬᗑᕒᙆᘝᙆᕒᗜᘉ</span>
+          <span class="va-def">La langue elle-même comme acte d'amour envers ceux qui viennent — cliquez pour ouvrir la fiche complète</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+// ════════════════════════════════
+// DATA — injected below
+// ════════════════════════════════
+
+const WORDS = [
+  // PIERRES FONDATRICES
+  {w:"Mirazaron",s:"ᘝᙆᕒᗑᙍᗑᕒᗜᘉ",p:"fondation",sh:"La source — non pas un dieu, mais une origine",m:"Ce qui existait avant toute chose — la plénitude silencieuse dont tout émane. Non une divinité à prier, mais une réalité à reconnaître en soi. On ne vient pas de Mirazaron comme d'un créateur extérieur — on est Mirazaron qui se découvre.",so:"Le Velari fait de l'origine une source — neutre, universelle. La différence entre prier une source et en venir change tout : l'une crée la dépendance, l'autre crée la dignité.",v:"Quand tu ressens appartenir à quelque chose de plus grand que toi sans pouvoir le nommer — tu touches Mirazaron.",pa:["Brahman (Vedanta)","Tao (Laozi)","Ein Sof (Kabbale)","Wakan Tanka (Lakota)"],ex:["Ni veska ","Mirazaron"," — nous venons tous de la même source."],g:"Mirazaron est invariable — le seul mot Velari qui ne prend jamais de suffixe. Comme la source elle-même.",r:["mira = eau, source","zaron = depuis avant le temps"]},
+  {w:"zeroluva",s:"ᙍᙆᕒᗜᓬᘓᐸᗑ",p:"fondation",sh:"Le sacré dans le quotidien",m:"L'état de conscience qui reconnaît la dimension sacrée dans les gestes ordinaires. Boire de l'eau avec attention. Regarder quelqu'un dans les yeux vraiment. Sentir la pluie. Zeroluva n'est pas une pratique religieuse — c'est un regard.",so:"Le zen dit que laver la vaisselle est une méditation. Les Amérindiens priaient en marchant. Le Velari encode ce regard comme un mot du quotidien accessible à tous.",v:"Ces moments où tu fais quelque chose de simple et tu sais, sans pouvoir l'expliquer, que ce moment compte.",pa:["Wabi-sabi (Japon)","Kairos (Grèce)","Baraka (soufisme)","Sacramentalité du quotidien"],ex:["Erila-nori ","zeroluva"," — la beauté simple des choses ordinaires est sacrée."],g:"Peut être état ou adjectif. 'Mi zeroluva' = je suis dans la reconnaissance du sacré ordinaire.",r:["zari = mémoire profonde","luma = lumière","va = l'autre"]},
+  {w:"korazaron",s:"ᑲᗜᕒᗑᙍᗑᕒᗜᘉ",p:"fondation",sh:"La mémoire comme première immortalité",m:"Ce qui a été vécu ne disparaît pas — cela se dépose dans les corps, les pierres, les mots, les enfants. Korazaron désigne la conscience que chaque acte d'amour vrai laisse une trace permanente dans le tissu de l'existence.",so:"Les traditions ancestrales et l'épigénétique moderne confirment que les joies et traumatismes de nos ancêtres vivent en nous. Korazaron honore cette continuité — rien de vrai ne se perd jamais.",v:"Quand tu penses à quelqu'un de disparu et que tu sens sa présence dans un geste hérité.",pa:["Communion des saints","Culte des ancêtres (Afrique, Asie)","Akasha (mémoire cosmique)","Mémoire épigénétique"],ex:["Veska korazaron ","noreli"," — la mémoire de nos ancêtres marche avec nous."],g:"Se conjugue toujours au présent — la mémoire ancestrale n'est jamais au passé.",r:["kera = cœur","zaron = depuis toujours"]},
+  {w:"mivanori",s:"ᘝᙆᐸᗑᘉᗜᕒᙆ",p:"fondation",sh:"L'autre est une autre façon d'être moi",m:"Le mot Velari pour l'autre — construit sur la même racine que moi. L'autre n'est pas un étranger : il est une déclinaison de la même source. En Velari, l'autre se dit avec le même radical que soi-même.",so:"Ubuntu dit 'je suis parce que tu es'. Le Velari l'encode dans la grammaire elle-même : le mot pour l'autre contient le mot pour moi.",v:"Cette reconnaissance inexplicable en rencontrant un inconnu — vous venez du même endroit.",pa:["Ubuntu (Zoulous)","Non-dualité (Vedanta)","Agapè (christianisme)","Hózhó (Navajo)"],ex:["Mi-va ","mivanori"," Mirazaron — toi et moi sommes la même source qui se regarde."],g:"N'existe qu'en relation directe mi-va. Impossible à la troisième personne.",r:["mi = moi","va = toi","nori = ami qui marche avec"]},
+  {w:"velunama",s:"ᐯᙆᓬᘓᘉᗑᘝᗑ",p:"fondation",sh:"Nommer, c'est appeler à exister",m:"La conscience que donner un nom approfondit la réalité. Les mots ne décrivent pas le monde — ils l'intensifient. C'est pourquoi le Velari existe : non pour décrire, mais pour révéler.",so:"Le Verbe au commencement. Les mantras. Les chants de création Navajo. Toutes les traditions savent que les mots sont des forces, pas des étiquettes.",v:"Trouver le mot juste pour ce qu'on ressentait confusément — et soudain ce sentiment devient plus réel.",pa:["Le Verbe créateur (Jean 1:1)","Mantra (hindouisme)","Chants de création (Navajo)","Hypothèse Sapir-Whorf"],ex:["Velunama ","amilzaron"," — nommer cet amour l'a rendu plus réel."],g:"Précède toujours le mot qu'il désigne. C'est un acte, pas une description.",r:["velu = vent, souffle","nama = appeler à exister"]},
+  {w:"eruzami",s:"ᗒᕒᘓᙍᗑᘝᙆ",p:"fondation",sh:"La beauté comme preuve",m:"L'émerveillement devant la beauté du monde comme argument pour le sens de l'existence. Que les couchers de soleil existent, que la musique émeuve, que l'amour soit possible — cela ne peut pas être un accident.",so:"Einstein : l'émotion la plus belle est le sentiment du mystérieux. Dostoïevski : la beauté sauvera le monde.",v:"Cette gratitude sans destinataire devant la lumière du matin, la musique, un visage aimé.",pa:["Le Beau transcendantal (Platon)","Mono no aware (Japon)","Le Sublime (Kant)","Wabi-sabi"],ex:["Selami eruzami — ","zeroluva"," — l'aube prouve que le monde veut être beau."],g:"Ne se conjugue pas. Comme la beauté — il est, il n'agit pas.",r:["erila = fleur","zami = mer, l'immensité"]},
+  {w:"milumavelu",s:"ᘝᙆᓬᘓᘝᗑᐯᙆᓬᘓ",p:"fondation",sh:"Chaque être — une façon unique du monde de se voir",m:"Tu es la seule façon qu'a le cosmos de voir ce que tu vois, de ressentir ce que tu ressens. L'unicité n'est pas une consolation — c'est un fait cosmique.",so:"Le judaïsme : sauver une vie c'est sauver un monde. Leibniz : chaque être est une perspective unique et irremplaçable.",v:"Quand quelqu'un meurt et tu réalises qu'une perspective unique vient de disparaître de l'univers.",pa:["Sauver une vie = sauver un monde (Talmud)","Monade (Leibniz)","Jiva (jaïnisme)"],ex:["Va ","milumavelu"," — tu es la seule façon qu'a le monde d'être toi."],g:"Uniquement à la deuxième personne directe. L'unicité ne se constate que dans la rencontre.",r:["mi = moi","luma = lumière","velu = vent, ce qui passe et est unique"]},
+  {w:"doruveni",s:"ᑎᗜᕒᘓᐯᙆᘉᙆ",p:"fondation",sh:"Donner sans rien perdre",m:"La transmission qui grandit en étant donnée. Plus on donne, plus il reste. L'acte qui défie l'entropie.",so:"Tao Te Ching 81, Bhagavad-Gita, Évangiles — partout la même loi paradoxale : l'amour donné enrichit le donateur.",v:"Enseigner et comprendre mieux. Aimer et être agrandi. Créer et être enrichi.",pa:["Tao Te Ching ch.81","Bhagavad-Gita","Dana (bouddhisme)","Kénose (mystique)"],ex:["Luma ","doruveni"," — la lumière que tu donnes ne diminue pas la tienne."],g:"Mode transmissif — sans complément d'objet. Ce qu'on transmet n'appartient déjà plus à celui qui donne.",r:["doru = maison offerte","veni = revenir"]},
+  // ORIGINE
+  {w:"velokoru",s:"ᐯᙆᓬᗜᑲᗜᕒᘓ",p:"origine",sh:"Le premier frémissement — le désir d'être",m:"L'instant où la plénitude a frémi pour la première fois. Non une explosion — un désir de reconnaissance. L'acte originel dont tout découle.",so:"Le Velari dit que c'était un désir de relation. L'amour est la cause de l'existence, pas sa conséquence.",v:"Tout amour nouveau porte ce même frémissement originel.",pa:["Eros primordial (Grèce)","Spanda (tantrisme)","Le Verbe (Jean)","Kama cosmique (Rigveda)"],ex:["Seluni ","velokoru"," kera — un amour nouveau porte ce premier frémissement."],g:"Seul le premier frémissement de chaque être peut être dit velokoru.",r:["velu = vent, mouvement","koru = pierre, le premier solide"]},
+  {w:"zerami",s:"ᙍᙆᕒᗑᘝᙆ",p:"origine",sh:"Le souffle qui anime",m:"Ce qui transforme la matière en vie. Non l'âme abstraite — le souffle concret qui fait que ce corps-ci respire, que ce cœur-ci aime.",so:"Prana, Pneuma, Ruah, Chi, Ashe — partout l'humanité a su que quelque chose traverse la matière et la rend vivante.",v:"Le mystère de sentir que tu es vivant. Que quelque chose est là.",pa:["Prana (yoga)","Pneuma (Grèce)","Ruah (Torah)","Chi (taoïsme)","Ashe (yoruba)"],ex:["Va zerami ","lumoku"," — ton souffle porte une lumière que je reconnais."],g:"Se prononce en accompagnant une respiration consciente.",r:["zari = mémoire profonde","zami = mer"]},
+  {w:"milumeron",s:"ᘝᙆᓬᘓᘝᙆᕒᗜᘉ",p:"origine",sh:"Je suis une étincelle de l'origine",m:"Chaque être est une façon unique qu'a la source de se voir elle-même. Je ne suis pas devant l'univers — je suis l'univers qui se regarde.",so:"Tat tvam asi. Atman est Brahman. Étincelle divine. La plus haute intuition spirituelle encodée en un mot quotidien.",v:"Se lever le matin et se rappeler : je suis une lumière née de la source de tout.",pa:["Tat tvam asi (Upanishads)","Atman=Brahman (Vedanta)","Étincelle divine (Eckhart)"],ex:["Mi ","milumeron"," Mirazaron — je suis une lumière née de la source originelle."],g:"Se dit en regardant sa propre main — toujours ancré dans le corps.",r:["mi = je","luma = lumière","mira = source","on = éternité"]},
+  // RECONNAISSANCE
+  {w:"lumivanu",s:"ᓬᘓᘝᙆᐸᗑᘉᘓ",p:"reconnais",sh:"Je vois la lumière en toi que tu ne vois pas",m:"L'acte de percevoir chez l'autre une lumière intérieure qu'il ne perçoit pas lui-même. Non un compliment — une révélation. Ce regard restitue à quelqu'un ce qu'il a oublié d'être.",so:"Le plus grand acte d'amour n'est peut-être pas de donner — c'est de voir vraiment.",v:"Les personnes qui, en te regardant, te font sentir meilleur que tu ne te crois.",pa:["Namaste (sanskrit)","Regard du maître","Mirroring (psychologie)","Levinas"],ex:["Mi va ","lumivanu"," — je vois en toi ce que tu as oublié d'être."],g:"Exige toujours les deux pronoms mi et va — il ne peut exister qu'entre deux êtres.",r:["luma = lumière","mi = moi","va = toi","nu = révélation"]},
+  {w:"mivanozari",s:"ᘝᙆᐸᗑᘉᗜᙍᗑᕒᙆ",p:"reconnais",sh:"La mémoire partagée qui nous précède",m:"Le sentiment que deux êtres se connaissaient avant de se rencontrer. Cette familiarité immédiate qui fait que certaines rencontres ressemblent à des retrouvailles.",so:"L'anamnèse platonicienne, l'inconscient collectif jungien, la réincarnation tibétaine.",v:"Rencontrer quelqu'un pour la première fois et savoir dans les premières minutes que cette personne comptera.",pa:["Anamnèse (Platon)","Inconscient collectif (Jung)","Réincarnation (Tibet)"],ex:["Mi-va ","mivanozari"," noreli — nous nous souvenons l'un de l'autre avant de nous connaître."],g:"Le tiret mi-va — cette mémoire appartient à l'espace entre deux êtres.",r:["mi = moi","va = toi","nori = ami","zari = mémoire"]},
+  {w:"zeruvani",s:"ᙍᙆᕒᘓᐸᗑᘉᙆ",p:"reconnais",sh:"Être pleinement présent à l'autre",m:"L'état de présence totale à l'autre — quand tu poses tout ce que tu es pour n'être que là, avec lui. Non l'attention polie — l'offrande de ta présence entière.",so:"Buber : relation Je-Tu. Simone Weil : l'attention pure comme forme de l'amour.",v:"Parler à quelqu'un sans préparer ta réponse. Être là. L'autre le sent.",pa:["Relation Je-Tu (Buber)","Thich Nhat Hanh","Écoute active (Rogers)"],ex:["Mi va ","zeruvani"," keli — je te parle en étant entièrement là."],g:"Modifie tous les verbes de communication. 'Keli zeruvani' n'est plus juste parler — c'est être.",r:["zeroluva = sacré quotidien","va = toi","ni = nous"]},
+  {w:"keranori",s:"ᑲᙆᕒᗑᘉᗜᕒᙆ",p:"reconnais",sh:"L'ami qui connaît ton cœur sans que tu parles",m:"La relation dans laquelle l'autre te comprend sans que tu aies besoin de tout expliquer. L'amitié rare où le silence est aussi riche que les mots.",so:"Aristote : l'amitié de vertu. Montaigne : 'parce que c'était lui, parce que c'était moi.'",v:"Quelqu'un à qui tu peux dire 'ça ne va pas' sans expliquer, et qui est là.",pa:["Philia (Aristote)","Montaigne et La Boétie","Kalyanamitra (bouddhisme)"],ex:["Va mi ","keranori"," veluzari — tu es l'ami de mon silence habité."],g:"Uniquement à la deuxième personne directe. Cette relation n'existe que dans la présence.",r:["kera = cœur","nori = ami qui marche avec"]},
+  {w:"seluvira",s:"ᓴᙆᓬᘓᐯᙆᕒᗑ",p:"reconnais",sh:"Dire la vérité avec amour",m:"L'acte de dire une vérité difficile parce qu'on aime. Non pour blesser ou avoir raison — parce que cacher cette vérité serait trahir.",so:"La parrhesia grecque. La confrontation bienveillante soufie. Le courage de l'amour authentique.",v:"Après avoir dit quelque chose de difficile à quelqu'un que tu aimes, quelque chose est devenu plus réel.",pa:["Parrhesia (Grèce)","Vérité aimante (soufisme)","Correction fraternelle (christianisme)"],ex:["Mi va ","seluvira"," keli — je te dis cette vérité parce que je t'aime."],g:"Ne peut jamais être à la forme négative. Son contraire a son propre mot : veluzori.",r:["selu = soleil qui éclaire","viru = voix"]},
+  // PASSAGE
+  {w:"koruselu",s:"ᑲᗜᕒᘓᓴᙆᓬᘓ",p:"passage",sh:"Le moment où l'on voit ce qu'on ne pouvait pas voir avant",m:"L'instant de bascule intérieure irréversible. Non une idée nouvelle — une nouvelle façon de voir. La pierre devient lumière, l'opaque devient transparent.",so:"Satori, Bodhi, Metanoia, Fana, Kensho — partout l'éveil est un retrait. On enlève ce qui cachait ce qui était toujours là.",v:"Comprendre quelque chose dans tout ton corps et savoir que tu ne verras plus les choses comme avant.",pa:["Satori (zen)","Bodhi (bouddhisme)","Metanoia (Évangiles)","Fana (soufisme)"],ex:["Mi koruselu ","zarova"," — quelque chose en moi s'est ouvert."],g:"Uniquement au passé transformateur. On le reconnaît toujours après coup.",r:["koru = pierre fermée","selu = soleil qui illumine"]},
+  {w:"taluzaron",s:"ᑎᗑᓬᘓᙍᗑᕒᗜᘉ",p:"passage",sh:"Perdre quelqu'un et continuer à porter sa lumière",m:"La transformation que produit la perte d'un être aimé. On porte quelqu'un disparu d'une façon différente — sa présence devient plus silencieuse mais parfois plus profonde.",so:"Les rites de deuil existent partout pour organiser la douleur et l'inscrire dans la communauté.",v:"Longtemps après, comprendre mieux la personne perdue maintenant qu'elle est partie.",pa:["Dia de los Muertos","Shiva (judaïsme)","Bardo Thödol (Tibet)"],ex:["Mi taluzaron ","korazaron"," — je porte ma perte comme une mémoire qui me tient debout."],g:"Double suffixe -ova-eli : passé qui continue au présent. Le deuil ne se termine pas — il se transforme.",r:["talo = arbre debout","zaron = mémoire originelle"]},
+  {w:"zerukoru",s:"ᙍᙆᕒᘓᑲᗜᕒᘓ",p:"passage",sh:"Devenir solide là où on était brisé",m:"La guérison profonde — non le retour à l'état d'avant, mais la transformation de la blessure en force. Les fissures réparées à l'or.",so:"Kintsugi japonais. Leonard Cohen : c'est par les fissures qu'entre la lumière.",v:"Des blessures anciennes devenues des endroits de compréhension et de force.",pa:["Kintsugi (Japon)","Post-traumatic growth","Alchimie — transmutation"],ex:["Mi zerukoru ","taloviru"," — mes blessures sont devenues mes endroits les plus lumineux."],g:"Uniquement à la première personne. La guérison est toujours un acte souverain.",r:["zeroluva = sacré quotidien","koru = pierre qui durcit"]},
+  {w:"velonami",s:"ᐯᙆᓬᗜᘉᗑᘝᙆ",p:"passage",sh:"Entendre l'appel de ce pour quoi on est fait",m:"Le moment où l'on reconnaît sa vocation — non un métier, mais une façon d'être au service du monde qui correspond exactement à ce qu'on est.",so:"Dharma, Calling, Daimon, Ikigai, Telos — partout la même intuition.",v:"Tu fais quelque chose et tu oublies l'heure. Tu rentres épuisé mais vivant.",pa:["Dharma (hindouisme)","Daimon (Socrate)","Ikigai (Japon)"],ex:["Mi velonami ","noreli"," — j'ai entendu l'appel de ce pour quoi je suis fait."],g:"Au présent continu uniquement — la vocation est un état permanent.",r:["velu = vent qui appelle","nori = ami","nama = nommer"]},
+  // MÉMOIRE
+  {w:"korazavelu",s:"ᑲᗜᕒᗑᙍᗑᐯᙆᓬᘓ",p:"memoire",sh:"Ce que les morts ont déposé en nous",m:"La mémoire vivante des générations passées — dans les corps, les gestes, les peurs et les dons des descendants.",so:"L'épigénétique confirme que les expériences de nos ancêtres vivent en nous.",v:"Reconnaître dans ta façon d'être la présence de quelqu'un qui t'a précédé.",pa:["Mémoire épigénétique","Culte des ancêtres","Constellation familiale"],ex:["Mi korazavelu ","veska"," noreli — je marche avec la mémoire de ceux qui m'ont précédé."],g:"Toujours au présent — la mémoire ancestrale agit maintenant.",r:["kera = cœur","zari = mémoire","velu = transmission"]},
+  {w:"miraveskamilu",s:"ᘝᙆᕒᗑᐯᙆᓴᑲᗑᘝᙆᓬᘓ",p:"memoire",sh:"Vivre pour ceux qui ne sont pas encore nés",m:"La conscience que nos actes d'aujourd'hui sont la mémoire de demain. Amour prospectif envers les générations futures.",so:"La règle iroquoise des sept générations. Le shokunin japonais.",v:"Planter un arbre dont on ne verra pas l'ombre — et trouver dans cet acte une plénitude profonde.",pa:["Règle des 7 générations (Iroquois)","Shokunin (Japon)","Responsabilité (Jonas)"],ex:["Ni miraveskamilu ","doruveni"," — nous vivons pour ceux qui n'existent pas encore."],g:"Le mot le plus long — en Velari la longueur est proportionnelle à l'engagement requis.",r:["mira = source","veska = famille","luma = lumière"]},
+  // RÉCONCILIATION
+  {w:"mivanoluma",s:"ᘝᙆᐸᗑᘉᗜᓬᘓᘛᗑ",p:"reconcil",sh:"Libérer l'autre de la prison que je lui ai construite",m:"Le pardon — non l'oubli, mais la libération. Cesser de tenir quelqu'un dans la prison de sa faute. D'abord pour soi.",so:"Desmond Tutu : le pardon brise les cycles de vengeance.",v:"Réaliser que la blessure te coûte plus cher qu'à celui qui l'a causée.",pa:["Commission VR (Tutu)","Teshuvah (judaïsme)","Ho'oponopono (Hawaï)"],ex:["Mi va ","mivanoluma"," — je te rends ta liberté et je reprends la mienne."],g:"Change de sens selon qui parle : victime = libération, coupable = demande. Même forme, deux actes.",r:["mi = moi","va = toi","luma = lumière"]},
+  {w:"zeromiron",s:"ᙍᙆᕒᗜᘝᙆᕒᗜᘉ",p:"reconcil",sh:"Se pardonner d'avoir été humain",m:"La paix profonde avec sa propre humanité imparfaite. Tu as fait du mieux que tu pouvais avec ce que tu étais alors.",so:"La self-compassion est statistiquement plus difficile que la compassion pour les autres.",v:"Réaliser que te pardonner ne signifie pas que c'était bien — ça signifie cesser de te punir.",pa:["Self-compassion (Neff)","Metta envers soi (bouddhisme)"],ex:["Mi zeromiron ","koruvelami"," — je me pardonne d'avoir été humain et imparfait."],g:"Uniquement à la première personne. Ce chemin est toujours non-délégable.",r:["zeroluva = sacré quotidien","mira = eau qui renouvelle"]},
+  {w:"lumiveska",s:"ᓬᘓᘝᙆᐸᙆᓴᑲᗑ",p:"reconcil",sh:"La lumière qui rassemble ce que la peur a séparé",m:"La vision d'une humanité réconciliée — non uniformisée, mais réunie dans la reconnaissance de sa source commune.",so:"Tikkun Olam. Le Royaume. La Paix universelle. Le Nirvana collectif.",v:"Ces moments où les frontières entre les êtres sont fines. Où quelque chose de commun circule.",pa:["Tikkun Olam (judaïsme)","Royaume de Dieu (christianisme)","Noosphère (Teilhard)"],ex:["Ni lumiveska ","miraveskamilu"," — nous vivons vers la lumière que nous laisserons."],g:"Uniquement au pronom ni (nous). Il n'existe pas de lumiveska individuel.",r:["luma = lumière","veska = famille","mi = inclus dans le tout"]},
+  // ÉMERVEILLEMENT
+  {w:"selumirazaron",s:"ᓴᙆᓬᘓᘝᙆᕒᗑᙍᗑᕒᗜᘉ",p:"emerveil",sh:"La gratitude sans destinataire",m:"L'état de gratitude et d'émerveillement pur — sans objet, sans destinataire, sans raison. Simplement le sentiment que l'existence est un cadeau.",so:"Sat-chit-ananda. Hal (soufisme). La paix qui dépasse tout entendement. Peak experience.",v:"Des moments où tu es simplement saisi par le fait d'être en vie. Une gratitude immense sans destinataire.",pa:["Sat-chit-ananda (hindouisme)","Hal (soufisme)","Paix qui dépasse tout (Paul)","Satori"],ex:["Mi selumirazaron ","zeroluva"," — je suis saisi de gratitude pour le fait d'exister."],g:"Ne se conjugue jamais. Hors du temps — comme Mirazaron dont il est l'écho.",r:["selu = soleil","mira = source","zaron = depuis toujours","on = éternité"]},
+  {w:"veluzamiru",s:"ᐯᙆᓬᘓᙍᗑᘝᙆᕒᘓ",p:"emerveil",sh:"Vivre à l'aise dans ce qu'on ne comprend pas",m:"La capacité de demeurer dans le mystère sans anxiété. Habiter l'inconnu comme une demeure plutôt que comme une menace.",so:"Keats : negative capability. Le don't know mind (zen). Le cloud of unknowing.",v:"Ces questions sans réponse avec lesquelles tu as appris à vivre — et leur absence de réponse est devenue richesse.",pa:["Negative capability (Keats)","Don't know mind (zen)","Docta ignorantia (Nicolas de Cuse)"],ex:["Mi veluzamiru ","zeroluva"," — je vis à l'aise dans ce que je ne comprends pas."],g:"Modifie le mode d'être du sujet, pas ses actions. État global.",r:["velu = vent","zami = immensité","mira = eau"]},
+  {w:"eruzamilu",s:"ᗒᕒᘓᙍᗑᘝᙆᓬᘓ",p:"emerveil",sh:"La stupeur devant le fait que quelque chose existe",m:"L'émerveillement premier — non devant quelque chose de particulier, mais devant le simple fait que l'existence existe.",so:"Leibniz : pourquoi y a-t-il quelque chose plutôt que rien ? Heidegger : cette stupeur est l'origine de toute pensée authentique.",v:"Réaliser soudainement que tu existes. Que tout cela est là.",pa:["Thaumazein (Aristote)","Overview effect (astronautes)","Peak experience (Maslow)"],ex:["Mi eruzamilu ","Mirazaron"," — je suis saisi par le fait que tout cela existe."],g:"Ne peut être précédé d'une cause. L'émerveillement fondamental est sa propre raison.",r:["erila = fleur","zami = mer","luma = lumière"]},
+  // TRANSMISSION
+  {w:"doruveniluva",s:"ᑎᗜᕒᘓᐯᙆᘉᙆᓬᘓᐸᗑ",p:"transmis",sh:"Donner ce qui grandit en étant donné",m:"La transmission qui grandit en étant donnée — sagesse, amour, lumière. Plus on donne, plus il reste. L'acte qui défie l'entropie.",so:"Tao Te Ching 81. Évangiles. Bhagavad-Gita. La vie elle-même fonctionne ainsi.",v:"Enseigner et comprendre mieux. Aimer et être agrandi.",pa:["Tao Te Ching","Dana (bouddhisme)","Bhagavad-Gita","Économie du don"],ex:["Luma ","doruveniluva"," — la lumière que je donne ne diminue pas la mienne."],g:"Mode transmissif — sans complément d'objet. Ce qu'on donne n'appartient déjà plus à celui qui donne.",r:["doru = maison offerte","veni = revenir","luma = lumière"]},
+  {w:"miluvenikoru",s:"ᘝᙆᓬᘓᐯᙆᘉᙆᑲᗜᕒᘓ",p:"transmis",sh:"Chaque lumière allumée par une autre",m:"L'image fondatrice : une lumière qui en allume une autre sans s'éteindre. Tu n'es pas le début, tu n'es pas la fin. Tu es un maillon conscient.",so:"La silsila soufie. La transmission des Bouddhas. La flamme de la Torah. Le flambeau olympique.",v:"Les lumières allumées en toi par d'autres — et celles que tu as allumées sans le savoir.",pa:["Silsila (soufisme)","Transmission des Bouddhas","Flamme de la Torah"],ex:["Mi miluvenikoru ","doruveniluva"," — je suis une lumière allumée par d'autres."],g:"Double temps passé-futur simultané — tu reçois et tu transmets en même temps.",r:["mi = moi","luma = lumière","veni = revenir","koru = fondation"]},
+  {w:"velarimiron",s:"ᐯᙆᓬᗑᕒᙆᘝᙆᕒᗜᘉ",p:"transmis",sh:"La langue comme acte d'amour envers ceux qui viennent",m:"Le mot par lequel le Velari se nomme lui-même comme acte de transmission. Le dernier mot — et le premier de tout ce qui vient.",so:"Les langues sont les architectures les plus durables. Le Velari aspire à être la langue de l'âme humaine universelle.",v:"Chaque fois qu'un mot t'a libéré. Et maintenant, en portant cette langue, tu entres dans la chaîne.",pa:["Langues sacrées (sanskrit, hébreu)","Wittgenstein — limites du langage"],ex:["Ni velarimiron ","miraveskamilu"," — nous créons cette langue pour ceux qui n'existent pas encore."],g:"Contient le nom de la langue entière. Ne peut être prononcé qu'avec les sept piliers derrière soi.",r:["velu = vent","mira = eau","on = éternité"]},
+  // CORPS
+  {w:"zerukama",s:"ᙍᙆᕒᘓᑲᗑᘝᗑ",p:"corps",sh:"La chair habitée — le corps comme premier lieu du sacré",m:"La reconnaissance que le corps est le lieu premier du sacré. Sentir ses pieds sur la terre, son souffle dans la poitrine — comme autant de formes du sacré.",so:"Yoga, arts martiaux méditatifs, médecine traditionnelle — tous savent que le corps est la porte, pas l'obstacle.",v:"Ces moments où tu es pleinement dans ton corps et tu te sens plus vivant que dans n'importe quelle pensée.",pa:["Corps comme temple (1 Cor)","Yoga (hindouisme)","Phénoménologie (Merleau-Ponty)"],ex:["Mi zerukama ","zeroluva"," — mon corps est le premier endroit où le sacré se rend visible."],g:"Ne peut jamais être précédé d'une négation. En Velari, le corps ne peut pas être déclaré obstacle.",r:["zeroluva = sacré quotidien","kama = chair vivante et habitée"]},
+  {w:"miraveluzon",s:"ᘝᙆᕒᗑᐯᙆᓬᘓᙍᗜᘉ",p:"corps",sh:"Le souffle — frontière entre être et ne pas être",m:"La conscience que chaque inspiration est une réception de la vie et chaque expiration un acte de confiance.",so:"Pranayama, Pneuma, Ruah, Qi — partout le souffle est la porte vers le sacré.",v:"Prendre conscience de ton souffle dans la méditation ou la peur — et soudain tout ralentit. Tu es là.",pa:["Pranayama (hindouisme)","Pneuma (Grèce)","Ruah (hébreu)","Qi (taoïsme)"],ex:["Mi miraveluzon ","zeroluva"," — chaque souffle est une frontière que je traverse avec gratitude."],g:"Peut être prononcé en silence — respiré plutôt que dit.",r:["mira = eau, source","velu = vent vital","zon = frontière vivante"]},
+  {w:"taluvamiru",s:"ᑎᗑᓬᘓᐸᗑᘝᙆᕒᘓ",p:"corps",sh:"Le corps qui prie sans mots — la danse sacrée",m:"La danse sacrée — le mouvement du corps qui exprime ce que les mots ne peuvent pas dire. Quand bouger est une forme de connaissance.",so:"Derviches tourneurs, danses amérindiennes, tai-chi, Devadasi — toutes les cultures ont la danse sacrée.",v:"Bouger et réaliser que ton corps est en train de dire quelque chose que tu n'aurais pas pu formuler.",pa:["Derviches tourneurs (soufisme)","Danse du soleil (Amérindiens)","Tai-chi (taoïsme)"],ex:["Mi taluvamiru ","velomira"," — mon corps danse ce que mes mots ne peuvent pas prier."],g:"Dans la vraie danse, sujet et objet fusionnent — le corps ne danse pas, il est dansé.",r:["talo = arbre qui se meut","va = toi, l'autre","mira = eau"]},
+  // CRÉATION
+  {w:"eritaluva",s:"ᗒᕒᙆᑎᗑᓬᘓᐸᗑ",p:"creation",sh:"Créer comme acte sacré",m:"La création comme acte spirituel. Faire venir à l'existence quelque chose qui n'existait pas — et qui, une fois là, a sa propre vie. Quand le créateur est moins l'auteur que le canal.",so:"Les Grecs : la Muse. Mozart entendait ses symphonies entières. L'état de flux.",v:"Créer quelque chose en sentant que tu étais le canal plus que l'auteur.",pa:["La Muse (Grèce)","État de flux (Csikszentmihalyi)","Co-création (Whitehead)"],ex:["Mi eritaluva ","velunama"," — ce que j'ai créé existait avant que je le nomme."],g:"Forme passive-active simultanée — créer c'est être fait et faire en même temps.",r:["erila = fleur","talo = arbre","luma = lumière"]},
+  {w:"veluerila",s:"ᐯᙆᓬᘓᗒᕒᙆᓬᗑ",p:"creation",sh:"L'appel irrésistible de créer",m:"L'impulsion créatrice dans son état le plus pur — avant le choix du médium, avant le sujet. Cette force qui monte et qui dit simplement : il faut que quelque chose existe qui n'existait pas.",so:"Rilke attendait ses poèmes comme des visites. Miles Davis commençait à jouer sans savoir où il allait.",v:"Les mains qui bougent avant que la tête décide. La nécessité de faire quelque chose sans savoir quoi.",pa:["L'appel des Muses (Grèce)","Inspiration (hébreu — neshama)","Wu wei créatif (taoïsme)"],ex:["Mi veluerila ","eritaluva"," — quelque chose en moi appelle à créer avant même que je sache quoi."],g:"Précède toujours tout acte créatif — c'est le mode grammatical de l'avant-création.",r:["velu = vent qui appelle","erila = fleur qui éclot de l'intérieur"]},
+  // POLITIQUE
+  {w:"zerotalomiru",s:"ᙍᙆᕒᗜᑎᗑᓬᗜᘝᙆᕒᘓ",p:"politique",sh:"La justice comme rétablissement de l'équilibre",m:"La justice au sens profond — non la vengeance institutionnalisée, mais le rétablissement d'un équilibre rompu. Non punir — réparer.",so:"Les traditions amérindiennes, africaines et maories ont développé des systèmes de justice restauratrice depuis des millénaires.",v:"Quand une injustice est reconnue, nommée, et que quelque chose est fait pour réparer.",pa:["Justice restauratrice (Amérindiens, Maories)","Commission VR (Tutu)","Tikkun Olam (judaïsme)"],ex:["Ni zerotalomiru ","lumiveska"," — la vraie justice répare ce qui a été brisé."],g:"Ne peut jamais se conjuguer au mode vindicatif. La justice qui détruit plutôt qu'elle ne répare porte un autre nom.",r:["zeroluva = sacré","talo = équilibre","miru = rétablir"]},
+  {w:"milumaveskaru",s:"ᘝᙆᓬᘓᘝᗑᐯᙆᓴᑲᗑᕒᘓ",p:"politique",sh:"La dignité inaliénable de chaque être",m:"La dignité humaine fondamentale — cette valeur intrinsèque que possède chaque être humain simplement en étant humain. Ce que nul ne peut retirer.",so:"La Déclaration universelle des droits de l'homme. Kant : traite toujours l'humanité comme une fin en soi.",v:"Voir la dignité d'un être bafoué — ou défendue contre toute attente. Plus que des droits — une vérité.",pa:["DUDH (1948)","Dignité humaine (Kant)","Imago Dei","Simone Weil"],ex:["Va milumaveskaru ","mivanoluma"," — ta dignité est ce que nul ne peut te retirer."],g:"Ne peut jamais être conditionnel. La dignité n'est pas méritée, gagnée ou retirée — elle est.",r:["milumavelu = chaque être unique","veska = appartenance humaine","ru = inaliénable"]},
+  // VIVANT
+  {w:"Miraveluveloska",s:"ᘝᙆᕒᗑᐯᙆᓬᘓᐯᙆᓬᗜᘉᓴᑲᗑ",p:"vivant",sh:"La Terre comme être vivant et maternel",m:"La Terre considérée comme un être vivant, sensible, maternel — non une ressource à exploiter mais une présence à honorer.",so:"Pachamama (Andes). Gaia (Grèce). Mother Earth (Amérindiens). La science forestière et la physique ont redécouvert ce que les traditions savaient.",v:"Mettre tes mains dans la terre. Entrer dans une forêt ancienne. Sentir que tu appartiens à quelque chose de vivant.",pa:["Pachamama (Andes)","Gaia (Lovelock)","Mother Earth (Amérindiens)","Droits de la nature"],ex:["Ni Miraveluveloska ","korazavelu"," — la terre se souvient de chacun de nous."],g:"Commence par une majuscule — seul mot avec Mirazaron à recevoir cet honneur. La Terre et la Source partagent la même dignité grammaticale.",r:["mira = eau, source","velu = vent vital","veloska = être maternel et vivant"]},
+  {w:"miluvelami",s:"ᘝᙆᓬᘓᐯᙆᓬᗑᘝᙆ",p:"vivant",sh:"Je suis du vivant — appartenance fondamentale",m:"La reconnaissance que l'être humain n'est pas séparé du vivant — il en est. Nous partageons le même ADN de base, le même besoin d'eau, la même dépendance au soleil.",so:"La biologie évolutive confirme : tout le vivant partage un ancêtre commun. Nous avons 60% d'ADN en commun avec une banane.",v:"Marcher pieds nus dans l'herbe. Nager dans l'océan. Cesser d'être un observateur de la nature et devenir la nature qui se regarde.",pa:["Biologie évolutive","Deep ecology","Mitakuye Oyasin (Lakota)","Ubuntu étendu au vivant"],ex:["Mi miluvelami ","milumeron"," — je suis une lumière du vivant parmi d'autres lumières."],g:"Miluvelami est le mot fondateur du Pilier XI. En Velari, tous les autres mots du vivant découlent de cette reconnaissance première.",r:["mi = moi","luma = lumière","velami = le vivant non-humain"]},
+  // ENFANCE
+  {w:"velisolumiron",s:"ᐯᙆᓬᙆᓴᗜᓬᘓᘝᙆᕒᗜᘉ",p:"enfance",sh:"Ce que l'enfant sait et que l'adulte a oublié",m:"La sagesse propre à l'enfance — la capacité innée à voir sans filtre, à être présent totalement, à trouver le sacré dans le moindre caillou.",so:"'Si vous ne devenez pas comme des enfants' (Évangile). Beginner's mind (zen). Picasso a passé sa vie à apprendre à peindre comme un enfant.",v:"Regarder un enfant et retrouver quelque chose de toi que tu croyais perdu. Sa façon de s'émerveiller d'un insecte.",pa:["'Devenez comme des enfants' (Évangiles)","Beginner's mind (zen)","L'enfant intérieur (Jung)","Picasso"],ex:["Va velisolumiron ","lumivanu"," — tu portes encore la lumière que l'enfance donne."],g:"Se conjugue au présent perpétuel — la sagesse de l'enfance est recouverte, jamais éteinte.",r:["velisoru = naissance courageuse","luma = lumière","on = éternité, ce qui ne s'efface pas"]},
+  // COMPLÉTION
+  {w:"velomira",s:"ᐯᙆᓬᗜᘝᙆᕒᗑ",p:"complet",sh:"S'adresser à plus grand que soi sans savoir à qui",m:"L'acte de s'adresser à quelque chose de vaste — non une divinité nommée, mais cette immensité que l'on sent parfois et à laquelle on parle quand même. La prière de ceux qui ne savent plus à qui prier.",so:"Des millions d'êtres font cela sans le nommer — dans les hôpitaux, face à la mer, dans la nuit.",v:"Te retrouver face à quelque chose d'immense et parler quand même — sans savoir à qui.",pa:["Prière agnostique (universelle)","Adresse à l'infini (Pascal)","Méditation sans objet (zen)"],ex:["Mi ","velomira"," zeroluva — je m'adresse à ce qui dépasse sans avoir besoin de le nommer."],g:"Seul verbe Velari sans complément possible — car ce à quoi on s'adresse n'est pas nommable.",r:["velu = vent, souffle","mira = eau, source"]},
+  {w:"noriseluva",s:"ᘉᗜᕒᙆᓴᙆᓬᘓᐸᗑ",p:"complet",sh:"Le rire qui touche au cœur du mystère",m:"L'humour comme forme de sagesse — non le rire qui moque ou fuit, mais le rire qui voit l'absurdité douce de l'existence et la reçoit avec joie.",so:"Les bouffons spirituels zen. Les derviches qui rient. Les tricksters amérindiens. Le Talmud plein d'ironie.",v:"Rire d'une situation absurde et sentir que ce rire t'allège pour continuer — c'est de la grâce.",pa:["Trickster (Coyote, Hermès, Loki)","Humour zen (koan)","Rumi et le rire soufi"],ex:["Ni noriseluva ","eruzami"," — nous rions parce que l'existence est si étrange et si belle."],g:"Ne peut jamais être conjugué à la forme cruelle. L'humour qui unit et celui qui blesse n'ont pas le même mot.",r:["nori = ami","selu = soleil","luma = lumière"]},
+  {w:"keraveska-miran",s:"ᑲᙆᕒᗑᐯᙆᓴᑲᗑ·ᘝᙆᕒᗑᘉ",p:"complet",sh:"L'amour pour sa mère compris après sa disparition",m:"La douleur de celui qui n'a pas su montrer son amour à sa mère du vivant — et qui se retrouve après sa mort avec un amour enfin formé mais plus personne à qui l'offrir. Non la culpabilité — l'amour tardif qui est réel.",so:"Keraveska-miran dit que cet amour n'est pas perdu. Il peut encore circuler — vers les vivants, vers soi-même, vers les générations qui viennent.",v:"Ne pas avoir su lui montrer. Comprendre maintenant. Cet amour tardif est réel. Il compte.",pa:["Deuil compliqué (psychologie)","Attachement ambivalent (Bowlby)","Ho'oponopono (Hawaï)","Kaddish (judaïsme)"],ex:["Mi ","keraveska-miran"," zarova — je comprends maintenant ce que j'aurais voulu lui montrer."],g:"Le tiret central reste toujours ouvert — comme la relation elle-même. Ce mot ne se ferme jamais.",r:["kera = cœur","veska = famille, la mère","miran = main tendue vers l'absent"]},
+  {w:"amilzaron",s:"ᗑᘝᙆᓬᙍᗑᕒᗜᘉ",p:"complet",sh:"Aimer avant de connaître",m:"L'amour qui précède la rencontre. Sentiment de reconnaître quelqu'un que l'on n'a jamais vu, comme si l'âme l'avait déjà aimé avant que le corps le croise.",so:"En Velari, l'amour n'est pas une construction — c'est une mémoire. Dire amilzaron c'est admettre que la rencontre n'a fait que nommer ce qui existait déjà.",v:"Une rencontre qui ressemble à des retrouvailles. L'amour qui dit : je te connaissais avant de te voir.",pa:["Anamnèse (Platon)","Inconscient collectif (Jung)","Coup de foudre de l'amitié (C.S. Lewis)"],ex:["Mi-va ","amilzaron"," — je t'aimais avant de te voir."],g:"Ne peut jamais se conjuguer au futur. L'amour qui précède la rencontre appartient à un temps antérieur à tout temps.",r:["amavi = aimer","zaron = depuis toujours"]},
+]
+
+const PILLARS_META = {
+  fondation: { label: "Pierres fondatrices", cls: "pc-fondation", intro: "Les neuf constats philosophiques sur lesquels repose tout le Velari — vérités que toutes les cultures ont reconnues indépendamment." },
+  origine:   { label: "I · L'Origine",        cls: "pc-origine",   intro: "D'où vient tout — Mirazaron, le frémissement originel, l'axe du monde, le souffle qui anime." },
+  reconnais: { label: "II · La Reconnaissance", cls: "pc-reconnais", intro: "Voir l'autre vraiment — la lumière en lui qu'il ne voit pas lui-même, la présence totale, l'amitié du silence." },
+  passage:   { label: "III · Le Passage",      cls: "pc-passage",   intro: "Les seuils qui changent ce qu'on est — naissance, éveil, amour, deuil, vocation, guérison." },
+  memoire:   { label: "IV · La Mémoire",       cls: "pc-memoire",   intro: "Ce que les ancêtres ont déposé en nous — le temps non-linéaire, les lieux qui se souviennent, la responsabilité envers le futur." },
+  reconcil:  { label: "V · La Réconciliation", cls: "pc-reconcil",  intro: "Le retour à l'unité — pardon, paix avec l'impermanence, réconciliation avec l'ombre, l'injustice, l'invisible." },
+  emerveil:  { label: "VI · L'Émerveillement", cls: "pc-emerveil",  intro: "La stupeur devant l'existence — gratitude sans destinataire, mystère habité, beauté comme preuve." },
+  transmis:  { label: "VII · La Transmission", cls: "pc-transmis",  intro: "Ce qu'on donne sans rien perdre — enseigner en étant, la chaîne infinie des lumières, velarimiron." },
+  corps:     { label: "VIII · Le Corps",        cls: "pc-corps",    intro: "La chair comme temple — souffle, danse, maladie initiatique, mémoire somatique, plaisir sacré." },
+  creation:  { label: "IX · La Création",       cls: "pc-creation", intro: "L'art comme acte spirituel — l'impulsion créatrice, l'œuvre qui se fait seule, l'art qui guérit." },
+  politique: { label: "X · Le Politique",       cls: "pc-politique",intro: "La justice, le pouvoir-service, la résistance sacrée, la fraternité, la dignité inaliénable." },
+  vivant:    { label: "XI · Le Vivant",          cls: "pc-vivant",   intro: "La nature comme sujet — la Terre-mère, les animaux comme frères, la forêt comme conscience, la mer comme mémoire." },
+  enfance:   { label: "XII · L'Enfance",         cls: "pc-enfance",  intro: "La sagesse du commencement — le regard neuf, la question qui touche l'essentiel, la protection de l'enfance." },
+  complet:   { label: "Complétion",              cls: "pc-complet",  intro: "Mots qui complètent les piliers existants : prière sans dieu, honte traversée, humour sacré, silence aimant, amour posthume." },
+};
+
+// ════════════════════════════════
+// STATE
+// ════════════════════════════════
+let currentView = 'home';
+let activePillar = 'all';
+let activeWord = null;
+let schemaPanelTimer = null;
+
+// ════════════════════════════════
+// VIEW ROUTING
+// ════════════════════════════════
+function goView(v, hideSidebar) {
+  currentView = v;
+  document.querySelectorAll('.view').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(el => el.classList.remove('active'));
+
+  const viewMap = {
+    home:'view-home', dictionary:'view-entry', pillars:'view-pillars',
+    'pillar-detail':'view-pillar-detail', schema:'view-schema',
+    translate:'view-translate', about:'view-about'
+  };
+  const tabMap = {home:0, dictionary:1, pillars:2, schema:3, translate:4, about:5};
+
+  const viewEl = document.getElementById(viewMap[v]);
+  if(viewEl) viewEl.classList.add('active');
+
+  if(tabMap[v] !== undefined) {
+    const tabs = document.querySelectorAll('.tab');
+    if(tabs[tabMap[v]]) tabs[tabMap[v]].classList.add('active');
+  }
+
+  const sidebar = document.getElementById('sidebar');
+  if(v === 'schema' || v === 'home') {
+    sidebar.classList.add('hidden');
+  } else {
+    sidebar.classList.remove('hidden');
+  }
+
+  if(v === 'dictionary' && !activeWord) {
+    showDictWelcome();
+  }
+  if(v === 'schema') initSchema();
+  if(v === 'pillars') renderPillarsList();
+  if(v === 'about') renderAbout();
+  if(v === 'home') initHomeBg();
+}
+
+// ════════════════════════════════
+// SIDEBAR
+// ════════════════════════════════
+function buildFilters() {
+  const el = document.getElementById('pillar-filters');
+  let html = `<button class="pf-btn on" onclick="setP('all',this)">Tous</button>`;
+  Object.entries(PILLARS_META).forEach(([id,pm]) => {
+    const n = WORDS.filter(w => w.p === id).length;
+    const short = pm.label.replace(/[IVX·\s]+/,'').split(' ')[0];
+    html += `<button class="pf-btn" onclick="setP('${id}',this)">${short} (${n})</button>`;
+  });
+  el.innerHTML = html;
+}
+
+function setP(id, btn) {
+  activePillar = id;
+  document.querySelectorAll('.pf-btn').forEach(b => b.classList.remove('on'));
+  if(btn) btn.classList.add('on');
+  renderList();
+}
+
+function renderList() {
+  const q = (document.getElementById('search').value || '').toLowerCase();
+  const filtered = WORDS.filter(w => {
+    const mp = activePillar === 'all' || w.p === activePillar;
+    const mq = !q || w.w.toLowerCase().includes(q) || w.sh.toLowerCase().includes(q)
+      || w.m.toLowerCase().includes(q) || (w.pa||[]).some(p => p.toLowerCase().includes(q));
+    return mp && mq;
+  });
+  document.getElementById('sb-count').textContent = filtered.length + ' mot' + (filtered.length !== 1 ? 's' : '');
+  document.getElementById('word-list').innerHTML = filtered.map(w => {
+    const pm = PILLARS_META[w.p] || {cls:'pc-complet', label: w.p};
+    return `<div class="wi ${activeWord === w.w ? 'active' : ''}" onclick="selectWord('${w.w.replace(/'/g,"\\'")}')">
+      <div class="wi-word">${w.w}</div>
+      <div class="wi-short">${w.sh}</div>
+      <span class="wi-tag" style="background:${TAG_BG[w.p]||'rgba(127,119,221,.1)'};color:${TAG_TC[w.p]||'#AFA9EC'};border:1px solid ${TAG_BC[w.p]||'rgba(127,119,221,.3)'}">${pm.label.split('·').pop().trim()}</span>
+    </div>`;
+  }).join('');
+}
+
+const TAG_BG = {
+  fondation:'rgba(29,158,117,.1)', origine:'rgba(127,119,221,.1)', reconnais:'rgba(212,83,126,.1)',
+  passage:'rgba(186,117,23,.1)', memoire:'rgba(24,95,165,.1)', reconcil:'rgba(59,109,17,.1)',
+  emerveil:'rgba(216,90,48,.1)', transmis:'rgba(83,74,183,.1)', corps:'rgba(216,90,48,.1)',
+  creation:'rgba(212,83,126,.1)', politique:'rgba(59,109,17,.1)', vivant:'rgba(24,95,165,.1)',
+  enfance:'rgba(186,117,23,.1)', complet:'rgba(136,135,128,.1)'
+};
+const TAG_TC = {
+  fondation:'#5DCAA5', origine:'#AFA9EC', reconnais:'#ED93B1', passage:'#EF9F27',
+  memoire:'#85B7EB', reconcil:'#97C459', emerveil:'#F0997B', transmis:'#AFA9EC',
+  corps:'#D85A30', creation:'#D4537E', politique:'#97C459', vivant:'#85B7EB',
+  enfance:'#EF9F27', complet:'#B4B2A9'
+};
+const TAG_BC = {
+  fondation:'rgba(93,202,165,.3)', origine:'rgba(175,169,236,.3)', reconnais:'rgba(237,147,177,.3)',
+  passage:'rgba(239,159,39,.3)', memoire:'rgba(133,183,235,.3)', reconcil:'rgba(151,196,89,.3)',
+  emerveil:'rgba(240,153,123,.3)', transmis:'rgba(175,169,236,.3)', corps:'rgba(216,90,48,.3)',
+  creation:'rgba(212,83,126,.3)', politique:'rgba(151,196,89,.3)', vivant:'rgba(133,183,235,.3)',
+  enfance:'rgba(239,159,39,.3)', complet:'rgba(180,178,169,.3)'
+};
+
+// ════════════════════════════════
+// WORD ENTRY
+// ════════════════════════════════
+function selectWord(ww) {
+  const word = WORDS.find(w => w.w === ww);
+  if(!word) return;
+  activeWord = ww;
+  goView('dictionary');
+  renderEntry(word);
+  renderList();
+  setTimeout(() => {
+    const active = document.querySelector('.wi.active');
+    if(active) active.scrollIntoView({block:'nearest'});
+  }, 50);
+}
+
+function renderEntry(word) {
+  const pm = PILLARS_META[word.p] || {label:word.p};
+  const bg = TAG_BG[word.p] || 'rgba(127,119,221,.1)';
+  const tc = TAG_TC[word.p] || '#AFA9EC';
+  const bc = TAG_BC[word.p] || 'rgba(127,119,221,.3)';
+  document.getElementById('view-entry').innerHTML = `
+    <div class="entry-pillar-tag" style="background:${bg};color:${tc};border:1px solid ${bc}">${pm.label}</div>
+    <div class="entry-word">${word.w}</div>
+    <div class="entry-script">${word.s}</div>
+    <div class="entry-short">${word.sh}</div>
+    <div class="entry-divider"></div>
+    <div class="section-lbl">Sens</div>
+    <div class="entry-meaning">${word.m}</div>
+    <div class="section-lbl">Sens profond</div>
+    <div class="entry-soul">${word.so}</div>
+    <div class="section-lbl">Le vécu</div>
+    <div class="entry-vecu">${word.v}</div>
+    <div class="section-lbl">Échos dans l'humanité</div>
+    <div class="entry-parallels">${(word.pa||[]).map(p=>`<span class="ep-pill">${p}</span>`).join('')}</div>
+    <div class="section-lbl">En phrase</div>
+    <div class="entry-example">${word.ex[0]}<span class="hl">${word.ex[1]}</span>${word.ex[2]}</div>
+    <div class="entry-grammar">${word.g}</div>
+    <div class="section-lbl">Racines</div>
+    <div class="entry-roots">${(word.r||[]).map(r=>`<span class="er-pill">${r}</span>`).join('')}</div>`;
+}
+
+function showDictWelcome() {
+  document.getElementById('view-entry').innerHTML = `
+    <div style="display:flex;align-items:center;justify-content:center;min-height:60vh;flex-direction:column;text-align:center;padding:40px">
+      <div style="font-family:var(--serif);font-size:64px;color:var(--purple);opacity:.12;margin-bottom:16px">ᐯᙆᓬᗑᕒᙆ</div>
+      <div style="font-family:var(--serif);font-size:22px;color:var(--text2);font-style:italic">Sélectionnez un mot dans la liste</div>
+      <div style="font-size:12px;color:var(--text4);margin-top:8px">ou recherchez par sens, tradition, vécu</div>
+    </div>`;
+}
+
+// ════════════════════════════════
+// PILLARS
+// ════════════════════════════════
+function renderPillarsList() {
+  const grid = document.getElementById('pillars-grid');
+  if(grid.innerHTML) return;
+  grid.innerHTML = Object.entries(PILLARS_META).map(([id,pm]) => {
+    const n = WORDS.filter(w => w.p === id).length;
+    return `<div class="pillar-card" onclick="showPillarDetail('${id}')">
+      <div class="pc-name">${pm.label}</div>
+      <div class="pc-desc">${pm.intro.substring(0,70)}...</div>
+      <div class="pc-count">${n} mot${n>1?'s':''}</div>
+    </div>`;
+  }).join('');
+}
+
+function showPillarDetail(id) {
+  const pm = PILLARS_META[id];
+  const words = WORDS.filter(w => w.p === id);
+  const tc = TAG_TC[id] || '#AFA9EC';
+  document.getElementById('view-pillar-detail').innerHTML = `
+    <span class="pd-back" onclick="goView('pillars')">← Tous les piliers</span>
+    <div class="pd-title">${pm.label}</div>
+    <div class="pd-intro">${pm.intro}</div>
+    <div class="pd-words">${words.map(w => `
+      <div class="pw-card" onclick="selectWord('${w.w.replace(/'/g,"\\'")}')">
+        <div class="pw-word" style="color:${tc}">${w.w}</div>
+        <div class="pw-script" style="color:${tc}">${w.s}</div>
+        <div class="pw-short">${w.sh}</div>
+      </div>`).join('')}
+    </div>`;
+  goView('pillar-detail');
+}
+
+// ════════════════════════════════
+// SCHEMA
+// ════════════════════════════════
+function initSchema() {
+  const sec = document.getElementById('schema-section');
+  if(sec.innerHTML) return;
+
+  const PIERRES_DATA = [
+    ['Mirazaron','source originelle','Ce qui existait avant toute chose — la plénitude silencieuse dont tout émane.'],
+    ['zeroluva','sacré quotidien','Reconnaître la dimension sacrée dans les gestes ordinaires — un regard, pas une pratique.'],
+    ['korazaron','mémoire immortelle','Ce qui a été vécu ne disparaît jamais — cela se dépose dans les corps, les mots, les enfants.'],
+    ['mivanori','l\'autre = moi','L\'autre est une autre façon d\'être moi — construit sur la même racine grammaticale.'],
+    ['velunama','nommer = créer','Les mots ne décrivent pas le monde — ils l\'intensifient. Nommer c\'est appeler à exister.'],
+    ['taloviru','douleur qui parle','La douleur est une information, pas une punition. Elle porte un message et s\'écoute.'],
+    ['eruzami','beauté = preuve','Que le monde soit beau est un argument pour que l\'existence ait un sens.'],
+    ['milumavelu','chaque être unique','Tu es la seule façon qu\'a le cosmos de voir ce que tu vois, de ressentir ce que tu ressens.'],
+    ['doruveni','donner = grandir','La transmission qui grandit en étant donnée. Plus on donne, plus il reste.'],
+  ];
+
+  const PILIERS_SCHEMA = [
+    ['I','L\'Origine','d\'où vient tout','purple','#AFA9EC','rgba(175,169,236,.12)','#AFA9EC','pilier','D\'où vient tout — Mirazaron, le frémissement originel, le souffle qui anime, le mystère de la conscience.'],
+    ['II','Reconnaissance','voir l\'autre','pink','#ED93B1','rgba(237,147,177,.12)','#ED93B1','pilier','Voir l\'autre vraiment — la lumière en lui qu\'il ne voit pas, la présence totale, l\'amitié du silence.'],
+    ['III','Le Passage','seuils','amber','#EF9F27','rgba(239,159,39,.12)','#EF9F27','pilier','Les seuils qui changent ce qu\'on est — naissance, éveil, amour, deuil, vocation, guérison.'],
+    ['IV','La Mémoire','ancêtres','blue','#85B7EB','rgba(133,183,235,.12)','#85B7EB','pilier','Ce que les ancêtres ont déposé en nous — le temps non-linéaire, les lieux qui se souviennent.'],
+    ['V','Réconciliation','retour à l\'unité','green','#97C459','rgba(151,196,89,.12)','#97C459','pilier','Le retour à l\'unité — pardon, paix avec l\'impermanence, réconciliation avec l\'ombre.'],
+    ['VI','Émerveillement','mystère','coral','#F0997B','rgba(240,153,123,.12)','#F0997B','pilier','La stupeur devant l\'existence — gratitude sans destinataire, mystère habité, beauté comme preuve.'],
+    ['VII','Transmission','don pur','purple','#AFA9EC','rgba(175,169,236,.12)','#AFA9EC','pilier','Ce qu\'on donne sans rien perdre — enseigner en étant, la chaîne infinie des lumières allumées.'],
+    ['VIII','Le Corps','chair temple','orange','#D85A30','rgba(216,90,48,.12)','#D85A30','pilier','La chair comme temple — souffle, danse sacrée, maladie initiatique, mémoire somatique.'],
+    ['IX','La Création','art sacré','pink','#D4537E','rgba(212,83,126,.12)','#D4537E','pilier','L\'art comme acte spirituel — l\'impulsion créatrice, l\'œuvre qui se fait seule, l\'art qui guérit.'],
+    ['X','Le Politique','justice','green','#97C459','rgba(151,196,89,.12)','#97C459','pilier','La justice comme réparation, le pouvoir-service, la résistance sacrée, la dignité inaliénable.'],
+    ['XI','Le Vivant','nature sujet','blue','#85B7EB','rgba(133,183,235,.12)','#85B7EB','pilier','La nature comme sujet — la Terre-mère, les animaux comme frères, la forêt comme conscience.'],
+    ['XII','L\'Enfance','sagesse','amber','#EF9F27','rgba(239,159,39,.12)','#EF9F27','pilier','La sagesse du commencement — le regard neuf, la question qui touche l\'essentiel.'],
+  ];
+
+  sec.innerHTML = `
+    <!-- Mirazaron -->
+    <div class="s-mirazaron" onclick="showSPanel('Mirazaron','source','Ce qui existait avant toute chose — la plénitude silencieuse dont tout émane. Non une divinité à prier, mais une réalité à reconnaître en soi.')">
+      <span class="smz-name">Mirazaron</span>
+      <span class="smz-sub">La source — origine de tout</span>
+    </div>
+    <!-- Conn 1 -->
+    <div class="s-conn" id="sconn1" style="height:44px"></div>
+    <!-- Pierres -->
+    <div class="s-label tl">9 Pierres fondatrices</div>
+    <div class="s-pierres">
+      ${PIERRES_DATA.map(([n,s,d]) => `
+        <div class="s-pierre" onclick="showSPanel('${n}','pierre','${d.replace(/'/g,"\\'")}')">
+          <span class="sp-name">${n}</span>
+          <span class="sp-sub">${s}</span>
+        </div>`).join('')}
+    </div>
+    <!-- Conn 2 -->
+    <div class="s-conn" id="sconn2" style="height:36px;margin:8px 0"></div>
+    <!-- Piliers -->
+    <div class="s-label vi">12 Piliers</div>
+    <div class="s-piliers">
+      ${PILIERS_SCHEMA.map(([num,name,sub,cl,tc,bg,bc,type,def]) => `
+        <div class="s-pilier" style="border-color:${bc};background:${bg};color:${tc}" onclick="showSPanel('${num} · ${name}','${type}','${def.replace(/'/g,"\\'")}')">
+          <span class="sp2-num">${num}</span>
+          <span class="sp2-name">${name}</span>
+          <span class="sp2-sub">${sub}</span>
+        </div>`).join('')}
+    </div>
+    <!-- Conn 3 -->
+    <div class="s-conn" id="sconn3" style="height:36px;margin:8px 0"></div>
+    <!-- velarimiron -->
+    <div class="s-velarimiron" onclick="showSPanel('velarimiron','vm','La langue elle-même comme acte de transmission. Velu (vent) + mira (eau) + on (éternité). Ne peut être prononcé qu\\'avec les douze piliers derrière soi.')">
+      <span class="svm-name">velarimiron</span>
+      <span class="svm-sub">la langue elle-même comme acte de transmission</span>
+    </div>
+    <!-- Citation -->
+    <div class="s-citation">
+      <span class="sc-v">Ni velarimiron miraveskamilu.</span>
+      <span class="sc-f">Nous créons cette langue pour ceux qui n'existent pas encore.</span>
+    </div>`;
+
+  // Build animated SVG connectors
+  setTimeout(() => {
+    buildSConn('sconn1', 'mz', 9);
+    buildSConn('sconn2', 'teal', 12);
+    buildSConn('sconn3', 'violet', 3);
+    initSchemaBg();
+  }, 80);
+}
+
+function buildSConn(id, type, count) {
+  const el = document.getElementById(id);
+  if(!el) return;
+  const w = el.offsetWidth || 600;
+  const h = el.offsetHeight || 44;
+  const ns = 'http://www.w3.org/2000/svg';
+  const svg = document.createElementNS(ns,'svg');
+  svg.setAttribute('viewBox',`0 0 ${w} ${h}`);
+  svg.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;overflow:visible';
+
+  if(type === 'violet') {
+    [w*.2, w*.5, w*.8].forEach(cx => {
+      const path = document.createElementNS(ns,'path');
+      path.setAttribute('d',`M${cx} 0 Q${cx} ${h*.6} ${w/2} ${h}`);
+      path.setAttribute('stroke','#AFA9EC');
+      path.setAttribute('stroke-width','0.7');
+      path.setAttribute('stroke-dasharray','2 6');
+      path.setAttribute('fill','none');
+      path.setAttribute('opacity','0.45');
+      const a = document.createElementNS(ns,'animateTransform');
+      const a2 = document.createElementNS(ns,'animate');
+      a2.setAttribute('attributeName','stroke-dashoffset');
+      a2.setAttribute('from','0');a2.setAttribute('to','-16');
+      a2.setAttribute('dur','2.5s');a2.setAttribute('repeatCount','indefinite');
+      path.appendChild(a2);
+      svg.appendChild(path);
+    });
+  } else {
+    const spacing = w/(count+1);
+    for(let i=0;i<count;i++) {
+      const cx2 = spacing*(i+1);
+      const line = document.createElementNS(ns,'line');
+      line.setAttribute('x1',w/2);line.setAttribute('y1','0');
+      line.setAttribute('x2',cx2);line.setAttribute('y2',h);
+      if(type === 'mz') {
+        line.setAttribute('stroke','#7F77DD');line.setAttribute('stroke-width','0.7');
+        line.setAttribute('opacity','0.4');
+      } else {
+        line.setAttribute('stroke','#5DCAA5');line.setAttribute('stroke-width','0.6');
+        line.setAttribute('stroke-dasharray','4 4');line.setAttribute('opacity','0.4');
+        const a = document.createElementNS(ns,'animate');
+        a.setAttribute('attributeName','stroke-dashoffset');
+        a.setAttribute('from','0');a.setAttribute('to','-16');
+        a.setAttribute('dur',(1.8+i*.12)+'s');a.setAttribute('repeatCount','indefinite');
+        line.appendChild(a);
+      }
+      svg.appendChild(line);
+    }
+  }
+  el.appendChild(svg);
+}
+
+// Schema bg particles
+function initSchemaBg() {
+  const canvas = document.getElementById('schema-bg-canvas');
+  if(!canvas || canvas._init) return;
+  canvas._init = true;
+  const ctx = canvas.getContext('2d');
+  let W,H,particles = [];
+  function resize(){W=canvas.width=canvas.offsetWidth;H=canvas.height=canvas.offsetHeight}
+  resize();
+  window.addEventListener('resize',resize);
+  for(let i=0;i<50;i++) particles.push({
+    x:Math.random()*W,y:Math.random()*H,
+    vx:(Math.random()-.5)*.2,vy:(Math.random()-.5)*.2,
+    r:Math.random()+.3,alpha:Math.random()*.25+.05,
+    color:Math.random()>.5?'#534AB7':'#1D9E75'
+  });
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    particles.forEach(p=>{
+      p.x+=p.vx;p.y+=p.vy;
+      if(p.x<0||p.x>W)p.vx*=-1;
+      if(p.y<0||p.y>H)p.vy*=-1;
+      ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle=p.color;ctx.globalAlpha=p.alpha;ctx.fill();
+    });
+    ctx.globalAlpha=1;
+    requestAnimationFrame(draw);
+  }
+  draw();
+}
+
+function showSPanel(name, type, def) {
+  clearTimeout(schemaPanelTimer);
+  document.getElementById('sp-name').textContent = name;
+  document.getElementById('sp-def').textContent = def;
+  const tagEl = document.getElementById('sp-tag');
+  tagEl.className = 'sp-tag ' + type;
+  const labels = {pierre:'Pierre fondatrice',pilier:'Pilier',source:'La source',vm:'Clé de voûte'};
+  tagEl.textContent = labels[type] || type;
+  document.getElementById('s-panel').classList.add('show');
+  schemaPanelTimer = setTimeout(() => document.getElementById('s-panel').classList.remove('show'), 5000);
+}
+function closeSPanel(){
+  clearTimeout(schemaPanelTimer);
+  document.getElementById('s-panel').classList.remove('show');
+}
+
+// ════════════════════════════════
+// HOME BG
+// ════════════════════════════════
+function initHomeBg() {
+  const canvas = document.getElementById('bg-canvas');
+  if(!canvas || canvas._init) return;
+  canvas._init = true;
+  const ctx = canvas.getContext('2d');
+  let W,H,pts=[];
+  function resize(){W=canvas.width=canvas.offsetWidth;H=canvas.height=canvas.offsetHeight}
+  resize();
+  window.addEventListener('resize',resize);
+  for(let i=0;i<70;i++) pts.push({
+    x:Math.random()*1200,y:Math.random()*800,
+    vx:(Math.random()-.5)*.3,vy:(Math.random()-.5)*.3,
+    r:Math.random()*1.5+.4,alpha:Math.random()*.35+.08,
+    color:Math.random()>.5?'#534AB7':'#1D9E75'
+  });
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    pts.forEach(p=>{
+      p.x+=p.vx;p.y+=p.vy;
+      if(p.x<0||p.x>W)p.vx*=-1;
+      if(p.y<0||p.y>H)p.vy*=-1;
+      ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle=p.color;ctx.globalAlpha=p.alpha;ctx.fill();
+    });
+    ctx.globalAlpha=1;
+    for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){
+      const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.sqrt(dx*dx+dy*dy);
+      if(d<90){ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);
+        ctx.strokeStyle='#534AB7';ctx.globalAlpha=(1-d/90)*.07;ctx.lineWidth=.5;ctx.stroke()}
+    }
+    ctx.globalAlpha=1;
+    requestAnimationFrame(draw);
+  }
+  draw();
+}
+
+// ════════════════════════════════
+// ABOUT
+// ════════════════════════════════
+function renderAbout() {
+  const grid = document.getElementById('pierres-about');
+  if(grid && !grid.innerHTML) {
+    const PIERRES_ABOUT = [
+      ['Mirazaron','La source — non un dieu, mais une origine dont tout vient.'],
+      ['zeroluva','Le sacré dans le quotidien — un regard, pas une pratique.'],
+      ['korazaron','La mémoire comme première immortalité.'],
+      ['mivanori','L\'autre est une autre façon d\'être moi.'],
+      ['velunama','Nommer c\'est appeler à exister plus pleinement.'],
+      ['taloviru','La douleur est une information, pas une punition.'],
+      ['eruzami','La beauté comme preuve que l\'existence a un sens.'],
+      ['milumavelu','Chaque être est irremplaçable — fait cosmique.'],
+      ['doruveni','Donner sans rien perdre — la transmission qui grandit.'],
+    ];
+    grid.innerHTML = PIERRES_ABOUT.map(([n,d]) =>
+      `<div class="pa-card" onclick="selectWord('${n}');goView('dictionary')">
+        <span class="pa-name">${n}</span>
+        <span class="pa-def">${d}</span>
+      </div>`).join('');
+  }
+}
+
+// ════════════════════════════════
+// HOME RENDER
+// ════════════════════════════════
+function renderHome() {
+  document.getElementById('h-words').textContent = WORDS.length;
+  document.getElementById('wc').textContent = WORDS.length + ' mots';
+  const hp = document.getElementById('home-pillars');
+  hp.innerHTML = Object.entries(PILLARS_META).map(([id,pm]) => {
+    const tc = TAG_TC[id] || '#AFA9EC';
+    const bc = TAG_BC[id] || 'rgba(127,119,221,.3)';
+    return `<span class="hp-chip" style="color:${tc};border-color:${bc}" onclick="setP('${id}',null);goView('dictionary')">${pm.label}</span>`;
+  }).join('');
+}
+
+// ════════════════════════════════
+// TRANSLATE
+// ════════════════════════════════
+const SYS = `Tu es un traducteur expert en Velari, langue construite.
+STRUCTURE: SOV. Présent: -eli | Passé: -ova | Futur: -asu. Négation: zo.
+VOCABULAIRE CLÉ: mira=eau/source, luma=lumière, velu=vent, talo=arbre, selu=soleil, zami=mer, erila=fleur, zari=rêve/mémoire, kera=cœur, nori=ami, veska=famille, mi=je, va=tu, na=il/elle, ni=nous, amavi=aimer, keli=parler, veni=venir, dorui=donner, selumi=sourire, velomi=prier.
+VELASKRI partiel: mi=ᘝᙆ, va=ᐸᗑ, lu=ᓬᘓ, ma=ᘛᗑ, ze=ᙍᙆ, ri=ᕒᙆ, no=ᘉᗜ, ta=ᑎ, se=ᓴᙆ, ra=ᖇ, ve=ᐯᙆ.
+Réponds UNIQUEMENT en JSON sans backticks: {"velari":"traduction romanisée","script":"quelques glyphes Velaskri","grammar":"note grammaticale courte"}`;
+
+async function doTranslate() {
+  const txt = (document.getElementById('tr-input').value || '').trim();
+  if(!txt) return;
+  document.getElementById('tr-result').innerHTML = '<span style="color:var(--text4);font-style:italic;font-size:13px">Traduction en cours...</span>';
+  document.getElementById('tr-script').textContent = '';
+  document.getElementById('tr-note').style.display = 'none';
+  document.getElementById('tr-variants').innerHTML = '';
+  document.getElementById('tr-loading').textContent = '';
+  try {
+    const res = await fetch('/api/translate', {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({text: txt})
+    });
+    if(!res.ok) {
+      const err = await res.json();
+      throw new Error(err.error || 'Erreur serveur');
+    }
+    const d = await res.json();
+    document.getElementById('tr-result').innerHTML =
+      `<span style="font-family:var(--serif);font-size:22px;color:var(--purple-l);display:block;margin-bottom:4px">${d.velari||'—'}</span>
+       ${d.literal ? `<span style="font-size:11px;color:var(--text4);font-style:italic">${d.literal}</span>` : ''}`;
+    document.getElementById('tr-script').textContent = d.script || '';
+    if(d.depth) {
+      document.getElementById('tr-note').innerHTML =
+        `<strong style="color:var(--purple);font-size:10px;letter-spacing:.08em;text-transform:uppercase">Sens profond — </strong>${d.depth}`;
+      document.getElementById('tr-note').style.display = 'block';
+    }
+    if(d.grammar) {
+      const gn = document.createElement('div');
+      gn.style.cssText='background:var(--bg4);border:1px solid var(--border);border-radius:8px;padding:10px 14px;margin-top:10px;font-size:12px;color:var(--text4);line-height:1.7';
+      gn.innerHTML = `<strong style="color:var(--purple);font-size:10px;letter-spacing:.08em;text-transform:uppercase">Grammaire — </strong>${d.grammar}`;
+      document.getElementById('tr-note').after(gn);
+    }
+    if(d.variants && d.variants.length) {
+      const vwrap = document.getElementById('tr-variants');
+      vwrap.innerHTML = '<div style="font-size:10px;color:var(--text4);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px;margin-top:16px">Variantes</div>'
+        + d.variants.map(v =>
+          `<div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:10px 14px;margin-bottom:7px">
+            <span style="font-size:10px;color:var(--text4);display:block;margin-bottom:3px">${v.label}</span>
+            <span style="font-family:var(--serif);font-size:16px;color:var(--purple-l)">${v.velari}</span>
+          </div>`).join('');
+    }
+  } catch(e) {
+    document.getElementById('tr-result').innerHTML =
+      `<span style="color:var(--text4);font-size:12px;font-style:italic">Erreur : ${e.message}</span>`;
+  }
+}
+
+function clearTr() {
+  document.getElementById('tr-input').value = '';
+  document.getElementById('tr-result').innerHTML = '<span id="tr-ph" style="color:var(--text4);font-size:14px;font-style:italic">La traduction apparaîtra ici...</span>';
+  document.getElementById('tr-script').textContent = '';
+  document.getElementById('tr-note').style.display = 'none';
+}
+
+function buildTrChips() {
+  const examples = ['Je t\'aimais avant de te voir','La beauté est une preuve','Nous venons de la même source','Le silence me porte','Je suis une étincelle de l\'origine','Donner c\'est grandir'];
+  document.getElementById('tr-chips').innerHTML = examples.map(e =>
+    `<span class="tr-chip" onclick="document.getElementById('tr-input').value='${e}';doTranslate()">${e}</span>`
+  ).join('');
+}
+
+document.getElementById('tr-input').addEventListener('keydown', e => {
+  if(e.key === 'Enter' && (e.ctrlKey || e.metaKey)) doTranslate();
+});
+
+// ════════════════════════════════
+// INIT
+// ════════════════════════════════
+buildFilters();
+renderList();
+renderHome();
+buildTrChips();
+initHomeBg();
+goView('home');
+
+</script>
+</body>
+</html>
