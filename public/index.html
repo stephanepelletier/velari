@@ -7,83 +7,83 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#0D1A0F;--bg2:#111E13;--bg3:#162019;--bg4:#1C2A1E;--bg5:#223328;
-  --border:rgba(180,150,80,.15);--border2:rgba(180,150,80,.3);--border3:rgba(180,150,80,.5);
-  --purple:#C4A84F;--purple-l:#E8CC80;--purple-d:#A88A3A;--purple-dd:#8B7030;
-  --teal:#5A9E6A;--teal-l:#7FC490;
-  --coral:#D85A30;--pink:#D4537E;--amber:#BA7517;--blue:#185FA5;--green:#3B6D11;
-  --text:#E8DCBC;--text2:#B8A878;--text3:#7A6A48;--text4:#5A5038;
+  --bg:#999571;--bg2:#8A8765;--bg3:#5D1314;--bg4:#4A1010;--bg5:#3D0A0A;
+  --border:rgba(255,255,255,.2);--border2:rgba(255,255,255,.35);--border3:rgba(255,255,255,.5);
+  --purple:#C8A84B;--purple-l:#F0E8C8;--purple-d:#A88A35;--purple-dd:#7A6020;
+  --teal:#FC5B13;--teal-l:#C8A84B;
+  --coral:#F0E8C8;--pink:#F0E8C8;--amber:#BA7517;--blue:#185FA5;--green:#3B6D11;
+  --text:#F0E8C8;--text2:#C8B878;--text3:#A89858;--text4:#8A7A55;
   --serif:'Playfair Display','Cormorant Garamond',Georgia,serif;
   --sans:'EB Garamond','Cormorant Garamond',Georgia,serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%;overflow:hidden}
-body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14px;display:flex;flex-direction:column;background-image:url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E")}
+body{background:#999571;color:#FFFFFF;font-family:'EB Garamond','Cormorant Garamond',Georgia,serif;font-size:20px;display:flex;flex-direction:column;background-image:url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E")}
 
 /* ── TOPBAR ── */
 #topbar{
-  height:52px;background:rgba(250,247,240,.95);border-bottom:1px solid var(--border);
+  height:52px;background:rgba(145,141,107,.97);border-bottom:1px solid rgba(200,168,75,.2);
   display:flex;align-items:center;gap:0;padding:0 20px;flex-shrink:0;
   backdrop-filter:blur(12px);position:relative;z-index:200;
 }
 .logo{
-  font-family:var(--serif);font-size:20px;font-weight:400;color:var(--purple-l);
+  font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:20px;font-weight:400;color:#F0E8C8;
   margin-right:24px;display:flex;align-items:center;gap:8px;cursor:pointer;
   white-space:nowrap;
 }
-.logo-script{font-size:16px;color:var(--purple);opacity:.7}
+.logo-script{font-size:16px;color:#C8A84B;opacity:.7}
 .nav-tabs{display:flex;gap:2px;flex:1;overflow-x:auto;scrollbar-width:none}
 .nav-tabs::-webkit-scrollbar{display:none}
 .tab{
-  padding:7px 16px;border-radius:8px;font-size:12px;font-weight:400;
-  color:var(--text3);cursor:pointer;transition:all .15s;border:1px solid transparent;
-  background:transparent;white-space:nowrap;font-family:var(--sans);
+  padding:7px 16px;border-radius:8px;font-size:20px;font-weight:400;
+  color:#D0D0D0;cursor:pointer;transition:all .15s;border:1px solid transparent;
+  background:transparent;white-space:nowrap;font-family:'EB Garamond','Cormorant Garamond',Georgia,serif;
 }
-.tab:hover{color:var(--text2);background:rgba(127,119,221,.06)}
-.tab.active{color:var(--purple-l);background:rgba(127,119,221,.1);border-color:var(--border2)}
-.word-count{margin-left:auto;font-size:11px;color:var(--text4);white-space:nowrap;padding-left:12px}
+.tab:hover{color:#E8E8E8;background:rgba(200,168,75,.06)}
+.tab.active{color:#2A2810;background:rgba(200,168,75,.3);border-color:#C8A84B;font-weight:600}
+.word-count{margin-left:auto;font-size:20px;color:#B8B8B8;white-space:nowrap;padding-left:12px}
 
 /* ── LAYOUT ── */
 #app{display:flex;flex:1;overflow:hidden}
 
 /* ── SIDEBAR ── */
 #sidebar{
-  width:260px;flex-shrink:0;
-  background:var(--bg2);border-right:1px solid var(--border);
+  width:300px;flex-shrink:0;
+  background:#8A8765;border-right:1px solid rgba(200,168,75,.2);
   display:flex;flex-direction:column;overflow:hidden;
 }
 #sidebar.hidden{display:none}
-#search-wrap{padding:12px 16px;border-bottom:1px solid var(--border)}
+#search-wrap{padding:12px 16px;border-bottom:1px solid rgba(200,168,75,.2)}
 #search{
-  width:100%;background:var(--bg3);border:1px solid var(--border);border-radius:8px;
-  padding:8px 12px;color:var(--text);font-family:var(--sans);font-size:13px;outline:none;
+  width:100%;background:#5D1314;border:1px solid rgba(200,168,75,.2);border-radius:8px;
+  padding:8px 12px;color:#FFFFFF;font-family:'EB Garamond','Cormorant Garamond',Georgia,serif;font-size:20px;outline:none;
   transition:border-color .2s;
 }
-#search::placeholder{color:var(--text4)}
+#search::placeholder{color:#B8B8B8}
 #search:focus{border-color:#C4A84F}
-#pillar-filters{padding:10px 12px;border-bottom:1px solid var(--border);display:flex;flex-wrap:wrap;gap:4px}
+#pillar-filters{padding:10px 12px;border-bottom:1px solid rgba(200,168,75,.2);display:flex;flex-wrap:wrap;gap:4px}
 .pf-btn{
-  font-size:10px;padding:2px 8px;border-radius:20px;border:1px solid var(--border2);
-  background:transparent;color:var(--text3);cursor:pointer;font-family:var(--sans);
+  font-size:20px;padding:2px 8px;border-radius:20px;border:1px solid rgba(200,168,75,.35);
+  background:transparent;color:#D0D0D0;cursor:pointer;font-family:'EB Garamond','Cormorant Garamond',Georgia,serif;
   transition:all .15s;white-space:nowrap;
 }
-.pf-btn:hover{color:var(--text2);border-color:var(--purple)}
-.pf-btn.on{background:rgba(127,119,221,.12);color:var(--purple-l);border-color:var(--purple)}
+.pf-btn:hover{color:#E8E8E8;border-color:#C8A84B}
+.pf-btn.on{background:rgba(200,168,75,.12);color:#F0E8C8;border-color:#C8A84B}
 #word-list{flex:1;overflow-y:auto;padding:4px 0}
 #word-list::-webkit-scrollbar{width:3px}
-#word-list::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
+#word-list::-webkit-scrollbar-thumb{background:rgba(200,168,75,.35);border-radius:2px}
 .wi{padding:9px 16px;cursor:pointer;border-left:2px solid transparent;transition:all .15s}
-.wi:hover{background:rgba(127,119,221,.05);border-left-color:var(--border2)}
-.wi.active{background:rgba(139,109,56,.09);border-left-color:#C4A84F}
-.wi-word{font-family:var(--serif);font-size:15px;font-weight:500;color:#E8DCBC;line-height:1.2}
-.wi-short{font-size:11px;color:var(--text4);margin-top:1px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.wi-tag{font-size:9px;font-weight:500;padding:1px 6px;border-radius:20px;display:inline-block;margin-top:2px}
-#sb-count{padding:8px 16px;font-size:10px;color:var(--text4);border-top:1px solid var(--border);flex-shrink:0}
+.wi:hover{background:rgba(200,168,75,.05);border-left-color:rgba(200,168,75,.35)}
+.wi.active{background:rgba(200,168,75,.09);border-left-color:#C4A84F}
+.wi-word{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:20px;font-weight:500;color:#E8DCBC;line-height:1.2}
+.wi-short{font-size:20px;color:#F0E8C8;margin-top:1px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.wi-tag{font-size:20px;font-weight:500;padding:2px 8px;border-radius:20px;display:inline-block;margin-top:3px}
+#sb-count{padding:8px 16px;font-size:20px;color:#F0E8C8;border-top:1px solid rgba(200,168,75,.2);flex-shrink:0}
 
 /* ── MAIN CONTENT ── */
-#main{flex:1;overflow-y:auto;position:relative}
+#main{flex:1;overflow-y:auto;position:relative;width:100%}
 #main::-webkit-scrollbar{width:4px}
-#main::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
+#main::-webkit-scrollbar-thumb{background:rgba(200,168,75,.35);border-radius:2px}
 
 /* ── VIEWS ── */
 .view{display:none;min-height:100%}
@@ -98,77 +98,77 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14
 #view-home.active{display:flex}
 #bg-canvas{position:absolute;inset:0;pointer-events:none;opacity:.4}
 .home-content{position:relative;z-index:1;max-width:680px}
-.home-script{font-family:var(--serif);font-size:72px;font-weight:300;color:#C4A84F;opacity:.25;letter-spacing:.12em;line-height:1;margin-bottom:12px;animation:float-up 7s ease-in-out infinite}
+.home-script{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:72px;font-weight:300;color:#C4A84F;opacity:.25;letter-spacing:.12em;line-height:1;margin-bottom:12px;animation:float-up 7s ease-in-out infinite}
 @keyframes float-up{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
-.home-title{font-family:var(--serif);font-size:38px;font-weight:400;color:var(--text);margin-bottom:6px}
-.home-sub{font-size:20px;color:var(--text2);font-style:italic;margin-bottom:40px;font-family:var(--serif);font-weight:400;line-height:1.5}
+.home-title{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:38px;font-weight:400;color:#FFFFFF;margin-bottom:6px}
+.home-sub{font-size:20px;color:#D4BC80;margin-bottom:40px;font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-weight:400;line-height:1.5}
 .home-stats{display:flex;gap:40px;justify-content:center;margin-bottom:40px}
-.hs-num{font-family:var(--serif);font-size:40px;font-weight:400;color:#C4A84F;display:block;line-height:1}
-.hs-lbl{font-size:11px;color:var(--text4);margin-top:3px}
+.hs-num{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:40px;font-weight:400;color:#C4A84F;display:block;line-height:1}
+.hs-lbl{font-size:20px;color:#F0E8C8;margin-top:3px}
 .home-pillars{display:flex;flex-wrap:wrap;gap:7px;justify-content:center;margin-bottom:40px}
 .hp-chip{
-  font-family:var(--serif);font-size:13px;padding:5px 14px;border-radius:20px;
+  font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:20px;padding:5px 14px;border-radius:20px;
   border:1px solid;cursor:pointer;transition:all .2s;
 }
 .hp-chip:hover{transform:translateY(-2px);filter:brightness(1.2)}
 .home-quote{
   max-width:500px;margin:0 auto;padding:20px 28px;
-  border:1px solid var(--border);border-radius:12px;background:var(--bg3);
+  border:1px solid rgba(200,168,75,.2);border-radius:12px;background:#5D1314;
 }
-.hq-text{font-family:var(--serif);font-size:17px;font-weight:400;font-style:italic;color:var(--text2);line-height:1.75}
-.hq-cite{display:block;margin-top:10px;font-size:11px;color:var(--text4);text-align:right}
+.hq-text{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:17px;font-weight:400;color:#D4BC80;line-height:1.75}
+.hq-cite{display:block;margin-top:10px;font-size:20px;color:#F0E8C8;text-align:right}
 
 /* ── ENTRY VIEW ── */
 #view-entry{padding:48px 56px;max-width:820px;display:none}
 #view-entry.active{display:block}
-.entry-pillar-tag{font-size:10px;font-weight:500;padding:3px 12px;border-radius:20px;display:inline-block;margin-bottom:16px;letter-spacing:.05em;text-transform:uppercase}
-.entry-word{font-family:var(--serif);font-size:52px;font-weight:400;color:#E8DCBC;line-height:1;margin-bottom:6px}
-.entry-script{font-family:var(--serif);font-size:28px;color:#C4A84F;opacity:.55;margin-bottom:10px;letter-spacing:.1em}
-.entry-short{font-family:var(--serif);font-size:20px;font-weight:400;font-style:italic;color:var(--text2);margin-bottom:0}
-.entry-divider{height:1px;background:linear-gradient(90deg,var(--purple-d) 0%,transparent 70%);margin:24px 0;opacity:.25}
-.section-lbl{font-size:9px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--text4);margin-bottom:8px}
-.entry-meaning{font-size:15px;color:var(--text);line-height:1.85;margin-bottom:24px}
-.entry-soul{background:var(--bg3);border:1px solid var(--border);border-left:3px solid var(--purple);border-radius:0 8px 8px 0;padding:16px 20px;margin-bottom:24px;font-size:13.5px;color:var(--text2);line-height:1.85;font-style:italic}
-.entry-vecu{margin-bottom:24px;font-size:13.5px;color:var(--text2);line-height:1.8;font-style:italic}
+.entry-pillar-tag{font-size:20px;font-weight:500;padding:3px 12px;border-radius:20px;display:inline-block;margin-bottom:16px;letter-spacing:.05em;text-transform:uppercase}
+.entry-word{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:52px;font-weight:400;color:#E8DCBC;line-height:1;margin-bottom:6px}
+.entry-script{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:28px;color:#C4A84F;opacity:.55;margin-bottom:10px;letter-spacing:.1em}
+.entry-short{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:20px;font-weight:400;color:#D4BC80;margin-bottom:0}
+.entry-divider{height:1px;background:linear-gradient(90deg,#A88A35 0%,transparent 70%);margin:24px 0;opacity:.25}
+.section-lbl{font-size:18px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#B8B8B8;margin-bottom:8px}
+.entry-meaning{font-size:20px;color:#E8DCBC;line-height:1.85;margin-bottom:24px}
+.entry-soul{background:#5D1314;border:1px solid rgba(200,168,75,.2);border-left:3px solid #C8A84B;border-radius:0 8px 8px 0;padding:16px 20px;margin-bottom:24px;font-size:20px;color:#E8E8E8;line-height:1.85;}
+.entry-vecu{margin-bottom:24px;font-size:20px;color:#D4BC80;line-height:1.8;}
 .entry-parallels{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:24px}
-.ep-pill{font-size:11px;padding:3px 10px;border-radius:20px;background:rgba(127,119,221,.08);border:1px solid var(--border2);color:var(--purple-l)}
-.entry-example{font-family:var(--serif);font-size:19px;font-weight:400;font-style:italic;color:var(--text2);margin-bottom:6px;line-height:1.6}
-.entry-example .hl{color:var(--purple-l);font-style:normal;font-weight:500}
-.entry-grammar{background:#162019;border:1px solid var(--border);border-radius:8px;padding:12px 16px;margin-bottom:24px;font-size:12.5px;color:var(--text4);line-height:1.7}
-.entry-grammar::before{content:'Grammaire — ';color:var(--purple);font-weight:500;font-size:10px;letter-spacing:.08em;text-transform:uppercase}
+.ep-pill{font-size:20px;padding:3px 10px;border-radius:20px;background:rgba(200,168,75,.08);border:1px solid rgba(200,168,75,.35);color:#F0E8C8}
+.entry-example{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:19px;font-weight:400;color:#E8E8E8;margin-bottom:6px;line-height:1.6}
+.entry-example .hl{color:#F0E8C8;font-style:normal;font-weight:500}
+.entry-grammar{background:#5D1314;border:1px solid rgba(200,168,75,.2);border-radius:8px;padding:12px 16px;margin-bottom:24px;font-size:20px;color:#B8B8B8;line-height:1.7}
+.entry-grammar::before{content:'Grammaire — ';color:#C4A84F;font-weight:500;font-size:20px;letter-spacing:.08em;text-transform:uppercase}
 .entry-roots{display:flex;flex-wrap:wrap;gap:6px}
-.er-pill{font-size:11px;padding:3px 10px;border-radius:20px;background:rgba(29,158,117,.08);border:1px solid rgba(93,202,165,.25);color:var(--teal-l)}
+.er-pill{font-size:20px;padding:3px 10px;border-radius:20px;background:rgba(200,168,75,.08);border:1px solid rgba(93,202,165,.25);color:#E8CC7A}
 
 /* ── PILLARS LIST VIEW ── */
 #view-pillars{padding:48px 48px;display:none}
 #view-pillars.active{display:block}
-.pillars-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px}
+.pillars-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
 .pillar-card{
-  background:var(--bg3);border:1px solid var(--border);border-radius:12px;
+  background:#5D1314;border:1px solid rgba(200,168,75,.2);border-radius:12px;
   padding:20px;cursor:pointer;transition:all .2s;
 }
-.pillar-card:hover{border-color:var(--purple);transform:translateY(-3px)}
-.pc-num{font-size:10px;color:var(--text4)}
-.pc-name{font-family:var(--serif);font-size:18px;color:#E8DCBC;margin:4px 0}
-.pc-desc{font-size:11px;color:var(--text4);font-style:italic;margin-bottom:10px}
-.pc-count{font-size:10px;color:var(--text4)}
+.pillar-card:hover{border-color:#C8A84B;transform:translateY(-3px)}
+.pc-num{font-size:20px;color:#F0E8C8}
+.pc-name{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:18px;color:#E8DCBC;margin:4px 0}
+.pc-desc{font-size:20px;color:#F0E8C8;margin-bottom:10px}
+.pc-count{font-size:20px;color:#F0E8C8}
 
 /* Pillar detail */
 #view-pillar-detail{padding:48px 56px;display:none}
 #view-pillar-detail.active{display:block}
-.pd-back{font-size:11px;color:var(--text4);cursor:pointer;margin-bottom:20px;display:inline-block}
-.pd-back:hover{color:var(--purple-l)}
-.pd-title{font-family:var(--serif);font-size:38px;font-weight:400;color:var(--text);margin-bottom:8px}
-.pd-intro{font-size:14px;color:var(--text2);line-height:1.8;font-style:italic;max-width:600px;margin-bottom:28px}
+.pd-back{font-size:20px;color:#F0E8C8;cursor:pointer;margin-bottom:20px;display:inline-block}
+.pd-back:hover{color:#F0E8C8}
+.pd-title{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:38px;font-weight:400;color:#FFFFFF;margin-bottom:8px}
+.pd-intro{font-size:20px;color:#D4BC80;line-height:1.8;max-width:600px;margin-bottom:28px}
 .pd-words{display:flex;flex-direction:column;gap:9px}
 .pw-card{
-  background:var(--bg3);border:1px solid var(--border);border-radius:10px;
+  background:#5D1314;border:1px solid rgba(200,168,75,.2);border-radius:10px;
   padding:14px 18px;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:16px;
 }
-.pw-card:hover{border-color:var(--purple);transform:translateX(4px)}
-.pw-word{font-family:var(--serif);font-size:20px;font-weight:500;color:#E8DCBC;min-width:150px}
-.pw-script{font-family:var(--serif);font-size:14px;color:var(--purple);opacity:.45;min-width:110px}
-.pw-short{font-size:13px;color:var(--text4);font-style:italic;flex:1}
+.pw-card:hover{border-color:#C8A84B;transform:translateX(4px)}
+.pw-word{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:20px;font-weight:500;color:#E8DCBC;min-width:150px}
+.pw-script{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:20px;color:#C8A84B;opacity:.45;min-width:110px}
+.pw-short{font-size:20px;color:#F0E8C8;flex:1}
 
 /* ── SCHEMA VIEW ── */
 #view-schema{padding:32px;display:none;position:relative}
@@ -176,131 +176,131 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14
 #schema-bg-canvas{position:absolute;inset:0;pointer-events:none;opacity:.3}
 .schema-inner{position:relative;z-index:1}
 .schema-title-wrap{text-align:center;margin-bottom:32px}
-.schema-title{font-family:var(--serif);font-size:30px;font-weight:400;color:#E8DCBC;margin-bottom:4px}
-.schema-sub{font-size:12px;color:var(--text4);font-style:italic}
+.schema-title{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:30px;font-weight:400;color:#E8DCBC;margin-bottom:4px}
+.schema-sub{font-size:16px;color:#F0E8C8;}
 /* schema nodes */
 .s-section{display:flex;flex-direction:column;align-items:center;gap:0}
 .s-mirazaron{
-  background:transparent;border:1.5px solid var(--purple-d);border-radius:50px;
+  background:rgba(200,168,75,.06);border:1.5px solid #A88A35;border-radius:50px;
   padding:13px 38px;text-align:center;cursor:pointer;transition:all .25s;
   position:relative;
 }
-.s-mirazaron::before{content:'';position:absolute;inset:-8px;border-radius:60px;border:1px solid var(--purple-d);opacity:.15;animation:s-ring 3s ease-in-out infinite}
-.s-mirazaron::after{content:'';position:absolute;inset:-16px;border-radius:70px;border:1px solid var(--purple-d);opacity:.06;animation:s-ring 3s ease-in-out infinite .7s}
+.s-mirazaron::before{content:'';position:absolute;inset:-8px;border-radius:60px;border:1px solid #A88A35;opacity:.15;animation:s-ring 3s ease-in-out infinite}
+.s-mirazaron::after{content:'';position:absolute;inset:-16px;border-radius:70px;border:1px solid #A88A35;opacity:.06;animation:s-ring 3s ease-in-out infinite .7s}
 @keyframes s-ring{0%,100%{opacity:.06}50%{opacity:.18}}
-.s-mirazaron:hover{transform:scale(1.04);border-color:var(--purple-l)}
-.smz-name{font-family:var(--serif);font-size:20px;font-weight:500;color:#E8DCBC;display:block}
-.smz-sub{font-family:var(--serif);font-size:10px;color:#C4A84F;font-style:italic}
+.s-mirazaron:hover{transform:scale(1.04);border-color:#F0E8C8}
+.smz-name{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:20px;font-weight:500;color:#E8DCBC;display:block}
+.smz-sub{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:20px;color:#C4A84F;}
 .s-conn{width:100%;height:44px;position:relative;flex-shrink:0}
 .s-conn svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
-.s-label{font-size:9px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;display:flex;align-items:center;gap:8px;width:100%;margin-bottom:12px}
+.s-label{font-size:18px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;display:flex;align-items:center;gap:8px;width:100%;margin-bottom:12px;color:#F0E8C8}
 .s-label::before,.s-label::after{content:'';flex:1;height:1px;background:currentColor;opacity:.3}
-.s-label.tl{color:#5A9E6A}
-.s-label.vi{color:#C4A84F}
+.s-label.tl{color:#F0E8C8}
+.s-label.vi{color:#F0E8C8}
 .s-pierres{display:flex;flex-wrap:wrap;gap:7px;justify-content:center;width:100%;margin-bottom:4px}
-.s-pierre{
-  background:#1C2A1E;border:1px solid #8B9E6B;border-radius:7px;
+.s-pierre{background:#5D1314;border:1px solid rgba(200,168,75,.4);border-radius:9px;padding:8px 12px;text-align:center;cursor:pointer;transition:all .2s}
+.s-pierre-x{8B9E6B;border-radius:7px;
   padding:7px 12px;text-align:center;cursor:pointer;transition:all .22s;
 }
-.s-pierre:hover{border-color:var(--teal-l);transform:translateY(-2px);filter:brightness(1.15)}
-.sp-name{font-family:var(--serif);font-size:12px;font-weight:500;color:var(--teal-l);display:block}
-.sp-sub{font-family:var(--serif);font-size:9px;color:var(--teal);font-style:italic}
+.s-pierre:hover{border-color:#E8CC7A;transform:translateY(-2px);filter:brightness(1.15)}
+.sp-name{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:20px;font-weight:500;color:#E8CC7A;display:block}
+.sp-sub{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:18px;color:#C8A84B;}
 .s-piliers{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;width:100%;margin-bottom:4px}
 .s-pilier{
   border-radius:9px;padding:10px 14px;text-align:center;cursor:pointer;
   transition:all .22s;border:1px solid;position:relative;
 }
 .s-pilier:hover{transform:translateY(-2px);filter:brightness(1.15)}
-.sp2-num{font-size:9px;font-weight:500;opacity:.6;display:block;margin-bottom:1px;letter-spacing:.05em;position:relative}
-.sp2-name{font-family:var(--serif);font-size:12px;font-weight:500;display:block;line-height:1.2;position:relative}
-.sp2-sub{font-family:var(--serif);font-size:9px;font-style:italic;display:block;margin-top:1px;opacity:.65;position:relative}
+.sp2-num{font-size:20px;font-weight:500;opacity:.8;display:block;margin-bottom:1px;letter-spacing:.05em;position:relative}
+.sp2-name{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:20px;font-weight:500;display:block;line-height:1.2;position:relative}
+.sp2-sub{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:20px;display:block;margin-top:1px;opacity:1;color:#F0E8C8;position:relative}
 .s-velarimiron{
-  background:#0A1A0C;border:1.5px solid #C4A84F;border-radius:14px;
+  background:#5D1314;border:1.5px solid #C4A84F;border-radius:14px;
   padding:16px 36px;text-align:center;cursor:pointer;transition:all .3s;
   max-width:380px;width:100%;position:relative;overflow:hidden;
 }
 .s-velarimiron::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:conic-gradient(from 0deg,transparent 0%,rgba(83,74,183,.15) 15%,transparent 30%);animation:s-spin 8s linear infinite}
 @keyframes s-spin{to{transform:rotate(360deg)}}
-.s-velarimiron:hover{transform:translateY(-3px);border-color:var(--purple-l)}
-.svm-name{font-family:var(--serif);font-size:22px;font-weight:400;color:#E8DCBC;display:block;position:relative}
-.svm-sub{font-family:var(--serif);font-size:10px;color:#C4A84F;font-style:italic;position:relative}
-.s-citation{text-align:center;margin-top:24px;padding:16px 24px;border:1px solid #1a1828;border-radius:10px;background:#0c0b14}
-.sc-v{font-family:var(--serif);font-size:16px;font-style:italic;color:var(--purple-d);display:block;margin-bottom:4px}
-.sc-f{font-family:var(--serif);font-size:12px;color:var(--text4);font-style:italic}
+.s-velarimiron:hover{transform:translateY(-3px);border-color:#F0E8C8}
+.svm-name{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:22px;font-weight:400;color:#E8DCBC;display:block;position:relative}
+.svm-sub{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:20px;color:#C4A84F;position:relative}
+.s-citation{text-align:center;margin-top:24px;padding:16px 24px;border:1px solid rgba(200,168,75,.3);border-radius:10px;background:#5D1314}
+.sc-v{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:18px;color:#C4A84F;display:block;margin-bottom:4px}
+.sc-f{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:16px;color:#F0E8C8;}
 /* schema panel */
 .s-panel{
   position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(16px);
-  background:var(--bg4);border:1px solid var(--purple-d);border-radius:12px;
+  background:#5D1314;border:1px solid #C8A84B;border-radius:12px;
   padding:16px 22px;max-width:360px;width:90%;z-index:300;
   opacity:0;pointer-events:none;transition:all .3s;
   box-shadow:0 6px 32px rgba(83,74,183,.2);
 }
 .s-panel.show{opacity:1;transform:translateX(-50%) translateY(0);pointer-events:auto}
-.sp-close{position:absolute;top:9px;right:12px;background:none;border:none;color:var(--text4);cursor:pointer;font-size:14px;font-family:var(--sans)}
-.sp-close:hover{color:var(--text2)}
-.sp-tag{font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border-radius:20px;display:inline-block;margin-bottom:8px}
-.sp-tag.pierre{background:#0e1a16;color:var(--teal-l);border:1px solid var(--teal)}
-.sp-tag.pilier{background:var(--bg5);color:var(--purple-l);border:1px solid var(--purple-d)}
-.sp-tag.source{background:var(--bg5);color:var(--purple);border:1px solid var(--purple-d)}
-.sp-tag.vm{background:var(--bg5);color:var(--purple);border:1px solid var(--purple)}
-.sp-name{font-family:var(--serif);font-size:20px;font-weight:500;color:var(--purple-l);display:block;margin-bottom:6px}
-.sp-def{font-family:var(--serif);font-size:14px;color:var(--text2);line-height:1.7;font-style:italic}
+.sp-close{position:absolute;top:9px;right:12px;background:none;border:none;color:#B8B8B8;cursor:pointer;font-size:20px;font-family:'EB Garamond','Cormorant Garamond',Georgia,serif}
+.sp-close:hover{color:#E8E8E8}
+.sp-tag{font-size:18px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border-radius:20px;display:inline-block;margin-bottom:8px}
+.sp-tag.pierre{background:#5D1314;color:#E8CC7A;border:1px solid #C8A84B}
+.sp-tag.pilier{background:#4A1010;color:#F0E8C8;border:1px solid #A88A35}
+.sp-tag.source{background:#4A1010;color:#C8A84B;border:1px solid #A88A35}
+.sp-tag.vm{background:#4A1010;color:#C8A84B;border:1px solid #C8A84B}
+.sp-name{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:20px;font-weight:500;color:#E8CC80;display:block;margin-bottom:6px}
+.sp-def{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:20px;color:#D4BC80;line-height:1.7;}
 
 /* ── ABOUT VIEW ── */
 #view-about{padding:48px 56px;max-width:760px;display:none}
 #view-about.active{display:block}
-.about-h1{font-family:var(--serif);font-size:36px;font-weight:400;color:var(--text);margin-bottom:4px}
-.about-sub{font-size:13px;color:var(--text4);font-style:italic;margin-bottom:36px}
+.about-h1{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:36px;font-weight:400;color:#FFFFFF;margin-bottom:4px}
+.about-sub{font-size:16px;color:#F0E8C8;margin-bottom:36px}
 .about-section{margin-bottom:40px}
-.about-h2{font-family:var(--serif);font-size:26px;font-weight:400;color:var(--text);margin-bottom:14px}
-.about-p{font-size:14px;color:var(--text2);line-height:1.85;margin-bottom:14px}
-.about-q{border-left:2px solid #C4A84F;padding:14px 18px;margin:16px 0;background:var(--bg3);border-radius:0 8px 8px 0}
-.about-q p{font-family:var(--serif);font-size:17px;font-style:italic;color:var(--purple-l);line-height:1.7}
-.grammaire-item{margin-bottom:16px;padding:12px 16px;background:#162019;border:1px solid var(--border);border-radius:8px}
-.gi-word{font-family:var(--serif);font-size:16px;font-weight:500;color:#E8DCBC;display:block;margin-bottom:4px}
-.gi-rule{font-size:13px;color:var(--text2);font-style:italic}
+.about-h2{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:26px;font-weight:400;color:#FFFFFF;margin-bottom:14px}
+.about-p{font-size:20px;color:#D4BC80;line-height:1.85;margin-bottom:14px}
+.about-q{border-left:2px solid #C4A84F;padding:14px 18px;margin:16px 0;background:#5D1314;border-radius:0 8px 8px 0}
+.about-q p{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:17px;color:#E8CC80;line-height:1.7}
+.grammaire-item{margin-bottom:16px;padding:12px 16px;background:#5D1314;border:1px solid rgba(200,168,75,.2);border-radius:8px}
+.gi-word{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:16px;font-weight:500;color:#E8DCBC;display:block;margin-bottom:4px}
+.gi-rule{font-size:20px;color:#D4BC80;}
 .pierres-about{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
-.pa-card{background:#162019;border:1px solid rgba(90,158,106,.25);border-radius:8px;padding:12px 14px;cursor:pointer;transition:all .2s}
-.pa-card:hover{border-color:var(--teal-l);transform:translateY(-2px)}
-.pa-name{font-family:var(--serif);font-size:15px;font-weight:500;color:var(--teal-l);display:block;margin-bottom:3px}
-.pa-def{font-size:11px;color:var(--text4);font-style:italic;line-height:1.5}
+.pa-card{background:#5D1314;border:1px solid rgba(90,158,106,.25);border-radius:8px;padding:12px 14px;cursor:pointer;transition:all .2s}
+.pa-card:hover{border-color:#E8CC7A;transform:translateY(-2px)}
+.pa-name{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:20px;font-weight:500;color:#E8CC7A;display:block;margin-bottom:3px}
+.pa-def{font-size:20px;color:#F0E8C8;line-height:1.5}
 .velarimiron-about{
-  text-align:center;padding:28px;border:1px solid var(--purple-d);border-radius:12px;
-  background:var(--bg3);margin-top:16px;cursor:pointer;transition:all .25s;
+  text-align:center;padding:28px;border:1px solid #A88A35;border-radius:12px;
+  background:#5D1314;margin-top:16px;cursor:pointer;transition:all .25s;
 }
-.velarimiron-about:hover{border-color:var(--purple-l);transform:translateY(-3px)}
-.va-word{font-family:var(--serif);font-size:36px;font-weight:400;color:var(--purple-l);display:block;margin-bottom:6px}
-.va-script{font-family:var(--serif);font-size:22px;color:var(--purple);opacity:.5;display:block;margin-bottom:10px}
-.va-def{font-family:var(--serif);font-size:15px;font-style:italic;color:var(--text2)}
+.velarimiron-about:hover{border-color:#F0E8C8;transform:translateY(-3px)}
+.va-word{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:36px;font-weight:400;color:#F0E8C8;display:block;margin-bottom:6px}
+.va-script{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:22px;color:#C8A84B;opacity:.5;display:block;margin-bottom:10px}
+.va-def{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:20px;color:#D4BC80}
 
 /* ── TRANSLATE VIEW ── */
 #view-translate{padding:48px 56px;max-width:760px;display:none}
 #view-translate.active{display:block}
-.tr-title{font-family:var(--serif);font-size:32px;font-weight:400;color:var(--text);margin-bottom:6px}
-.tr-sub{font-size:13px;color:var(--text4);font-style:italic;margin-bottom:28px}
+.tr-title{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:32px;font-weight:400;color:#FFFFFF;margin-bottom:6px}
+.tr-sub{font-size:20px;color:#F0E8C8;margin-bottom:28px}
 .tr-panels{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
-.tr-panel{background:#162019;border:1px solid var(--border);border-radius:12px;padding:16px;min-height:130px;display:flex;flex-direction:column}
-.tr-panel-lbl{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--text4);margin-bottom:8px}
-#tr-input{flex:1;background:transparent;border:none;outline:none;color:var(--text);font-family:var(--serif);font-size:17px;resize:none;min-height:80px;line-height:1.6}
-#tr-input::placeholder{color:var(--text4);font-style:italic}
-#tr-result{font-family:var(--serif);font-size:19px;color:var(--purple-l);line-height:1.65;flex:1}
-#tr-script{font-family:var(--serif);font-size:22px;color:var(--purple);opacity:.5;margin-top:6px;letter-spacing:.1em}
-#tr-ph{color:var(--text4);font-size:14px;font-style:italic}
+.tr-panel{background:#5D1314;border:1px solid rgba(200,168,75,.2);border-radius:12px;padding:16px;min-height:130px;display:flex;flex-direction:column}
+.tr-panel-lbl{font-size:20px;letter-spacing:.1em;text-transform:uppercase;color:#F0E8C8;margin-bottom:8px}
+#tr-input{flex:1;background:transparent;border:none;outline:none;color:#FFFFFF;font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:17px;resize:none;min-height:80px;line-height:1.6}
+#tr-input::placeholder{color:#B8B8B8;}
+#tr-result{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:19px;color:#F0E8C8;line-height:1.65;flex:1}
+#tr-script{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:22px;color:#C8A84B;opacity:.5;margin-top:6px;letter-spacing:.1em}
+#tr-ph{color:#B8B8B8;font-size:20px;}
 .tr-btns{display:flex;gap:10px;margin-bottom:14px;align-items:center}
-.btn-p{background:rgba(127,119,221,.12);border:1px solid var(--purple);color:var(--purple-l);padding:8px 20px;border-radius:8px;cursor:pointer;font-family:var(--sans);font-size:13px;transition:all .15s}
-.btn-p:hover{background:rgba(127,119,221,.22)}
-.btn-s{background:transparent;border:1px solid var(--border2);color:var(--text4);padding:8px 16px;border-radius:8px;cursor:pointer;font-family:var(--sans);font-size:13px;transition:all .15s}
-.btn-s:hover{color:var(--text2);border-color:var(--purple)}
-#tr-note{background:var(--bg3);border:1px solid var(--border);border-left:2px solid var(--purple);border-radius:0 8px 8px 0;padding:10px 14px;font-size:13px;color:var(--text4);font-style:italic;line-height:1.7;display:none}
-.tr-ex-lbl{font-size:10px;color:var(--text4);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px;margin-top:20px}
+.btn-p{background:rgba(200,168,75,.12);border:1px solid #C8A84B;color:#F0E8C8;padding:8px 20px;border-radius:8px;cursor:pointer;font-family:'EB Garamond','Cormorant Garamond',Georgia,serif;font-size:20px;transition:all .15s}
+.btn-p:hover{background:rgba(200,168,75,.22)}
+.btn-s{background:transparent;border:1px solid rgba(200,168,75,.35);color:#B8B8B8;padding:8px 16px;border-radius:8px;cursor:pointer;font-family:'EB Garamond','Cormorant Garamond',Georgia,serif;font-size:20px;transition:all .15s}
+.btn-s:hover{color:#E8E8E8;border-color:#C8A84B}
+#tr-note{background:#5D1314;border:1px solid rgba(200,168,75,.2);border-left:2px solid #C8A84B;border-radius:0 8px 8px 0;padding:10px 14px;font-size:20px;color:#B8B8B8;line-height:1.7;display:none}
+.tr-ex-lbl{font-size:20px;color:#F0E8C8;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px;margin-top:20px}
 .tr-chips{display:flex;flex-wrap:wrap;gap:7px}
-.tr-chip{font-size:13px;padding:5px 13px;border-radius:20px;border:1px solid var(--border);color:var(--text4);cursor:pointer;transition:all .15s;background:transparent;font-family:var(--serif)}
-.tr-chip:hover{border-color:var(--purple);color:var(--purple-l)}
+.tr-chip{font-size:20px;padding:6px 15px;border-radius:20px;border:1px solid rgba(240,232,200,.5);color:#F0E8C8;cursor:pointer;transition:all .15s;background:transparent;font-family:'Playfair Display','Cormorant Garamond',Georgia,serif}
+.tr-chip:hover{border-color:#C8A84B;color:#F0E8C8}
 
 /* ── SCROLLBAR GLOBAL ── */
 ::-webkit-scrollbar{width:4px;height:4px}
 ::-webkit-scrollbar-track{background:transparent}
-::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
+::-webkit-scrollbar-thumb{background:rgba(200,168,75,.35);border-radius:2px}
 
 /* ── RESPONSIVE ── */
 @media(max-width:700px){
@@ -314,6 +314,12 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14
   #sidebar{display:none}
   .s-piliers{grid-template-columns:repeat(2,1fr)}
 }
+
+/* ── LANG SELECT ── */
+#lang-select option { background: #111E13; color: #C4A84F; }
+#lang-select:hover { border-color: #C4A84F; }
+[data-i18n] { transition: opacity .2s; }
+.lang-switching [data-i18n] { opacity: 0; }
 </style>
 </head>
 <body>
@@ -324,15 +330,22 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14
     <span class="logo-script">ᐯᙆᓬᗑᕒᙆ</span>
     Velari
   </div>
-  <div class="nav-tabs">
-    <button class="tab active" onclick="goView('home')">Accueil</button>
-    <button class="tab" onclick="goView('dictionary')">Dictionnaire</button>
-    <button class="tab" onclick="goView('pillars')">Piliers</button>
-    <button class="tab" onclick="goView('schema')">Architecture</button>
-    <button class="tab" onclick="goView('translate')">Traducteur</button>
-    <button class="tab" onclick="goView('about')">À propos</button>
+  <button id="global-back" onclick="goBack()" style="display:none;align-items:center;gap:4px;background:none;border:none;cursor:pointer;font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:14px;color:#C8B878;padding:5px 12px;border-radius:8px;transition:all .15s;margin-right:8px" >← Retour</button>
+  <div class="nav-tabs" id="nav-tabs">
+    <button class="tab active" onclick="goView('home')" data-i18n="nav.home">Accueil</button>
+    <button class="tab" onclick="goView('dictionary')" data-i18n="nav.dict">Dictionnaire</button>
+    <button class="tab" onclick="goView('pillars')" data-i18n="nav.pillars">Piliers</button>
+    <button class="tab" onclick="goView('schema')" data-i18n="nav.schema">Architecture</button>
+    <button class="tab" onclick="goView('translate')" data-i18n="nav.translate">Traducteur</button>
+    <button class="tab" onclick="goView('about')" data-i18n="nav.about">À propos</button>
   </div>
   <div class="word-count" id="wc"></div>
+  <div style="margin-left:12px;flex-shrink:0">
+    <select id="lang-select" onchange="setLang(this.value)" style="background:rgba(180,150,80,.1);border:1px solid rgba(180,150,80,.3);border-radius:8px;color:#C4A84F;font-family:var(--sans);font-size:13px;padding:5px 10px;cursor:pointer;outline:none">
+      <option value="fr">🌿 FR</option>
+      <option value="en">🌿 EN</option>
+    </select>
+  </div>
 </div>
 
 <!-- APP -->
@@ -356,8 +369,8 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14
       <canvas id="bg-canvas"></canvas>
       <div class="home-content">
         <div class="home-script">ᐯᙆᓬᗑᕒᙆ</div>
-        <div class="home-title">Velari</div>
-        <div class="home-sub">Première langue non-dogmatique de la mémoire spirituelle de l'Humanité</div>
+        <div class="home-title" data-i18n="home.title">Velari</div>
+        <div class="home-sub" data-i18n="home.sub">Première langue non-dogmatique de la mémoire spirituelle de l'Humanité</div>
         <div class="home-stats">
           <div><span class="hs-num" id="h-words">0</span><div class="hs-lbl">mots</div></div>
           <div><span class="hs-num">12</span><div class="hs-lbl">piliers</div></div>
@@ -365,7 +378,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14
         </div>
         <div class="home-pillars" id="home-pillars"></div>
         <div class="home-quote">
-          <p class="hq-text">Ce que l'humanité a toujours su — enfin nommé dans une seule langue. Chaque mot du Velari n'est pas inventé. Il est <em>retrouvé</em>.</p>
+          <p class="hq-text" data-i18n-html="home.quote">Ce que l'humanité a toujours su — enfin nommé dans une seule langue. Chaque mot du Velari n'est pas inventé. Il est <em>retrouvé</em>.</p>
           <cite class="hq-cite">— velarimiron, le mot final</cite>
         </div>
       </div>
@@ -376,9 +389,9 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14
 
     <!-- PILLARS LIST -->
     <div class="view" id="view-pillars">
-      <div style="padding:48px 48px">
-        <div style="font-family:var(--serif);font-size:36px;font-weight:400;color:var(--text);margin-bottom:6px">Les 12 Piliers</div>
-        <div style="font-size:13px;color:var(--text4);font-style:italic;margin-bottom:28px">Les grandes dimensions de l'expérience humaine</div>
+      <div style="padding:28px 32px">
+        <div style="font-family:var(--serif);font-size:28px;font-weight:400;color:#D4BC80;margin-bottom:4px" data-i18n="pillars.title">Les 12 Piliers</div>
+        <div style="font-size:14px;color:#A89A6A;font-style:italic;margin-bottom:16px" data-i18n="pillars.sub">Les grandes dimensions de l'expérience humaine</div>
         <div class="pillars-grid" id="pillars-grid"></div>
       </div>
     </div>
@@ -406,8 +419,8 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14
 
     <!-- TRANSLATE -->
     <div class="view" id="view-translate">
-      <div class="tr-title">Traducteur Velari</div>
-      <div class="tr-sub">Entrez une phrase — le Velari la révèle (Ctrl+Entrée pour traduire)</div>
+      <div class="tr-title" data-i18n="tr.title">Traducteur Velari</div>
+      <div class="tr-sub" data-i18n="tr.sub">Entrez une phrase — le Velari la révèle (Ctrl+Entrée pour traduire)</div>
       <div class="tr-panels">
         <div class="tr-panel">
           <div class="tr-panel-lbl">Votre texte</div>
@@ -432,7 +445,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14
 
     <!-- ABOUT -->
     <div class="view" id="view-about">
-      <div class="about-h1">À propos du Velari</div>
+      <div class="about-h1" data-i18n="about.title">À propos du Velari</div>
       <div class="about-sub">Langue non-dogmatique de la mémoire spirituelle de l'Humanité</div>
 
       <div class="about-section">
@@ -485,6 +498,156 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14
 </div>
 
 <script>
+const TRANSLATIONS = {
+  fr: {
+    "nav.home": "Accueil",
+    "nav.dict": "Dictionnaire",
+    "nav.pillars": "Piliers",
+    "nav.schema": "Architecture",
+    "nav.translate": "Traducteur",
+    "nav.about": "À propos",
+    "home.title": "Velari",
+    "home.sub": "Première langue non-dogmatique de la mémoire spirituelle de l'Humanité",
+    "home.quote": "Ce que l'humanité a toujours su — enfin nommé dans une seule langue. Chaque mot du Velari n'est pas inventé. Il est <em>retrouvé</em>.",
+    "home.cite": "— velarimiron, le mot final",
+    "home.words": "mots",
+    "home.pillars": "piliers",
+    "home.stones": "pierres fondatrices",
+    "pillars.title": "Les 12 Piliers",
+    "pillars.sub": "Les grandes dimensions de l'expérience humaine",
+    "schema.title": "Architecture du Velari",
+    "schema.sub": "Cliquez sur un nœud pour explorer",
+    "tr.title": "Traducteur Velari",
+    "tr.sub": "Entrez une phrase — le Velari la révèle (Ctrl+Entrée pour traduire)",
+    "tr.btn": "Traduire →",
+    "tr.clear": "Effacer",
+    "tr.placeholder": "Écrivez ici...",
+    "tr.result_ph": "La traduction apparaîtra ici...",
+    "tr.examples": "Phrases d'exemple",
+    "tr.votre": "Votre texte",
+    "tr.velari": "Traduction Velari",
+    "about.title": "À propos du Velari",
+    "about.sub": "Langue non-dogmatique de la mémoire spirituelle de l'Humanité",
+    "dict.select": "Sélectionnez un mot dans la liste",
+    "dict.hint": "ou recherchez par sens, tradition, vécu",
+    "dict.search": "Rechercher un mot, un sens...",
+    "dict.all": "Tous",
+    "entry.sens": "Sens",
+    "entry.profond": "Sens profond",
+    "entry.vecu": "Le vécu",
+    "entry.echos": "Échos dans l'humanité",
+    "entry.phrase": "En phrase",
+    "entry.racines": "Racines"
+  },
+  en: {
+    "nav.home": "Home",
+    "nav.dict": "Dictionary",
+    "nav.pillars": "Pillars",
+    "nav.schema": "Architecture",
+    "nav.translate": "Translator",
+    "nav.about": "About",
+    "home.title": "Velari",
+    "home.sub": "First non-dogmatic language of Humanity's spiritual memory",
+    "home.quote": "What humanity has always known — finally named in a single language. Every Velari word was not invented. It was <em>remembered</em>.",
+    "home.cite": "— velarimiron, the final word",
+    "home.words": "words",
+    "home.pillars": "pillars",
+    "home.stones": "foundation stones",
+    "pillars.title": "The 12 Pillars",
+    "pillars.sub": "The great dimensions of human experience",
+    "schema.title": "Velari Architecture",
+    "schema.sub": "Click on a node to explore",
+    "tr.title": "Velari Translator",
+    "tr.sub": "Enter a phrase — Velari reveals it (Ctrl+Enter to translate)",
+    "tr.btn": "Translate →",
+    "tr.clear": "Clear",
+    "tr.placeholder": "Write here...",
+    "tr.result_ph": "Translation will appear here...",
+    "tr.examples": "Example phrases",
+    "tr.votre": "Your text",
+    "tr.velari": "Velari Translation",
+    "about.title": "About Velari",
+    "about.sub": "Non-dogmatic language of Humanity's spiritual memory",
+    "dict.select": "Select a word from the list",
+    "dict.hint": "or search by meaning, tradition, experience",
+    "dict.search": "Search a word, a meaning...",
+    "dict.all": "All",
+    "entry.sens": "Meaning",
+    "entry.profond": "Deep meaning",
+    "entry.vecu": "The lived experience",
+    "entry.echos": "Echoes in humanity",
+    "entry.phrase": "In a sentence",
+    "entry.racines": "Roots"
+  }
+};
+
+let currentLang = 'fr';
+let dictHistory = []; // navigation history stack
+
+function setLang(lang) {
+  currentLang = lang;
+  document.getElementById('lang-select').value = lang;
+  const t = TRANSLATIONS[lang];
+
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key] !== undefined) el.textContent = t[key];
+  });
+
+  document.querySelectorAll('[data-i18n-html]').forEach(el => {
+    const key = el.getAttribute('data-i18n-html');
+    if (t[key] !== undefined) el.innerHTML = t[key];
+  });
+
+  const search = document.getElementById('search');
+  if (search) search.placeholder = t['dict.search'];
+
+  const trInput = document.getElementById('tr-input');
+  if (trInput) trInput.placeholder = t['tr.placeholder'];
+  const trPh = document.getElementById('tr-ph');
+  if (trPh) trPh.textContent = t['tr.result_ph'];
+
+  document.querySelectorAll('.tr-panel-lbl').forEach((el, i) => {
+    el.textContent = i === 0 ? t['tr.votre'] : t['tr.velari'];
+  });
+
+  const btnP = document.querySelector('.btn-p');
+  if (btnP) btnP.textContent = t['tr.btn'];
+  const btnS = document.querySelector('.btn-s');
+  if (btnS) btnS.textContent = t['tr.clear'];
+
+  const trExLbl = document.querySelector('.tr-ex-lbl');
+  if (trExLbl) trExLbl.textContent = t['tr.examples'];
+
+  buildTrChips();
+
+  document.querySelectorAll('.hs-lbl').forEach((el, i) => {
+    const keys = ['home.words', 'home.pillars', 'home.stones'];
+    if (keys[i]) el.textContent = t[keys[i]];
+  });
+
+  buildFilters();
+  renderList();
+
+  if (currentView === 'dictionary' && !activeWord) showDictWelcome();
+  if (currentView === 'pillars') {
+    document.getElementById('pillars-grid').innerHTML = '';
+    renderPillarsList();
+  }
+
+  localStorage.setItem('velari-lang', lang);
+}
+
+function t(key) {
+  return (TRANSLATIONS[currentLang] || TRANSLATIONS.fr)[key] || key;
+}
+
+window.addEventListener('load', () => {
+  const saved = localStorage.getItem('velari-lang');
+  if (saved && saved !== 'fr') setLang(saved);
+});
+
+
 // ════════════════════════════════
 // DATA — injected below
 // ════════════════════════════════
@@ -496,6 +659,7 @@ const WORDS = [
   {w:"korazaron",s:"ᑲᗜᕒᗑᙍᗑᕒᗜᘉ",p:"fondation",sh:"La mémoire comme première immortalité",m:"Ce qui a été vécu ne disparaît pas — cela se dépose dans les corps, les pierres, les mots, les enfants. Korazaron désigne la conscience que chaque acte d'amour vrai laisse une trace permanente dans le tissu de l'existence.",so:"Les traditions ancestrales et l'épigénétique moderne confirment que les joies et traumatismes de nos ancêtres vivent en nous. Korazaron honore cette continuité — rien de vrai ne se perd jamais.",v:"Quand tu penses à quelqu'un de disparu et que tu sens sa présence dans un geste hérité.",pa:["Communion des saints","Culte des ancêtres (Afrique, Asie)","Akasha (mémoire cosmique)","Mémoire épigénétique"],ex:["Veska korazaron ","noreli"," — la mémoire de nos ancêtres marche avec nous."],g:"Se conjugue toujours au présent — la mémoire ancestrale n'est jamais au passé.",r:["kera = cœur","zaron = depuis toujours"]},
   {w:"mivanori",s:"ᘝᙆᐸᗑᘉᗜᕒᙆ",p:"fondation",sh:"L'autre est une autre façon d'être moi",m:"Le mot Velari pour l'autre — construit sur la même racine que moi. L'autre n'est pas un étranger : il est une déclinaison de la même source. En Velari, l'autre se dit avec le même radical que soi-même.",so:"Ubuntu dit 'je suis parce que tu es'. Le Velari l'encode dans la grammaire elle-même : le mot pour l'autre contient le mot pour moi.",v:"Cette reconnaissance inexplicable en rencontrant un inconnu — vous venez du même endroit.",pa:["Ubuntu (Zoulous)","Non-dualité (Vedanta)","Agapè (christianisme)","Hózhó (Navajo)"],ex:["Mi-va ","mivanori"," Mirazaron — toi et moi sommes la même source qui se regarde."],g:"N'existe qu'en relation directe mi-va. Impossible à la troisième personne.",r:["mi = moi","va = toi","nori = ami qui marche avec"]},
   {w:"velunama",s:"ᐯᙆᓬᘓᘉᗑᘝᗑ",p:"fondation",sh:"Nommer, c'est appeler à exister",m:"La conscience que donner un nom approfondit la réalité. Les mots ne décrivent pas le monde — ils l'intensifient. C'est pourquoi le Velari existe : non pour décrire, mais pour révéler.",so:"Le Verbe au commencement. Les mantras. Les chants de création Navajo. Toutes les traditions savent que les mots sont des forces, pas des étiquettes.",v:"Trouver le mot juste pour ce qu'on ressentait confusément — et soudain ce sentiment devient plus réel.",pa:["Le Verbe créateur (Jean 1:1)","Mantra (hindouisme)","Chants de création (Navajo)","Hypothèse Sapir-Whorf"],ex:["Velunama ","amilzaron"," — nommer cet amour l'a rendu plus réel."],g:"Précède toujours le mot qu'il désigne. C'est un acte, pas une description.",r:["velu = vent, souffle","nama = appeler à exister"]},
+  {w:"taloviru",s:"ᑎᗑᓬᘓᐸᙆᕒᘓ",p:"fondation",sh:"La douleur qui parle",m:"La douleur est une information, pas une punition — elle porte un message et s'écoute. Non niée ni glorifiée : traversée. Le Velari dit que la douleur a une voix, et que cette voix mérite d'être entendue avant d'être apaisée.",so:"Toutes les traditions de sagesse distinguent la souffrance inutile de la douleur transformatrice. Le Velari encode cette distinction dans le mot lui-même — talo (arbre qui résiste) + viru (voix qui parle).",v:"Ces moments où une douleur te dit quelque chose d'important sur ce que tu es, ce que tu veux, ce qui compte vraiment pour toi.",pa:["Dukkha (bouddhisme)","Dark night of the soul (Jean de la Croix)","Kintsugi (Japon)","Post-traumatic growth"],ex:["Mi koruselu ","taloviru"," — ma douleur m'a parlé et je suis devenu plus solide."],g:"Toujours au mode actif — la douleur en Velari est un sujet qui parle, jamais un objet qu'on subit.",r:["talo = arbre debout qui résiste","viru = voix, ce qui parle"]},
   {w:"eruzami",s:"ᗒᕒᘓᙍᗑᘝᙆ",p:"fondation",sh:"La beauté comme preuve",m:"L'émerveillement devant la beauté du monde comme argument pour le sens de l'existence. Que les couchers de soleil existent, que la musique émeuve, que l'amour soit possible — cela ne peut pas être un accident.",so:"Einstein : l'émotion la plus belle est le sentiment du mystérieux. Dostoïevski : la beauté sauvera le monde.",v:"Cette gratitude sans destinataire devant la lumière du matin, la musique, un visage aimé.",pa:["Le Beau transcendantal (Platon)","Mono no aware (Japon)","Le Sublime (Kant)","Wabi-sabi"],ex:["Selami eruzami — ","zeroluva"," — l'aube prouve que le monde veut être beau."],g:"Ne se conjugue pas. Comme la beauté — il est, il n'agit pas.",r:["erila = fleur","zami = mer, l'immensité"]},
   {w:"milumavelu",s:"ᘝᙆᓬᘓᘝᗑᐯᙆᓬᘓ",p:"fondation",sh:"Chaque être — une façon unique du monde de se voir",m:"Tu es la seule façon qu'a le cosmos de voir ce que tu vois, de ressentir ce que tu ressens. L'unicité n'est pas une consolation — c'est un fait cosmique.",so:"Le judaïsme : sauver une vie c'est sauver un monde. Leibniz : chaque être est une perspective unique et irremplaçable.",v:"Quand quelqu'un meurt et tu réalises qu'une perspective unique vient de disparaître de l'univers.",pa:["Sauver une vie = sauver un monde (Talmud)","Monade (Leibniz)","Jiva (jaïnisme)"],ex:["Va ","milumavelu"," — tu es la seule façon qu'a le monde d'être toi."],g:"Uniquement à la deuxième personne directe. L'unicité ne se constate que dans la rencontre.",r:["mi = moi","luma = lumière","velu = vent, ce qui passe et est unique"]},
   {w:"doruveni",s:"ᑎᗜᕒᘓᐯᙆᘉᙆ",p:"fondation",sh:"Donner sans rien perdre",m:"La transmission qui grandit en étant donnée. Plus on donne, plus il reste. L'acte qui défie l'entropie.",so:"Tao Te Ching 81, Bhagavad-Gita, Évangiles — partout la même loi paradoxale : l'amour donné enrichit le donateur.",v:"Enseigner et comprendre mieux. Aimer et être agrandi. Créer et être enrichi.",pa:["Tao Te Ching ch.81","Bhagavad-Gita","Dana (bouddhisme)","Kénose (mystique)"],ex:["Luma ","doruveni"," — la lumière que tu donnes ne diminue pas la tienne."],g:"Mode transmissif — sans complément d'objet. Ce qu'on transmet n'appartient déjà plus à celui qui donne.",r:["doru = maison offerte","veni = revenir"]},
@@ -572,6 +736,14 @@ const PILLARS_META = {
 // STATE
 // ════════════════════════════════
 let currentView = 'home';
+let navHistory = [];
+
+function goBack() {
+  if(navHistory.length > 0) {
+    const prev = navHistory.pop();
+    goView(prev, true);
+  }
+}
 let activePillar = 'all';
 let activeWord = null;
 let schemaPanelTimer = null;
@@ -579,7 +751,11 @@ let schemaPanelTimer = null;
 // ════════════════════════════════
 // VIEW ROUTING
 // ════════════════════════════════
-function goView(v, hideSidebar) {
+function goView(v, fromBack) {
+  if(!fromBack && currentView && currentView !== v) {
+    navHistory.push(currentView);
+    if(navHistory.length > 20) navHistory.shift();
+  }
   currentView = v;
   document.querySelectorAll('.view').forEach(el => el.classList.remove('active'));
   document.querySelectorAll('.tab').forEach(el => el.classList.remove('active'));
@@ -613,6 +789,14 @@ function goView(v, hideSidebar) {
   if(v === 'pillars') renderPillarsList();
   if(v === 'about') renderAbout();
   if(v === 'home') initHomeBg();
+
+  // Show/hide back button
+  const backBtn = document.getElementById('global-back');
+  if(backBtn) {
+    const isEn = currentLang === 'en';
+    backBtn.textContent = isEn ? '← Back' : '← Retour';
+    backBtn.style.display = navHistory.length > 0 && v !== 'home' ? 'flex' : 'none';
+  }
 }
 
 // ════════════════════════════════
@@ -620,10 +804,24 @@ function goView(v, hideSidebar) {
 // ════════════════════════════════
 function buildFilters() {
   const el = document.getElementById('pillar-filters');
-  let html = `<button class="pf-btn on" onclick="setP('all',this)">Tous</button>`;
+  const allLabel = (TRANSLATIONS[currentLang]||TRANSLATIONS.fr)['dict.all'] || 'Tous';
+  let html = `<button class="pf-btn on" onclick="setP('all',this)">${allLabel}</button>`;
+  const PILLAR_SHORTS = {
+    fondation:'Pierres', origine:'Origine', reconnais:'Reconnais.', passage:'Passage',
+    memoire:'Mémoire', reconcil:'Réconcil.', emerveil:'Émerv.', transmis:'Transm.',
+    corps:'Corps', creation:'Création', politique:'Politique', vivant:'Vivant',
+    enfance:'Enfance', complet:'Complétion'
+  };
+  const PILLAR_SHORTS_EN = {
+    fondation:'Stones', origine:'Origin', reconnais:'Recognition', passage:'Passage',
+    memoire:'Memory', reconcil:'Reconcil.', emerveil:'Wonder', transmis:'Transmis.',
+    corps:'Body', creation:'Creation', politique:'Politics', vivant:'Living', 
+    enfance:'Childhood', complet:'Completion'
+  };
+  const shorts = currentLang === 'en' ? PILLAR_SHORTS_EN : PILLAR_SHORTS;
   Object.entries(PILLARS_META).forEach(([id,pm]) => {
     const n = WORDS.filter(w => w.p === id).length;
-    const short = pm.label.replace(/[IVX·\s]+/,'').split(' ')[0];
+    const short = shorts[id] || pm.label.split('·').pop().trim().split(' ').slice(0,2).join(' ');
     html += `<button class="pf-btn" onclick="setP('${id}',this)">${short} (${n})</button>`;
   });
   el.innerHTML = html;
@@ -650,7 +848,7 @@ function renderList() {
     return `<div class="wi ${activeWord === w.w ? 'active' : ''}" onclick="selectWord('${w.w.replace(/'/g,"\\'")}')">
       <div class="wi-word">${w.w}</div>
       <div class="wi-short">${w.sh}</div>
-      <span class="wi-tag" style="background:${TAG_BG[w.p]||'rgba(127,119,221,.1)'};color:${TAG_TC[w.p]||'#AFA9EC'};border:1px solid ${TAG_BC[w.p]||'rgba(127,119,221,.3)'}">${pm.label.split('·').pop().trim()}</span>
+      <span class="wi-tag" style="background:${TAG_BG[w.p]||'rgba(127,119,221,.1)'};color:${TAG_TC[w.p]||'#C8A84B'};border:1px solid ${TAG_BC[w.p]||'rgba(127,119,221,.3)'}">${pm.label.split('·').pop().trim()}</span>
     </div>`;
   }).join('');
 }
@@ -663,17 +861,17 @@ const TAG_BG = {
   enfance:'rgba(186,117,23,.1)', complet:'rgba(136,135,128,.1)'
 };
 const TAG_TC = {
-  fondation:'#5DCAA5', origine:'#AFA9EC', reconnais:'#ED93B1', passage:'#EF9F27',
-  memoire:'#85B7EB', reconcil:'#97C459', emerveil:'#F0997B', transmis:'#AFA9EC',
-  corps:'#D85A30', creation:'#D4537E', politique:'#97C459', vivant:'#85B7EB',
-  enfance:'#EF9F27', complet:'#B4B2A9'
+  fondation:'#FFFFFF', origine:'#FFFFFF', reconnais:'#FFFFFF', passage:'#FFFFFF',
+  memoire:'#FFFFFF', reconcil:'#FFFFFF', emerveil:'#FFFFFF', transmis:'#FFFFFF',
+  corps:'#FFFFFF', creation:'#FFFFFF', politique:'#FFFFFF', vivant:'#FFFFFF',
+  enfance:'#FFFFFF', complet:'#FFFFFF'
 };
 const TAG_BC = {
-  fondation:'rgba(93,202,165,.3)', origine:'rgba(175,169,236,.3)', reconnais:'rgba(237,147,177,.3)',
-  passage:'rgba(239,159,39,.3)', memoire:'rgba(133,183,235,.3)', reconcil:'rgba(151,196,89,.3)',
-  emerveil:'rgba(240,153,123,.3)', transmis:'rgba(175,169,236,.3)', corps:'rgba(216,90,48,.3)',
-  creation:'rgba(212,83,126,.3)', politique:'rgba(151,196,89,.3)', vivant:'rgba(133,183,235,.3)',
-  enfance:'rgba(239,159,39,.3)', complet:'rgba(180,178,169,.3)'
+  fondation:'rgba(255,255,255,.3)', origine:'rgba(255,255,255,.3)', reconnais:'rgba(255,255,255,.3)',
+  passage:'rgba(255,255,255,.3)', memoire:'rgba(255,255,255,.3)', reconcil:'rgba(255,255,255,.3)',
+  emerveil:'rgba(255,255,255,.3)', transmis:'rgba(255,255,255,.3)', corps:'rgba(255,255,255,.3)',
+  creation:'rgba(255,255,255,.3)', politique:'rgba(255,255,255,.3)', vivant:'rgba(255,255,255,.3)',
+  enfance:'rgba(255,255,255,.3)', complet:'rgba(255,255,255,.3)'
 };
 
 // ════════════════════════════════
@@ -693,12 +891,23 @@ function selectWord(ww) {
 }
 
 function renderEntry(word) {
+  // push current dict state to history if we're in dictionary view
+  if(currentView === 'dictionary') {
+    const prevContent = document.getElementById('view-entry').innerHTML;
+    if(prevContent && !prevContent.includes('entry-word')) {
+      dictHistory.push(() => {
+        document.getElementById('view-entry').innerHTML = prevContent;
+      });
+    }
+  }
   const pm = PILLARS_META[word.p] || {label:word.p};
   const bg = TAG_BG[word.p] || 'rgba(127,119,221,.1)';
-  const tc = TAG_TC[word.p] || '#AFA9EC';
+  const tc = TAG_TC[word.p] || '#C8A84B';
   const bc = TAG_BC[word.p] || 'rgba(127,119,221,.3)';
+  const backLabel = currentLang === 'en' ? '← Back' : '← Retour';
   document.getElementById('view-entry').innerHTML = `
-    <div class="entry-pillar-tag" style="background:${bg};color:${tc};border:1px solid ${bc}">${pm.label}</div>
+    <span onclick="goBackDict()" style="display:inline-block;font-size:14px;color:#A89A6A;cursor:pointer;margin-bottom:20px;font-family:'EB Garamond','Cormorant Garamond',Georgia,serif;transition:color .15s" onmouseover="this.style.color='#C4A84F'" onmouseout="this.style.color='#A89A6A'">${backLabel}</span>
+    <div class="entry-pillar-tag" style="background:${bg};color:#F0E8C8;border:1px solid ${bc}">${pm.label}</div>
     <div class="entry-word">${word.w}</div>
     <div class="entry-script">${word.s}</div>
     <div class="entry-short">${word.sh}</div>
@@ -719,11 +928,190 @@ function renderEntry(word) {
 }
 
 function showDictWelcome() {
+  activeWord = null;
+  const isEn = currentLang === "en";
+  const d1 = isEn ? "Free Search" : "Recherche libre";
+  const d2 = isEn ? "By Experience" : "Par Vécu";
+  const d3 = isEn ? "By Pillar" : "Par Pilier";
+  const ph = isEn ? "Search a word..." : "Chercher un mot...";
+  const btn = isEn ? "Search" : "Chercher";
+  const wl = isEn ? "words" : "mots";
+
+  const THEMES = [
+    {fr:"Amour",en:"Love",words:["amilzaron","lumivanu","mivanori","zeroluva"]},
+    {fr:"Deuil",en:"Grief",words:["taluzaron","keraveska-miran","korazaron","taloviru"]},
+    {fr:"Guérison",en:"Healing",words:["zerukoru","mivanoluma","zeromiron","koruselu"]},
+    {fr:"Émerveillement",en:"Wonder",words:["selumirazaron","eruzamilu","veluzamiru","eruzami"]},
+    {fr:"Transmission",en:"Transmission",words:["velarimiron","doruveniluva","miluvenikoru","miraveskamilu"]},
+    {fr:"Corps et Âme",en:"Body and Soul",words:["zerukama","miraveluzon","taluvamiru","zeroluva"]},
+  ];
+
+  const themeCards = THEMES.map(th => {
+    const label = isEn ? th.en : th.fr;
+    const key = "t_" + th.en.replace(/[^a-zA-Z]/g,"");
+    window["_th_"+key] = th.words;
+    const preview = th.words.slice(0,2).map(ww => {
+      const w = WORDS.find(x => x.w === ww);
+      return w ? `<span style="font-size:13px;color:#C8B878;display:block">${w.w}</span>` : "";
+    }).join("");
+    return `<div onclick="dictSearchTheme(window['_th_${key}'])" style="background:#5D1314;border:1px solid rgba(255,255,255,.25);border-radius:10px;padding:14px;cursor:pointer;flex:1;min-width:130px;max-width:190px;transition:all .2s" onmouseover="this.style.borderColor='#C8A84B'" onmouseout="this.style.borderColor='rgba(255,255,255,.25)'">
+      <div style="font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:16px;color:#F0E8C8;margin-bottom:6px">${label}</div>
+      ${preview}
+    </div>`;
+  }).join("");
+
+  const pilierCards = Object.entries(PILLARS_META)
+    .filter(([id]) => id !== "fondation" && id !== "complet")
+    .map(([id,pm]) => {
+      const n = WORDS.filter(w => w.p === id).length;
+      return `<div onclick="dictShowPillar('${id}')" style="background:#5D1314;border:1px solid rgba(255,255,255,.25);border-radius:8px;padding:10px 14px;cursor:pointer;flex:1;min-width:130px;max-width:220px;transition:all .2s" onmouseover="this.style.borderColor='#C8A84B'" onmouseout="this.style.borderColor='rgba(255,255,255,.25)'">
+        <div style="font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:14px;color:#F0E8C8;margin-bottom:2px">${pm.label}</div>
+        <div style="font-size:12px;color:#C8B878">${n} ${wl}</div>
+      </div>`;
+    }).join("");
+
+  document.getElementById("view-entry").innerHTML = `
+    <div style="padding:24px 32px">
+      <div style="margin-bottom:22px">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+          <span style="font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:16px;color:#C8A84B;font-weight:500">I —</span>
+          <span style="font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:16px;color:#FFFFFF">${d1}</span>
+        </div>
+        <div style="display:flex;gap:10px">
+          <input id="dict-search-input" type="text" placeholder="${ph}" style="flex:1;background:#5D1314;border:1px solid rgba(255,255,255,.3);border-radius:10px;padding:10px 16px;color:#FFFFFF;font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:16px;outline:none" onkeydown="if(event.key==='Enter')dictFreeSearch(this.value)" onfocus="this.style.borderColor='#C8A84B'" onblur="this.style.borderColor='rgba(255,255,255,.3)'">
+          <button onclick="dictFreeSearch(document.getElementById('dict-search-input').value)" style="background:rgba(200,168,75,.15);border:1px solid #C8A84B;color:#C8A84B;padding:10px 20px;border-radius:10px;cursor:pointer;font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:15px" onmouseover="this.style.background='rgba(200,168,75,.3)'" onmouseout="this.style.background='rgba(200,168,75,.15)'">${btn}</button>
+        </div>
+      </div>
+      <div style="height:1px;background:linear-gradient(90deg,rgba(200,168,75,.3),transparent);margin-bottom:22px"></div>
+      <div style="margin-bottom:22px">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+          <span style="font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:16px;color:#C8A84B;font-weight:500">II —</span>
+          <span style="font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:16px;color:#FFFFFF">${d2}</span>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:10px">${themeCards}</div>
+      </div>
+      <div style="height:1px;background:linear-gradient(90deg,rgba(200,168,75,.3),transparent);margin-bottom:22px"></div>
+      <div>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+          <span style="font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:16px;color:#C8A84B;font-weight:500">III —</span>
+          <span style="font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:16px;color:#FFFFFF">${d3}</span>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">${pilierCards}</div>
+      </div>
+    </div>`;
+}
+
+function dictBack() { showDictWelcome(); }
+
+function dictSearchTheme(words) {
+  const isEn = currentLang === "en";
+  const results = (words||[]).map(ww => WORDS.find(x => x.w === ww)).filter(Boolean);
+  if(!results.length) return;
+  if(results.length === 1) { selectWord(results[0].w); return; }
+  const back = isEn ? "← Back" : "← Retour";
+  const cards = results.map(w => `<div onclick="selectWord('${w.w.replace(/'/g,"\'")}');goView('dictionary')" style="background:#5D1314;border:1px solid rgba(255,255,255,.25);border-radius:10px;padding:16px;cursor:pointer;transition:all .2s" onmouseover="this.style.borderColor='#C8A84B'" onmouseout="this.style.borderColor='rgba(255,255,255,.25)'"><div style="font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:18px;color:#F0E8C8;margin-bottom:4px">${w.w}</div><div style="font-size:13px;color:#C8B878">${w.sh}</div></div>`).join("");
+  document.getElementById("view-entry").innerHTML = `<div style="padding:24px 32px"><span onclick="dictBack()" style="font-size:14px;color:#C8B878;cursor:pointer;display:inline-block;margin-bottom:16px" onmouseover="this.style.color='#C8A84B'" onmouseout="this.style.color='#D0D0D0'">${back}</span><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">${cards}</div></div>`;
+}
+
+function dictShowPillar(id) {
+  const pm = PILLARS_META[id];
+  const words = WORDS.filter(w => w.p === id);
+  const isEn = currentLang === "en";
+  const back = isEn ? "← Back" : "← Retour";
+  const wl = isEn ? "words" : "mots";
+  const cards = words.map(w => `<div onclick="selectWord('${w.w.replace(/'/g,"\'")}');goView('dictionary')" style="background:#5D1314;border:1px solid rgba(255,255,255,.25);border-radius:10px;padding:16px;cursor:pointer;transition:all .2s" onmouseover="this.style.borderColor='#C8A84B'" onmouseout="this.style.borderColor='rgba(255,255,255,.25)'"><div style="font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:18px;color:#F0E8C8;margin-bottom:4px">${w.w}</div><div style="font-size:13px;color:#C8B878">${w.sh}</div></div>`).join("");
+  document.getElementById("view-entry").innerHTML = `<div style="padding:24px 32px"><span onclick="dictBack()" style="font-size:14px;color:#C8B878;cursor:pointer;display:inline-block;margin-bottom:16px" onmouseover="this.style.color='#C8A84B'" onmouseout="this.style.color='#D0D0D0'">${back}</span><div style="font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:22px;color:#FFFFFF;margin-bottom:16px">${pm.label}</div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">${cards}</div></div>`;
+}
+
+function dictFreeSearch(q) {
+  if(!q||!q.trim()) { showDictWelcome(); return; }
+  if(currentView !== "dictionary") goView("dictionary");
+  const isEn = currentLang === "en";
+  const back = isEn ? "← Back" : "← Retour";
+  const results = WORDS.filter(w => w.w.toLowerCase().includes(q.toLowerCase()) || w.sh.toLowerCase().includes(q.toLowerCase()) || w.m.toLowerCase().includes(q.toLowerCase()));
+  if(results.length === 1) { selectWord(results[0].w); return; }
+  const noRes = isEn ? "No results." : "Aucun résultat.";
+  const resLbl = isEn ? "results" : "résultats";
+  const cards = results.map(w => `<div onclick="selectWord('${w.w.replace(/'/g,"\'")}');goView('dictionary')" style="background:#5D1314;border:1px solid rgba(255,255,255,.25);border-radius:10px;padding:16px;cursor:pointer;transition:all .2s" onmouseover="this.style.borderColor='#C8A84B'" onmouseout="this.style.borderColor='rgba(255,255,255,.25)'"><div style="font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:18px;color:#F0E8C8;margin-bottom:4px">${w.w}</div><div style="font-size:13px;color:#C8B878">${w.sh}</div></div>`).join("");
+  document.getElementById("view-entry").innerHTML = `<div style="padding:24px 32px"><span onclick="dictBack()" style="font-size:14px;color:#C8B878;cursor:pointer;display:inline-block;margin-bottom:16px" onmouseover="this.style.color='#C8A84B'" onmouseout="this.style.color='#D0D0D0'">${back}</span>${results.length ? `<div style="font-size:14px;color:#C8B878;margin-bottom:16px">"${q}" — ${results.length} ${resLbl}</div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">${cards}</div>` : `<div style="font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:18px;color:#C8B878">${noRes}</div>`}</div>`;
+}
+
+function searchTheme(words) {
+  const results = words.map(ww => WORDS.find(x => x.w === ww)).filter(Boolean);
+  if(results.length === 0) return;
+  if(results.length === 1) { selectWord(results[0].w); return; }
+  dictHistory.push(() => showDictWelcome());
+  const isEn = currentLang === 'en';
+  const cards = results.map(w => {
+    const tc = TAG_TC[w.p] || '#D4BC80';
+    return `<div onclick="selectWord('${w.w.replace(/'/g,"\'")}')" style="background:#5D1314;border:1px solid rgba(200,168,75,.2);border-radius:10px;padding:18px;cursor:pointer;transition:all .25s" onmouseover="this.style.borderColor='#C4A84F';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(200,168,75,.2)';this.style.transform='none'">
+      <div style="font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:18px;font-weight:500;color:#F0E8C8;margin-bottom:5px">${w.w}</div>
+      <div style="font-size:13px;color:#A89A6A;font-style:italic">${w.sh}</div>
+    </div>`;
+  }).join('');
+  const back = isEn ? "← Back" : "← Retour";
   document.getElementById('view-entry').innerHTML = `
-    <div style="display:flex;align-items:center;justify-content:center;min-height:60vh;flex-direction:column;text-align:center;padding:40px">
-      <div style="font-family:var(--serif);font-size:64px;color:var(--purple);opacity:.12;margin-bottom:16px">ᐯᙆᓬᗑᕒᙆ</div>
-      <div style="font-family:var(--serif);font-size:22px;color:var(--text2);font-style:italic">Sélectionnez un mot dans la liste</div>
-      <div style="font-size:12px;color:var(--text4);margin-top:8px">ou recherchez par sens, tradition, vécu</div>
+    <div style="padding:28px 32px">
+      <span onclick="goBackDict()" style="font-size:14px;color:#A89A6A;cursor:pointer;display:inline-block;margin-bottom:20px" onmouseover="this.style.color='#C4A84F'" onmouseout="this.style.color='#A89A6A'">${back}</span>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">${cards}</div>
+    </div>`;
+}
+
+function showPillarDictResults(id) {
+  dictHistory.push(() => showDictWelcome());
+  const pm = PILLARS_META[id];
+  const words = WORDS.filter(w => w.p === id);
+  const isEn = currentLang === 'en';
+  const cards = words.map(w => {
+    const tc = TAG_TC[w.p] || '#D4BC80';
+    return `<div onclick="selectWord('${w.w.replace(/'/g,"\'")}')" style="background:#5D1314;border:1px solid rgba(200,168,75,.2);border-radius:10px;padding:18px;cursor:pointer;transition:all .25s" onmouseover="this.style.borderColor='#C4A84F';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(200,168,75,.2)';this.style.transform='none'">
+      <div style="font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:18px;font-weight:500;color:#F0E8C8;margin-bottom:5px">${w.w}</div>
+      <div style="font-size:13px;color:#A89A6A;font-style:italic">${w.sh}</div>
+    </div>`;
+  }).join('');
+  const back = isEn ? "← Back" : "← Retour";
+  document.getElementById('view-entry').innerHTML = `
+    <div style="padding:28px 32px">
+      <span onclick="goBackDict()" style="font-size:14px;color:#A89A6A;cursor:pointer;display:inline-block;margin-bottom:16px" onmouseover="this.style.color='#C4A84F'" onmouseout="this.style.color='#A89A6A'">${back}</span>
+      <div style="font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:26px;font-weight:400;color:#D4BC80;margin-bottom:6px">${pm.label}</div>
+      <div style="font-size:14px;color:#7A6A48;font-style:italic;margin-bottom:20px;font-family:'Playfair Display','Cormorant Garamond',Georgia,serif">${pm.intro.replace(/'/g,"\u2019")}</div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">${cards}</div>
+    </div>`;
+}
+
+function doFreeSearch(q) {
+  if(!q || !q.trim()) return;
+  dictHistory.push(() => showDictWelcome());
+  const isEn = currentLang === 'en';
+  const results = WORDS.filter(w =>
+    w.w.toLowerCase().includes(q.toLowerCase()) ||
+    w.sh.toLowerCase().includes(q.toLowerCase()) ||
+    w.m.toLowerCase().includes(q.toLowerCase()) ||
+    (w.pa||[]).some(p => p.toLowerCase().includes(q.toLowerCase()))
+  );
+  const back = isEn ? "← Back" : "← Retour";
+  const noResults = isEn ? "No results found." : "Aucun résultat.";
+  if(results.length === 0) {
+    document.getElementById('view-entry').innerHTML = `
+      <div style="padding:28px 32px">
+        <span onclick="goBackDict()" style="font-size:14px;color:#A89A6A;cursor:pointer;display:inline-block;margin-bottom:20px">${back}</span>
+        <div style="font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:20px;color:#7A6A48;font-style:italic">${noResults}</div>
+      </div>`;
+    return;
+  }
+  if(results.length === 1) { selectWord(results[0].w); return; }
+  const cards = results.map(w => {
+    const tc = TAG_TC[w.p] || '#D4BC80';
+    return `<div onclick="selectWord('${w.w.replace(/'/g,"\'")}')" style="background:#5D1314;border:1px solid rgba(200,168,75,.2);border-radius:10px;padding:18px;cursor:pointer;transition:all .25s" onmouseover="this.style.borderColor='#C4A84F';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(200,168,75,.2)';this.style.transform='none'">
+      <div style="font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:18px;font-weight:500;color:#F0E8C8;margin-bottom:5px">${w.w}</div>
+      <div style="font-size:13px;color:#A89A6A;font-style:italic">${w.sh}</div>
+    </div>`;
+  }).join('');
+  document.getElementById('view-entry').innerHTML = `
+    <div style="padding:28px 32px">
+      <span onclick="goBackDict()" style="font-size:14px;color:#A89A6A;cursor:pointer;display:inline-block;margin-bottom:16px">${back}</span>
+      <div style="font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:18px;color:#7A6A48;margin-bottom:20px">"${q}" — ${results.length} ${isEn ? "results" : "résultats"}</div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">${cards}</div>
     </div>`;
 }
 
@@ -733,7 +1121,7 @@ function showDictWelcome() {
 function renderPillarsList() {
   const grid = document.getElementById('pillars-grid');
   if(grid.innerHTML) return;
-  grid.innerHTML = Object.entries(PILLARS_META).map(([id,pm]) => {
+  grid.innerHTML = Object.entries(PILLARS_META).filter(([id]) => id !== 'fondation' && id !== 'complet').map(([id,pm]) => {
     const n = WORDS.filter(w => w.p === id).length;
     return `<div class="pillar-card" onclick="showPillarDetail('${id}')">
       <div class="pc-name">${pm.label}</div>
@@ -746,19 +1134,31 @@ function renderPillarsList() {
 function showPillarDetail(id) {
   const pm = PILLARS_META[id];
   const words = WORDS.filter(w => w.p === id);
-  const tc = TAG_TC[id] || '#AFA9EC';
-  document.getElementById('view-pillar-detail').innerHTML = `
-    <span class="pd-back" onclick="goView('pillars')">← Tous les piliers</span>
-    <div class="pd-title">${pm.label}</div>
-    <div class="pd-intro">${pm.intro}</div>
-    <div class="pd-words">${words.map(w => `
-      <div class="pw-card" onclick="selectWord('${w.w.replace(/'/g,"\\'")}')">
-        <div class="pw-word" style="color:${tc}">${w.w}</div>
-        <div class="pw-script" style="color:${tc}">${w.s}</div>
+  const isFondation = id === 'fondation';
+  const back = currentLang === "en" ? "← Pillars" : "← Tous les piliers";
+  let wordsHtml;
+  if(isFondation) {
+    wordsHtml = `<div class="pillars-grid" style="margin-top:20px">${words.map(w => `
+      <div class="pillar-card" onclick="selectWord('${w.w.replace(/'/g,"\'")}');goView('dictionary')">
+        <div class="pc-name">${w.w}</div>
+        <div style="font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:14px;color:#C8B878;margin:4px 0">${w.s}</div>
+        <div class="pc-desc">${w.sh}</div>
+      </div>`).join('')}
+    </div>`;
+  } else {
+    wordsHtml = `<div class="pd-words">${words.map(w => `
+      <div class="pw-card" onclick="selectWord('${w.w.replace(/'/g,"\'")}');goView('dictionary')">
+        <div class="pw-word">${w.w}</div>
         <div class="pw-short">${w.sh}</div>
       </div>`).join('')}
     </div>`;
+  }
   goView('pillar-detail');
+  document.getElementById('view-pillar-detail').innerHTML = `
+    <span class="pd-back" onclick="goView('${isFondation ? 'pillars' : 'pillars'}')">${back}</span>
+    <div class="pd-title">${pm.label}</div>
+    <div class="pd-intro">${pm.intro}</div>
+    ${wordsHtml}`;
 }
 
 // ════════════════════════════════
@@ -781,18 +1181,18 @@ function initSchema() {
   ];
 
   const PILIERS_SCHEMA = [
-    ['I','L\'Origine','d\'où vient tout','purple','#AFA9EC','rgba(175,169,236,.12)','#AFA9EC','pilier','D\'où vient tout — Mirazaron, le frémissement originel, le souffle qui anime, le mystère de la conscience.'],
-    ['II','Reconnaissance','voir l\'autre','pink','#ED93B1','rgba(237,147,177,.12)','#ED93B1','pilier','Voir l\'autre vraiment — la lumière en lui qu\'il ne voit pas, la présence totale, l\'amitié du silence.'],
-    ['III','Le Passage','seuils','amber','#EF9F27','rgba(239,159,39,.12)','#EF9F27','pilier','Les seuils qui changent ce qu\'on est — naissance, éveil, amour, deuil, vocation, guérison.'],
-    ['IV','La Mémoire','ancêtres','blue','#85B7EB','rgba(133,183,235,.12)','#85B7EB','pilier','Ce que les ancêtres ont déposé en nous — le temps non-linéaire, les lieux qui se souviennent.'],
-    ['V','Réconciliation','retour à l\'unité','green','#97C459','rgba(151,196,89,.12)','#97C459','pilier','Le retour à l\'unité — pardon, paix avec l\'impermanence, réconciliation avec l\'ombre.'],
-    ['VI','Émerveillement','mystère','coral','#F0997B','rgba(240,153,123,.12)','#F0997B','pilier','La stupeur devant l\'existence — gratitude sans destinataire, mystère habité, beauté comme preuve.'],
-    ['VII','Transmission','don pur','purple','#AFA9EC','rgba(175,169,236,.12)','#AFA9EC','pilier','Ce qu\'on donne sans rien perdre — enseigner en étant, la chaîne infinie des lumières allumées.'],
-    ['VIII','Le Corps','chair temple','orange','#D85A30','rgba(216,90,48,.12)','#D85A30','pilier','La chair comme temple — souffle, danse sacrée, maladie initiatique, mémoire somatique.'],
-    ['IX','La Création','art sacré','pink','#D4537E','rgba(212,83,126,.12)','#D4537E','pilier','L\'art comme acte spirituel — l\'impulsion créatrice, l\'œuvre qui se fait seule, l\'art qui guérit.'],
-    ['X','Le Politique','justice','green','#97C459','rgba(151,196,89,.12)','#97C459','pilier','La justice comme réparation, le pouvoir-service, la résistance sacrée, la dignité inaliénable.'],
-    ['XI','Le Vivant','nature sujet','blue','#85B7EB','rgba(133,183,235,.12)','#85B7EB','pilier','La nature comme sujet — la Terre-mère, les animaux comme frères, la forêt comme conscience.'],
-    ['XII','L\'Enfance','sagesse','amber','#EF9F27','rgba(239,159,39,.12)','#EF9F27','pilier','La sagesse du commencement — le regard neuf, la question qui touche l\'essentiel.'],
+    ['I','L\'Origine','d\'où vient tout','purple','#C8A84B','#5D1314','#C8A84B','pilier','D\'où vient tout — Mirazaron, le frémissement originel, le souffle qui anime, le mystère de la conscience.'],
+    ['II','Reconnaissance','voir l\'autre','pink','#F0E8C8','#5D1314','#F0E8C8','pilier','Voir l\'autre vraiment — la lumière en lui qu\'il ne voit pas, la présence totale, l\'amitié du silence.'],
+    ['III','Le Passage','seuils','amber','#F0E8C8','#5D1314','#F0E8C8','pilier','Les seuils qui changent ce qu\'on est — naissance, éveil, amour, deuil, vocation, guérison.'],
+    ['IV','La Mémoire','ancêtres','blue','#F0E8C8','#5D1314','#F0E8C8','pilier','Ce que les ancêtres ont déposé en nous — le temps non-linéaire, les lieux qui se souviennent.'],
+    ['V','Réconciliation','retour à l\'unité','green','#F0E8C8','#5D1314','#F0E8C8','pilier','Le retour à l\'unité — pardon, paix avec l\'impermanence, réconciliation avec l\'ombre.'],
+    ['VI','Émerveillement','mystère','coral','#F0E8C8','#5D1314','#F0E8C8','pilier','La stupeur devant l\'existence — gratitude sans destinataire, mystère habité, beauté comme preuve.'],
+    ['VII','Transmission','don pur','purple','#C8A84B','#5D1314','#C8A84B','pilier','Ce qu\'on donne sans rien perdre — enseigner en étant, la chaîne infinie des lumières allumées.'],
+    ['VIII','Le Corps','chair temple','orange','#F0E8C8','#5D1314','#F0E8C8','pilier','La chair comme temple — souffle, danse sacrée, maladie initiatique, mémoire somatique.'],
+    ['IX','La Création','art sacré','pink','#F0E8C8','#5D1314','#F0E8C8','pilier','L\'art comme acte spirituel — l\'impulsion créatrice, l\'œuvre qui se fait seule, l\'art qui guérit.'],
+    ['X','Le Politique','justice','green','#F0E8C8','#5D1314','#F0E8C8','pilier','La justice comme réparation, le pouvoir-service, la résistance sacrée, la dignité inaliénable.'],
+    ['XI','Le Vivant','nature sujet','blue','#F0E8C8','#5D1314','#F0E8C8','pilier','La nature comme sujet — la Terre-mère, les animaux comme frères, la forêt comme conscience.'],
+    ['XII','L\'Enfance','sagesse','amber','#F0E8C8','#5D1314','#F0E8C8','pilier','La sagesse du commencement — le regard neuf, la question qui touche l\'essentiel.'],
   ];
 
   sec.innerHTML = `
@@ -817,12 +1217,15 @@ function initSchema() {
     <!-- Piliers -->
     <div class="s-label vi">12 Piliers</div>
     <div class="s-piliers">
-      ${PILIERS_SCHEMA.map(([num,name,sub,cl,tc,bg,bc,type,def]) => `
-        <div class="s-pilier" style="border-color:${bc};background:${bg};color:${tc}" onclick="showSPanel('${num} · ${name}','${type}','${def.replace(/'/g,"\\'")}')">
+      ${PILIERS_SCHEMA.map(([num,name,sub,cl,tc,bg,bc,type,def], i) => {
+      const pkey = 'pil_'+i;
+      window['_sp_'+pkey] = {name: num+' · '+name, type, def};
+      return `<div class="s-pilier" style="border-color:${bc};background:${bg};color:#F0E8C8" onclick="const d=window['_sp_${pkey}'];showSPanel(d.name,d.type,d.def)">
           <span class="sp2-num">${num}</span>
           <span class="sp2-name">${name}</span>
           <span class="sp2-sub">${sub}</span>
-        </div>`).join('')}
+        </div>`;
+    }).join('')}
     </div>
     <!-- Conn 3 -->
     <div class="s-conn" id="sconn3" style="height:36px;margin:8px 0"></div>
@@ -860,7 +1263,7 @@ function buildSConn(id, type, count) {
     [w*.2, w*.5, w*.8].forEach(cx => {
       const path = document.createElementNS(ns,'path');
       path.setAttribute('d',`M${cx} 0 Q${cx} ${h*.6} ${w/2} ${h}`);
-      path.setAttribute('stroke','#AFA9EC');
+      path.setAttribute('stroke','#C8A84B');
       path.setAttribute('stroke-width','0.7');
       path.setAttribute('stroke-dasharray','2 6');
       path.setAttribute('fill','none');
@@ -881,10 +1284,10 @@ function buildSConn(id, type, count) {
       line.setAttribute('x1',w/2);line.setAttribute('y1','0');
       line.setAttribute('x2',cx2);line.setAttribute('y2',h);
       if(type === 'mz') {
-        line.setAttribute('stroke','#7F77DD');line.setAttribute('stroke-width','0.7');
+        line.setAttribute('stroke','#C8A84B');line.setAttribute('stroke-width','0.7');
         line.setAttribute('opacity','0.4');
       } else {
-        line.setAttribute('stroke','#5DCAA5');line.setAttribute('stroke-width','0.6');
+        line.setAttribute('stroke','#E8CC7A');line.setAttribute('stroke-width','0.6');
         line.setAttribute('stroke-dasharray','4 4');line.setAttribute('opacity','0.4');
         const a = document.createElementNS(ns,'animate');
         a.setAttribute('attributeName','stroke-dashoffset');
@@ -976,7 +1379,7 @@ function initHomeBg() {
     for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){
       const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.sqrt(dx*dx+dy*dy);
       if(d<90){ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);
-        ctx.strokeStyle='#534AB7';ctx.globalAlpha=(1-d/90)*.07;ctx.lineWidth=.5;ctx.stroke()}
+        ctx.strokeStyle='#A88A35';ctx.globalAlpha=(1-d/90)*.07;ctx.lineWidth=.5;ctx.stroke()}
     }
     ctx.globalAlpha=1;
     requestAnimationFrame(draw);
@@ -1017,9 +1420,9 @@ function renderHome() {
   document.getElementById('wc').textContent = WORDS.length + ' mots';
   const hp = document.getElementById('home-pillars');
   hp.innerHTML = Object.entries(PILLARS_META).map(([id,pm]) => {
-    const tc = TAG_TC[id] || '#AFA9EC';
+    const tc = TAG_TC[id] || '#C8A84B';
     const bc = TAG_BC[id] || 'rgba(127,119,221,.3)';
-    return `<span class="hp-chip" style="color:${tc};border-color:${bc}" onclick="setP('${id}',null);goView('dictionary')">${pm.label}</span>`;
+    return `<span class="hp-chip" style="color:#F0E8C8;border-color:${bc}" onclick="showPillarDetail('${id}')">${pm.label}</span>`;
   }).join('');
 }
 
@@ -1035,7 +1438,7 @@ Réponds UNIQUEMENT en JSON sans backticks: {"velari":"traduction romanisée","s
 async function doTranslate() {
   const txt = (document.getElementById('tr-input').value || '').trim();
   if(!txt) return;
-  document.getElementById('tr-result').innerHTML = '<span style="color:var(--text4);font-style:italic;font-size:13px">Traduction en cours...</span>';
+  document.getElementById('tr-result').innerHTML = '<span style="color:#887840;font-style:italic;font-size:13px">Traduction en cours...</span>';
   document.getElementById('tr-script').textContent = '';
   document.getElementById('tr-note').style.display = 'none';
   document.getElementById('tr-variants').innerHTML = '';
@@ -1052,53 +1455,67 @@ async function doTranslate() {
     }
     const d = await res.json();
     document.getElementById('tr-result').innerHTML =
-      `<span style="font-family:var(--serif);font-size:22px;color:var(--purple-l);display:block;margin-bottom:4px">${d.velari||'—'}</span>
-       ${d.literal ? `<span style="font-size:11px;color:var(--text4);font-style:italic">${d.literal}</span>` : ''}`;
+      `<span style="font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:22px;color:#F0E8C8;display:block;margin-bottom:4px">${d.velari||'—'}</span>
+       ${d.literal ? `<span style="font-size:11px;color:#887840;font-style:italic">${d.literal}</span>` : ''}`;
     document.getElementById('tr-script').textContent = d.script || '';
     if(d.depth) {
       document.getElementById('tr-note').innerHTML =
-        `<strong style="color:var(--purple);font-size:10px;letter-spacing:.08em;text-transform:uppercase">Sens profond — </strong>${d.depth}`;
+        `<strong style="color:#C8A84B;font-size:10px;letter-spacing:.08em;text-transform:uppercase">Sens profond — </strong>${d.depth}`;
       document.getElementById('tr-note').style.display = 'block';
     }
     if(d.grammar) {
       const gn = document.createElement('div');
-      gn.style.cssText='background:var(--bg4);border:1px solid var(--border);border-radius:8px;padding:10px 14px;margin-top:10px;font-size:12px;color:var(--text4);line-height:1.7';
-      gn.innerHTML = `<strong style="color:var(--purple);font-size:10px;letter-spacing:.08em;text-transform:uppercase">Grammaire — </strong>${d.grammar}`;
+      gn.style.cssText='background:#4A1010;border:1px solid rgba(200,168,75,.2);border-radius:8px;padding:10px 14px;margin-top:10px;font-size:12px;color:#887840;line-height:1.7';
+      gn.innerHTML = `<strong style="color:#C8A84B;font-size:10px;letter-spacing:.08em;text-transform:uppercase">Grammaire — </strong>${d.grammar}`;
       document.getElementById('tr-note').after(gn);
     }
     if(d.variants && d.variants.length) {
       const vwrap = document.getElementById('tr-variants');
-      vwrap.innerHTML = '<div style="font-size:10px;color:var(--text4);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px;margin-top:16px">Variantes</div>'
+      vwrap.innerHTML = '<div style="font-size:10px;color:#887840;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px;margin-top:16px">Variantes</div>'
         + d.variants.map(v =>
-          `<div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:10px 14px;margin-bottom:7px">
-            <span style="font-size:10px;color:var(--text4);display:block;margin-bottom:3px">${v.label}</span>
-            <span style="font-family:var(--serif);font-size:16px;color:var(--purple-l)">${v.velari}</span>
+          `<div style="background:#5D1314;border:1px solid rgba(200,168,75,.2);border-radius:8px;padding:10px 14px;margin-bottom:7px">
+            <span style="font-size:10px;color:#887840;display:block;margin-bottom:3px">${v.label}</span>
+            <span style="font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:16px;color:#F0E8C8">${v.velari}</span>
           </div>`).join('');
     }
   } catch(e) {
     document.getElementById('tr-result').innerHTML =
-      `<span style="color:var(--text4);font-size:12px;font-style:italic">Erreur : ${e.message}</span>`;
+      `<span style="color:#887840;font-size:12px;font-style:italic">Erreur : ${e.message}</span>`;
   }
 }
 
 function clearTr() {
   document.getElementById('tr-input').value = '';
-  document.getElementById('tr-result').innerHTML = '<span id="tr-ph" style="color:var(--text4);font-size:14px;font-style:italic">La traduction apparaîtra ici...</span>';
+  document.getElementById('tr-result').innerHTML = '<span id="tr-ph" style="color:#887840;font-size:14px;font-style:italic">La traduction apparaîtra ici...</span>';
   document.getElementById('tr-script').textContent = '';
   document.getElementById('tr-note').style.display = 'none';
 }
 
 function buildTrChips() {
-  const examples = ['Je t\'aimais avant de te voir','La beauté est une preuve','Nous venons de la même source','Le silence me porte','Je suis une étincelle de l\'origine','Donner c\'est grandir'];
-  document.getElementById('tr-chips').innerHTML = examples.map(e =>
-    `<span class="tr-chip" onclick="document.getElementById('tr-input').value='${e}';doTranslate()">${e}</span>`
-  ).join('');
+  const examples = currentLang === 'en'
+    ? ['I loved you before we met','Beauty is proof','We come from the same source','Silence carries me','I am a spark of the origin','Giving is growing']
+    : ['Je t\'aimais avant de te voir','La beauté est une preuve','Nous venons de la même source','Le silence me porte','Je suis une étincelle de l\'origine','Donner c\'est grandir'];
+  document.getElementById('tr-chips').innerHTML = examples.map((e,i) => {
+    const key = 'chip_'+i;
+    window['_chip_'+key] = e;
+    return `<span class="tr-chip" onclick="document.getElementById('tr-input').value=window['_chip_${key}'];doTranslate()">${e}</span>`;
+  }).join('');
 }
 
 document.getElementById('tr-input').addEventListener('keydown', e => {
   if(e.key === 'Enter' && (e.ctrlKey || e.metaKey)) doTranslate();
 });
 
+
+function goBackDict() {
+  if(dictHistory.length > 0) {
+    const prev = dictHistory.pop();
+    prev();
+  } else {
+    activeWord = null;
+    showDictWelcome();
+  }
+}
 // ════════════════════════════════
 // INIT
 // ════════════════════════════════
@@ -1108,7 +1525,6 @@ renderHome();
 buildTrChips();
 initHomeBg();
 goView('home');
-
 </script>
 </body>
 </html>
