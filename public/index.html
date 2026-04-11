@@ -7,18 +7,18 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#999571;--bg2:#8A8765;--bg3:#5D1314;--bg4:#4A1010;--bg5:#3D0A0A;
+  --bg:#839585;--bg2:#829655;--bg3:#3A4A3A;--bg4:#323F32;--bg5:#2A352A;
   --border:rgba(255,255,255,.2);--border2:rgba(255,255,255,.35);--border3:rgba(255,255,255,.5);
-  --purple:#C8A84B;--purple-l:#F0E8C8;--purple-d:#A88A35;--purple-dd:#7A6020;
-  --teal:#FC5B13;--teal-l:#C8A84B;
-  --coral:#F0E8C8;--pink:#F0E8C8;--amber:#BA7517;--blue:#185FA5;--green:#3B6D11;
-  --text:#F0E8C8;--text2:#C8B878;--text3:#A89858;--text4:#8A7A55;
+  --purple:#96A698;--purple-l:#D5D7C2;--purple-d:#829655;--purple-dd:#506F49;
+  --teal:#FC5B13;--teal-l:#96A698;
+  --coral:#D5D7C2;--pink:#D5D7C2;--amber:#BA7517;--blue:#185FA5;--green:#3B6D11;
+  --text:#D5D7C2;--text2:#C4C15F;--text3:#A89858;--text4:#678D5E;
   --serif:'Playfair Display','Cormorant Garamond',Georgia,serif;
   --sans:'EB Garamond','Cormorant Garamond',Georgia,serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%;overflow:hidden}
-body{background:#999571;color:#FFFFFF;font-family:'EB Garamond','Cormorant Garamond',Georgia,serif;font-size:20px;display:flex;flex-direction:column;background-image:url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E")}
+body{background:#839585;color:#FFFFFF;font-family:'EB Garamond','Cormorant Garamond',Georgia,serif;font-size:20px;display:flex;flex-direction:column;background-image:url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E")}
 
 /* ── TOPBAR ── */
 #topbar{
@@ -27,21 +27,21 @@ body{background:#999571;color:#FFFFFF;font-family:'EB Garamond','Cormorant Garam
   backdrop-filter:blur(12px);position:relative;z-index:200;
 }
 .logo{
-  font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:20px;font-weight:400;color:#F0E8C8;
+  font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:20px;font-weight:400;color:#D5D7C2;
   margin-right:24px;display:flex;align-items:center;gap:8px;cursor:pointer;
   white-space:nowrap;
 }
-.logo-script{font-size:16px;color:#C8A84B;opacity:.7}
+.logo-script{font-size:16px;color:#96A698;opacity:.7}
 .nav-tabs{display:flex;gap:2px;flex:1;overflow-x:auto;scrollbar-width:none}
 .nav-tabs::-webkit-scrollbar{display:none}
 .tab{
   padding:7px 16px;border-radius:8px;font-size:20px;font-weight:400;
-  color:#D0D0D0;cursor:pointer;transition:all .15s;border:1px solid transparent;
+  color:#D0D6AE;cursor:pointer;transition:all .15s;border:1px solid transparent;
   background:transparent;white-space:nowrap;font-family:'EB Garamond','Cormorant Garamond',Georgia,serif;
 }
-.tab:hover{color:#E8E8E8;background:rgba(200,168,75,.06)}
-.tab.active{color:#2A2810;background:rgba(200,168,75,.3);border-color:#C8A84B;font-weight:600}
-.word-count{margin-left:auto;font-size:20px;color:#B8B8B8;white-space:nowrap;padding-left:12px}
+.tab:hover{color:#D5D7C2;background:rgba(200,168,75,.06)}
+.tab.active{color:#2A2810;background:rgba(200,168,75,.3);border-color:#96A698;font-weight:600}
+.word-count{margin-left:auto;font-size:20px;color:#B7C294;white-space:nowrap;padding-left:12px}
 
 /* ── LAYOUT ── */
 #app{display:flex;flex:1;overflow:hidden}
@@ -49,36 +49,36 @@ body{background:#999571;color:#FFFFFF;font-family:'EB Garamond','Cormorant Garam
 /* ── SIDEBAR ── */
 #sidebar{
   width:300px;flex-shrink:0;
-  background:#8A8765;border-right:1px solid rgba(200,168,75,.2);
+  background:#829655;border-right:1px solid rgba(200,168,75,.2);
   display:flex;flex-direction:column;overflow:hidden;
 }
 #sidebar.hidden{display:none}
 #search-wrap{padding:12px 16px;border-bottom:1px solid rgba(200,168,75,.2)}
 #search{
-  width:100%;background:#5D1314;border:1px solid rgba(200,168,75,.2);border-radius:8px;
+  width:100%;background:#3A4A3A;border:1px solid rgba(200,168,75,.2);border-radius:8px;
   padding:8px 12px;color:#FFFFFF;font-family:'EB Garamond','Cormorant Garamond',Georgia,serif;font-size:20px;outline:none;
   transition:border-color .2s;
 }
-#search::placeholder{color:#B8B8B8}
-#search:focus{border-color:#C4A84F}
+#search::placeholder{color:#B7C294}
+#search:focus{border-color:#96A698}
 #pillar-filters{padding:10px 12px;border-bottom:1px solid rgba(200,168,75,.2);display:flex;flex-wrap:wrap;gap:4px}
 .pf-btn{
   font-size:20px;padding:2px 8px;border-radius:20px;border:1px solid rgba(200,168,75,.35);
-  background:transparent;color:#D0D0D0;cursor:pointer;font-family:'EB Garamond','Cormorant Garamond',Georgia,serif;
+  background:transparent;color:#D0D6AE;cursor:pointer;font-family:'EB Garamond','Cormorant Garamond',Georgia,serif;
   transition:all .15s;white-space:nowrap;
 }
-.pf-btn:hover{color:#E8E8E8;border-color:#C8A84B}
-.pf-btn.on{background:rgba(200,168,75,.12);color:#F0E8C8;border-color:#C8A84B}
+.pf-btn:hover{color:#D5D7C2;border-color:#96A698}
+.pf-btn.on{background:rgba(200,168,75,.12);color:#D5D7C2;border-color:#96A698}
 #word-list{flex:1;overflow-y:auto;padding:4px 0}
 #word-list::-webkit-scrollbar{width:3px}
 #word-list::-webkit-scrollbar-thumb{background:rgba(200,168,75,.35);border-radius:2px}
 .wi{padding:9px 16px;cursor:pointer;border-left:2px solid transparent;transition:all .15s}
 .wi:hover{background:rgba(200,168,75,.05);border-left-color:rgba(200,168,75,.35)}
-.wi.active{background:rgba(200,168,75,.09);border-left-color:#C4A84F}
-.wi-word{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:20px;font-weight:500;color:#E8DCBC;line-height:1.2}
-.wi-short{font-size:20px;color:#F0E8C8;margin-top:1px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.wi.active{background:rgba(200,168,75,.09);border-left-color:#96A698}
+.wi-word{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:20px;font-weight:500;color:#D0D6AE;line-height:1.2}
+.wi-short{font-size:20px;color:#D5D7C2;margin-top:1px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .wi-tag{font-size:20px;font-weight:500;padding:2px 8px;border-radius:20px;display:inline-block;margin-top:3px}
-#sb-count{padding:8px 16px;font-size:20px;color:#F0E8C8;border-top:1px solid rgba(200,168,75,.2);flex-shrink:0}
+#sb-count{padding:8px 16px;font-size:20px;color:#D5D7C2;border-top:1px solid rgba(200,168,75,.2);flex-shrink:0}
 
 /* ── MAIN CONTENT ── */
 #main{flex:1;overflow-y:auto;position:relative;width:100%}
@@ -98,13 +98,13 @@ body{background:#999571;color:#FFFFFF;font-family:'EB Garamond','Cormorant Garam
 #view-home.active{display:flex}
 #bg-canvas{position:absolute;inset:0;pointer-events:none;opacity:.4}
 .home-content{position:relative;z-index:1;max-width:680px}
-.home-script{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:72px;font-weight:300;color:#C4A84F;opacity:.25;letter-spacing:.12em;line-height:1;margin-bottom:12px;animation:float-up 7s ease-in-out infinite}
+.home-script{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:72px;font-weight:300;color:#96A698;opacity:.25;letter-spacing:.12em;line-height:1;margin-bottom:12px;animation:float-up 7s ease-in-out infinite}
 @keyframes float-up{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
 .home-title{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:38px;font-weight:400;color:#FFFFFF;margin-bottom:6px}
-.home-sub{font-size:20px;color:#D4BC80;margin-bottom:40px;font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-weight:400;line-height:1.5}
+.home-sub{font-size:20px;color:#C4C15F;margin-bottom:40px;font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-weight:400;line-height:1.5}
 .home-stats{display:flex;gap:40px;justify-content:center;margin-bottom:40px}
-.hs-num{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:40px;font-weight:400;color:#C4A84F;display:block;line-height:1}
-.hs-lbl{font-size:20px;color:#F0E8C8;margin-top:3px}
+.hs-num{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:40px;font-weight:400;color:#96A698;display:block;line-height:1}
+.hs-lbl{font-size:20px;color:#D5D7C2;margin-top:3px}
 .home-pillars{display:flex;flex-wrap:wrap;gap:7px;justify-content:center;margin-bottom:40px}
 .hp-chip{
   font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:20px;padding:5px 14px;border-radius:20px;
@@ -113,62 +113,62 @@ body{background:#999571;color:#FFFFFF;font-family:'EB Garamond','Cormorant Garam
 .hp-chip:hover{transform:translateY(-2px);filter:brightness(1.2)}
 .home-quote{
   max-width:500px;margin:0 auto;padding:20px 28px;
-  border:1px solid rgba(200,168,75,.2);border-radius:12px;background:#5D1314;
+  border:1px solid rgba(200,168,75,.2);border-radius:12px;background:#3A4A3A;
 }
-.hq-text{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:17px;font-weight:400;color:#D4BC80;line-height:1.75}
-.hq-cite{display:block;margin-top:10px;font-size:20px;color:#F0E8C8;text-align:right}
+.hq-text{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:17px;font-weight:400;color:#C4C15F;line-height:1.75}
+.hq-cite{display:block;margin-top:10px;font-size:20px;color:#D5D7C2;text-align:right}
 
 /* ── ENTRY VIEW ── */
 #view-entry{padding:48px 56px;max-width:820px;display:none}
 #view-entry.active{display:block}
 .entry-pillar-tag{font-size:20px;font-weight:500;padding:3px 12px;border-radius:20px;display:inline-block;margin-bottom:16px;letter-spacing:.05em;text-transform:uppercase}
-.entry-word{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:52px;font-weight:400;color:#E8DCBC;line-height:1;margin-bottom:6px}
-.entry-script{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:28px;color:#C4A84F;opacity:.55;margin-bottom:10px;letter-spacing:.1em}
-.entry-short{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:20px;font-weight:400;color:#D4BC80;margin-bottom:0}
-.entry-divider{height:1px;background:linear-gradient(90deg,#A88A35 0%,transparent 70%);margin:24px 0;opacity:.25}
-.section-lbl{font-size:18px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#B8B8B8;margin-bottom:8px}
-.entry-meaning{font-size:20px;color:#E8DCBC;line-height:1.85;margin-bottom:24px}
-.entry-soul{background:#5D1314;border:1px solid rgba(200,168,75,.2);border-left:3px solid #C8A84B;border-radius:0 8px 8px 0;padding:16px 20px;margin-bottom:24px;font-size:20px;color:#E8E8E8;line-height:1.85;}
-.entry-vecu{margin-bottom:24px;font-size:20px;color:#D4BC80;line-height:1.8;}
+.entry-word{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:52px;font-weight:400;color:#D0D6AE;line-height:1;margin-bottom:6px}
+.entry-script{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:28px;color:#96A698;opacity:.55;margin-bottom:10px;letter-spacing:.1em}
+.entry-short{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:20px;font-weight:400;color:#C4C15F;margin-bottom:0}
+.entry-divider{height:1px;background:linear-gradient(90deg,#829655 0%,transparent 70%);margin:24px 0;opacity:.25}
+.section-lbl{font-size:18px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#B7C294;margin-bottom:8px}
+.entry-meaning{font-size:20px;color:#D0D6AE;line-height:1.85;margin-bottom:24px}
+.entry-soul{background:#3A4A3A;border:1px solid rgba(200,168,75,.2);border-left:3px solid #96A698;border-radius:0 8px 8px 0;padding:16px 20px;margin-bottom:24px;font-size:20px;color:#D5D7C2;line-height:1.85;}
+.entry-vecu{margin-bottom:24px;font-size:20px;color:#C4C15F;line-height:1.8;}
 .entry-parallels{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:24px}
-.ep-pill{font-size:20px;padding:3px 10px;border-radius:20px;background:rgba(200,168,75,.08);border:1px solid rgba(200,168,75,.35);color:#F0E8C8}
-.entry-example{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:19px;font-weight:400;color:#E8E8E8;margin-bottom:6px;line-height:1.6}
-.entry-example .hl{color:#F0E8C8;font-style:normal;font-weight:500}
-.entry-grammar{background:#5D1314;border:1px solid rgba(200,168,75,.2);border-radius:8px;padding:12px 16px;margin-bottom:24px;font-size:20px;color:#B8B8B8;line-height:1.7}
-.entry-grammar::before{content:'Grammaire — ';color:#C4A84F;font-weight:500;font-size:20px;letter-spacing:.08em;text-transform:uppercase}
+.ep-pill{font-size:20px;padding:3px 10px;border-radius:20px;background:rgba(200,168,75,.08);border:1px solid rgba(200,168,75,.35);color:#D5D7C2}
+.entry-example{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:19px;font-weight:400;color:#D5D7C2;margin-bottom:6px;line-height:1.6}
+.entry-example .hl{color:#D5D7C2;font-style:normal;font-weight:500}
+.entry-grammar{background:#3A4A3A;border:1px solid rgba(200,168,75,.2);border-radius:8px;padding:12px 16px;margin-bottom:24px;font-size:20px;color:#B7C294;line-height:1.7}
+.entry-grammar::before{content:'Grammaire — ';color:#96A698;font-weight:500;font-size:20px;letter-spacing:.08em;text-transform:uppercase}
 .entry-roots{display:flex;flex-wrap:wrap;gap:6px}
-.er-pill{font-size:20px;padding:3px 10px;border-radius:20px;background:rgba(200,168,75,.08);border:1px solid rgba(93,202,165,.25);color:#E8CC7A}
+.er-pill{font-size:20px;padding:3px 10px;border-radius:20px;background:rgba(200,168,75,.08);border:1px solid rgba(93,202,165,.25);color:#DFD9A6}
 
 /* ── PILLARS LIST VIEW ── */
 #view-pillars{padding:48px 48px;display:none}
 #view-pillars.active{display:block}
 .pillars-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
 .pillar-card{
-  background:#5D1314;border:1px solid rgba(200,168,75,.2);border-radius:12px;
+  background:#3A4A3A;border:1px solid rgba(200,168,75,.2);border-radius:12px;
   padding:20px;cursor:pointer;transition:all .2s;
 }
-.pillar-card:hover{border-color:#C8A84B;transform:translateY(-3px)}
-.pc-num{font-size:20px;color:#F0E8C8}
-.pc-name{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:18px;color:#E8DCBC;margin:4px 0}
-.pc-desc{font-size:20px;color:#F0E8C8;margin-bottom:10px}
-.pc-count{font-size:20px;color:#F0E8C8}
+.pillar-card:hover{border-color:#96A698;transform:translateY(-3px)}
+.pc-num{font-size:20px;color:#D5D7C2}
+.pc-name{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:18px;color:#D0D6AE;margin:4px 0}
+.pc-desc{font-size:20px;color:#D5D7C2;margin-bottom:10px}
+.pc-count{font-size:20px;color:#D5D7C2}
 
 /* Pillar detail */
 #view-pillar-detail{padding:48px 56px;display:none}
 #view-pillar-detail.active{display:block}
-.pd-back{font-size:20px;color:#F0E8C8;cursor:pointer;margin-bottom:20px;display:inline-block}
-.pd-back:hover{color:#F0E8C8}
+.pd-back{font-size:20px;color:#D5D7C2;cursor:pointer;margin-bottom:20px;display:inline-block}
+.pd-back:hover{color:#D5D7C2}
 .pd-title{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:38px;font-weight:400;color:#FFFFFF;margin-bottom:8px}
-.pd-intro{font-size:20px;color:#D4BC80;line-height:1.8;max-width:600px;margin-bottom:28px}
+.pd-intro{font-size:20px;color:#C4C15F;line-height:1.8;max-width:600px;margin-bottom:28px}
 .pd-words{display:flex;flex-direction:column;gap:9px}
 .pw-card{
-  background:#5D1314;border:1px solid rgba(200,168,75,.2);border-radius:10px;
+  background:#3A4A3A;border:1px solid rgba(200,168,75,.2);border-radius:10px;
   padding:14px 18px;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:16px;
 }
-.pw-card:hover{border-color:#C8A84B;transform:translateX(4px)}
-.pw-word{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:20px;font-weight:500;color:#E8DCBC;min-width:150px}
-.pw-script{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:20px;color:#C8A84B;opacity:.45;min-width:110px}
-.pw-short{font-size:20px;color:#F0E8C8;flex:1}
+.pw-card:hover{border-color:#96A698;transform:translateX(4px)}
+.pw-word{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:20px;font-weight:500;color:#D0D6AE;min-width:150px}
+.pw-script{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:20px;color:#96A698;opacity:.45;min-width:110px}
+.pw-short{font-size:20px;color:#D5D7C2;flex:1}
 
 /* ── SCHEMA VIEW ── */
 #view-schema{padding:32px;display:none;position:relative}
@@ -176,35 +176,35 @@ body{background:#999571;color:#FFFFFF;font-family:'EB Garamond','Cormorant Garam
 #schema-bg-canvas{position:absolute;inset:0;pointer-events:none;opacity:.3}
 .schema-inner{position:relative;z-index:1}
 .schema-title-wrap{text-align:center;margin-bottom:32px}
-.schema-title{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:30px;font-weight:400;color:#E8DCBC;margin-bottom:4px}
-.schema-sub{font-size:16px;color:#F0E8C8;}
+.schema-title{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:30px;font-weight:400;color:#D0D6AE;margin-bottom:4px}
+.schema-sub{font-size:16px;color:#D5D7C2;}
 /* schema nodes */
 .s-section{display:flex;flex-direction:column;align-items:center;gap:0}
 .s-mirazaron{
-  background:rgba(200,168,75,.06);border:1.5px solid #A88A35;border-radius:50px;
+  background:rgba(200,168,75,.06);border:1.5px solid #829655;border-radius:50px;
   padding:13px 38px;text-align:center;cursor:pointer;transition:all .25s;
   position:relative;
 }
-.s-mirazaron::before{content:'';position:absolute;inset:-8px;border-radius:60px;border:1px solid #A88A35;opacity:.15;animation:s-ring 3s ease-in-out infinite}
-.s-mirazaron::after{content:'';position:absolute;inset:-16px;border-radius:70px;border:1px solid #A88A35;opacity:.06;animation:s-ring 3s ease-in-out infinite .7s}
+.s-mirazaron::before{content:'';position:absolute;inset:-8px;border-radius:60px;border:1px solid #829655;opacity:.15;animation:s-ring 3s ease-in-out infinite}
+.s-mirazaron::after{content:'';position:absolute;inset:-16px;border-radius:70px;border:1px solid #829655;opacity:.06;animation:s-ring 3s ease-in-out infinite .7s}
 @keyframes s-ring{0%,100%{opacity:.06}50%{opacity:.18}}
-.s-mirazaron:hover{transform:scale(1.04);border-color:#F0E8C8}
-.smz-name{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:20px;font-weight:500;color:#E8DCBC;display:block}
-.smz-sub{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:20px;color:#C4A84F;}
+.s-mirazaron:hover{transform:scale(1.04);border-color:#D5D7C2}
+.smz-name{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:20px;font-weight:500;color:#D0D6AE;display:block}
+.smz-sub{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:20px;color:#96A698;}
 .s-conn{width:100%;height:44px;position:relative;flex-shrink:0}
 .s-conn svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
-.s-label{font-size:18px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;display:flex;align-items:center;gap:8px;width:100%;margin-bottom:12px;color:#F0E8C8}
+.s-label{font-size:18px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;display:flex;align-items:center;gap:8px;width:100%;margin-bottom:12px;color:#D5D7C2}
 .s-label::before,.s-label::after{content:'';flex:1;height:1px;background:currentColor;opacity:.3}
-.s-label.tl{color:#F0E8C8}
-.s-label.vi{color:#F0E8C8}
+.s-label.tl{color:#D5D7C2}
+.s-label.vi{color:#D5D7C2}
 .s-pierres{display:flex;flex-wrap:wrap;gap:7px;justify-content:center;width:100%;margin-bottom:4px}
-.s-pierre{background:#5D1314;border:1px solid rgba(200,168,75,.4);border-radius:9px;padding:8px 12px;text-align:center;cursor:pointer;transition:all .2s}
+.s-pierre{background:#3A4A3A;border:1px solid rgba(200,168,75,.4);border-radius:9px;padding:8px 12px;text-align:center;cursor:pointer;transition:all .2s}
 .s-pierre-x{8B9E6B;border-radius:7px;
   padding:7px 12px;text-align:center;cursor:pointer;transition:all .22s;
 }
-.s-pierre:hover{border-color:#E8CC7A;transform:translateY(-2px);filter:brightness(1.15)}
-.sp-name{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:20px;font-weight:500;color:#E8CC7A;display:block}
-.sp-sub{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:18px;color:#C8A84B;}
+.s-pierre:hover{border-color:#DFD9A6;transform:translateY(-2px);filter:brightness(1.15)}
+.sp-name{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:20px;font-weight:500;color:#DFD9A6;display:block}
+.sp-sub{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:18px;color:#96A698;}
 .s-piliers{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;width:100%;margin-bottom:4px}
 .s-pilier{
   border-radius:9px;padding:10px 14px;text-align:center;cursor:pointer;
@@ -213,89 +213,89 @@ body{background:#999571;color:#FFFFFF;font-family:'EB Garamond','Cormorant Garam
 .s-pilier:hover{transform:translateY(-2px);filter:brightness(1.15)}
 .sp2-num{font-size:20px;font-weight:500;opacity:.8;display:block;margin-bottom:1px;letter-spacing:.05em;position:relative}
 .sp2-name{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:20px;font-weight:500;display:block;line-height:1.2;position:relative}
-.sp2-sub{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:20px;display:block;margin-top:1px;opacity:1;color:#F0E8C8;position:relative}
+.sp2-sub{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:20px;display:block;margin-top:1px;opacity:1;color:#D5D7C2;position:relative}
 .s-velarimiron{
-  background:#5D1314;border:1.5px solid #C4A84F;border-radius:14px;
+  background:#3A4A3A;border:1.5px solid #96A698;border-radius:14px;
   padding:16px 36px;text-align:center;cursor:pointer;transition:all .3s;
   max-width:380px;width:100%;position:relative;overflow:hidden;
 }
 .s-velarimiron::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:conic-gradient(from 0deg,transparent 0%,rgba(83,74,183,.15) 15%,transparent 30%);animation:s-spin 8s linear infinite}
 @keyframes s-spin{to{transform:rotate(360deg)}}
-.s-velarimiron:hover{transform:translateY(-3px);border-color:#F0E8C8}
-.svm-name{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:22px;font-weight:400;color:#E8DCBC;display:block;position:relative}
-.svm-sub{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:20px;color:#C4A84F;position:relative}
-.s-citation{text-align:center;margin-top:24px;padding:16px 24px;border:1px solid rgba(200,168,75,.3);border-radius:10px;background:#5D1314}
-.sc-v{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:18px;color:#C4A84F;display:block;margin-bottom:4px}
-.sc-f{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:16px;color:#F0E8C8;}
+.s-velarimiron:hover{transform:translateY(-3px);border-color:#D5D7C2}
+.svm-name{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:22px;font-weight:400;color:#D0D6AE;display:block;position:relative}
+.svm-sub{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:20px;color:#96A698;position:relative}
+.s-citation{text-align:center;margin-top:24px;padding:16px 24px;border:1px solid rgba(200,168,75,.3);border-radius:10px;background:#3A4A3A}
+.sc-v{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:18px;color:#96A698;display:block;margin-bottom:4px}
+.sc-f{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:16px;color:#D5D7C2;}
 /* schema panel */
 .s-panel{
   position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(16px);
-  background:#5D1314;border:1px solid #C8A84B;border-radius:12px;
+  background:#3A4A3A;border:1px solid #96A698;border-radius:12px;
   padding:16px 22px;max-width:360px;width:90%;z-index:300;
   opacity:0;pointer-events:none;transition:all .3s;
   box-shadow:0 6px 32px rgba(83,74,183,.2);
 }
 .s-panel.show{opacity:1;transform:translateX(-50%) translateY(0);pointer-events:auto}
-.sp-close{position:absolute;top:9px;right:12px;background:none;border:none;color:#B8B8B8;cursor:pointer;font-size:20px;font-family:'EB Garamond','Cormorant Garamond',Georgia,serif}
-.sp-close:hover{color:#E8E8E8}
+.sp-close{position:absolute;top:9px;right:12px;background:none;border:none;color:#B7C294;cursor:pointer;font-size:20px;font-family:'EB Garamond','Cormorant Garamond',Georgia,serif}
+.sp-close:hover{color:#D5D7C2}
 .sp-tag{font-size:18px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border-radius:20px;display:inline-block;margin-bottom:8px}
-.sp-tag.pierre{background:#5D1314;color:#E8CC7A;border:1px solid #C8A84B}
-.sp-tag.pilier{background:#4A1010;color:#F0E8C8;border:1px solid #A88A35}
-.sp-tag.source{background:#4A1010;color:#C8A84B;border:1px solid #A88A35}
-.sp-tag.vm{background:#4A1010;color:#C8A84B;border:1px solid #C8A84B}
-.sp-name{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:20px;font-weight:500;color:#E8CC80;display:block;margin-bottom:6px}
-.sp-def{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:20px;color:#D4BC80;line-height:1.7;}
+.sp-tag.pierre{background:#3A4A3A;color:#DFD9A6;border:1px solid #96A698}
+.sp-tag.pilier{background:#323F32;color:#D5D7C2;border:1px solid #829655}
+.sp-tag.source{background:#323F32;color:#96A698;border:1px solid #829655}
+.sp-tag.vm{background:#323F32;color:#96A698;border:1px solid #96A698}
+.sp-name{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:20px;font-weight:500;color:#DFD9A6;display:block;margin-bottom:6px}
+.sp-def{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:20px;color:#C4C15F;line-height:1.7;}
 
 /* ── ABOUT VIEW ── */
 #view-about{padding:48px 56px;max-width:760px;display:none}
 #view-about.active{display:block}
 .about-h1{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:36px;font-weight:400;color:#FFFFFF;margin-bottom:4px}
-.about-sub{font-size:16px;color:#F0E8C8;margin-bottom:36px}
+.about-sub{font-size:16px;color:#D5D7C2;margin-bottom:36px}
 .about-section{margin-bottom:40px}
 .about-h2{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:26px;font-weight:400;color:#FFFFFF;margin-bottom:14px}
-.about-p{font-size:20px;color:#D4BC80;line-height:1.85;margin-bottom:14px}
-.about-q{border-left:2px solid #C4A84F;padding:14px 18px;margin:16px 0;background:#5D1314;border-radius:0 8px 8px 0}
-.about-q p{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:17px;color:#E8CC80;line-height:1.7}
-.grammaire-item{margin-bottom:16px;padding:12px 16px;background:#5D1314;border:1px solid rgba(200,168,75,.2);border-radius:8px}
-.gi-word{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:16px;font-weight:500;color:#E8DCBC;display:block;margin-bottom:4px}
-.gi-rule{font-size:20px;color:#D4BC80;}
+.about-p{font-size:20px;color:#C4C15F;line-height:1.85;margin-bottom:14px}
+.about-q{border-left:2px solid #96A698;padding:14px 18px;margin:16px 0;background:#3A4A3A;border-radius:0 8px 8px 0}
+.about-q p{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:17px;color:#DFD9A6;line-height:1.7}
+.grammaire-item{margin-bottom:16px;padding:12px 16px;background:#3A4A3A;border:1px solid rgba(200,168,75,.2);border-radius:8px}
+.gi-word{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:16px;font-weight:500;color:#D0D6AE;display:block;margin-bottom:4px}
+.gi-rule{font-size:20px;color:#C4C15F;}
 .pierres-about{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
-.pa-card{background:#5D1314;border:1px solid rgba(90,158,106,.25);border-radius:8px;padding:12px 14px;cursor:pointer;transition:all .2s}
-.pa-card:hover{border-color:#E8CC7A;transform:translateY(-2px)}
-.pa-name{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:20px;font-weight:500;color:#E8CC7A;display:block;margin-bottom:3px}
-.pa-def{font-size:20px;color:#F0E8C8;line-height:1.5}
+.pa-card{background:#3A4A3A;border:1px solid rgba(90,158,106,.25);border-radius:8px;padding:12px 14px;cursor:pointer;transition:all .2s}
+.pa-card:hover{border-color:#DFD9A6;transform:translateY(-2px)}
+.pa-name{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:20px;font-weight:500;color:#DFD9A6;display:block;margin-bottom:3px}
+.pa-def{font-size:20px;color:#D5D7C2;line-height:1.5}
 .velarimiron-about{
-  text-align:center;padding:28px;border:1px solid #A88A35;border-radius:12px;
-  background:#5D1314;margin-top:16px;cursor:pointer;transition:all .25s;
+  text-align:center;padding:28px;border:1px solid #829655;border-radius:12px;
+  background:#3A4A3A;margin-top:16px;cursor:pointer;transition:all .25s;
 }
-.velarimiron-about:hover{border-color:#F0E8C8;transform:translateY(-3px)}
-.va-word{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:36px;font-weight:400;color:#F0E8C8;display:block;margin-bottom:6px}
-.va-script{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:22px;color:#C8A84B;opacity:.5;display:block;margin-bottom:10px}
-.va-def{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:20px;color:#D4BC80}
+.velarimiron-about:hover{border-color:#D5D7C2;transform:translateY(-3px)}
+.va-word{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:36px;font-weight:400;color:#D5D7C2;display:block;margin-bottom:6px}
+.va-script{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:22px;color:#96A698;opacity:.5;display:block;margin-bottom:10px}
+.va-def{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:20px;color:#C4C15F}
 
 /* ── TRANSLATE VIEW ── */
 #view-translate{padding:48px 56px;max-width:760px;display:none}
 #view-translate.active{display:block}
 .tr-title{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:32px;font-weight:400;color:#FFFFFF;margin-bottom:6px}
-.tr-sub{font-size:20px;color:#F0E8C8;margin-bottom:28px}
+.tr-sub{font-size:20px;color:#D5D7C2;margin-bottom:28px}
 .tr-panels{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
-.tr-panel{background:#5D1314;border:1px solid rgba(200,168,75,.2);border-radius:12px;padding:16px;min-height:130px;display:flex;flex-direction:column}
-.tr-panel-lbl{font-size:20px;letter-spacing:.1em;text-transform:uppercase;color:#F0E8C8;margin-bottom:8px}
+.tr-panel{background:#3A4A3A;border:1px solid rgba(200,168,75,.2);border-radius:12px;padding:16px;min-height:130px;display:flex;flex-direction:column}
+.tr-panel-lbl{font-size:20px;letter-spacing:.1em;text-transform:uppercase;color:#D5D7C2;margin-bottom:8px}
 #tr-input{flex:1;background:transparent;border:none;outline:none;color:#FFFFFF;font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:17px;resize:none;min-height:80px;line-height:1.6}
-#tr-input::placeholder{color:#B8B8B8;}
-#tr-result{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:19px;color:#F0E8C8;line-height:1.65;flex:1}
-#tr-script{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:22px;color:#C8A84B;opacity:.5;margin-top:6px;letter-spacing:.1em}
-#tr-ph{color:#B8B8B8;font-size:20px;}
+#tr-input::placeholder{color:#B7C294;}
+#tr-result{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:19px;color:#D5D7C2;line-height:1.65;flex:1}
+#tr-script{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:22px;color:#96A698;opacity:.5;margin-top:6px;letter-spacing:.1em}
+#tr-ph{color:#B7C294;font-size:20px;}
 .tr-btns{display:flex;gap:10px;margin-bottom:14px;align-items:center}
-.btn-p{background:rgba(200,168,75,.12);border:1px solid #C8A84B;color:#F0E8C8;padding:8px 20px;border-radius:8px;cursor:pointer;font-family:'EB Garamond','Cormorant Garamond',Georgia,serif;font-size:20px;transition:all .15s}
+.btn-p{background:rgba(200,168,75,.12);border:1px solid #96A698;color:#D5D7C2;padding:8px 20px;border-radius:8px;cursor:pointer;font-family:'EB Garamond','Cormorant Garamond',Georgia,serif;font-size:20px;transition:all .15s}
 .btn-p:hover{background:rgba(200,168,75,.22)}
-.btn-s{background:transparent;border:1px solid rgba(200,168,75,.35);color:#B8B8B8;padding:8px 16px;border-radius:8px;cursor:pointer;font-family:'EB Garamond','Cormorant Garamond',Georgia,serif;font-size:20px;transition:all .15s}
-.btn-s:hover{color:#E8E8E8;border-color:#C8A84B}
-#tr-note{background:#5D1314;border:1px solid rgba(200,168,75,.2);border-left:2px solid #C8A84B;border-radius:0 8px 8px 0;padding:10px 14px;font-size:20px;color:#B8B8B8;line-height:1.7;display:none}
-.tr-ex-lbl{font-size:20px;color:#F0E8C8;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px;margin-top:20px}
+.btn-s{background:transparent;border:1px solid rgba(200,168,75,.35);color:#B7C294;padding:8px 16px;border-radius:8px;cursor:pointer;font-family:'EB Garamond','Cormorant Garamond',Georgia,serif;font-size:20px;transition:all .15s}
+.btn-s:hover{color:#D5D7C2;border-color:#96A698}
+#tr-note{background:#3A4A3A;border:1px solid rgba(200,168,75,.2);border-left:2px solid #96A698;border-radius:0 8px 8px 0;padding:10px 14px;font-size:20px;color:#B7C294;line-height:1.7;display:none}
+.tr-ex-lbl{font-size:20px;color:#D5D7C2;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px;margin-top:20px}
 .tr-chips{display:flex;flex-wrap:wrap;gap:7px}
-.tr-chip{font-size:20px;padding:6px 15px;border-radius:20px;border:1px solid rgba(240,232,200,.5);color:#F0E8C8;cursor:pointer;transition:all .15s;background:transparent;font-family:'Playfair Display','Cormorant Garamond',Georgia,serif}
-.tr-chip:hover{border-color:#C8A84B;color:#F0E8C8}
+.tr-chip{font-size:20px;padding:6px 15px;border-radius:20px;border:1px solid rgba(240,232,200,.5);color:#D5D7C2;cursor:pointer;transition:all .15s;background:transparent;font-family:'Playfair Display','Cormorant Garamond',Georgia,serif}
+.tr-chip:hover{border-color:#96A698;color:#D5D7C2}
 
 /* ── SCROLLBAR GLOBAL ── */
 ::-webkit-scrollbar{width:4px;height:4px}
@@ -316,8 +316,8 @@ body{background:#999571;color:#FFFFFF;font-family:'EB Garamond','Cormorant Garam
 }
 
 /* ── LANG SELECT ── */
-#lang-select option { background: #111E13; color: #C4A84F; }
-#lang-select:hover { border-color: #C4A84F; }
+#lang-select option { background: #111E13; color: #96A698; }
+#lang-select:hover { border-color: #96A698; }
 [data-i18n] { transition: opacity .2s; }
 .lang-switching [data-i18n] { opacity: 0; }
 </style>
@@ -330,7 +330,7 @@ body{background:#999571;color:#FFFFFF;font-family:'EB Garamond','Cormorant Garam
     <span class="logo-script">ᐯᙆᓬᗑᕒᙆ</span>
     Velari
   </div>
-  <button id="global-back" onclick="goBack()" style="display:none;align-items:center;gap:4px;background:none;border:none;cursor:pointer;font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:14px;color:#C8B878;padding:5px 12px;border-radius:8px;transition:all .15s;margin-right:8px" >← Retour</button>
+  <button id="global-back" onclick="goBack()" style="display:none;align-items:center;gap:4px;background:none;border:none;cursor:pointer;font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:14px;color:#C4C15F;padding:5px 12px;border-radius:8px;transition:all .15s;margin-right:8px" >← Retour</button>
   <div class="nav-tabs" id="nav-tabs">
     <button class="tab active" onclick="goView('home')" data-i18n="nav.home">Accueil</button>
     <button class="tab" onclick="goView('dictionary')" data-i18n="nav.dict">Dictionnaire</button>
@@ -341,7 +341,7 @@ body{background:#999571;color:#FFFFFF;font-family:'EB Garamond','Cormorant Garam
   </div>
   <div class="word-count" id="wc"></div>
   <div style="margin-left:12px;flex-shrink:0">
-    <select id="lang-select" onchange="setLang(this.value)" style="background:rgba(180,150,80,.1);border:1px solid rgba(180,150,80,.3);border-radius:8px;color:#C4A84F;font-family:var(--sans);font-size:13px;padding:5px 10px;cursor:pointer;outline:none">
+    <select id="lang-select" onchange="setLang(this.value)" style="background:rgba(180,150,80,.1);border:1px solid rgba(180,150,80,.3);border-radius:8px;color:#96A698;font-family:var(--sans);font-size:13px;padding:5px 10px;cursor:pointer;outline:none">
       <option value="fr">🌿 FR</option>
       <option value="en">🌿 EN</option>
     </select>
@@ -390,8 +390,8 @@ body{background:#999571;color:#FFFFFF;font-family:'EB Garamond','Cormorant Garam
     <!-- PILLARS LIST -->
     <div class="view" id="view-pillars">
       <div style="padding:28px 32px">
-        <div style="font-family:var(--serif);font-size:28px;font-weight:400;color:#D4BC80;margin-bottom:4px" data-i18n="pillars.title">Les 12 Piliers</div>
-        <div style="font-size:14px;color:#A89A6A;font-style:italic;margin-bottom:16px" data-i18n="pillars.sub">Les grandes dimensions de l'expérience humaine</div>
+        <div style="font-family:var(--serif);font-size:28px;font-weight:400;color:#C4C15F;margin-bottom:4px" data-i18n="pillars.title">Les 12 Piliers</div>
+        <div style="font-size:14px;color:#8DA193;font-style:italic;margin-bottom:16px" data-i18n="pillars.sub">Les grandes dimensions de l'expérience humaine</div>
         <div class="pillars-grid" id="pillars-grid"></div>
       </div>
     </div>
@@ -848,7 +848,7 @@ function renderList() {
     return `<div class="wi ${activeWord === w.w ? 'active' : ''}" onclick="selectWord('${w.w.replace(/'/g,"\\'")}')">
       <div class="wi-word">${w.w}</div>
       <div class="wi-short">${w.sh}</div>
-      <span class="wi-tag" style="background:${TAG_BG[w.p]||'rgba(127,119,221,.1)'};color:${TAG_TC[w.p]||'#C8A84B'};border:1px solid ${TAG_BC[w.p]||'rgba(127,119,221,.3)'}">${pm.label.split('·').pop().trim()}</span>
+      <span class="wi-tag" style="background:${TAG_BG[w.p]||'rgba(127,119,221,.1)'};color:${TAG_TC[w.p]||'#96A698'};border:1px solid ${TAG_BC[w.p]||'rgba(127,119,221,.3)'}">${pm.label.split('·').pop().trim()}</span>
     </div>`;
   }).join('');
 }
@@ -902,12 +902,12 @@ function renderEntry(word) {
   }
   const pm = PILLARS_META[word.p] || {label:word.p};
   const bg = TAG_BG[word.p] || 'rgba(127,119,221,.1)';
-  const tc = TAG_TC[word.p] || '#C8A84B';
+  const tc = TAG_TC[word.p] || '#96A698';
   const bc = TAG_BC[word.p] || 'rgba(127,119,221,.3)';
   const backLabel = currentLang === 'en' ? '← Back' : '← Retour';
   document.getElementById('view-entry').innerHTML = `
-    <span onclick="goBackDict()" style="display:inline-block;font-size:14px;color:#A89A6A;cursor:pointer;margin-bottom:20px;font-family:'EB Garamond','Cormorant Garamond',Georgia,serif;transition:color .15s" onmouseover="this.style.color='#C4A84F'" onmouseout="this.style.color='#A89A6A'">${backLabel}</span>
-    <div class="entry-pillar-tag" style="background:${bg};color:#F0E8C8;border:1px solid ${bc}">${pm.label}</div>
+    <span onclick="goBackDict()" style="display:inline-block;font-size:14px;color:#8DA193;cursor:pointer;margin-bottom:20px;font-family:'EB Garamond','Cormorant Garamond',Georgia,serif;transition:color .15s" onmouseover="this.style.color='#96A698'" onmouseout="this.style.color='#8DA193'">${backLabel}</span>
+    <div class="entry-pillar-tag" style="background:${bg};color:#D5D7C2;border:1px solid ${bc}">${pm.label}</div>
     <div class="entry-word">${word.w}</div>
     <div class="entry-script">${word.s}</div>
     <div class="entry-short">${word.sh}</div>
@@ -952,10 +952,10 @@ function showDictWelcome() {
     window["_th_"+key] = th.words;
     const preview = th.words.slice(0,2).map(ww => {
       const w = WORDS.find(x => x.w === ww);
-      return w ? `<span style="font-size:13px;color:#C8B878;display:block">${w.w}</span>` : "";
+      return w ? `<span style="font-size:13px;color:#C4C15F;display:block">${w.w}</span>` : "";
     }).join("");
-    return `<div onclick="dictSearchTheme(window['_th_${key}'])" style="background:#5D1314;border:1px solid rgba(255,255,255,.25);border-radius:10px;padding:14px;cursor:pointer;flex:1;min-width:130px;max-width:190px;transition:all .2s" onmouseover="this.style.borderColor='#C8A84B'" onmouseout="this.style.borderColor='rgba(255,255,255,.25)'">
-      <div style="font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:16px;color:#F0E8C8;margin-bottom:6px">${label}</div>
+    return `<div onclick="dictSearchTheme(window['_th_${key}'])" style="background:#3A4A3A;border:1px solid rgba(255,255,255,.25);border-radius:10px;padding:14px;cursor:pointer;flex:1;min-width:130px;max-width:190px;transition:all .2s" onmouseover="this.style.borderColor='#96A698'" onmouseout="this.style.borderColor='rgba(255,255,255,.25)'">
+      <div style="font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:16px;color:#D5D7C2;margin-bottom:6px">${label}</div>
       ${preview}
     </div>`;
   }).join("");
@@ -964,9 +964,9 @@ function showDictWelcome() {
     .filter(([id]) => id !== "fondation" && id !== "complet")
     .map(([id,pm]) => {
       const n = WORDS.filter(w => w.p === id).length;
-      return `<div onclick="dictShowPillar('${id}')" style="background:#5D1314;border:1px solid rgba(255,255,255,.25);border-radius:8px;padding:10px 14px;cursor:pointer;flex:1;min-width:130px;max-width:220px;transition:all .2s" onmouseover="this.style.borderColor='#C8A84B'" onmouseout="this.style.borderColor='rgba(255,255,255,.25)'">
-        <div style="font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:14px;color:#F0E8C8;margin-bottom:2px">${pm.label}</div>
-        <div style="font-size:12px;color:#C8B878">${n} ${wl}</div>
+      return `<div onclick="dictShowPillar('${id}')" style="background:#3A4A3A;border:1px solid rgba(255,255,255,.25);border-radius:8px;padding:10px 14px;cursor:pointer;flex:1;min-width:130px;max-width:220px;transition:all .2s" onmouseover="this.style.borderColor='#96A698'" onmouseout="this.style.borderColor='rgba(255,255,255,.25)'">
+        <div style="font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:14px;color:#D5D7C2;margin-bottom:2px">${pm.label}</div>
+        <div style="font-size:12px;color:#C4C15F">${n} ${wl}</div>
       </div>`;
     }).join("");
 
@@ -974,18 +974,18 @@ function showDictWelcome() {
     <div style="padding:24px 32px">
       <div style="margin-bottom:22px">
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
-          <span style="font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:16px;color:#C8A84B;font-weight:500">I —</span>
+          <span style="font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:16px;color:#96A698;font-weight:500">I —</span>
           <span style="font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:16px;color:#FFFFFF">${d1}</span>
         </div>
         <div style="display:flex;gap:10px">
-          <input id="dict-search-input" type="text" placeholder="${ph}" style="flex:1;background:#5D1314;border:1px solid rgba(255,255,255,.3);border-radius:10px;padding:10px 16px;color:#FFFFFF;font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:16px;outline:none" onkeydown="if(event.key==='Enter')dictFreeSearch(this.value)" onfocus="this.style.borderColor='#C8A84B'" onblur="this.style.borderColor='rgba(255,255,255,.3)'">
-          <button onclick="dictFreeSearch(document.getElementById('dict-search-input').value)" style="background:rgba(200,168,75,.15);border:1px solid #C8A84B;color:#C8A84B;padding:10px 20px;border-radius:10px;cursor:pointer;font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:15px" onmouseover="this.style.background='rgba(200,168,75,.3)'" onmouseout="this.style.background='rgba(200,168,75,.15)'">${btn}</button>
+          <input id="dict-search-input" type="text" placeholder="${ph}" style="flex:1;background:#3A4A3A;border:1px solid rgba(255,255,255,.3);border-radius:10px;padding:10px 16px;color:#FFFFFF;font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:16px;outline:none" onkeydown="if(event.key==='Enter')dictFreeSearch(this.value)" onfocus="this.style.borderColor='#96A698'" onblur="this.style.borderColor='rgba(255,255,255,.3)'">
+          <button onclick="dictFreeSearch(document.getElementById('dict-search-input').value)" style="background:rgba(200,168,75,.15);border:1px solid #96A698;color:#96A698;padding:10px 20px;border-radius:10px;cursor:pointer;font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:15px" onmouseover="this.style.background='rgba(200,168,75,.3)'" onmouseout="this.style.background='rgba(200,168,75,.15)'">${btn}</button>
         </div>
       </div>
       <div style="height:1px;background:linear-gradient(90deg,rgba(200,168,75,.3),transparent);margin-bottom:22px"></div>
       <div style="margin-bottom:22px">
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
-          <span style="font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:16px;color:#C8A84B;font-weight:500">II —</span>
+          <span style="font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:16px;color:#96A698;font-weight:500">II —</span>
           <span style="font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:16px;color:#FFFFFF">${d2}</span>
         </div>
         <div style="display:flex;flex-wrap:wrap;gap:10px">${themeCards}</div>
@@ -993,7 +993,7 @@ function showDictWelcome() {
       <div style="height:1px;background:linear-gradient(90deg,rgba(200,168,75,.3),transparent);margin-bottom:22px"></div>
       <div>
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
-          <span style="font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:16px;color:#C8A84B;font-weight:500">III —</span>
+          <span style="font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:16px;color:#96A698;font-weight:500">III —</span>
           <span style="font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:16px;color:#FFFFFF">${d3}</span>
         </div>
         <div style="display:flex;flex-wrap:wrap;gap:8px">${pilierCards}</div>
@@ -1009,8 +1009,8 @@ function dictSearchTheme(words) {
   if(!results.length) return;
   if(results.length === 1) { selectWord(results[0].w); return; }
   const back = isEn ? "← Back" : "← Retour";
-  const cards = results.map(w => `<div onclick="selectWord('${w.w.replace(/'/g,"\'")}');goView('dictionary')" style="background:#5D1314;border:1px solid rgba(255,255,255,.25);border-radius:10px;padding:16px;cursor:pointer;transition:all .2s" onmouseover="this.style.borderColor='#C8A84B'" onmouseout="this.style.borderColor='rgba(255,255,255,.25)'"><div style="font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:18px;color:#F0E8C8;margin-bottom:4px">${w.w}</div><div style="font-size:13px;color:#C8B878">${w.sh}</div></div>`).join("");
-  document.getElementById("view-entry").innerHTML = `<div style="padding:24px 32px"><span onclick="dictBack()" style="font-size:14px;color:#C8B878;cursor:pointer;display:inline-block;margin-bottom:16px" onmouseover="this.style.color='#C8A84B'" onmouseout="this.style.color='#D0D0D0'">${back}</span><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">${cards}</div></div>`;
+  const cards = results.map(w => `<div onclick="selectWord('${w.w.replace(/'/g,"\'")}');goView('dictionary')" style="background:#3A4A3A;border:1px solid rgba(255,255,255,.25);border-radius:10px;padding:16px;cursor:pointer;transition:all .2s" onmouseover="this.style.borderColor='#96A698'" onmouseout="this.style.borderColor='rgba(255,255,255,.25)'"><div style="font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:18px;color:#D5D7C2;margin-bottom:4px">${w.w}</div><div style="font-size:13px;color:#C4C15F">${w.sh}</div></div>`).join("");
+  document.getElementById("view-entry").innerHTML = `<div style="padding:24px 32px"><span onclick="dictBack()" style="font-size:14px;color:#C4C15F;cursor:pointer;display:inline-block;margin-bottom:16px" onmouseover="this.style.color='#96A698'" onmouseout="this.style.color='#D0D6AE'">${back}</span><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">${cards}</div></div>`;
 }
 
 function dictShowPillar(id) {
@@ -1019,8 +1019,8 @@ function dictShowPillar(id) {
   const isEn = currentLang === "en";
   const back = isEn ? "← Back" : "← Retour";
   const wl = isEn ? "words" : "mots";
-  const cards = words.map(w => `<div onclick="selectWord('${w.w.replace(/'/g,"\'")}');goView('dictionary')" style="background:#5D1314;border:1px solid rgba(255,255,255,.25);border-radius:10px;padding:16px;cursor:pointer;transition:all .2s" onmouseover="this.style.borderColor='#C8A84B'" onmouseout="this.style.borderColor='rgba(255,255,255,.25)'"><div style="font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:18px;color:#F0E8C8;margin-bottom:4px">${w.w}</div><div style="font-size:13px;color:#C8B878">${w.sh}</div></div>`).join("");
-  document.getElementById("view-entry").innerHTML = `<div style="padding:24px 32px"><span onclick="dictBack()" style="font-size:14px;color:#C8B878;cursor:pointer;display:inline-block;margin-bottom:16px" onmouseover="this.style.color='#C8A84B'" onmouseout="this.style.color='#D0D0D0'">${back}</span><div style="font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:22px;color:#FFFFFF;margin-bottom:16px">${pm.label}</div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">${cards}</div></div>`;
+  const cards = words.map(w => `<div onclick="selectWord('${w.w.replace(/'/g,"\'")}');goView('dictionary')" style="background:#3A4A3A;border:1px solid rgba(255,255,255,.25);border-radius:10px;padding:16px;cursor:pointer;transition:all .2s" onmouseover="this.style.borderColor='#96A698'" onmouseout="this.style.borderColor='rgba(255,255,255,.25)'"><div style="font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:18px;color:#D5D7C2;margin-bottom:4px">${w.w}</div><div style="font-size:13px;color:#C4C15F">${w.sh}</div></div>`).join("");
+  document.getElementById("view-entry").innerHTML = `<div style="padding:24px 32px"><span onclick="dictBack()" style="font-size:14px;color:#C4C15F;cursor:pointer;display:inline-block;margin-bottom:16px" onmouseover="this.style.color='#96A698'" onmouseout="this.style.color='#D0D6AE'">${back}</span><div style="font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:22px;color:#FFFFFF;margin-bottom:16px">${pm.label}</div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">${cards}</div></div>`;
 }
 
 function dictFreeSearch(q) {
@@ -1032,8 +1032,8 @@ function dictFreeSearch(q) {
   if(results.length === 1) { selectWord(results[0].w); return; }
   const noRes = isEn ? "No results." : "Aucun résultat.";
   const resLbl = isEn ? "results" : "résultats";
-  const cards = results.map(w => `<div onclick="selectWord('${w.w.replace(/'/g,"\'")}');goView('dictionary')" style="background:#5D1314;border:1px solid rgba(255,255,255,.25);border-radius:10px;padding:16px;cursor:pointer;transition:all .2s" onmouseover="this.style.borderColor='#C8A84B'" onmouseout="this.style.borderColor='rgba(255,255,255,.25)'"><div style="font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:18px;color:#F0E8C8;margin-bottom:4px">${w.w}</div><div style="font-size:13px;color:#C8B878">${w.sh}</div></div>`).join("");
-  document.getElementById("view-entry").innerHTML = `<div style="padding:24px 32px"><span onclick="dictBack()" style="font-size:14px;color:#C8B878;cursor:pointer;display:inline-block;margin-bottom:16px" onmouseover="this.style.color='#C8A84B'" onmouseout="this.style.color='#D0D0D0'">${back}</span>${results.length ? `<div style="font-size:14px;color:#C8B878;margin-bottom:16px">"${q}" — ${results.length} ${resLbl}</div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">${cards}</div>` : `<div style="font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:18px;color:#C8B878">${noRes}</div>`}</div>`;
+  const cards = results.map(w => `<div onclick="selectWord('${w.w.replace(/'/g,"\'")}');goView('dictionary')" style="background:#3A4A3A;border:1px solid rgba(255,255,255,.25);border-radius:10px;padding:16px;cursor:pointer;transition:all .2s" onmouseover="this.style.borderColor='#96A698'" onmouseout="this.style.borderColor='rgba(255,255,255,.25)'"><div style="font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:18px;color:#D5D7C2;margin-bottom:4px">${w.w}</div><div style="font-size:13px;color:#C4C15F">${w.sh}</div></div>`).join("");
+  document.getElementById("view-entry").innerHTML = `<div style="padding:24px 32px"><span onclick="dictBack()" style="font-size:14px;color:#C4C15F;cursor:pointer;display:inline-block;margin-bottom:16px" onmouseover="this.style.color='#96A698'" onmouseout="this.style.color='#D0D6AE'">${back}</span>${results.length ? `<div style="font-size:14px;color:#C4C15F;margin-bottom:16px">"${q}" — ${results.length} ${resLbl}</div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">${cards}</div>` : `<div style="font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:18px;color:#C4C15F">${noRes}</div>`}</div>`;
 }
 
 function searchTheme(words) {
@@ -1043,16 +1043,16 @@ function searchTheme(words) {
   dictHistory.push(() => showDictWelcome());
   const isEn = currentLang === 'en';
   const cards = results.map(w => {
-    const tc = TAG_TC[w.p] || '#D4BC80';
-    return `<div onclick="selectWord('${w.w.replace(/'/g,"\'")}')" style="background:#5D1314;border:1px solid rgba(200,168,75,.2);border-radius:10px;padding:18px;cursor:pointer;transition:all .25s" onmouseover="this.style.borderColor='#C4A84F';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(200,168,75,.2)';this.style.transform='none'">
-      <div style="font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:18px;font-weight:500;color:#F0E8C8;margin-bottom:5px">${w.w}</div>
-      <div style="font-size:13px;color:#A89A6A;font-style:italic">${w.sh}</div>
+    const tc = TAG_TC[w.p] || '#C4C15F';
+    return `<div onclick="selectWord('${w.w.replace(/'/g,"\'")}')" style="background:#3A4A3A;border:1px solid rgba(200,168,75,.2);border-radius:10px;padding:18px;cursor:pointer;transition:all .25s" onmouseover="this.style.borderColor='#96A698';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(200,168,75,.2)';this.style.transform='none'">
+      <div style="font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:18px;font-weight:500;color:#D5D7C2;margin-bottom:5px">${w.w}</div>
+      <div style="font-size:13px;color:#8DA193;font-style:italic">${w.sh}</div>
     </div>`;
   }).join('');
   const back = isEn ? "← Back" : "← Retour";
   document.getElementById('view-entry').innerHTML = `
     <div style="padding:28px 32px">
-      <span onclick="goBackDict()" style="font-size:14px;color:#A89A6A;cursor:pointer;display:inline-block;margin-bottom:20px" onmouseover="this.style.color='#C4A84F'" onmouseout="this.style.color='#A89A6A'">${back}</span>
+      <span onclick="goBackDict()" style="font-size:14px;color:#8DA193;cursor:pointer;display:inline-block;margin-bottom:20px" onmouseover="this.style.color='#96A698'" onmouseout="this.style.color='#8DA193'">${back}</span>
       <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">${cards}</div>
     </div>`;
 }
@@ -1063,18 +1063,18 @@ function showPillarDictResults(id) {
   const words = WORDS.filter(w => w.p === id);
   const isEn = currentLang === 'en';
   const cards = words.map(w => {
-    const tc = TAG_TC[w.p] || '#D4BC80';
-    return `<div onclick="selectWord('${w.w.replace(/'/g,"\'")}')" style="background:#5D1314;border:1px solid rgba(200,168,75,.2);border-radius:10px;padding:18px;cursor:pointer;transition:all .25s" onmouseover="this.style.borderColor='#C4A84F';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(200,168,75,.2)';this.style.transform='none'">
-      <div style="font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:18px;font-weight:500;color:#F0E8C8;margin-bottom:5px">${w.w}</div>
-      <div style="font-size:13px;color:#A89A6A;font-style:italic">${w.sh}</div>
+    const tc = TAG_TC[w.p] || '#C4C15F';
+    return `<div onclick="selectWord('${w.w.replace(/'/g,"\'")}')" style="background:#3A4A3A;border:1px solid rgba(200,168,75,.2);border-radius:10px;padding:18px;cursor:pointer;transition:all .25s" onmouseover="this.style.borderColor='#96A698';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(200,168,75,.2)';this.style.transform='none'">
+      <div style="font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:18px;font-weight:500;color:#D5D7C2;margin-bottom:5px">${w.w}</div>
+      <div style="font-size:13px;color:#8DA193;font-style:italic">${w.sh}</div>
     </div>`;
   }).join('');
   const back = isEn ? "← Back" : "← Retour";
   document.getElementById('view-entry').innerHTML = `
     <div style="padding:28px 32px">
-      <span onclick="goBackDict()" style="font-size:14px;color:#A89A6A;cursor:pointer;display:inline-block;margin-bottom:16px" onmouseover="this.style.color='#C4A84F'" onmouseout="this.style.color='#A89A6A'">${back}</span>
-      <div style="font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:26px;font-weight:400;color:#D4BC80;margin-bottom:6px">${pm.label}</div>
-      <div style="font-size:14px;color:#7A6A48;font-style:italic;margin-bottom:20px;font-family:'Playfair Display','Cormorant Garamond',Georgia,serif">${pm.intro.replace(/'/g,"\u2019")}</div>
+      <span onclick="goBackDict()" style="font-size:14px;color:#8DA193;cursor:pointer;display:inline-block;margin-bottom:16px" onmouseover="this.style.color='#96A698'" onmouseout="this.style.color='#8DA193'">${back}</span>
+      <div style="font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:26px;font-weight:400;color:#C4C15F;margin-bottom:6px">${pm.label}</div>
+      <div style="font-size:14px;color:#678D5E;font-style:italic;margin-bottom:20px;font-family:'Playfair Display','Cormorant Garamond',Georgia,serif">${pm.intro.replace(/'/g,"\u2019")}</div>
       <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">${cards}</div>
     </div>`;
 }
@@ -1094,23 +1094,23 @@ function doFreeSearch(q) {
   if(results.length === 0) {
     document.getElementById('view-entry').innerHTML = `
       <div style="padding:28px 32px">
-        <span onclick="goBackDict()" style="font-size:14px;color:#A89A6A;cursor:pointer;display:inline-block;margin-bottom:20px">${back}</span>
-        <div style="font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:20px;color:#7A6A48;font-style:italic">${noResults}</div>
+        <span onclick="goBackDict()" style="font-size:14px;color:#8DA193;cursor:pointer;display:inline-block;margin-bottom:20px">${back}</span>
+        <div style="font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:20px;color:#678D5E;font-style:italic">${noResults}</div>
       </div>`;
     return;
   }
   if(results.length === 1) { selectWord(results[0].w); return; }
   const cards = results.map(w => {
-    const tc = TAG_TC[w.p] || '#D4BC80';
-    return `<div onclick="selectWord('${w.w.replace(/'/g,"\'")}')" style="background:#5D1314;border:1px solid rgba(200,168,75,.2);border-radius:10px;padding:18px;cursor:pointer;transition:all .25s" onmouseover="this.style.borderColor='#C4A84F';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(200,168,75,.2)';this.style.transform='none'">
-      <div style="font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:18px;font-weight:500;color:#F0E8C8;margin-bottom:5px">${w.w}</div>
-      <div style="font-size:13px;color:#A89A6A;font-style:italic">${w.sh}</div>
+    const tc = TAG_TC[w.p] || '#C4C15F';
+    return `<div onclick="selectWord('${w.w.replace(/'/g,"\'")}')" style="background:#3A4A3A;border:1px solid rgba(200,168,75,.2);border-radius:10px;padding:18px;cursor:pointer;transition:all .25s" onmouseover="this.style.borderColor='#96A698';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(200,168,75,.2)';this.style.transform='none'">
+      <div style="font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:18px;font-weight:500;color:#D5D7C2;margin-bottom:5px">${w.w}</div>
+      <div style="font-size:13px;color:#8DA193;font-style:italic">${w.sh}</div>
     </div>`;
   }).join('');
   document.getElementById('view-entry').innerHTML = `
     <div style="padding:28px 32px">
-      <span onclick="goBackDict()" style="font-size:14px;color:#A89A6A;cursor:pointer;display:inline-block;margin-bottom:16px">${back}</span>
-      <div style="font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:18px;color:#7A6A48;margin-bottom:20px">"${q}" — ${results.length} ${isEn ? "results" : "résultats"}</div>
+      <span onclick="goBackDict()" style="font-size:14px;color:#8DA193;cursor:pointer;display:inline-block;margin-bottom:16px">${back}</span>
+      <div style="font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:18px;color:#678D5E;margin-bottom:20px">"${q}" — ${results.length} ${isEn ? "results" : "résultats"}</div>
       <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">${cards}</div>
     </div>`;
 }
@@ -1141,7 +1141,7 @@ function showPillarDetail(id) {
     wordsHtml = `<div class="pillars-grid" style="margin-top:20px">${words.map(w => `
       <div class="pillar-card" onclick="selectWord('${w.w.replace(/'/g,"\'")}');goView('dictionary')">
         <div class="pc-name">${w.w}</div>
-        <div style="font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:14px;color:#C8B878;margin:4px 0">${w.s}</div>
+        <div style="font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:14px;color:#C4C15F;margin:4px 0">${w.s}</div>
         <div class="pc-desc">${w.sh}</div>
       </div>`).join('')}
     </div>`;
@@ -1181,18 +1181,18 @@ function initSchema() {
   ];
 
   const PILIERS_SCHEMA = [
-    ['I','L\'Origine','d\'où vient tout','purple','#C8A84B','#5D1314','#C8A84B','pilier','D\'où vient tout — Mirazaron, le frémissement originel, le souffle qui anime, le mystère de la conscience.'],
-    ['II','Reconnaissance','voir l\'autre','pink','#F0E8C8','#5D1314','#F0E8C8','pilier','Voir l\'autre vraiment — la lumière en lui qu\'il ne voit pas, la présence totale, l\'amitié du silence.'],
-    ['III','Le Passage','seuils','amber','#F0E8C8','#5D1314','#F0E8C8','pilier','Les seuils qui changent ce qu\'on est — naissance, éveil, amour, deuil, vocation, guérison.'],
-    ['IV','La Mémoire','ancêtres','blue','#F0E8C8','#5D1314','#F0E8C8','pilier','Ce que les ancêtres ont déposé en nous — le temps non-linéaire, les lieux qui se souviennent.'],
-    ['V','Réconciliation','retour à l\'unité','green','#F0E8C8','#5D1314','#F0E8C8','pilier','Le retour à l\'unité — pardon, paix avec l\'impermanence, réconciliation avec l\'ombre.'],
-    ['VI','Émerveillement','mystère','coral','#F0E8C8','#5D1314','#F0E8C8','pilier','La stupeur devant l\'existence — gratitude sans destinataire, mystère habité, beauté comme preuve.'],
-    ['VII','Transmission','don pur','purple','#C8A84B','#5D1314','#C8A84B','pilier','Ce qu\'on donne sans rien perdre — enseigner en étant, la chaîne infinie des lumières allumées.'],
-    ['VIII','Le Corps','chair temple','orange','#F0E8C8','#5D1314','#F0E8C8','pilier','La chair comme temple — souffle, danse sacrée, maladie initiatique, mémoire somatique.'],
-    ['IX','La Création','art sacré','pink','#F0E8C8','#5D1314','#F0E8C8','pilier','L\'art comme acte spirituel — l\'impulsion créatrice, l\'œuvre qui se fait seule, l\'art qui guérit.'],
-    ['X','Le Politique','justice','green','#F0E8C8','#5D1314','#F0E8C8','pilier','La justice comme réparation, le pouvoir-service, la résistance sacrée, la dignité inaliénable.'],
-    ['XI','Le Vivant','nature sujet','blue','#F0E8C8','#5D1314','#F0E8C8','pilier','La nature comme sujet — la Terre-mère, les animaux comme frères, la forêt comme conscience.'],
-    ['XII','L\'Enfance','sagesse','amber','#F0E8C8','#5D1314','#F0E8C8','pilier','La sagesse du commencement — le regard neuf, la question qui touche l\'essentiel.'],
+    ['I','L\'Origine','d\'où vient tout','purple','#96A698','#3A4A3A','#96A698','pilier','D\'où vient tout — Mirazaron, le frémissement originel, le souffle qui anime, le mystère de la conscience.'],
+    ['II','Reconnaissance','voir l\'autre','pink','#D5D7C2','#3A4A3A','#D5D7C2','pilier','Voir l\'autre vraiment — la lumière en lui qu\'il ne voit pas, la présence totale, l\'amitié du silence.'],
+    ['III','Le Passage','seuils','amber','#D5D7C2','#3A4A3A','#D5D7C2','pilier','Les seuils qui changent ce qu\'on est — naissance, éveil, amour, deuil, vocation, guérison.'],
+    ['IV','La Mémoire','ancêtres','blue','#D5D7C2','#3A4A3A','#D5D7C2','pilier','Ce que les ancêtres ont déposé en nous — le temps non-linéaire, les lieux qui se souviennent.'],
+    ['V','Réconciliation','retour à l\'unité','green','#D5D7C2','#3A4A3A','#D5D7C2','pilier','Le retour à l\'unité — pardon, paix avec l\'impermanence, réconciliation avec l\'ombre.'],
+    ['VI','Émerveillement','mystère','coral','#D5D7C2','#3A4A3A','#D5D7C2','pilier','La stupeur devant l\'existence — gratitude sans destinataire, mystère habité, beauté comme preuve.'],
+    ['VII','Transmission','don pur','purple','#96A698','#3A4A3A','#96A698','pilier','Ce qu\'on donne sans rien perdre — enseigner en étant, la chaîne infinie des lumières allumées.'],
+    ['VIII','Le Corps','chair temple','orange','#D5D7C2','#3A4A3A','#D5D7C2','pilier','La chair comme temple — souffle, danse sacrée, maladie initiatique, mémoire somatique.'],
+    ['IX','La Création','art sacré','pink','#D5D7C2','#3A4A3A','#D5D7C2','pilier','L\'art comme acte spirituel — l\'impulsion créatrice, l\'œuvre qui se fait seule, l\'art qui guérit.'],
+    ['X','Le Politique','justice','green','#D5D7C2','#3A4A3A','#D5D7C2','pilier','La justice comme réparation, le pouvoir-service, la résistance sacrée, la dignité inaliénable.'],
+    ['XI','Le Vivant','nature sujet','blue','#D5D7C2','#3A4A3A','#D5D7C2','pilier','La nature comme sujet — la Terre-mère, les animaux comme frères, la forêt comme conscience.'],
+    ['XII','L\'Enfance','sagesse','amber','#D5D7C2','#3A4A3A','#D5D7C2','pilier','La sagesse du commencement — le regard neuf, la question qui touche l\'essentiel.'],
   ];
 
   sec.innerHTML = `
@@ -1220,7 +1220,7 @@ function initSchema() {
       ${PILIERS_SCHEMA.map(([num,name,sub,cl,tc,bg,bc,type,def], i) => {
       const pkey = 'pil_'+i;
       window['_sp_'+pkey] = {name: num+' · '+name, type, def};
-      return `<div class="s-pilier" style="border-color:${bc};background:${bg};color:#F0E8C8" onclick="const d=window['_sp_${pkey}'];showSPanel(d.name,d.type,d.def)">
+      return `<div class="s-pilier" style="border-color:${bc};background:${bg};color:#D5D7C2" onclick="const d=window['_sp_${pkey}'];showSPanel(d.name,d.type,d.def)">
           <span class="sp2-num">${num}</span>
           <span class="sp2-name">${name}</span>
           <span class="sp2-sub">${sub}</span>
@@ -1263,7 +1263,7 @@ function buildSConn(id, type, count) {
     [w*.2, w*.5, w*.8].forEach(cx => {
       const path = document.createElementNS(ns,'path');
       path.setAttribute('d',`M${cx} 0 Q${cx} ${h*.6} ${w/2} ${h}`);
-      path.setAttribute('stroke','#C8A84B');
+      path.setAttribute('stroke','#96A698');
       path.setAttribute('stroke-width','0.7');
       path.setAttribute('stroke-dasharray','2 6');
       path.setAttribute('fill','none');
@@ -1284,10 +1284,10 @@ function buildSConn(id, type, count) {
       line.setAttribute('x1',w/2);line.setAttribute('y1','0');
       line.setAttribute('x2',cx2);line.setAttribute('y2',h);
       if(type === 'mz') {
-        line.setAttribute('stroke','#C8A84B');line.setAttribute('stroke-width','0.7');
+        line.setAttribute('stroke','#96A698');line.setAttribute('stroke-width','0.7');
         line.setAttribute('opacity','0.4');
       } else {
-        line.setAttribute('stroke','#E8CC7A');line.setAttribute('stroke-width','0.6');
+        line.setAttribute('stroke','#DFD9A6');line.setAttribute('stroke-width','0.6');
         line.setAttribute('stroke-dasharray','4 4');line.setAttribute('opacity','0.4');
         const a = document.createElementNS(ns,'animate');
         a.setAttribute('attributeName','stroke-dashoffset');
@@ -1315,7 +1315,7 @@ function initSchemaBg() {
     x:Math.random()*W,y:Math.random()*H,
     vx:(Math.random()-.5)*.2,vy:(Math.random()-.5)*.2,
     r:Math.random()+.3,alpha:Math.random()*.25+.05,
-    color:Math.random()>.5?'#C4A84F':'#5A9E6A'
+    color:Math.random()>.5?'#96A698':'#5A9E6A'
   });
   function draw(){
     ctx.clearRect(0,0,W,H);
@@ -1364,7 +1364,7 @@ function initHomeBg() {
     x:Math.random()*1200,y:Math.random()*800,
     vx:(Math.random()-.5)*.3,vy:(Math.random()-.5)*.3,
     r:Math.random()*1.5+.4,alpha:Math.random()*.35+.08,
-    color:Math.random()>.5?'#C4A84F':'#5A9E6A'
+    color:Math.random()>.5?'#96A698':'#5A9E6A'
   });
   function draw(){
     ctx.clearRect(0,0,W,H);
@@ -1379,7 +1379,7 @@ function initHomeBg() {
     for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){
       const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.sqrt(dx*dx+dy*dy);
       if(d<90){ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);
-        ctx.strokeStyle='#A88A35';ctx.globalAlpha=(1-d/90)*.07;ctx.lineWidth=.5;ctx.stroke()}
+        ctx.strokeStyle='#829655';ctx.globalAlpha=(1-d/90)*.07;ctx.lineWidth=.5;ctx.stroke()}
     }
     ctx.globalAlpha=1;
     requestAnimationFrame(draw);
@@ -1420,9 +1420,9 @@ function renderHome() {
   document.getElementById('wc').textContent = WORDS.length + ' mots';
   const hp = document.getElementById('home-pillars');
   hp.innerHTML = Object.entries(PILLARS_META).map(([id,pm]) => {
-    const tc = TAG_TC[id] || '#C8A84B';
+    const tc = TAG_TC[id] || '#96A698';
     const bc = TAG_BC[id] || 'rgba(127,119,221,.3)';
-    return `<span class="hp-chip" style="color:#F0E8C8;border-color:${bc}" onclick="showPillarDetail('${id}')">${pm.label}</span>`;
+    return `<span class="hp-chip" style="color:#D5D7C2;border-color:${bc}" onclick="showPillarDetail('${id}')">${pm.label}</span>`;
   }).join('');
 }
 
@@ -1438,7 +1438,7 @@ Réponds UNIQUEMENT en JSON sans backticks: {"velari":"traduction romanisée","s
 async function doTranslate() {
   const txt = (document.getElementById('tr-input').value || '').trim();
   if(!txt) return;
-  document.getElementById('tr-result').innerHTML = '<span style="color:#887840;font-style:italic;font-size:13px">Traduction en cours...</span>';
+  document.getElementById('tr-result').innerHTML = '<span style="color:#678D5E;font-style:italic;font-size:13px">Traduction en cours...</span>';
   document.getElementById('tr-script').textContent = '';
   document.getElementById('tr-note').style.display = 'none';
   document.getElementById('tr-variants').innerHTML = '';
@@ -1455,38 +1455,38 @@ async function doTranslate() {
     }
     const d = await res.json();
     document.getElementById('tr-result').innerHTML =
-      `<span style="font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:22px;color:#F0E8C8;display:block;margin-bottom:4px">${d.velari||'—'}</span>
-       ${d.literal ? `<span style="font-size:11px;color:#887840;font-style:italic">${d.literal}</span>` : ''}`;
+      `<span style="font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:22px;color:#D5D7C2;display:block;margin-bottom:4px">${d.velari||'—'}</span>
+       ${d.literal ? `<span style="font-size:11px;color:#678D5E;font-style:italic">${d.literal}</span>` : ''}`;
     document.getElementById('tr-script').textContent = d.script || '';
     if(d.depth) {
       document.getElementById('tr-note').innerHTML =
-        `<strong style="color:#C8A84B;font-size:10px;letter-spacing:.08em;text-transform:uppercase">Sens profond — </strong>${d.depth}`;
+        `<strong style="color:#96A698;font-size:10px;letter-spacing:.08em;text-transform:uppercase">Sens profond — </strong>${d.depth}`;
       document.getElementById('tr-note').style.display = 'block';
     }
     if(d.grammar) {
       const gn = document.createElement('div');
-      gn.style.cssText='background:#4A1010;border:1px solid rgba(200,168,75,.2);border-radius:8px;padding:10px 14px;margin-top:10px;font-size:12px;color:#887840;line-height:1.7';
-      gn.innerHTML = `<strong style="color:#C8A84B;font-size:10px;letter-spacing:.08em;text-transform:uppercase">Grammaire — </strong>${d.grammar}`;
+      gn.style.cssText='background:#323F32;border:1px solid rgba(200,168,75,.2);border-radius:8px;padding:10px 14px;margin-top:10px;font-size:12px;color:#678D5E;line-height:1.7';
+      gn.innerHTML = `<strong style="color:#96A698;font-size:10px;letter-spacing:.08em;text-transform:uppercase">Grammaire — </strong>${d.grammar}`;
       document.getElementById('tr-note').after(gn);
     }
     if(d.variants && d.variants.length) {
       const vwrap = document.getElementById('tr-variants');
-      vwrap.innerHTML = '<div style="font-size:10px;color:#887840;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px;margin-top:16px">Variantes</div>'
+      vwrap.innerHTML = '<div style="font-size:10px;color:#678D5E;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px;margin-top:16px">Variantes</div>'
         + d.variants.map(v =>
-          `<div style="background:#5D1314;border:1px solid rgba(200,168,75,.2);border-radius:8px;padding:10px 14px;margin-bottom:7px">
-            <span style="font-size:10px;color:#887840;display:block;margin-bottom:3px">${v.label}</span>
-            <span style="font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:16px;color:#F0E8C8">${v.velari}</span>
+          `<div style="background:#3A4A3A;border:1px solid rgba(200,168,75,.2);border-radius:8px;padding:10px 14px;margin-bottom:7px">
+            <span style="font-size:10px;color:#678D5E;display:block;margin-bottom:3px">${v.label}</span>
+            <span style="font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:16px;color:#D5D7C2">${v.velari}</span>
           </div>`).join('');
     }
   } catch(e) {
     document.getElementById('tr-result').innerHTML =
-      `<span style="color:#887840;font-size:12px;font-style:italic">Erreur : ${e.message}</span>`;
+      `<span style="color:#678D5E;font-size:12px;font-style:italic">Erreur : ${e.message}</span>`;
   }
 }
 
 function clearTr() {
   document.getElementById('tr-input').value = '';
-  document.getElementById('tr-result').innerHTML = '<span id="tr-ph" style="color:#887840;font-size:14px;font-style:italic">La traduction apparaîtra ici...</span>';
+  document.getElementById('tr-result').innerHTML = '<span id="tr-ph" style="color:#678D5E;font-size:14px;font-style:italic">La traduction apparaîtra ici...</span>';
   document.getElementById('tr-script').textContent = '';
   document.getElementById('tr-note').style.display = 'none';
 }
