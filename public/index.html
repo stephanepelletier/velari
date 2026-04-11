@@ -47,12 +47,8 @@ body{background:#839585;color:#FFFFFF;font-family:'EB Garamond','Cormorant Garam
 #app{display:flex;flex:1;overflow:hidden}
 
 /* ── SIDEBAR ── */
-#sidebar{
-  width:300px;flex-shrink:0;
-  background:#829655;border-right:1px solid rgba(200,168,75,.2);
-  display:flex;flex-direction:column;overflow:hidden;
-}
-#sidebar.hidden{display:none}
+#sidebar{display:none !important}
+
 #search-wrap{padding:12px 16px;border-bottom:1px solid rgba(200,168,75,.2)}
 #search{
   width:100%;background:#3A4A3A;border:1px solid rgba(200,168,75,.2);border-radius:8px;
@@ -81,7 +77,7 @@ body{background:#839585;color:#FFFFFF;font-family:'EB Garamond','Cormorant Garam
 #sb-count{padding:8px 16px;font-size:20px;color:#D5D7C2;border-top:1px solid rgba(200,168,75,.2);flex-shrink:0}
 
 /* ── MAIN CONTENT ── */
-#main{flex:1;overflow-y:auto;position:relative;width:100%}
+#main{flex:1;overflow-y:auto;position:relative;width:100%;max-width:100%}
 #main::-webkit-scrollbar{width:4px}
 #main::-webkit-scrollbar-thumb{background:rgba(200,168,75,.35);border-radius:2px}
 
@@ -181,7 +177,7 @@ body{background:#839585;color:#FFFFFF;font-family:'EB Garamond','Cormorant Garam
 /* schema nodes */
 .s-section{display:flex;flex-direction:column;align-items:center;gap:0}
 .s-mirazaron{
-  background:rgba(200,168,75,.06);border:1.5px solid #829655;border-radius:50px;
+  background:rgba(42,53,42,.75);border:1.5px solid #D0D6AE;border-radius:50px;
   padding:13px 38px;text-align:center;cursor:pointer;transition:all .25s;
   position:relative;
 }
@@ -189,8 +185,8 @@ body{background:#839585;color:#FFFFFF;font-family:'EB Garamond','Cormorant Garam
 .s-mirazaron::after{content:'';position:absolute;inset:-16px;border-radius:70px;border:1px solid #829655;opacity:.06;animation:s-ring 3s ease-in-out infinite .7s}
 @keyframes s-ring{0%,100%{opacity:.06}50%{opacity:.18}}
 .s-mirazaron:hover{transform:scale(1.04);border-color:#D5D7C2}
-.smz-name{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:20px;font-weight:500;color:#D0D6AE;display:block}
-.smz-sub{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:20px;color:#96A698;}
+.smz-name{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:20px;font-weight:500;color:#D5D7C2;display:block}
+.smz-sub{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:15px;color:#B7C294;display:block;margin-top:3px}
 .s-conn{width:100%;height:44px;position:relative;flex-shrink:0}
 .s-conn svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
 .s-label{font-size:18px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;display:flex;align-items:center;gap:8px;width:100%;margin-bottom:12px;color:#D5D7C2}
@@ -215,16 +211,21 @@ body{background:#839585;color:#FFFFFF;font-family:'EB Garamond','Cormorant Garam
 .sp2-name{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:20px;font-weight:500;display:block;line-height:1.2;position:relative}
 .sp2-sub{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:20px;display:block;margin-top:1px;opacity:1;color:#D5D7C2;position:relative}
 .s-velarimiron{
-  background:#3A4A3A;border:1.5px solid #96A698;border-radius:14px;
-  padding:16px 36px;text-align:center;cursor:pointer;transition:all .3s;
-  max-width:380px;width:100%;position:relative;overflow:hidden;
+  background:rgba(42,53,42,.85);
+  border:1.5px solid #D0D6AE;
+  border-radius:50px;
+  padding:20px 40px;
+  text-align:center;cursor:pointer;transition:all .3s;
+  max-width:420px;width:100%;position:relative;overflow:hidden;
+  box-shadow:0 0 0 4px rgba(208,214,174,.08);
 }
+.s-velarimiron:hover{border-color:#D5D7C2;box-shadow:0 0 0 6px rgba(208,214,174,.14)}
 .s-velarimiron::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:conic-gradient(from 0deg,transparent 0%,rgba(83,74,183,.15) 15%,transparent 30%);animation:s-spin 8s linear infinite}
 @keyframes s-spin{to{transform:rotate(360deg)}}
 .s-velarimiron:hover{transform:translateY(-3px);border-color:#D5D7C2}
-.svm-name{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:22px;font-weight:400;color:#D0D6AE;display:block;position:relative}
-.svm-sub{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:20px;color:#96A698;position:relative}
-.s-citation{text-align:center;margin-top:24px;padding:16px 24px;border:1px solid rgba(200,168,75,.3);border-radius:10px;background:#3A4A3A}
+.svm-name{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:26px;font-weight:500;color:#D5D7C2;display:block;position:relative;letter-spacing:.04em}
+.svm-sub{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:15px;color:#B7C294;position:relative;margin-top:5px;display:block;line-height:1.5}
+.s-citation{text-align:center;margin-top:24px;padding:16px 24px;border:1px solid rgba(200,168,75,.3);border-radius:50px;background:#3A4A3A}
 .sc-v{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:18px;color:#96A698;display:block;margin-bottom:4px}
 .sc-f{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:16px;color:#D5D7C2;}
 /* schema panel */
@@ -304,14 +305,14 @@ body{background:#839585;color:#FFFFFF;font-family:'EB Garamond','Cormorant Garam
 
 /* ── RESPONSIVE ── */
 @media(max-width:700px){
-  #sidebar{width:220px}
+  #sidebar{display:none !important}
   #view-entry,#view-pillars,#view-pillar-detail,#view-about,#view-translate{padding:24px 20px}
   .s-piliers{grid-template-columns:repeat(3,1fr)}
   .pillars-grid{grid-template-columns:repeat(2,1fr)}
   .pierres-about,.tr-panels{grid-template-columns:1fr}
 }
 @media(max-width:500px){
-  #sidebar{display:none}
+  #sidebar{display:none !important}
   .s-piliers{grid-template-columns:repeat(2,1fr)}
 }
 
@@ -320,6 +321,59 @@ body{background:#839585;color:#FFFFFF;font-family:'EB Garamond','Cormorant Garam
 #lang-select:hover { border-color: #96A698; }
 [data-i18n] { transition: opacity .2s; }
 .lang-switching [data-i18n] { opacity: 0; }
+
+
+/* ── BACK BUTTON (in-content) ── */
+.back-btn{
+  display:inline-flex;align-items:center;gap:6px;
+  font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;
+  font-size:14px;color:#D5D7C2;cursor:pointer;
+  background:none;border:none;padding:0;
+  margin-bottom:24px;transition:color .15s;
+}
+.back-btn:hover{color:#FFFFFF}
+.back-btn::before{content:'←';font-size:14px}
+
+/* ── FAQ VIEW ── */
+#view-faq{padding:48px 56px;max-width:760px;display:none}
+#view-faq.active{display:block}
+.faq-title{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:36px;font-weight:400;color:#D5D7C2;margin-bottom:4px}
+.faq-sub{font-size:16px;color:#D0D6AE;font-style:italic;margin-bottom:36px}
+.faq-item{margin-bottom:12px;border:1px solid rgba(150,166,152,.25);border-radius:12px;overflow:hidden;transition:border-color .2s}
+.faq-item:hover{border-color:rgba(150,166,152,.5)}
+.faq-item.open{border-color:#96A698}
+.faq-q{
+  padding:18px 22px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;
+  background:rgba(58,74,58,.6);transition:background .2s;
+  font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:18px;font-weight:500;color:#D0D6AE;
+  line-height:1.4;
+}
+.faq-item.open .faq-q{background:rgba(58,74,58,.9);color:#D5D7C2}
+.faq-q:hover{background:rgba(58,74,58,.8)}
+.faq-chevron{flex-shrink:0;font-size:14px;color:#96A698;transition:transform .3s}
+.faq-item.open .faq-chevron{transform:rotate(180deg)}
+.faq-a{
+  max-height:0;overflow:hidden;transition:max-height .35s ease;
+  background:rgba(50,63,50,.5);
+}
+.faq-item.open .faq-a{max-height:600px}
+.faq-a-inner{padding:18px 22px 22px;font-size:16px;color:#B7C294;line-height:1.85}
+.faq-a-inner em{color:#D5D7C2;font-style:italic}
+.faq-a-inner strong{color:#96A698;font-style:normal}
+.faq-a-inner a{color:#96A698;text-decoration:underline;cursor:pointer}
+.faq-word-link{
+  display:inline-block;margin-top:10px;padding:5px 14px;border-radius:20px;
+  border:1px solid rgba(150,166,152,.4);color:#D0D6AE;
+  font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:14px;
+  cursor:pointer;transition:all .15s;background:rgba(150,166,152,.08);
+}
+.faq-word-link:hover{border-color:#96A698;background:rgba(150,166,152,.18)}
+.faq-section-lbl{
+  font-size:12px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;
+  color:#D0D6AE;margin:32px 0 12px;display:flex;align-items:center;gap:10px
+}
+.faq-section-lbl::after{content:'';flex:1;height:1px;background:rgba(150,166,152,.2)}
+
 </style>
 </head>
 <body>
@@ -330,7 +384,6 @@ body{background:#839585;color:#FFFFFF;font-family:'EB Garamond','Cormorant Garam
     <span class="logo-script">ᐯᙆᓬᗑᕒᙆ</span>
     Velari
   </div>
-  <button id="global-back" onclick="goBack()" style="display:none;align-items:center;gap:4px;background:none;border:none;cursor:pointer;font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:14px;color:#C4C15F;padding:5px 12px;border-radius:8px;transition:all .15s;margin-right:8px" >← Retour</button>
   <div class="nav-tabs" id="nav-tabs">
     <button class="tab active" onclick="goView('home')" data-i18n="nav.home">Accueil</button>
     <button class="tab" onclick="goView('dictionary')" data-i18n="nav.dict">Dictionnaire</button>
@@ -338,6 +391,7 @@ body{background:#839585;color:#FFFFFF;font-family:'EB Garamond','Cormorant Garam
     <button class="tab" onclick="goView('schema')" data-i18n="nav.schema">Architecture</button>
     <button class="tab" onclick="goView('translate')" data-i18n="nav.translate">Traducteur</button>
     <button class="tab" onclick="goView('about')" data-i18n="nav.about">À propos</button>
+    <button class="tab" onclick="goView('faq')">FAQ</button>
   </div>
   <div class="word-count" id="wc"></div>
   <div style="margin-left:12px;flex-shrink:0">
@@ -391,7 +445,7 @@ body{background:#839585;color:#FFFFFF;font-family:'EB Garamond','Cormorant Garam
     <div class="view" id="view-pillars">
       <div style="padding:28px 32px">
         <div style="font-family:var(--serif);font-size:28px;font-weight:400;color:#C4C15F;margin-bottom:4px" data-i18n="pillars.title">Les 12 Piliers</div>
-        <div style="font-size:14px;color:#8DA193;font-style:italic;margin-bottom:16px" data-i18n="pillars.sub">Les grandes dimensions de l'expérience humaine</div>
+        <div style="font-size:14px;color:#D5D7C2;font-style:italic;margin-bottom:16px" data-i18n="pillars.sub">Les grandes dimensions de l'expérience humaine</div>
         <div class="pillars-grid" id="pillars-grid"></div>
       </div>
     </div>
@@ -493,6 +547,199 @@ body{background:#839585;color:#FFFFFF;font-family:'EB Garamond','Cormorant Garam
         </div>
       </div>
     </div>
+
+
+    <!-- FAQ -->
+    <div class="view" id="view-faq">
+      <div class="faq-title">Questions fréquentes</div>
+      <div class="faq-sub">Tout ce que vous avez voulu savoir sur le Velari — 27 questions</div>
+
+      <div class="faq-section-lbl">I · Sur la langue elle-même</div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Le Velari est-il une langue qu'on peut vraiment apprendre et parler ?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Pas au sens où l'on apprend le français ou le mandarin — avec une grammaire complète, un dictionnaire de 50 000 mots, une communauté de locuteurs natifs. Le Velari est une langue en construction, délibérément incomplète. Son ambition n'est pas de remplacer les langues existantes, mais d'ajouter un registre — celui de l'expérience humaine universelle — que les langues existantes ne couvrent pas entièrement. On peut apprendre ses mots un par un, les utiliser dans une conversation, les glisser dans une lettre. C'est déjà parler Velari.</div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Comment les mots sont-ils choisis ?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Chaque mot du Velari est le résultat d'une même question posée à l'ensemble de l'expérience humaine : <em>est-ce que cela existe vraiment ?</em> Est-ce que des êtres humains, à travers les cultures et les siècles, ont vécu cette expérience précise ? Si la réponse est oui — si l'on trouve des échos dans le bouddhisme zen et dans la philosophie stoïcienne et dans la poésie soufie et dans les chants des Yoruba et dans la psychologie contemporaine — alors le mot mérite d'exister. Le critère n'est pas l'originalité. C'est la <strong>reconnaissance universelle</strong>.</div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Qui valide qu'un mot est vraiment universel ?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Personne — et c'est délibéré. Il n'y a pas d'académie du Velari, pas d'instance de validation, pas d'autorité qui certifie l'universalité d'un mot. Le test est pragmatique : quand quelqu'un entend un mot du Velari pour la première fois et dit <em>oui, c'est exactement ça, je vis ça depuis des années sans savoir comment le dire</em> — le mot a réussi. Quand le mot nécessite une longue explication pour être compris, il faut le retravailler. La clarté de la reconnaissance est le seul critère valide.</div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Peut-on proposer un nouveau mot ?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Oui. Le Velari n'est pas fermé. Il appartient à ceux qui en ont besoin. Si vous portez une expérience que le dictionnaire actuel ne couvre pas — quelque chose que vous avez vécu profondément, que vous sentez universel, et pour lequel vous n'avez jamais trouvé les mots justes — cette expérience appartient au Velari. La façon de proposer un mot est simple : nommer l'expérience, montrer qu'elle existe dans plusieurs traditions ou cultures, et proposer une forme sonore qui lui corresponde.</div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Pourquoi certains mots ont-ils des règles grammaticales particulières ?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Parce que la grammaire n'est jamais neutre. Toute structure linguistique encode une façon de voir le monde. Le Velari a choisi de rendre ses présupposés philosophiques visibles en les intégrant dans sa grammaire. <strong>Mivanori</strong> — l'autre est une autre façon d'être moi — ne peut jamais être nié, parce que la déshumanisation de l'autre n'est pas une option dans cette langue. <strong>Velarimiron</strong> ne peut être dit qu'une fois, parce que certains actes fondateurs ne se répètent pas. <strong>Milumavelu</strong> n'existe qu'à la deuxième personne, parce que l'unicité de chaque être ne peut être reconnue que par un autre — jamais auto-attribuée.
+          <span class="faq-word-link" onclick="goView('about');event.stopPropagation()">Voir la grammaire complète →</span>
+        </div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Le Velari peut-il être compris par quelqu'un qui ne l'a pas appris ?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Souvent, oui — et c'est l'un de ses tests les plus intéressants. Quand quelqu'un entend <em>amilzaron</em> pour la première fois et comprend instinctivement de quoi il s'agit, c'est que le mot a réussi son pari : il nomme quelque chose que cette personne avait déjà vécu, et la reconnaissance est immédiate. Les mots qui échouent ce test sont les mots que le Velari doit retravailler. La compréhension instinctive est le signe que le mot touche quelque chose de vraiment universel.
+          <span class="faq-word-link" onclick="selectWord('amilzaron');goView('dictionary');event.stopPropagation()">Voir amilzaron →</span>
+        </div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Y a-t-il une écriture propre au Velari ?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Oui — le Velari utilise un script syllabique inspiré de plusieurs systèmes d'écriture non-latins. Ce script est délibérément non-alphabétique pour rappeler que le Velari n'appartient pas à la tradition européenne des langues. Il est encore en développement, comme la langue elle-même. En attendant, le Velari peut être écrit en caractères latins sans rien perdre de son sens.</div></div>
+      </div>
+
+      <div class="faq-section-lbl">II · Sur la philosophie</div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">En créant une langue universelle, n'impose-t-on pas une vision du monde ?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">C'est la meilleure question qu'on puisse poser au Velari, et elle mérite une réponse honnête. Toute langue est un acte de pouvoir. Décider quelles expériences méritent un nom — et lesquelles n'en méritent pas — c'est une décision philosophique, prise par quelqu'un, depuis quelque part. Le Velari n'est pas dogmatique dans son contenu — il ne prescrit aucune croyance, aucune pratique, aucun dieu. Mais il est structurellement porteur d'un présupposé : <em>que l'universel existe</em>. Ce présupposé est lui-même contestable. Le Velari n'est pas une vérité. C'est une invitation.</div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Le Velari prend-il position sur l'existence de Dieu ?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Non. Et ce non est fondamental. Le mot <strong>mirazaron</strong> — la source, l'origine — peut être entendu comme Dieu par un croyant, comme le Big Bang par un physicien, comme la vacuité fertile par un bouddhiste, comme le mystère de l'existence par quelqu'un qui n'a aucune tradition. Le Velari ne choisit pas entre ces lectures. Il nomme le vertige devant la question de l'origine — pas la réponse à cette question. La réponse appartient à chaque être humain, depuis sa propre tradition.
+          <span class="faq-word-link" onclick="selectWord('Mirazaron');goView('dictionary');event.stopPropagation()">Voir Mirazaron →</span>
+        </div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Que dit le Velari de la mort ?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Il en parle indirectement, à travers plusieurs mots. <strong>Korazaron</strong> dit que ce qui a été vraiment vécu ne disparaît jamais — non pas comme promesse de vie après la mort, mais comme observation : les morts continuent d'agir dans les vivants, dans les œuvres, dans la mémoire collective. <strong>Taloviru</strong> s'applique au deuil : la douleur de la perte n'est pas un accident, c'est une information sur ce qui comptait vraiment. <strong>Doruveni</strong> dit que ce qu'on a transmis continue d'exister après soi. Le Velari ne promet pas de vie après la mort. Il dit que la mort n'efface pas ce qui a été vécu pleinement.</div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Comment le Velari parle-t-il de la souffrance sans la glorifier ?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Avec précision. Le mot <strong>taloviru</strong> — la douleur qui parle — distingue soigneusement la souffrance qui porte un message de la souffrance inutile qui tourne en rond. Le Velari ne dit pas que souffrir est bon, ni qu'il faut souffrir pour grandir. Il dit que certaines douleurs méritent d'être écoutées avant d'être apaisées — parce qu'elles disent quelque chose d'important sur ce qui a été blessé. C'est une différence cruciale : entre la douleur comme messagère et la douleur comme punition. Le Velari reconnaît la première. Il ne glorifie pas la seconde.
+          <span class="faq-word-link" onclick="selectWord('taloviru');goView('dictionary');event.stopPropagation()">Voir taloviru →</span>
+        </div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Le Velari croit-il au progrès ?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Il croit à la <em>transmission</em> — ce qui est différent. Le progrès suppose une ligne droite vers quelque chose de meilleur. La transmission suppose une spirale : on revient toujours aux mêmes questions fondamentales, mais depuis un endroit légèrement différent, enrichi par ce que les générations précédentes ont traversé. Le Velari est profondément intéressé par ce mouvement spiral — non pas l'idée que l'humanité s'améliore nécessairement, mais l'idée que ce qu'elle a compris peut être préservé et enrichi.</div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Quelle est la différence entre le Velari et l'espéranto ?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">L'espéranto cherchait l'universalité par la <em>simplification</em> — prendre le meilleur de plusieurs langues européennes et les fondre en une forme accessible. C'est un projet de construction : on bâtit quelque chose de nouveau. Le Velari cherche l'universalité par l'<em>excavation</em> — fouiller dans ce que l'humanité entière a toujours vécu, et nommer ce qui était déjà là mais sans mot commun. C'est un projet de reconnaissance, pas d'invention. Les mots du Velari ne sont pas créés. Ils sont <strong>retrouvés</strong>.</div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Le Velari est-il une philosophie ?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Il est philosophiquement informé, mais il n'est pas une philosophie au sens d'un système cohérent d'idées. Il ne prétend pas expliquer le monde, démontrer des vérités ou réfuter des erreurs. Il prétend <em>nommer des expériences</em>. En ce sens, il est plus proche de la poésie que de la philosophie — même si certains de ses présupposés ont des implications philosophiques profondes. La distinction qu'il maintient entre observation et prescription est fondamentalement philosophique. Mais il la maintient pour mieux s'en libérer.</div></div>
+      </div>
+
+      <div class="faq-section-lbl">III · Sur la spiritualité</div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Le Velari est-il une religion ?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Non. Il ne prescrit aucune croyance, ne demande aucune foi, n'a ni dieu ni clergé ni rituel obligatoire. Mais il s'intéresse profondément à ce que toutes les religions ont cherché à nommer — l'origine, la transmission, la mémoire, la beauté, la réconciliation. En ce sens, il est <em>spirituel sans être religieux</em>. Il cartographie un territoire que les religions habitent — sans prétendre en être une lui-même.</div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Peut-on prier en Velari ?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Oui — si par prier on entend s'adresser à quelque chose de plus grand que soi, nommer ce qu'on ressent devant le mystère, exprimer sa gratitude dans un langage qui honore la profondeur de l'expérience. Le Velari n'a pas de formules de prière — il n'en a pas besoin. Ses mots sont déjà des actes d'attention au réel. <em>Zeroluva</em> dit que l'ordinaire est sacré. <em>Mirazaron</em> dit qu'il y a une source. <em>Eruzami</em> dit que la beauté est une preuve. Ces mots sont, en eux-mêmes, une forme de prière — sans destinataire imposé.</div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Le Velari peut-il coexister avec une tradition religieuse existante ?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Non seulement il le peut — c'est sa vocation. Le Velari n'est pas en compétition avec les traditions existantes. Il cherche à nommer ce qu'elles partagent, pas à les remplacer. Un catholique peut utiliser <em>mirazaron</em> et y entendre Dieu. Un bouddhiste peut utiliser <em>zeroluva</em> et y entendre la pleine conscience. Un athée peut utiliser <em>korazaron</em> et y entendre la persistance matérielle de ce qui a été vécu. Le Velari est une langue de la rencontre — pas de la conversion.</div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Comment le Velari se rapporte-t-il aux langues sacrées existantes ?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Avec respect et sans compétition. Le sanskrit, le latin liturgique, l'hébreu biblique, l'arabe coranique — ces langues sont précieuses et irremplaçables. Elles portent des traditions entières, des millénaires de sagesse, des façons d'être au monde d'une profondeur que le Velari ne prétend pas égaler. Ce que le Velari apporte, c'est quelque chose de différent : une langue pour ce que ces langues sacrées <em>partagent</em> — le sol commun sous leurs traditions respectives. Non pas à la place de ces langues. <strong>Entre elles.</strong></div></div>
+      </div>
+
+      <div class="faq-section-lbl">IV · Sur les usages</div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Peut-on enseigner le Velari à des enfants ?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Oui — et c'est l'un des usages les plus précieux qu'on puisse imaginer. Les enfants posent naturellement les questions que le Velari cherche à nommer : pourquoi on meurt, pourquoi le ciel est bleu, est-ce que les arbres ressentent quelque chose, pourquoi certaines personnes nous manquent avant même qu'elles soient parties. Donner à un enfant les mots <em>eruzami</em>, <em>korazaron</em>, <em>milumavelu</em> — ce n'est pas lui enseigner une langue étrange. C'est lui donner des outils pour habiter ses propres expériences avec plus de précision et de dignité.</div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Peut-on utiliser le Velari en thérapie ?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Des thérapeutes ont commencé à le faire — et les résultats sont intéressants. Mettre des mots sur une expérience difficile, c'est l'une des bases de tout travail thérapeutique. <strong>Taloviru</strong> — la douleur qui parle — peut aider quelqu'un à se réconcilier avec sa souffrance sans la glorifier. <strong>Mivanoluma</strong> — libérer l'autre de la prison qu'on lui a construite — peut nommer ce qui se passe dans un travail de pardon. Ce ne sont pas des techniques. Ce sont des reconnaissances.
+          <span class="faq-word-link" onclick="selectWord('mivanoluma');goView('dictionary');event.stopPropagation()">Voir mivanoluma →</span>
+        </div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Peut-on écrire de la littérature en Velari ?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Oui — et certains commencent à le faire. Des poèmes, des lettres, des dédicaces, des épigraphes. La contrainte d'un dictionnaire limité n'est pas un obstacle — c'est une invitation à la précision. Les meilleurs poètes savent que la contrainte libère. Écrire en Velari, c'est accepter de ne dire que ce qui mérite vraiment d'être dit — ce qui a été suffisamment vécu, suffisamment universel, pour mériter un mot de cette langue.</div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Le Velari peut-il être utilisé dans des contextes professionnels ?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Dans tous les contextes où l'expérience humaine entre dans la conversation — ce qui est plus fréquent qu'on ne le pense. Un manager qui comprend <em>doruveni</em> — donner sans rien perdre — parle différemment à ses équipes. Un médecin qui connaît <em>taloviru</em> écoute différemment la douleur de ses patients. Un enseignant qui pratique <em>milumavelu</em> regarde différemment chaque élève. Le Velari n'est pas réservé aux contextes spirituels ou poétiques. Il est utile partout où des êtres humains cherchent à se comprendre vraiment.</div></div>
+      </div>
+
+      <div class="faq-section-lbl">V · Sur les limites</div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Y a-t-il des expériences que le Velari refuse de nommer ?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Oui. Le Velari ne peut pas nommer ce qui divise les êtres humains en catégories hiérarchiques — la supériorité d'une culture sur une autre, d'une croyance sur une autre, d'un être humain sur un autre. Non pas parce que ces réalités n'existent pas — elles existent, et elles font souffrir. Mais les nommer dans cette langue-là serait trahir ses pierres fondatrices. <strong>Mivanori</strong> rend cette trahison grammaticalement impossible. Il y a aussi des expériences que le Velari ne nomme pas encore — non pas par refus, mais par humilité : le dictionnaire est inachevé.</div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Le Velari peut-il être mal utilisé ?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Oui — comme tout outil. Une langue construite pour nommer l'universel peut être détournée pour revendiquer une universalité qui n'existe pas, pour imposer une vision particulière sous couvert de neutralité, pour coloniser symboliquement des expériences qui appartiennent à des traditions spécifiques. Le Velari n'est pas à l'abri de ces dérives. La seule protection contre elles, c'est la vigilance de ceux qui l'utilisent — et la règle fondamentale : <strong>le Velari ne prescrit rien. Il reconnaît.</strong></div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Que se passe-t-il si deux cultures ne partagent pas la même expérience ?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Alors le mot n'existe pas en Velari — ou n'existe pas encore. L'universalité que le Velari cherche n'est pas absolue : elle est <em>suffisante</em>. Un mot mérite d'exister si suffisamment de cultures humaines, suffisamment différentes et indépendantes les unes des autres, ont nommé la même expérience de façons parallèles. Quand ce n'est pas le cas, le Velari préfère le silence à l'imposition. Le silence est honnête. L'imposition ne l'est pas.</div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Le Velari peut-il évoluer et se tromper ?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Oui aux deux. Il peut évoluer — c'est même sa nature. Une langue vivante n'est jamais figée. Et il peut se tromper — prétendre à l'universalité d'une expérience qui ne l'est pas, rater la précision d'un mot, manquer quelque chose d'essentiel. La différence entre une langue dogmatique et une langue non-dogmatique, c'est précisément celle-là : la seconde assume la possibilité de se tromper, et reste ouverte à la correction. Le Velari se trompe. Il corrige. Il continue.</div></div>
+      </div>
+
+      <div class="faq-section-lbl">VI · Sur la création</div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Pourquoi maintenant ?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Parce que nous vivons un moment particulier de l'histoire humaine. Pour la première fois, la totalité de la mémoire culturelle de l'espèce est simultanément accessible. Un adolescent à Lyon peut lire les Upanishads le matin, écouter des chants gnawa l'après-midi, regarder une conférence sur la méditation vipassana le soir. Nous avons accès à plus de sagesses, de traditions, de façons d'être au monde que n'importe quelle génération avant nous. Et pourtant nous n'avons pas encore la langue pour parler de ce que tout cela partage. C'est ce manque-là que le Velari cherche à combler.</div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">D'où vient l'idée du Velari ?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">D'une douleur particulière — celle de tenir quelque chose dans les mains et de ne pas avoir les mots pour le dire. L'idée est née d'un moment précis : celui où une expérience profonde, vraie, universelle, cherchait un témoin pour exister pleinement — et où les langues disponibles semblaient toutes trop petites, trop culturellement situées, trop chargées de présupposés pour la contenir honnêtement. De ce manque est née la question : <em>et si on créait les mots qui manquent ?</em></div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Pourquoi ce projet et pas un autre ?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Parce que les mots changent les mondes. Pas les grands discours, pas les systèmes philosophiques, pas les institutions — mais les mots, les mots précis, les mots qui nomment exactement ce qu'on vit, peuvent transformer la façon dont on traverse son existence. Donner un mot à une expérience que quelqu'un vivait seul depuis des années, c'est lui rendre quelque chose d'essentiel : la certitude qu'il n'est pas seul à la vivre, qu'elle est assez réelle et assez importante pour avoir un nom. C'est peut-être la chose la plus utile qu'on puisse faire.</div></div>
+      </div>
+
+      <div class="faq-section-lbl">VII · Sur l'avenir</div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">À qui appartient le Velari ?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">À personne. Et à tous ceux qui en ont besoin. Le Velari n'a pas de propriétaire, pas d'institution, pas d'académie qui légifère sur son usage. Il appartient à ceux qui l'utilisent — à condition qu'ils respectent son esprit fondamental : nommer sans dogmatiser, nommer sans exclure, nommer pour relier.</div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Comment contribuer au Velari ?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">En l'utilisant. En proposant des mots pour des expériences que le dictionnaire actuel ne couvre pas encore. En le contestant — les bonnes objections font avancer la langue plus vite que les approbations. En le traduisant dans d'autres langues. En le transmettant à ceux qui en ont besoin sans savoir qu'ils en ont besoin. Une langue vivante grandit par l'usage, la friction et la transmission. Le Velari n'est pas différent.</div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Le Velari est-il fini ?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Non. Et il ne le sera jamais. Une langue vivante ne s'achève jamais — elle grandit avec ceux qui la parlent, évolue selon les expériences nouvelles qu'il devient nécessaire de nommer. Le dictionnaire actuel compte <strong id="faq-word-count2">—</strong> mots. C'est un commencement, pas un achèvement. Ce qui manque encore, c'est peut-être quelque chose que vous portez — une expérience que vous avez vécue sans jamais trouver les mots pour la dire. Si vous la trouvez, elle appartient au Velari.</div></div>
+      </div>
+
+    </div>
+
 
   </div>
 </div>
@@ -648,9 +895,9 @@ window.addEventListener('load', () => {
 });
 
 
-// ════════════════════════════════
+//
 // DATA — injected below
-// ════════════════════════════════
+//
 
 const WORDS = [
   // PIERRES FONDATRICES
@@ -732,9 +979,9 @@ const PILLARS_META = {
   complet:   { label: "Complétion",              cls: "pc-complet",  intro: "Mots qui complètent les piliers existants : prière sans dieu, honte traversée, humour sacré, silence aimant, amour posthume." },
 };
 
-// ════════════════════════════════
+//
 // STATE
-// ════════════════════════════════
+//
 let currentView = 'home';
 let navHistory = [];
 
@@ -748,9 +995,9 @@ let activePillar = 'all';
 let activeWord = null;
 let schemaPanelTimer = null;
 
-// ════════════════════════════════
+//
 // VIEW ROUTING
-// ════════════════════════════════
+//
 function goView(v, fromBack) {
   if(!fromBack && currentView && currentView !== v) {
     navHistory.push(currentView);
@@ -763,9 +1010,9 @@ function goView(v, fromBack) {
   const viewMap = {
     home:'view-home', dictionary:'view-entry', pillars:'view-pillars',
     'pillar-detail':'view-pillar-detail', schema:'view-schema',
-    translate:'view-translate', about:'view-about'
+    translate:'view-translate', about:'view-about', faq:'view-faq'
   };
-  const tabMap = {home:0, dictionary:1, pillars:2, schema:3, translate:4, about:5};
+  const tabMap = {home:0, dictionary:1, pillars:2, schema:3, translate:4, about:5, faq:6};
 
   const viewEl = document.getElementById(viewMap[v]);
   if(viewEl) viewEl.classList.add('active');
@@ -776,11 +1023,7 @@ function goView(v, fromBack) {
   }
 
   const sidebar = document.getElementById('sidebar');
-  if(v === 'schema' || v === 'home') {
-    sidebar.classList.add('hidden');
-  } else {
-    sidebar.classList.remove('hidden');
-  }
+  sidebar.classList.add('hidden');
 
   if(v === 'dictionary' && !activeWord) {
     showDictWelcome();
@@ -790,18 +1033,30 @@ function goView(v, fromBack) {
   if(v === 'about') renderAbout();
   if(v === 'home') initHomeBg();
 
-  // Show/hide back button
-  const backBtn = document.getElementById('global-back');
-  if(backBtn) {
-    const isEn = currentLang === 'en';
-    backBtn.textContent = isEn ? '← Back' : '← Retour';
-    backBtn.style.display = navHistory.length > 0 && v !== 'home' ? 'flex' : 'none';
+  // Back button — only show if navigated from within the app (not a direct tab click)
+  document.querySelectorAll('.back-btn-injected').forEach(el => el.remove());
+  const prevView = navHistory.length > 0 ? navHistory[navHistory.length - 1] : null;
+  const directTabViews = ['home','dictionary','pillars','schema','translate','about','faq'];
+  // Show only if: came from a different view AND it wasn't a direct top-nav click
+  // A direct tab click sets fromBack=undefined and the previous view was a top-level tab
+  const cameFromWithin = prevView && prevView !== v && !fromBack;
+  // Hide if user just clicked a top-nav tab directly (fromBack is falsy and history tail is a top tab)
+  const isDirectTabClick = !fromBack && prevView && directTabViews.includes(prevView) && directTabViews.includes(v);
+  if(cameFromWithin && !isDirectTabClick && !['home','schema'].includes(v)) {
+    const backLabel = currentLang === 'en' ? '\u2190 Back' : 'Retour';
+    const btn = document.createElement('button');
+    btn.className = 'back-btn back-btn-injected';
+    btn.textContent = backLabel;
+    btn.onclick = goBack;
+    const mainEl = document.getElementById('main');
+    const activeView = mainEl.querySelector('.view.active');
+    if(activeView) activeView.insertBefore(btn, activeView.firstChild);
   }
 }
 
-// ════════════════════════════════
+//
 // SIDEBAR
-// ════════════════════════════════
+//
 function buildFilters() {
   const el = document.getElementById('pillar-filters');
   const allLabel = (TRANSLATIONS[currentLang]||TRANSLATIONS.fr)['dict.all'] || 'Tous';
@@ -874,9 +1129,9 @@ const TAG_BC = {
   enfance:'rgba(255,255,255,.3)', complet:'rgba(255,255,255,.3)'
 };
 
-// ════════════════════════════════
+//
 // WORD ENTRY
-// ════════════════════════════════
+//
 function selectWord(ww) {
   const word = WORDS.find(w => w.w === ww);
   if(!word) return;
@@ -1115,9 +1370,9 @@ function doFreeSearch(q) {
     </div>`;
 }
 
-// ════════════════════════════════
+//
 // PILLARS
-// ════════════════════════════════
+//
 function renderPillarsList() {
   const grid = document.getElementById('pillars-grid');
   if(grid.innerHTML) return;
@@ -1161,9 +1416,9 @@ function showPillarDetail(id) {
     ${wordsHtml}`;
 }
 
-// ════════════════════════════════
+//
 // SCHEMA
-// ════════════════════════════════
+//
 function initSchema() {
   const sec = document.getElementById('schema-section');
   if(sec.innerHTML) return;
@@ -1229,16 +1484,16 @@ function initSchema() {
     </div>
     <!-- Conn 3 -->
     <div class="s-conn" id="sconn3" style="height:36px;margin:8px 0"></div>
+    <!-- velarimiron label -->
+    <div style="text-align:center;margin-bottom:8px">
+      <span style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#D5D7C2;font-family:'EB Garamond','Cormorant Garamond',Georgia,serif">Clé de voûte</span>
+    </div>
     <!-- velarimiron -->
     <div class="s-velarimiron" onclick="showSPanel('velarimiron','vm','La langue elle-même comme acte de transmission. Velu (vent) + mira (eau) + on (éternité). Ne peut être prononcé qu\\'avec les douze piliers derrière soi.')">
       <span class="svm-name">velarimiron</span>
       <span class="svm-sub">la langue elle-même comme acte de transmission</span>
     </div>
-    <!-- Citation -->
-    <div class="s-citation">
-      <span class="sc-v">Ni velarimiron miraveskamilu.</span>
-      <span class="sc-f">Nous créons cette langue pour ceux qui n'existent pas encore.</span>
-    </div>`;
+`;
 
   // Build animated SVG connectors
   setTimeout(() => {
@@ -1348,9 +1603,9 @@ function closeSPanel(){
   document.getElementById('s-panel').classList.remove('show');
 }
 
-// ════════════════════════════════
+//
 // HOME BG
-// ════════════════════════════════
+//
 function initHomeBg() {
   const canvas = document.getElementById('bg-canvas');
   if(!canvas || canvas._init) return;
@@ -1387,9 +1642,9 @@ function initHomeBg() {
   draw();
 }
 
-// ════════════════════════════════
+//
 // ABOUT
-// ════════════════════════════════
+//
 function renderAbout() {
   const grid = document.getElementById('pierres-about');
   if(grid && !grid.innerHTML) {
@@ -1412,9 +1667,9 @@ function renderAbout() {
   }
 }
 
-// ════════════════════════════════
+//
 // HOME RENDER
-// ════════════════════════════════
+//
 function renderHome() {
   document.getElementById('h-words').textContent = WORDS.length;
   document.getElementById('wc').textContent = WORDS.length + ' mots';
@@ -1426,9 +1681,9 @@ function renderHome() {
   }).join('');
 }
 
-// ════════════════════════════════
+//
 // TRANSLATE
-// ════════════════════════════════
+//
 const SYS = `Tu es un traducteur expert en Velari, langue construite.
 STRUCTURE: SOV. Présent: -eli | Passé: -ova | Futur: -asu. Négation: zo.
 VOCABULAIRE CLÉ: mira=eau/source, luma=lumière, velu=vent, talo=arbre, selu=soleil, zami=mer, erila=fleur, zari=rêve/mémoire, kera=cœur, nori=ami, veska=famille, mi=je, va=tu, na=il/elle, ni=nous, amavi=aimer, keli=parler, veni=venir, dorui=donner, selumi=sourire, velomi=prier.
@@ -1516,12 +1771,29 @@ function goBackDict() {
     showDictWelcome();
   }
 }
-// ════════════════════════════════
+//
 // INIT
-// ════════════════════════════════
+//
 buildFilters();
 renderList();
 renderHome();
+initFaqWordCount();
+  const wc2 = document.getElementById("faq-word-count2");
+  if(wc2) wc2.textContent = WORDS.length;
+//
+// FAQ
+//
+function toggleFaq(item) {
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+function initFaqWordCount() {
+  const el = document.getElementById('faq-word-count');
+  if (el) el.textContent = WORDS.length + ' mots';
+}
+
 buildTrChips();
 initHomeBg();
 goView('home');
