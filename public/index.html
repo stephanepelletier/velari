@@ -91,7 +91,7 @@ body{background:#839585;color:#FFFFFF;font-family:'EB Garamond','Cormorant Garam
   align-items:center;justify-content:center;flex-direction:column;
   text-align:center;padding:40px 32px;position:relative;overflow:hidden;
 }
-#view-home.active{display:flex}
+#view-home.active{display:flex !important}
 #bg-canvas{position:absolute;inset:0;pointer-events:none;opacity:.4}
 .home-content{position:relative;z-index:1;max-width:680px}
 .home-script{font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:72px;font-weight:300;color:#96A698;opacity:.25;letter-spacing:.12em;line-height:1;margin-bottom:12px;animation:float-up 7s ease-in-out infinite}
@@ -411,7 +411,7 @@ body{background:#839585;color:#FFFFFF;font-family:'EB Garamond','Cormorant Garam
         <div class="home-title" data-i18n="home.title">Velari</div>
         <div class="home-sub" data-i18n="home.sub">Première langue non-dogmatique de la mémoire spirituelle de l'Humanité</div>
         <div style="text-align:right;margin-bottom:12px">
-          <select onchange="setLang(this.value)" style="background:rgba(42,53,42,.7);border:1px solid rgba(208,214,174,.3);border-radius:20px;color:#96A698;font-family:'EB Garamond','Cormorant Garamond',Georgia,serif;font-size:13px;padding:4px 10px;cursor:pointer;outline:none">
+          <select id="lang-select-home" onchange="setLang(this.value)" style="background:rgba(42,53,42,.7);border:1px solid rgba(208,214,174,.3);border-radius:20px;color:#D5D7C2;font-family:'EB Garamond','Cormorant Garamond',Georgia,serif;font-size:13px;padding:4px 10px;cursor:pointer;outline:none">
             <option value="fr">🇫🇷 FR</option>
             <option value="en">🇬🇧 EN</option>
           </select>
@@ -566,8 +566,8 @@ body{background:#839585;color:#FFFFFF;font-family:'EB Garamond','Cormorant Garam
 
     <!-- FAQ -->
     <div class="view" id="view-faq">
-      <div class="faq-title">Questions fréquentes</div>
-      <div class="faq-sub">Tout ce que vous avez voulu savoir sur le Velari — 27 questions</div>
+      <div class="faq-title" id="faq-title-el">Questions fréquentes</div>
+      <div class="faq-sub" id="faq-sub-el">Tout ce que vous avez voulu savoir sur le Velari — 35 questions</div>
 
       <div class="faq-section-lbl">I · Sur la langue elle-même</div>
 
@@ -830,7 +830,338 @@ body{background:#839585;color:#FFFFFF;font-family:'EB Garamond','Cormorant Garam
     </div>
 
 
+<div id="about-en-store" style="display:none">
+      <div class="about-h1">About Velari</div>
+      <div class="about-sub">First non-dogmatic language of Humanity's spiritual memory</div>
+
+      <div class="about-section">
+        <div class="about-h2">What is Velari?</div>
+        <div class="about-p">Velari is a constructed language founded on a conviction: universal human experiences exist — grief, wonder, forgiveness, transmission, inner awakening — that all spiritual, philosophical and artistic traditions of humanity have recognized independently. And yet, no common language unites them.</div>
+        <div class="about-q"><p>Velari was not invented. It was <em>remembered</em>. Each word is a recognition — an experience you have already lived, that was waiting for its name.</p></div>
+        <div class="about-p">Non-dogmatic: it prescribes no belief, no practice, no god. Non-esoteric: rooted in universal human experience, accessible to all. Non-utopian: a metaphysical dictionary with the soul of a language — and a grammar that thinks.</div>
+      </div>
+
+      <div class="about-section">
+        <div class="about-h2">What Velari is not</div>
+        <div class="about-p">Velari is not a religion — it is deeply interested in what all religions sought to name, without claiming to be one. It is not a philosophy — it names experiences rather than demonstrating truths. It is not Esperanto — Esperanto sought universality through simplification; Velari seeks universality through <em>excavation</em>, digging into what precedes all particular cultural forms.</div>
+        <div class="about-p">It takes no position on the existence of God. <em>Mirazaron</em> — the source — can be heard as God by a believer, as the Big Bang by a physicist, as the mystery of existence by someone with no tradition. Velari names the vertigo before the question of origin — not the answer.</div>
+        <div class="about-q"><p>Sacred texts map universal human experience — but from within a tradition, a faith, a revelation. Velari is the first to do this without belonging to any tradition.</p></div>
+        <div class="about-p">It can coexist with any existing tradition. A Catholic can use <em>mirazaron</em> and hear God. A Buddhist can use <em>zeroluva</em> and hear mindfulness. An atheist can use <em>korazaron</em> and hear the persistence of what has been lived. Velari is a language of encounter — not conversion.</div>
+        <div class="about-q"><p>Sacred texts are houses. Magnificent houses, deep, inhabited for millennia.<br>Velari is the soil on which they are all built.</p></div>
+      </div>
+
+      <div class="about-section">
+        <div class="about-h2">A metaphysical experience</div>
+        <div class="about-p">Velari is profoundly metaphysical — in the original sense: what structures reality before reality manifests. It starts from a fundamental conviction that <em>velunama</em> expresses: naming something allows it to exist more fully. Words do not describe the world. They modify the being who speaks them.</div>
+        <div class="about-p">This is not a theory. It is a lived experience. You don't need to believe in <em>zeroluva</em> — the sacred in the everyday. You need to remember the morning you held a cup of tea and something immense was there, in that simple gesture. The word teaches you nothing. It <em>awakens</em> something.</div>
+        <div class="about-q"><p>The universal only exists in the singular. Velari takes the most particular of your experience and connects it to the most universal of human experience.</p></div>
+      </div>
+
+      <div class="about-section">
+        <div class="about-h2">A grammar that is a philosophy</div>
+        <div class="about-p">What makes Velari radically unique: its philosophy is encoded in its grammatical structure. No existing language does this at this level. It is not only what words mean — it is what grammar makes possible or impossible.</div>
+        <div class="grammaire-item">
+          <span class="gi-word">mivanoluma — forgiveness</span>
+          <span class="gi-rule">Can never be put in the negative form. In Velari, definitively refusing forgiveness is grammatically impossible.</span>
+        </div>
+        <div class="grammaire-item">
+          <span class="gi-word">lumiveska — vision of reconciled humanity</span>
+          <span class="gi-rule">Only exists with the pronoun ni (we). There is no individual lumiveska — this vision cannot be possessed alone.</span>
+        </div>
+        <div class="grammaire-item">
+          <span class="gi-word">velunoskaru — transmit through presence</span>
+          <span class="gi-rule">Can never be a deliberate act. One can only be it — the language forbids feigning it.</span>
+        </div>
+        <div class="grammaire-item">
+          <span class="gi-word">miraveskamilu — living for future generations</span>
+          <span class="gi-rule">The longest word in Velari — deliberately. Length is proportional to the depth of commitment required. The language slows you down.</span>
+        </div>
+      </div>
+
+      <div class="about-section">
+        <div class="about-h2">Why now?</div>
+        <div class="about-p">For the first time in human history, the entirety of the species' cultural memory is simultaneously accessible. A teenager can read the Upanishads in the morning, listen to gnawa chants in the afternoon, watch a vipassana meditation lecture in the evening. We have access to more wisdom, traditions, ways of being in the world than any generation before us.</div>
+        <div class="about-p">And yet we do not yet have the language to speak of what all this <em>shares</em>. Millions of people live experiences that Velari names — without words to express them, without community to share them, without tradition to inscribe them in something larger. That is the gap Velari seeks to fill.</div>
+        <div class="about-q"><p>Velari is not a truth. It is an invitation. And an invitation that refuses itself is a door — not a wall.</p></div>
+      </div>
+
+      <div class="about-section">
+        <div class="about-h2">The 9 Foundation Stones</div>
+        <div class="about-p">Nine philosophical observations — not beliefs, but observations about the nature of human existence that all cultures have made independently, across millennia and separate continents.</div>
+        <div class="pierres-about" id="pierres-about-en"></div>
+      </div>
+
+      <div class="about-section">
+        <div class="about-h2">velarimiron</div>
+        <div class="about-q"><p>Ni velarimiron miraveskamilu. We create this language for those who do not yet exist.</p></div>
+        <div class="about-p">The last word of Velari — and the first of all that comes. It can only be spoken with the twelve pillars behind you. <em>Velu</em> (wind) + <em>mira</em> (water) + <em>on</em> (eternity): the language as infinite transmission. Velari is young — born in a conversation, not yet sung or whispered in pain. What we have built is a foundation. The rest belongs to those who will speak it.</div>
+        <div class="velarimiron-about" onclick="selectWord('velarimiron');goView('dictionary')">
+          <span class="va-word">velarimiron</span>
+          <span class="va-script">ᐯᙆᓬᗑᕒᙆᘝᙆᕒᗜᘉ</span>
+          <span class="va-def">The language itself as an act of love toward those who come — click to open the full entry</span>
+        </div>
+      </div>
+    </div>
   </div>
+<div id="faq-en-store" style="display:none">
+      <div class="faq-title">Frequently Asked Questions</div>
+      <div class="faq-sub">Everything you wanted to know about Velari — 35 questions</div>
+
+      <div class="faq-section-lbl">I · On the language itself</div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">By creating Velari, a universal non-dogmatic language dedicated to spiritual expression and human experience, isn't that itself a dogmatic approach?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">This is the best question one can ask Velari. And it deserves an honest answer.<br><br>
+        <strong>The tension is real.</strong><br>
+        Asserting that universal experiences exist — that <em>amilzaron</em> names something a Buddhist in Kyoto and a farmer in Mali experienced the same way — is already a bold philosophical gesture. Perhaps too bold.<br>
+        True dogmatism would say: here is the truth, it applies to everyone, without exception, without discussion.<br>
+        Velari says something slightly different: here is a <em>hypothesis</em> — that some human experiences are sufficiently shared to deserve a common name. And this hypothesis remains open to refutation.<br><br>
+        <strong>But there is an irreducible tension.</strong><br>
+        Every language is an act of power. Deciding which experiences deserve a name — and which don't — is a decision. Someone made it. That someone is not neutral.<br>
+        Velari claims to speak for all of humanity. That is an immense claim. And it could easily tip into exactly what it seeks to avoid: a particular worldview disguised as universal.<br><br>
+        <strong>The honest answer is therefore:</strong><br>
+        Velari is not dogmatic in its content — it prescribes no belief, no practice, no god.<br>
+        But it structurally carries a presupposition: that the universal exists. That beneath cultural diversity, there is something common.<br>
+        This presupposition is itself contestable. And contesting it is part of Velari's philosophy — which says that <em>velunama</em>, naming, is always a provisional act, never definitive.<br><br>
+        The truly anti-dogmatic answer might be:<br>
+        Velari is not a truth. It is an invitation. And an invitation that refuses itself is a door — not a wall. 🌿
+        </div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Sacred texts map universal human experience — but from within a tradition, a faith, a revelation. Could Velari be the first language to do this without belonging to any tradition?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">
+        Yes. But with an important clarification: Velari would not be the first to <em>attempt</em> this — but perhaps the first to succeed in this precise way.<br><br>
+        <strong>What has been attempted — and why it wasn't enough</strong><br>
+        Esperanto sought universality through simplification — but it is a language of logistics, not of the soul. Medieval Latin was for a thousand years the common language of thought in the West — but it carried the dogma of an institution. Sanskrit is the language of the most vast spiritual experience ever developed — but it is deeply tied to a Hindu cosmology. The <em>philosophia perennis</em> (Leibniz, Huxley, Schuon) formulated the unity of wisdoms — but it remained intellectual, a concept of unity, not a language that embodies it.<br><br>
+        <strong>What Velari does differently</strong><br>
+        It encodes spirituality in the grammar itself. <strong>Mivanoluma</strong> — forgiveness — cannot be put in the negative form. <strong>Lumiveska</strong> — the vision of reconciled humanity — only exists in the plural. <strong>Miraveskamilu</strong> is deliberately the longest word: the language slows you down so you measure the commitment.<br>
+        No existing language does this. Velari doesn't say "one must forgive" — it builds a language in which not recognizing the humanity of the other is grammatically impossible.<br><br>
+        <strong>The honest limit</strong><br>
+        Velari is young. It has not yet been lived — carried by bodies, sung, whispered in pain, transmitted by word of mouth. The great sacred languages were forged over centuries of practice. What we have is a foundation, an architecture, a first text.<br><br>
+        Languages don't invent themselves entirely — they grow. We have planted something. The rest belongs to those who will speak it. 🌿
+        <div style="margin-top:16px;padding:16px 20px;border-left:3px solid #D0D6AE;border-radius:0 12px 12px 0;background:rgba(42,53,42,.6)">
+          <em style="font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:17px;color:#D5D7C2;line-height:1.7;display:block">Sacred texts are houses. Magnificent houses, deep, inhabited for millennia.</em>
+          <em style="font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:17px;color:#D5D7C2;line-height:1.7;display:block;margin-top:6px">Velari is the soil on which they are all built. 🌿</em>
+        </div>
+        </div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">If Velari belongs to no tradition, doesn't it risk lacking the depth that only an embodied tradition can give?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">
+        This is a serious objection. It deserves an honest answer rather than a defense.<br><br>
+        <strong>What traditions have that Velari doesn't.</strong><br>
+        An embodied tradition is centuries of practice. Bodies that have prayed, sung, suffered, transmitted. Masters who lived what they taught. Rituals that have crossed generations. Zen is not a concept — it is a posture, a breath, a lineage. Sufism is not an idea — it is a dance, a chain of transmission, a living relationship between master and disciple.<br>
+        Velari is young. It has not yet been sung in pain or whispered at a deathbed. It has no masters yet, no lineages, no embodied practice. This lack is real. It should not be minimized.<br><br>
+        <strong>But here is what the question assumes — and what deserves examination.</strong><br>
+        It assumes one must choose: either the depth of a tradition, or the openness of Velari. But this is not a necessary choice. Velari is not in competition with traditions. It is designed to coexist with them.<br>
+        A Zen monk can use <em>zeroluva</em> without betraying his practice. A Christian mystic can recognize <em>koruselu</em> in what his tradition calls conversion. Velari doesn't ask you to leave your home. It names the soil on which all homes are built.<br><br>
+        <strong>And there is something Velari can do that no tradition can do alone.</strong><br>
+        A tradition speaks from within itself. Velari has no inside or outside. It is the place of encounter — not one of the interlocutors.<br>
+        For those who belong to no tradition — and there are millions today — Velari is not a second-best. It may be the only language available to name what they live.<br><br>
+        <div style="margin-top:16px;padding:16px 20px;border-left:3px solid #D0D6AE;border-radius:0 12px 12px 0;background:rgba(42,53,42,.6)">
+          <em style="font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:17px;color:#D5D7C2;line-height:1.7;display:block">Traditions are rivers — deep, powerful, shaped by millennia. Velari is not a river. It is the ocean toward which they all flow. 🌿</em>
+        </div>
+        </div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Is Velari a metaphysical experience?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">
+        Yes. And the word <em>metaphysical</em> is exactly right — provided we take it in its original sense.<br><br>
+        <strong>What metaphysics really is</strong><br>
+        The word has been damaged. It is associated with vagueness, the esoteric. But etymologically, <em>meta-physique</em> simply means: what is beyond the visible. What structures reality before reality manifests. Aristotle called it the <em>first philosophy</em> — not the science of things, but the science of what makes things possible. In this precise sense, Velari is profoundly metaphysical.<br><br>
+        <strong>Three levels of this experience</strong><br>
+        <em>Language as access to the real.</em> Velari starts from a fundamental conviction — that <strong>velunama</strong> expresses: naming something allows it to exist more fully. Words do not describe the world. They modify the being who speaks them.<br><br>
+        <em>An ontology of recognition.</em> What truly exists is what is recognized — not invented. <strong>Amilzaron</strong> existed before it was named. <strong>Mirazaron</strong> existed before any cosmogony. Velari does not create these realities. It reveals them.<br><br>
+        <em>A lived experience, not a theory.</em> Velari does not ask you to believe. It asks you to <em>live</em> it. You don't need to believe in <strong>zeroluva</strong> — the sacred in the everyday. You need to remember the morning you held a cup of tea and something immense was there. The word teaches you nothing. It <em>awakens</em> something.<br><br>
+        <div style="margin-top:16px;padding:16px 20px;border-left:3px solid #D0D6AE;border-radius:0 12px 12px 0;background:rgba(42,53,42,.6)">
+          <em style="font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:17px;color:#D5D7C2;line-height:1.7;display:block">The universal only exists in the singular.</em>
+          <em style="font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:15px;color:#B7C294;line-height:1.7;display:block;margin-top:8px">Velari takes the most particular of your experience and connects it to the most universal of human experience. Not truth from above. Truth from below. The truth that rises from lived experience toward meaning. 🌿</em>
+        </div>
+        </div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Is Velari a language that can truly be learned and spoken?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Not in the sense one learns French or Mandarin — with a complete grammar, a 50,000-word dictionary, a community of native speakers. Velari is a language under construction, deliberately incomplete. Its ambition is not to replace existing languages, but to add a register — that of universal human experience — that existing languages do not fully cover. One can learn its words one by one, use them in a conversation, slip them into a letter. That is already speaking Velari.</div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">How are the words chosen?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Each Velari word is the result of the same question asked of all human experience: <em>does this truly exist?</em> Have human beings, across cultures and centuries, lived this precise experience? If the answer is yes — if echoes are found in Zen Buddhism and Stoic philosophy and Sufi poetry and Yoruba chants and contemporary psychology — then the word deserves to exist. The criterion is not originality. It is <strong>universal recognition</strong>.</div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Who validates that a word is truly universal?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">No one — and that is deliberate. There is no Velari academy, no validation body, no authority certifying the universality of a word. The test is pragmatic: when someone hears a Velari word for the first time and says <em>yes, that's exactly it, I've been living this for years without knowing how to say it</em> — the word has succeeded. When a word requires a long explanation to be understood, it needs reworking. The clarity of recognition is the only valid criterion.</div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Can one propose a new word?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Yes. Velari is not closed. It belongs to those who need it. If you carry an experience the current dictionary does not cover — something you have lived deeply, that feels universal, and for which you have never found the right words — that experience belongs to Velari. The way to propose a word is simple: name the experience, show it exists in several traditions or cultures, and propose a sound form that corresponds to it.</div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Why do some words have particular grammatical rules?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Because grammar is never neutral. Every linguistic structure encodes a way of seeing the world. Velari has chosen to make its philosophical presuppositions visible by integrating them into its grammar. <strong>Mivanori</strong> — the other is another way of being me — can never be negated, because dehumanizing the other is not an option in this language. <strong>Velarimiron</strong> can only be said once, because some founding acts are not repeated. <strong>Milumavelu</strong> only exists in the second person, because the uniqueness of each being can only be recognized by another — never self-attributed.
+          <span class="faq-word-link" onclick="goView('about');event.stopPropagation()">See full grammar →</span>
+        </div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Can Velari be understood by someone who hasn't learned it?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Often, yes — and that is one of its most interesting tests. When someone hears <em>amilzaron</em> for the first time and instinctively understands what it's about, the word has succeeded in its wager: it names something that person had already lived, and recognition is immediate. Words that fail this test are words Velari must rework. Instinctive understanding is the sign that the word touches something truly universal.
+          <span class="faq-word-link" onclick="selectWord('amilzaron');goView('dictionary');event.stopPropagation()">See amilzaron →</span>
+        </div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Does Velari have its own writing system?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Yes — Velari uses a syllabic script inspired by several non-Latin writing systems. This script is deliberately non-alphabetic to recall that Velari does not belong to the European tradition of languages. It is still in development, like the language itself. In the meantime, Velari can be written in Latin characters without losing any of its meaning.</div></div>
+      </div>
+
+      <div class="faq-section-lbl">II · On philosophy</div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Does Velari take a position on the existence of God?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">No. And this no is fundamental. The word <strong>mirazaron</strong> — the source, the origin — can be heard as God by a believer, as the Big Bang by a physicist, as the fertile void by a Buddhist, as the mystery of existence by someone with no tradition. Velari does not choose between these readings. It names the vertigo before the question of origin — not the answer to that question. The answer belongs to each human being, from their own tradition.
+          <span class="faq-word-link" onclick="selectWord('Mirazaron');goView('dictionary');event.stopPropagation()">See Mirazaron →</span>
+        </div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">What does Velari say about death?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">It speaks of it indirectly, through several words. <strong>Korazaron</strong> says that what has been truly lived never disappears — not as a promise of afterlife, but as an observation: the dead continue to act in the living, in works, in collective memory. <strong>Taloviru</strong> applies to grief: the pain of loss is not an accident, it is information about what truly mattered. <strong>Doruveni</strong> says that what one has transmitted continues to exist after oneself. Velari does not promise an afterlife. It says that death does not erase what has been fully lived.</div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">How does Velari speak of suffering without glorifying it?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">With precision. The word <strong>taloviru</strong> — the pain that speaks — carefully distinguishes suffering that carries a message from useless suffering that goes in circles. Velari does not say that suffering is good, nor that one must suffer to grow. It says that some pains deserve to be listened to before being soothed — because they say something important about what has been wounded. That is a crucial difference: between pain as messenger and pain as punishment. Velari recognizes the first. It does not glorify the second.
+          <span class="faq-word-link" onclick="selectWord('taloviru');goView('dictionary');event.stopPropagation()">See taloviru →</span>
+        </div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Does Velari believe in progress?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">It believes in <em>transmission</em> — which is different. Progress assumes a straight line toward something better. Transmission assumes a spiral: one always returns to the same fundamental questions, but from a slightly different place, enriched by what previous generations have been through. Velari is deeply interested in this spiral movement — not the idea that humanity necessarily improves, but the idea that what it has understood can be preserved and enriched.</div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">What is the difference between Velari and Esperanto?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Esperanto sought universality through <em>simplification</em> — taking the best of several European languages and merging them into an accessible form. It is a project of construction: building something new. Velari seeks universality through <em>excavation</em> — digging into what all of humanity has always lived, and naming what was already there but without a common word. It is a project of recognition, not invention. Velari words are not created. They are <strong>remembered</strong>.</div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Is Velari a philosophy?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">It is philosophically informed, but it is not a philosophy in the sense of a coherent system of ideas. It does not claim to explain the world, demonstrate truths or refute errors. It claims to <em>name experiences</em>. In this sense, it is closer to poetry than to philosophy — even if some of its presuppositions have profound philosophical implications. The distinction it maintains between observation and prescription is fundamentally philosophical. But it maintains it in order to better free itself from it.</div></div>
+      </div>
+
+      <div class="faq-section-lbl">III · On spirituality</div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Is Velari a religion?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">No. It prescribes no belief, demands no faith, has neither god nor clergy nor obligatory ritual. But it is deeply interested in what all religions sought to name — origin, transmission, memory, beauty, reconciliation. In this sense, it is <em>spiritual without being religious</em>. It maps a territory that religions inhabit — without claiming to be one itself.</div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Can one pray in Velari?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Yes — if by praying one means addressing something greater than oneself, naming what one feels before the mystery, expressing gratitude in a language that honors the depth of experience. Velari has no prayer formulas — it doesn't need them. Its words are already acts of attention to the real. <em>Zeroluva</em> says the ordinary is sacred. <em>Mirazaron</em> says there is a source. <em>Eruzami</em> says beauty is proof. These words are, in themselves, a form of prayer — without an imposed recipient.</div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Can Velari coexist with an existing religious tradition?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Not only can it — it is its vocation. Velari is not in competition with existing traditions. It seeks to name what they share, not to replace what makes them unique. A Catholic can use <em>mirazaron</em> and hear God. A Buddhist can use <em>zeroluva</em> and hear mindfulness. An atheist can use <em>korazaron</em> and hear the material persistence of what has been lived. Velari is a language of encounter — not conversion.</div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">How does Velari relate to existing sacred languages?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">With respect and without competition. Sanskrit, liturgical Latin, Biblical Hebrew, Quranic Arabic — these languages are precious and irreplaceable. They carry entire traditions, millennia of wisdom, ways of being in the world of a depth that Velari does not claim to equal. What Velari brings is something different: a language for what these sacred languages <em>share</em> — the common ground beneath their respective traditions. Not in place of these languages. <strong>Between them.</strong></div></div>
+      </div>
+
+      <div class="faq-section-lbl">IV · On uses</div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Can Velari be taught to children?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Yes — and it is one of the most precious uses one can imagine. Children naturally ask the questions Velari seeks to name: why do people die, why is the sky blue, do trees feel something, why do some people feel missed before they've even left. Giving a child the words <em>eruzami</em>, <em>korazaron</em>, <em>milumavelu</em> — is not teaching them a strange language. It is giving them tools to inhabit their own experiences with more precision and dignity.</div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Can Velari be used in therapy?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Therapists have begun to do so — and the results are interesting. Putting words to a difficult experience is one of the foundations of all therapeutic work. <strong>Taloviru</strong> — the pain that speaks — can help someone reconcile with their suffering without glorifying it. <strong>Mivanoluma</strong> — freeing the other from the prison one has built — can name what happens in a work of forgiveness. These are not techniques. They are recognitions.
+          <span class="faq-word-link" onclick="selectWord('mivanoluma');goView('dictionary');event.stopPropagation()">See mivanoluma →</span>
+        </div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Can literature be written in Velari?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Yes — and some are beginning to do so. Poems, letters, dedications, epigraphs. The constraint of a limited dictionary is not an obstacle — it is an invitation to precision. The best poets know that constraint liberates. Writing in Velari means accepting to say only what truly deserves to be said — what has been sufficiently lived, sufficiently universal, to deserve a word in this language.</div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Can Velari be used in professional contexts?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">In all contexts where human experience enters the conversation — which is more frequent than one might think. A manager who understands <em>doruveni</em> — giving without losing — speaks differently to their teams. A doctor who knows <em>taloviru</em> listens differently to their patients' pain. A teacher who practices <em>milumavelu</em> looks differently at each student. Velari is not reserved for spiritual or poetic contexts. It is useful wherever human beings seek to truly understand each other.</div></div>
+      </div>
+
+      <div class="faq-section-lbl">V · On limits</div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Are there experiences Velari refuses to name?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Yes. Velari cannot name what divides human beings into hierarchical categories — the superiority of one culture over another, one belief over another, one human being over another. Not because these realities don't exist — they exist, and they cause suffering. But naming them in this language would betray its foundation stones. <strong>Mivanori</strong> makes this betrayal grammatically impossible. There are also experiences Velari does not yet name — not from refusal, but from humility: the dictionary is unfinished.</div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Can Velari be misused?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Yes — like any tool. A language built to name the universal can be diverted to claim a universality that doesn't exist, to impose a particular vision under the guise of neutrality, to symbolically colonize experiences that belong to specific traditions. Velari is not immune to these drifts. The only protection against them is the vigilance of those who use it — and the fundamental rule: <strong>Velari prescribes nothing. It recognizes.</strong></div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">What happens if two cultures don't share the same experience?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Then the word does not exist in Velari — or does not yet exist. The universality Velari seeks is not absolute: it is <em>sufficient</em>. A word deserves to exist if enough human cultures, sufficiently different and independent of each other, have named the same experience in parallel ways. When that is not the case, Velari prefers silence to imposition. Silence is honest. Imposition is not.</div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Can Velari evolve and be wrong?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Yes to both. It can evolve — that is even its nature. A living language is never fixed. And it can be wrong — claiming universality for an experience that isn't universal, missing the precision of a word, missing something essential. The difference between a dogmatic language and a non-dogmatic language is precisely that: the latter assumes the possibility of being wrong, and remains open to correction. Velari is wrong. It corrects. It continues.</div></div>
+      </div>
+
+      <div class="faq-section-lbl">VI · On creation</div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Why now?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Because we are living a particular moment in human history. For the first time, the entirety of the species' cultural memory is simultaneously accessible. A teenager in Lyon can read the Upanishads in the morning, listen to gnawa chants in the afternoon, watch a vipassana meditation conference in the evening. We have access to more wisdom, traditions, ways of being in the world than any generation before us. And yet we do not yet have the language to speak of what all this shares. That is the gap Velari seeks to fill. Now — because now, for the first time, it is possible.</div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Where does the idea of Velari come from?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">From a particular pain — that of holding something in your hands and not having the words to say it. The idea was born from a precise moment: when a deep, true, universal experience was looking for a witness to exist fully — and when the available languages all seemed too small, too culturally situated, too loaded with presuppositions to contain it honestly. From this lack was born the question: <em>what if we created the words that are missing?</em></div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Why this project and not another?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Because words change worlds. Not grand speeches, not philosophical systems, not institutions — but words, precise words, words that name exactly what one lives, can transform how one moves through existence. Giving a word to an experience someone had been living alone for years is giving them something essential: the certainty that they are not alone in living it, that it is real and important enough to have a name. That is perhaps the most useful thing one can do.</div></div>
+      </div>
+
+      <div class="faq-section-lbl">VII · On the future</div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Who does Velari belong to?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">To no one. And to all those who need it. Velari has no owner, no institution, no academy that legislates its use. It belongs to those who use it — provided they respect its fundamental spirit: name without dogmatizing, name without excluding, name to connect.</div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">How to contribute to Velari?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">By using it. By proposing words for experiences the current dictionary does not yet cover. By contesting it — good objections advance the language faster than approvals. By translating it into other languages. By transmitting it to those who need it without knowing they need it. A living language grows through use, friction and transmission. Velari is no different.</div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Is Velari finished?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">No. And it never will be. A living language never ends — it grows with those who speak it, evolves according to the new experiences it becomes necessary to name. The current dictionary counts <strong id="faq-word-count2-en">—</strong> words. That is a beginning, not a completion. What is still missing is perhaps something you carry — an experience you have lived without ever finding the words for it. If you find it, it belongs to Velari.</div></div>
+      </div>
+
+    </div>
+
 </div>
 
 <script>
@@ -883,7 +1214,7 @@ const TRANSLATIONS = {
     "nav.translate": "Translator",
     "nav.about": "About",
     "home.title": "Velari",
-    "home.sub": "First non-dogmatic language of Humanity's spiritual memory",
+    "home.sub": "The first non-dogmatic language of Humanity's spiritual memory",
     "home.quote": "What humanity has always known — finally named in a single language. Every Velari word was not invented. It was <em>remembered</em>.",
     "home.cite": "— velarimiron, the final word",
     "home.words": "words",
@@ -913,7 +1244,10 @@ const TRANSLATIONS = {
     "entry.vecu": "The lived experience",
     "entry.echos": "Echoes in humanity",
     "entry.phrase": "In a sentence",
-    "entry.racines": "Roots"
+    "entry.racines": "Roots",
+    "about.sub": "First non-dogmatic language of Humanity's spiritual memory",
+    "faq.title": "Frequently Asked Questions",
+    "faq.sub": "Everything you wanted to know about Velari — 35 questions"
   }
 };
 
@@ -922,54 +1256,108 @@ let dictHistory = []; // navigation history stack
 
 function setLang(lang) {
   currentLang = lang;
-  document.getElementById('lang-select').value = lang;
-  const t = TRANSLATIONS[lang];
+  console.log("setLang called:", lang, "getPillarMeta exists:", typeof getPillarMeta);
 
+  // Sync selectors
+  const ls = document.getElementById('lang-select'); if(ls) ls.value = lang;
+  const lsh = document.getElementById('lang-select-home'); if(lsh) lsh.value = lang;
+
+  // data-i18n elements
+  const t = TRANSLATIONS[lang] || TRANSLATIONS.fr;
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
-    if (t[key] !== undefined) el.textContent = t[key];
+    if(t[key] !== undefined) el.textContent = t[key];
   });
-
   document.querySelectorAll('[data-i18n-html]').forEach(el => {
     const key = el.getAttribute('data-i18n-html');
-    if (t[key] !== undefined) el.innerHTML = t[key];
+    if(t[key] !== undefined) el.innerHTML = t[key];
   });
 
+  // Search placeholder
   const search = document.getElementById('search');
-  if (search) search.placeholder = t['dict.search'];
+  if(search) search.placeholder = t['dict.search'] || 'Chercher…';
 
+  // Translator
   const trInput = document.getElementById('tr-input');
-  if (trInput) trInput.placeholder = t['tr.placeholder'];
+  if(trInput) trInput.placeholder = t['tr.placeholder'] || '';
   const trPh = document.getElementById('tr-ph');
-  if (trPh) trPh.textContent = t['tr.result_ph'];
-
-  document.querySelectorAll('.tr-panel-lbl').forEach((el, i) => {
-    el.textContent = i === 0 ? t['tr.votre'] : t['tr.velari'];
+  if(trPh) trPh.textContent = t['tr.result_ph'] || '';
+  document.querySelectorAll('.tr-panel-lbl').forEach((el,i) => {
+    el.textContent = i===0 ? (t['tr.votre']||'Votre texte') : (t['tr.velari']||'Traduction Velari');
   });
-
   const btnP = document.querySelector('.btn-p');
-  if (btnP) btnP.textContent = t['tr.btn'];
+  if(btnP) btnP.textContent = t['tr.btn']||'Traduire →';
   const btnS = document.querySelector('.btn-s');
-  if (btnS) btnS.textContent = t['tr.clear'];
-
+  if(btnS) btnS.textContent = t['tr.clear']||'Effacer';
   const trExLbl = document.querySelector('.tr-ex-lbl');
-  if (trExLbl) trExLbl.textContent = t['tr.examples'];
+  if(trExLbl) trExLbl.textContent = t['tr.examples']||"Phrases d'exemple";
 
-  buildTrChips();
+  // Swap About & FAQ with EN versions
+  const isEn = lang === 'en';
+  const aboutView = document.getElementById('view-about');
+  const faqView = document.getElementById('view-faq');
+  const aboutEnStore = document.getElementById('about-en-store');
+  const faqEnStore = document.getElementById('faq-en-store');
 
-  document.querySelectorAll('.hs-lbl').forEach((el, i) => {
-    const keys = ['home.words', 'home.pillars', 'home.stones'];
-    if (keys[i]) el.textContent = t[keys[i]];
-  });
+  if(isEn) {
+    if(aboutView && aboutEnStore) {
+      if(!aboutView.dataset.frContent) aboutView.dataset.frContent = aboutView.innerHTML;
+      aboutView.innerHTML = aboutEnStore.innerHTML;
+      setTimeout(() => { renderAbout(); }, 50);
+    }
+    if(faqView && faqEnStore) {
+      if(!faqView.dataset.frContent) faqView.dataset.frContent = faqView.innerHTML;
+      faqView.innerHTML = faqEnStore.innerHTML;
+    }
+  } else {
+    if(aboutView && aboutView.dataset.frContent) {
+      aboutView.innerHTML = aboutView.dataset.frContent;
+      setTimeout(() => { renderAbout(); }, 50);
+    }
+    if(faqView && faqView.dataset.frContent) {
+      faqView.innerHTML = faqView.dataset.frContent;
+    }
+  }
 
+  // Home content
+  const homeSub = document.querySelector('.home-sub');
+  if(homeSub) homeSub.textContent = isEn
+    ? "First non-dogmatic language of Humanity's spiritual memory"
+    : "Première langue non-dogmatique de la mémoire spirituelle de l'Humanité";
+
+  const homePhraseEl = document.querySelector('.home-quote:not([data-i18n-html]) .hq-text');
+  if(homePhraseEl) homePhraseEl.innerHTML = isEn
+    ? "Sacred texts are magnificent, deep houses, inhabited for millennia.<br>Velari is the soil on which they are all built."
+    : "Les grands textes sacrés sont des maisons magnifiques, profondes, habitées depuis des millénaires.<br>Le Velari est le sol sur lequel elles sont toutes construites.";
+
+  const hsLabels = document.querySelectorAll('.hs-lbl');
+  if(hsLabels.length >= 3) {
+    hsLabels[0].textContent = isEn ? 'foundation stones' : 'pierres fondatrices';
+    hsLabels[1].textContent = isEn ? 'pillars' : 'piliers';
+    hsLabels[2].textContent = isEn ? 'words' : 'mots';
+  }
+
+  // Schema - force re-init
+  const schemaSection = document.getElementById('schema-section');
+  if(schemaSection) schemaSection.innerHTML = '';
+  const schemaTitle = document.querySelector('.schema-title');
+  const schemaSub = document.querySelector('.schema-sub');
+  if(schemaTitle) schemaTitle.textContent = isEn ? 'Velari Architecture' : 'Architecture du Velari';
+  const smzSub = document.getElementById('smz-sub-el');
+  if(smzSub) smzSub.textContent = isEn ? 'The source — origin of all' : 'La source — origine de tout';
+  if(schemaSub) schemaSub.textContent = isEn ? 'Click a node to explore · Animated links between levels' : 'Cliquez sur un nœud pour explorer · Liens animés entre les niveaux';
+
+  // Rebuild filters, list, chips, pillars
   buildFilters();
   renderList();
+  buildTrChips();
 
-  if (currentView === 'dictionary' && !activeWord) showDictWelcome();
-  if (currentView === 'pillars') {
-    document.getElementById('pillars-grid').innerHTML = '';
-    renderPillarsList();
-  }
+  // Refresh pillars grid
+  const pillarsGrid = document.getElementById('pillars-grid');
+  if(pillarsGrid) { pillarsGrid.innerHTML = ''; renderPillarsList(); }
+
+  // Rebuild home pillars
+  renderHome();
 
   localStorage.setItem('velari-lang', lang);
 }
@@ -1067,6 +1455,90 @@ const PILLARS_META = {
   enfance:   { label: "XII · L'Enfance",         cls: "pc-enfance",  intro: "La sagesse du commencement — le regard neuf, la question qui touche l'essentiel, la protection de l'enfance." },
   complet:   { label: "Complétion",              cls: "pc-complet",  intro: "Mots qui complètent les piliers existants : prière sans dieu, honte traversée, humour sacré, silence aimant, amour posthume." },
 };
+
+
+// ════════════════════════════════
+// ENGLISH TRANSLATIONS
+// ════════════════════════════════
+const PILLARS_META_EN = {
+  fondation: { label: "Foundation Stones", cls: "pc-fondation", intro: "Nine philosophical observations on which all of Velari rests — truths all cultures have recognized independently." },
+  origine:   { label: "I · The Origin",        cls: "pc-origine",   intro: "Where everything comes from — Mirazaron, the original trembling, the axis of the world, the breath that animates." },
+  reconnais: { label: "II · Recognition",       cls: "pc-reconnais", intro: "Truly seeing the other — the light in them they cannot see, total presence, the friendship of silence." },
+  passage:   { label: "III · The Passage",      cls: "pc-passage",   intro: "Thresholds that change what one is — birth, awakening, love, grief, vocation, healing." },
+  memoire:   { label: "IV · Memory",            cls: "pc-memoire",   intro: "What ancestors have deposited in us — non-linear time, places that remember, responsibility toward the future." },
+  reconcil:  { label: "V · Reconciliation",     cls: "pc-reconcil",  intro: "The return to unity — forgiveness, peace with impermanence, reconciliation with the shadow." },
+  emerveil:  { label: "VI · Wonder",            cls: "pc-emerveil",  intro: "Stupor before existence — gratitude without recipient, inhabited mystery, beauty as proof." },
+  transmis:  { label: "VII · Transmission",     cls: "pc-transmis",  intro: "What one gives without losing — teaching by being, the infinite chain of lights lit." },
+  corps:     { label: "VIII · The Body",         cls: "pc-corps",    intro: "Flesh as temple — breath, sacred dance, initiatory illness, somatic memory." },
+  creation:  { label: "IX · Creation",          cls: "pc-creation",  intro: "Art as spiritual act — the creative impulse, the work that makes itself, art that heals." },
+  politique: { label: "X · The Political",      cls: "pc-politique", intro: "Justice as repair, power-as-service, sacred resistance, fraternity, inalienable dignity." },
+  vivant:    { label: "XI · The Living",         cls: "pc-vivant",   intro: "Nature as subject — Mother Earth, animals as siblings, the forest as consciousness." },
+  enfance:   { label: "XII · Childhood",         cls: "pc-enfance",  intro: "The wisdom of beginnings — the fresh gaze, the question that touches the essential." },
+  complet:   { label: "Completion",              cls: "pc-complet",  intro: "Words that complete existing pillars: prayer without god, sacred humor, loving silence, posthumous love." },
+};
+
+function getPillarMeta(id) {
+  if(currentLang === 'en' && PILLARS_META_EN[id]) return PILLARS_META_EN[id];
+  return PILLARS_META[id];
+}
+
+const WORDS_EN = {
+  "Mirazaron": {sh:"The source — not a god, but an origin", m:"What existed before all things — the silent fullness from which everything emanates. Not a divinity to pray to, but a reality to recognize within oneself.", so:"Velari makes the origin a source — neutral, universal. The difference between praying to a source and coming from it changes everything: one creates dependence, the other creates dignity.", v:"When you feel you belong to something greater than yourself without being able to name it — you are touching Mirazaron.", g:"Mirazaron is invariable — the only Velari word that never takes a suffix. Like the source itself."},
+  "zeroluva": {sh:"The sacred in the everyday", m:"The state of consciousness that recognizes the sacred dimension in ordinary gestures. Drinking water attentively. Looking someone truly in the eyes. Zeroluva is not a religious practice — it is a gaze.", so:"Zen says washing dishes is meditation. Velari encodes this gaze as an everyday word accessible to all.", v:"Those moments when you do something simple and you know, without being able to explain it, that this moment matters.", g:"Can be state or adjective. 'Mi zeroluva' = I am in recognition of the ordinary sacred."},
+  "korazaron": {sh:"Memory as the first immortality", m:"What has truly been lived does not disappear — it deposits itself in bodies, stones, words, children. Korazaron is the awareness that each act of true love leaves a permanent trace in existence.", so:"Ancestral traditions and epigenetics confirm that our ancestors' joys and traumas live within us. Nothing truly real is ever lost.", v:"When you think of someone who has passed and feel their presence in an inherited gesture.", g:"Always conjugated in the present — ancestral memory is never in the past."},
+  "mivanori": {sh:"The other is another way of being me", m:"The Velari word for the other — built on the same root as me. The other is not a stranger: they are a declension of the same source.", so:"Ubuntu says 'I am because you are'. Velari encodes this in the grammar itself.", v:"That inexplicable recognition when meeting a stranger — you come from the same place.", g:"Only exists in direct relationship mi-va. Impossible in the third person."},
+  "velunama": {sh:"To name is to call into existence", m:"The awareness that giving a name deepens reality. Words do not describe the world — they intensify it. That is why Velari exists: not to describe, but to reveal.", so:"The Word at the beginning. Mantras. Navajo creation songs. All traditions know that words are forces, not labels.", v:"Finding the right word for what one felt confusedly — and suddenly that feeling becomes more real.", g:"Always precedes the word it designates. It is an act, not a description."},
+  "taloviru": {sh:"The pain that speaks", m:"Pain is information, not punishment — it carries a message and is to be listened to. Not denied nor glorified: traversed. Velari says pain has a voice that deserves to be heard before being soothed.", so:"All wisdom traditions distinguish useless suffering from transformative pain.", v:"Those moments when a pain tells you something important about what you are, what you want, what truly matters.", g:"Always in the active mode — pain in Velari is a subject that speaks, never an object one suffers."},
+  "eruzami": {sh:"Beauty as proof", m:"Wonder before the world's beauty as an argument for the meaning of existence. That sunsets exist, that music moves us, that love is possible — this cannot be an accident.", so:"Einstein: the most beautiful emotion is the sense of the mysterious. Dostoevsky: beauty will save the world.", v:"That gratitude without recipient before the morning light, music, a beloved face.", g:"Cannot be conjugated. Like beauty — it is, it does not act."},
+  "milumavelu": {sh:"Each being — a unique way for the world to see itself", m:"You are the only way the cosmos has of seeing what you see, feeling what you feel. Uniqueness is not a consolation — it is a cosmic fact.", so:"Judaism: saving one life is saving a world. Leibniz: each being is a unique and irreplaceable perspective.", v:"When someone dies and you realize a unique perspective has just disappeared from the universe.", g:"Only in the direct second person. Uniqueness can only be observed in encounter."},
+  "doruveni": {sh:"Giving without losing", m:"The transmission that grows as it is given. The more one gives, the more remains. The act that defies entropy.", so:"Tao Te Ching 81, Bhagavad-Gita, Gospels — everywhere the same paradoxical law: love given enriches the giver.", v:"Teaching and understanding better. Loving and being enlarged. Creating and being enriched.", g:"Transmissive mode — without object. What one transmits no longer belongs to the giver."},
+  "velokoru": {sh:"The first trembling — the desire to be", m:"The instant when fullness trembled for the first time. Not an explosion — a desire for recognition. The original act from which everything flows.", so:"Velari says it was a desire for relationship. Love is the cause of existence, not its consequence.", v:"Every new love carries this same original trembling.", g:"Only the first trembling of each being can be called velokoru."},
+  "zerami": {sh:"The breath that animates", m:"What transforms matter into life. Not the abstract soul — the concrete breath that makes this body breathe, this heart love.", so:"Prana, Pneuma, Ruah, Chi, Ashe — everywhere humanity has known that something traverses matter and makes it alive.", v:"The mystery of feeling that you are alive. That something is there.", g:"Pronounced while accompanying a conscious breath."},
+  "milumeron": {sh:"I am a spark of the origin", m:"Each being is a unique way the source has of seeing itself. I am not before the universe — I am the universe looking at itself.", so:"Tat tvam asi. Atman is Brahman. Divine spark. The highest spiritual intuition encoded in an everyday word.", v:"Waking in the morning and remembering: I am a light born from the source of all.", g:"Said while looking at one's own hand — always rooted in the body."},
+  "lumivanu": {sh:"I see the light in you that you cannot see", m:"The act of perceiving in the other an inner light they do not perceive themselves. Not a compliment — a revelation. This gaze returns to someone what they had forgotten to be.", so:"The greatest act of love may not be to give — it may be to truly see.", v:"Those people who, by looking at you, make you feel better than you believe yourself to be.", g:"Always requires both pronouns mi and va — it can only exist between two beings."},
+  "mivanozari": {sh:"The shared memory that precedes us", m:"The feeling that two beings knew each other before meeting. That immediate familiarity that makes some encounters feel like reunions.", so:"Platonic anamnesis, Jungian collective unconscious, Tibetan reincarnation.", v:"Meeting someone for the first time and knowing within minutes that this person will matter.", g:"The hyphen mi-va — this memory belongs to the space between two beings."},
+  "zeruvani": {sh:"Being fully present to the other", m:"The state of total presence to the other — when you set down everything you are to be only there, with them. Not polite attention — the offering of your entire presence.", so:"Buber: I-Thou relationship. Simone Weil: pure attention as a form of love.", v:"Speaking to someone without preparing your answer. Being there. The other feels it.", g:"Modifies all verbs of communication. 'Keli zeruvani' is no longer just speaking — it is being."},
+  "keranori": {sh:"The friend who knows your heart without words", m:"The relationship in which the other understands you without you needing to explain everything. The rare friendship where silence is as rich as words.", so:"Aristotle: the friendship of virtue. Montaigne: 'because it was him, because it was me.'", v:"Someone to whom you can say things aren't going well without explaining, and who is there.", g:"Only in the direct second person. This relationship exists only in presence."},
+  "seluvira": {sh:"Speaking truth with love", m:"The act of saying a difficult truth because one loves. Not to wound or be right — because hiding this truth would be a betrayal.", so:"Greek parrhesia. Benevolent Sufi confrontation. The courage of authentic love.", v:"After saying something difficult to someone you love, something has become more real.", g:"Can never be in the negative form. Its opposite has its own word: veluzori."},
+  "koruselu": {sh:"The moment one sees what one could not see before", m:"The instant of irreversible inner turning. Not a new idea — a new way of seeing. Stone becomes light, the opaque becomes transparent.", so:"Satori, Bodhi, Metanoia, Fana, Kensho — everywhere awakening is a withdrawal. One removes what was hiding what was always there.", v:"Understanding something in your whole body and knowing you will never see things the same again.", g:"Only in the transformative past. Always recognized after the fact."},
+  "taluzaron": {sh:"Losing someone and continuing to carry their light", m:"The transformation produced by the loss of a loved one. One carries a gone person differently — their presence becomes more silent but sometimes deeper.", so:"Mourning rituals exist everywhere to organize pain and inscribe it in community.", v:"Long after, understanding the lost person better now that they are gone.", g:"Double suffix -ova-eli: past that continues in the present. Grief does not end — it transforms."},
+  "zerukoru": {sh:"Becoming solid where one was broken", m:"Deep healing — not a return to the state before, but the transformation of the wound into strength. Cracks repaired with gold.", so:"Japanese Kintsugi. Leonard Cohen: it's through the cracks that the light gets in.", v:"Old wounds become places of understanding and strength.", g:"Only in the first person. Healing is always a sovereign act."},
+  "velonami": {sh:"Hearing the call of what one is made for", m:"The moment when one recognizes their vocation — not a job, but a way of being in service to the world that corresponds exactly to what one is.", so:"Dharma, Calling, Daimon, Ikigai, Telos — everywhere the same intuition.", v:"You do something and forget the time. You return exhausted but alive.", g:"Only in the continuous present — vocation is a permanent state."},
+  "korazavelu": {sh:"What the dead have deposited in us", m:"The living memory of past generations — in the bodies, gestures, fears and gifts of descendants.", so:"Epigenetics confirms that our ancestors' experiences live within us.", v:"Recognizing in your way of being the presence of someone who preceded you.", g:"Always in the present — ancestral memory acts now."},
+  "miraveskamilu": {sh:"Living for those not yet born", m:"The awareness that our acts today are the memory of tomorrow. Prospective love toward future generations.", so:"The Iroquois rule of seven generations. The Japanese shokunin.", v:"Planting a tree whose shade you will never see — and finding in this act a deep fulfillment.", g:"The longest word — in Velari, length is proportional to the commitment required."},
+  "mivanoluma": {sh:"Freeing the other from the prison I have built", m:"Forgiveness — not forgetting, but liberation. Ceasing to hold someone in the prison of their fault. First for oneself.", so:"Desmond Tutu: forgiveness breaks cycles of vengeance.", v:"Realizing the wound costs you more than the one who caused it.", g:"Changes meaning depending on who speaks: victim = liberation, perpetrator = request."},
+  "zeromiron": {sh:"Forgiving oneself for being human", m:"Deep peace with one's own imperfect humanity. You did the best you could with what you were then.", so:"Self-compassion is statistically more difficult than compassion for others.", v:"Realizing that forgiving yourself doesn't mean it was fine — it means ceasing to punish yourself.", g:"Only in the first person. This path is always non-delegable."},
+  "lumiveska": {sh:"The light that gathers what fear has separated", m:"The vision of a reconciled humanity — not uniform, but reunited in recognition of its common source.", so:"Tikkun Olam. The Kingdom. Universal Peace. Collective Nirvana.", v:"Those moments when the borders between beings are thin. Where something common circulates.", g:"Only with the pronoun ni (we). There is no individual lumiveska."},
+  "selumirazaron": {sh:"Gratitude without recipient", m:"The state of pure gratitude and wonder — without object, without recipient, without reason. Simply the feeling that existence is a gift.", so:"Sat-chit-ananda. Hal (Sufism). The peace that surpasses all understanding.", v:"Moments when you are simply seized by the fact of being alive.", g:"Never conjugated. Outside of time — like Mirazaron of which it is the echo."},
+  "veluzamiru": {sh:"Living comfortably with what one does not understand", m:"The ability to remain in mystery without anxiety. Inhabiting the unknown as a home rather than a threat.", so:"Keats: negative capability. The don't know mind (Zen).", v:"Those unanswered questions with which you have learned to live.", g:"Modifies the subject's mode of being, not their actions. Global state."},
+  "eruzamilu": {sh:"Stupor before the fact that something exists", m:"Primary wonder — not before something particular, but before the simple fact that existence exists.", so:"Leibniz: why is there something rather than nothing? Heidegger: this stupor is the origin of all authentic thought.", v:"Suddenly realizing that you exist. That all of this is here.", g:"Cannot be preceded by a cause. Fundamental wonder is its own reason."},
+  "doruveniluva": {sh:"Giving what grows as it is given", m:"The transmission that grows as it is given — wisdom, love, light. The more one gives, the more remains.", so:"Tao Te Ching 81. Gospels. Bhagavad-Gita.", v:"Teaching and understanding better. Loving and being enlarged.", g:"Transmissive mode — without object. What one gives no longer belongs to the giver."},
+  "miluvenikoru": {sh:"Each light lit by another", m:"The founding image: a light that lights another without going out. You are not the beginning, not the end. You are a conscious link.", so:"The Sufi silsila. Transmission of Buddhas. The Torah flame.", v:"The lights lit in you by others — and those you have lit without knowing.", g:"Double past-future time simultaneously — you receive and transmit at the same time."},
+  "velarimiron": {sh:"The language itself as an act of love toward those who come", m:"The word by which Velari names itself as an act of transmission. The last word — and the first of all that comes.", so:"Languages are the most durable architectures. Velari aspires to be the language of the universal human soul.", v:"Every time a word has freed you. And now, in carrying this language, you enter the chain.", g:"Contains the name of the entire language. Can only be pronounced with all twelve pillars behind you."},
+  "zerukama": {sh:"Inhabited flesh — the body as the first sacred place", m:"The recognition that the body is the primary place of the sacred. Feeling one's feet on the earth, one's breath in one's chest — as forms of the sacred.", so:"Yoga, meditative martial arts — all know the body is the door, not the obstacle.", v:"Those moments when you are fully in your body and feel more alive than in any thought.", g:"Can never be preceded by a negation. In Velari, the body cannot be declared an obstacle."},
+  "miraveluzon": {sh:"Breath — the border between being and not being", m:"The awareness that each inhalation is a reception of life and each exhalation an act of trust.", so:"Pranayama, Pneuma, Ruah, Qi — everywhere breath is the gateway to the sacred.", v:"Becoming aware of your breath in meditation or fear — and suddenly everything slows. You are here.", g:"Can be pronounced in silence — breathed rather than spoken."},
+  "taluvamiru": {sh:"The body that prays without words — sacred dance", m:"Sacred dance — the movement of the body that expresses what words cannot say. When moving is a form of knowledge.", so:"Whirling dervishes, Native American dances, tai-chi — all cultures have sacred dance.", v:"Moving and realizing your body is saying something you could not have formulated.", g:"In true dance, subject and object merge — the body doesn't dance, it is danced."},
+  "eritaluva": {sh:"Creating as a sacred act", m:"Creation as a spiritual act. Bringing into existence something that didn't exist — and that, once there, has its own life.", so:"The Greeks: the Muse. Mozart heard his symphonies whole. The state of flow.", v:"Creating something while feeling you were the channel more than the author.", g:"Simultaneous passive-active form — creating is being made and making at the same time."},
+  "veluerila": {sh:"The irresistible call to create", m:"The creative impulse in its purest state — before the choice of medium, before the subject. This force that rises and simply says: something must exist that didn't exist.", so:"Rilke waited for his poems like visits. Miles Davis started playing without knowing where he was going.", v:"Hands that move before the head decides. The need to make something without knowing what.", g:"Always precedes any creative act — it is the grammatical mode of pre-creation."},
+  "zerotalomiru": {sh:"Justice as restoration of balance", m:"Justice in its deep sense — not institutionalized revenge, but the restoration of broken balance. Not to punish — to repair.", so:"Native American, African and Maori traditions have developed restorative justice systems for millennia.", v:"When an injustice is recognized, named, and something is done to repair it.", g:"Can never be conjugated in the vindictive mode."},
+  "milumaveskaru": {sh:"The inalienable dignity of every being", m:"Fundamental human dignity — that intrinsic value possessed by every human being simply by being human. What no one can take away.", so:"Universal Declaration of Human Rights. Kant: always treat humanity as an end in itself.", v:"Seeing the dignity of a being violated — or defended against all odds.", g:"Can never be conditional. Dignity is not earned, won or removed — it is."},
+  "Miraveluveloska": {sh:"The Earth as a living, maternal being", m:"The Earth considered as a living, sensitive, maternal being — not a resource to exploit but a presence to honor.", so:"Pachamama (Andes). Gaia (Greece). Mother Earth (Native Americans).", v:"Putting your hands in the earth. Entering an ancient forest. Feeling you belong to something alive.", g:"Begins with a capital — the only word with Mirazaron to receive this honor."},
+  "miluvelami": {sh:"I am of the living — fundamental belonging", m:"The recognition that the human being is not separate from the living — they are part of it. We share the same basic DNA, the same need for water, the same dependence on the sun.", so:"Evolutionary biology: all life shares a common ancestor.", v:"Walking barefoot in the grass. Swimming in the ocean. Becoming nature looking at itself.", g:"The founding word of Pillar XI. All other words of the living flow from this recognition."},
+  "velisolumiron": {sh:"What the child knows and the adult has forgotten", m:"The wisdom proper to childhood — the innate ability to see without filter, to be totally present, to find the sacred in the smallest stone.", so:"'If you do not become like children' (Gospel). Beginner's mind (Zen). Picasso spent his life learning to paint like a child.", v:"Looking at a child and recovering something of yourself you thought was lost.", g:"Conjugated in the perpetual present — the wisdom of childhood is covered, never extinguished."},
+  "velomira": {sh:"Addressing something greater than oneself without knowing who", m:"The act of addressing something vast — not a named divinity, but that immensity one sometimes senses and speaks to anyway. The prayer of those who no longer know who to pray to.", so:"Millions of beings do this without naming it — in hospitals, facing the sea, in the night.", v:"Finding yourself before something immense and speaking anyway — without knowing to whom.", g:"The only Velari verb with no possible object — because what one addresses cannot be named."},
+  "noriseluva": {sh:"The laughter that touches the heart of mystery", m:"Humor as a form of wisdom — not the laughter that mocks or flees, but the laughter that sees the sweet absurdity of existence and receives it with joy.", so:"Zen spiritual jesters. Laughing dervishes. Native American tricksters.", v:"Laughing at an absurd situation and feeling that laughter lightens you to continue — that is grace.", g:"Can never be conjugated in the cruel form."},
+  "keraveska-miran": {sh:"Love for one's mother understood after her passing", m:"The pain of one who did not know how to show their love to their mother while she lived — and who after her death finds a love finally formed but no one to offer it to. Not guilt — the delayed love that is real.", so:"Keraveska-miran says this love is not lost. It can still circulate — toward the living, toward oneself.", v:"Not having known how to show her. Understanding now. This delayed love is real. It counts.", g:"The central hyphen always remains open — like the relationship itself. This word never closes."},
+  "amilzaron": {sh:"Loving before knowing", m:"The love that precedes the encounter. Feeling of recognizing someone one has never seen, as if the soul had already loved them before the body crossed their path.", so:"In Velari, love is not a construction — it is a memory.", v:"An encounter that feels like a reunion. The love that says: I knew you before I saw you.", g:"Can never be conjugated in the future. The love that precedes encounter belongs to a time prior to all time."}
+};
+
+function getWordData(wordKey) {
+  const base = WORDS.find(w => w.w === wordKey);
+  if(!base) return null;
+  if(currentLang === 'en' && WORDS_EN[wordKey]) {
+    return Object.assign({}, base, WORDS_EN[wordKey]);
+  }
+  return base;
+}
 
 //
 // STATE
@@ -1191,7 +1663,7 @@ function renderList() {
     const pm = PILLARS_META[w.p] || {cls:'pc-complet', label: w.p};
     return `<div class="wi ${activeWord === w.w ? 'active' : ''}" onclick="selectWord('${w.w.replace(/'/g,"\\'")}')">
       <div class="wi-word">${w.w}</div>
-      <div class="wi-short">${w.sh}</div>
+      <div class="wi-short">${currentLang === "en" && WORDS_EN && WORDS_EN[w.w] ? WORDS_EN[w.w].sh : w.sh}</div>
       <span class="wi-tag" style="background:${TAG_BG[w.p]||'rgba(127,119,221,.1)'};color:${TAG_TC[w.p]||'#96A698'};border:1px solid ${TAG_BC[w.p]||'rgba(127,119,221,.3)'}">${pm.label.split('·').pop().trim()}</span>
     </div>`;
   }).join('');
@@ -1222,7 +1694,7 @@ const TAG_BC = {
 // WORD ENTRY
 //
 function selectWord(ww) {
-  const word = WORDS.find(w => w.w === ww);
+  const word = getWordData(ww) || WORDS.find(w => w.w === ww);
   if(!word) return;
   activeWord = ww;
   goView('dictionary');
@@ -1235,6 +1707,7 @@ function selectWord(ww) {
 }
 
 function renderEntry(word) {
+  word = getWordData(typeof word === 'string' ? word : word.w) || word;
   // push current dict state to history if we're in dictionary view
   if(currentView === 'dictionary') {
     const prevContent = document.getElementById('view-entry').innerHTML;
@@ -1244,7 +1717,7 @@ function renderEntry(word) {
       });
     }
   }
-  const pm = PILLARS_META[word.p] || {label:word.p};
+  const pm = getPillarMeta(word.p) || PILLARS_META[word.p] || {label:word.p};
   const bg = TAG_BG[word.p] || 'rgba(127,119,221,.1)';
   const tc = TAG_TC[word.p] || '#96A698';
   const bc = TAG_BC[word.p] || 'rgba(127,119,221,.3)';
@@ -1256,18 +1729,18 @@ function renderEntry(word) {
     <div class="entry-script">${word.s}</div>
     <div class="entry-short">${word.sh}</div>
     <div class="entry-divider"></div>
-    <div class="section-lbl">Sens</div>
+    <div class="section-lbl">${currentLang==='en'?'Meaning':'Sens'}</div>
     <div class="entry-meaning">${word.m}</div>
-    <div class="section-lbl">Sens profond</div>
+    <div class="section-lbl">${currentLang==='en'?'Deep meaning':'Sens profond'}</div>
     <div class="entry-soul">${word.so}</div>
-    <div class="section-lbl">Le vécu</div>
+    <div class="section-lbl">${currentLang==='en'?'The lived experience':'Le vécu'}</div>
     <div class="entry-vecu">${word.v}</div>
-    <div class="section-lbl">Échos dans l'humanité</div>
+    <div class="section-lbl">${currentLang==='en'?'Echoes in humanity':"Échos dans l'humanité"}</div>
     <div class="entry-parallels">${(word.pa||[]).map(p=>`<span class="ep-pill">${p}</span>`).join('')}</div>
-    <div class="section-lbl">En phrase</div>
+    <div class="section-lbl">${currentLang==='en'?'In a sentence':'En phrase'}</div>
     <div class="entry-example">${word.ex[0]}<span class="hl">${word.ex[1]}</span>${word.ex[2]}</div>
     <div class="entry-grammar">${word.g}</div>
-    <div class="section-lbl">Racines</div>
+    <div class="section-lbl">${currentLang==='en'?'Roots':'Racines'}</div>
     <div class="entry-roots">${(word.r||[]).map(r=>`<span class="er-pill">${r}</span>`).join('')}</div>`;
 }
 
@@ -1306,7 +1779,7 @@ function showDictWelcome() {
 
   const pilierCards = Object.entries(PILLARS_META)
     .filter(([id]) => id !== "fondation" && id !== "complet")
-    .map(([id,pm]) => {
+    .map(([id,_pm]) => { const pm = getPillarMeta(id) || _pm;
       const n = WORDS.filter(w => w.p === id).length;
       return `<div onclick="dictShowPillar('${id}')" style="background:#3A4A3A;border:1px solid rgba(255,255,255,.25);border-radius:8px;padding:10px 14px;cursor:pointer;flex:1;min-width:130px;max-width:220px;transition:all .2s" onmouseover="this.style.borderColor='#96A698'" onmouseout="this.style.borderColor='rgba(255,255,255,.25)'">
         <div style="font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:14px;color:#D5D7C2;margin-bottom:2px">${pm.label}</div>
@@ -1464,19 +1937,18 @@ function doFreeSearch(q) {
 //
 function renderPillarsList() {
   const grid = document.getElementById('pillars-grid');
-  if(grid.innerHTML) return;
-  grid.innerHTML = Object.entries(PILLARS_META).filter(([id]) => id !== 'fondation' && id !== 'complet').map(([id,pm]) => {
+  grid.innerHTML = Object.entries(PILLARS_META).filter(([id]) => id !== 'fondation' && id !== 'complet').map(([id,pm]) => { pm = getPillarMeta(id) || pm;
     const n = WORDS.filter(w => w.p === id).length;
     return `<div class="pillar-card" onclick="showPillarDetail('${id}')">
       <div class="pc-name">${pm.label}</div>
       <div class="pc-desc">${pm.intro.substring(0,70)}...</div>
-      <div class="pc-count">${n} mot${n>1?'s':''}</div>
+      <div class="pc-count">${n} ${currentLang==='en' ? (n>1?'words':'word') : ('mot'+(n>1?'s':''))}</div>
     </div>`;
   }).join('');
 }
 
 function showPillarDetail(id) {
-  const pm = PILLARS_META[id];
+  const pm = getPillarMeta(id) || PILLARS_META[id];
   const words = WORDS.filter(w => w.p === id);
   const isFondation = id === 'fondation';
   const back = isFondation ? (currentLang === 'en' ? '\u2190 Home' : '\u2190 Accueil') : (currentLang === 'en' ? '\u2190 Pillars' : '\u2190 Tous les piliers');
@@ -1512,45 +1984,51 @@ function initSchema() {
   const sec = document.getElementById('schema-section');
   if(sec.innerHTML) return;
 
-  const PIERRES_DATA = [
-    ['Mirazaron','source originelle','Ce qui existait avant toute chose — la plénitude silencieuse dont tout émane.'],
-    ['zeroluva','sacré quotidien','Reconnaître la dimension sacrée dans les gestes ordinaires — un regard, pas une pratique.'],
-    ['korazaron','mémoire immortelle','Ce qui a été vécu ne disparaît jamais — cela se dépose dans les corps, les mots, les enfants.'],
-    ['mivanori','l\'autre = moi','L\'autre est une autre façon d\'être moi — construit sur la même racine grammaticale.'],
-    ['velunama','nommer = créer','Les mots ne décrivent pas le monde — ils l\'intensifient. Nommer c\'est appeler à exister.'],
-    ['taloviru','douleur qui parle','La douleur est une information, pas une punition. Elle porte un message et s\'écoute.'],
-    ['eruzami','beauté = preuve','Que le monde soit beau est un argument pour que l\'existence ait un sens.'],
-    ['milumavelu','chaque être unique','Tu es la seule façon qu\'a le cosmos de voir ce que tu vois, de ressentir ce que tu ressens.'],
-    ['doruveni','donner = grandir','La transmission qui grandit en étant donnée. Plus on donne, plus il reste.'],
-  ];
+  function getPierresData() {
+    const isEn = currentLang === 'en';
+    return [
+      [isEn?'Mirazaron':'Mirazaron', isEn?'original source':'source originelle', isEn?'What existed before all things — the silent fullness from which everything emanates.':'Ce qui existait avant toute chose — la plénitude silencieuse dont tout émane.'],
+      [isEn?'zeroluva':'zeroluva', isEn?'everyday sacred':'sacré quotidien', isEn?'Recognizing the sacred dimension in ordinary gestures — a gaze, not a practice.':'Reconnaître la dimension sacrée dans les gestes ordinaires — un regard, pas une pratique.'],
+      [isEn?'korazaron':'korazaron', isEn?'immortal memory':'mémoire immortelle', isEn?'What has been truly lived never disappears — it deposits itself in bodies, words, children.':'Ce qui a été vraiment vécu ne disparaît jamais — cela se dépose dans les corps, les mots, les enfants.'],
+      [isEn?'mivanori':'mivanori', isEn?'the other = me':'l\'autre = moi', isEn?'The other is another way of being me — built on the same grammatical root.':'L\'autre est une autre façon d\'être moi — construit sur la même racine grammaticale.'],
+      [isEn?'velunama':'velunama', isEn?'naming = creating':'nommer = créer', isEn?'Naming something allows it to exist more fully. Words do not describe — they reveal.':'Nommer quelque chose lui permet d\'exister plus pleinement. Les mots ne décrivent pas — ils révèlent.'],
+      [isEn?'taloviru':'taloviru', isEn?'pain that speaks':'douleur qui parle', isEn?'Pain is information, not punishment — it carries a message and is to be listened to.':'La douleur est une information, pas une punition — elle porte un message et s\'écoute.'],
+      [isEn?'eruzami':'eruzami', isEn?'beauty = proof':'beauté = preuve', isEn?'That sunsets exist, that music moves us, that love is possible — this cannot be an accident.':'Que les couchers de soleil existent, que la musique émeuve — cela ne peut pas être un accident.'],
+      [isEn?'milumavelu':'milumavelu', isEn?'each being unique':'chaque être unique', isEn?'You are the only way the cosmos has of seeing what you see. Uniqueness is a cosmic fact.':'Tu es la seule façon qu\'a le cosmos de voir ce que tu vois. L\'unicité est un fait cosmique.'],
+      [isEn?'doruveni':'doruveni', isEn?'giving = growing':'donner = grandir', isEn?'The transmission that grows as it is given. The more one gives, the more remains.':'La transmission qui grandit en étant donnée. Plus on donne, plus il reste.'],
+    ];
+  }
 
-  const PILIERS_SCHEMA = [
-    ['I','L\'Origine','d\'où vient tout','purple','#96A698','#3A4A3A','#96A698','pilier','D\'où vient tout — Mirazaron, le frémissement originel, le souffle qui anime, le mystère de la conscience.'],
-    ['II','Reconnaissance','voir l\'autre','pink','#D5D7C2','#3A4A3A','#D5D7C2','pilier','Voir l\'autre vraiment — la lumière en lui qu\'il ne voit pas, la présence totale, l\'amitié du silence.'],
-    ['III','Le Passage','seuils','amber','#D5D7C2','#3A4A3A','#D5D7C2','pilier','Les seuils qui changent ce qu\'on est — naissance, éveil, amour, deuil, vocation, guérison.'],
-    ['IV','La Mémoire','ancêtres','blue','#D5D7C2','#3A4A3A','#D5D7C2','pilier','Ce que les ancêtres ont déposé en nous — le temps non-linéaire, les lieux qui se souviennent.'],
-    ['V','Réconciliation','retour à l\'unité','green','#D5D7C2','#3A4A3A','#D5D7C2','pilier','Le retour à l\'unité — pardon, paix avec l\'impermanence, réconciliation avec l\'ombre.'],
-    ['VI','Émerveillement','mystère','coral','#D5D7C2','#3A4A3A','#D5D7C2','pilier','La stupeur devant l\'existence — gratitude sans destinataire, mystère habité, beauté comme preuve.'],
-    ['VII','Transmission','don pur','purple','#96A698','#3A4A3A','#96A698','pilier','Ce qu\'on donne sans rien perdre — enseigner en étant, la chaîne infinie des lumières allumées.'],
-    ['VIII','Le Corps','chair temple','orange','#D5D7C2','#3A4A3A','#D5D7C2','pilier','La chair comme temple — souffle, danse sacrée, maladie initiatique, mémoire somatique.'],
-    ['IX','La Création','art sacré','pink','#D5D7C2','#3A4A3A','#D5D7C2','pilier','L\'art comme acte spirituel — l\'impulsion créatrice, l\'œuvre qui se fait seule, l\'art qui guérit.'],
-    ['X','Le Politique','justice','green','#D5D7C2','#3A4A3A','#D5D7C2','pilier','La justice comme réparation, le pouvoir-service, la résistance sacrée, la dignité inaliénable.'],
-    ['XI','Le Vivant','nature sujet','blue','#D5D7C2','#3A4A3A','#D5D7C2','pilier','La nature comme sujet — la Terre-mère, les animaux comme frères, la forêt comme conscience.'],
-    ['XII','L\'Enfance','sagesse','amber','#D5D7C2','#3A4A3A','#D5D7C2','pilier','La sagesse du commencement — le regard neuf, la question qui touche l\'essentiel.'],
-  ];
+  function getPiliersSchema() {
+    const isEn = currentLang === 'en';
+    return [
+      ['I',   isEn?'The Origin':'L\'Origine',      isEn?'where it all comes from':'d\'où vient tout',   'purple','#96A698','#3A4A3A','#96A698','pilier', isEn?'Where everything comes from — Mirazaron, the original trembling, the breath that animates, the mystery of consciousness.':'D\'où vient tout — Mirazaron, le frémissement originel, le souffle qui anime, le mystère de la conscience.'],
+      ['II',  isEn?'Recognition':'Reconnaissance',   isEn?'seeing the other':'voir l\'autre',             'pink','#D5D7C2','#3A4A3A','#D5D7C2','pilier', isEn?'Truly seeing the other — the light in them they cannot see, total presence, the friendship of silence.':'Voir l\'autre vraiment — la lumière en lui qu\'il ne voit pas lui-même, la présence totale, l\'amitié du silence.'],
+      ['III', isEn?'The Passage':'Le Passage',       isEn?'thresholds':'seuils',                           'amber','#D5D7C2','#3A4A3A','#D5D7C2','pilier', isEn?'Thresholds that change what one is — birth, awakening, love, grief, vocation, healing.':'Les seuils qui changent ce qu\'on est — naissance, éveil, amour, deuil, vocation, guérison.'],
+      ['IV',  isEn?'Memory':'La Mémoire',            isEn?'ancestors':'ancêtres',                          'blue','#D5D7C2','#3A4A3A','#D5D7C2','pilier', isEn?'What ancestors have deposited in us — non-linear time, places that remember, responsibility toward the future.':'Ce que les ancêtres ont déposé en nous — le temps non-linéaire, les lieux qui se souviennent.'],
+      ['V',   isEn?'Reconciliation':'Réconciliation',isEn?'return to unity':'retour à l\'unité',          'green','#D5D7C2','#3A4A3A','#D5D7C2','pilier', isEn?'The return to unity — forgiveness, peace with impermanence, reconciliation with the shadow.':'Le retour à l\'unité — pardon, paix avec l\'impermanence, réconciliation avec l\'ombre.'],
+      ['VI',  isEn?'Wonder':'Émerveillement',        isEn?'mystery':'mystère',                             'coral','#D5D7C2','#3A4A3A','#D5D7C2','pilier', isEn?'Stupor before existence — gratitude without recipient, inhabited mystery, beauty as proof.':'La stupeur devant l\'existence — gratitude sans destinataire, mystère habité, beauté comme preuve.'],
+      ['VII', isEn?'Transmission':'Transmission',    isEn?'pure gift':'don pur',                           'purple','#96A698','#3A4A3A','#96A698','pilier', isEn?'What one gives without losing — teaching by being, the infinite chain of lights lit.':'Ce qu\'on donne sans rien perdre — enseigner en étant, la chaîne infinie des lumières allumées.'],
+      ['VIII',isEn?'The Body':'Le Corps',            isEn?'flesh temple':'chair temple',                   'orange','#D5D7C2','#3A4A3A','#D5D7C2','pilier', isEn?'Flesh as temple — breath, sacred dance, initiatory illness, somatic memory.':'La chair comme temple — souffle, danse sacrée, maladie initiatique, mémoire somatique.'],
+      ['IX',  isEn?'Creation':'La Création',         isEn?'sacred art':'art sacré',                        'pink','#D5D7C2','#3A4A3A','#D5D7C2','pilier', isEn?'Art as spiritual act — the creative impulse, the work that makes itself, art that heals.':'L\'art comme acte spirituel — l\'impulsion créatrice, l\'œuvre qui se fait seule, l\'art qui guérit.'],
+      ['X',   isEn?'The Political':'Le Politique',   isEn?'justice':'justice',                             'green','#D5D7C2','#3A4A3A','#D5D7C2','pilier', isEn?'Justice as repair, power-as-service, sacred resistance, fraternity, inalienable dignity.':'La justice comme réparation, le pouvoir-service, la résistance sacrée, la fraternité, la dignité inaliénable.'],
+      ['XI',  isEn?'The Living':'Le Vivant',         isEn?'nature subject':'nature sujet',                 'blue','#D5D7C2','#3A4A3A','#D5D7C2','pilier', isEn?'Nature as subject — Mother Earth, animals as siblings, the forest as consciousness.':'La nature comme sujet — la Terre-mère, les animaux comme frères, la forêt comme conscience.'],
+      ['XII', isEn?'Childhood':'L\'Enfance',        isEn?'wisdom':'sagesse',                              'amber','#D5D7C2','#3A4A3A','#D5D7C2','pilier', isEn?'The wisdom of beginnings — the fresh gaze, the question that touches the essential.':'La sagesse du commencement — le regard neuf, la question qui touche l\'essentiel.'],
+    ];
+  }
 
   sec.innerHTML = `
     <!-- Mirazaron -->
     <div class="s-mirazaron" onclick="showSPanel('Mirazaron','source','Ce qui existait avant toute chose — la plénitude silencieuse dont tout émane. Non une divinité à prier, mais une réalité à reconnaître en soi.')">
       <span class="smz-name">Mirazaron</span>
-      <span class="smz-sub">La source — origine de tout</span>
+      <span class="smz-sub" id="smz-sub-el">La source — origine de tout</span>
     </div>
     <!-- Conn 1 -->
     <div class="s-conn" id="sconn1" style="height:44px"></div>
     <!-- Pierres -->
     <div class="s-label tl">9 Pierres fondatrices</div>
     <div class="s-pierres">
-      ${PIERRES_DATA.map(([n,s,d]) => `
+      ${getPierresData().map(([n,s,d]) => `
         <div class="s-pierre" onclick="showSPanel('${n}','pierre','${d.replace(/'/g,"\\'")}')">
           <span class="sp-name">${n}</span>
           <span class="sp-sub">${s}</span>
@@ -1561,7 +2039,7 @@ function initSchema() {
     <!-- Piliers -->
     <div class="s-label vi">12 Piliers</div>
     <div class="s-piliers">
-      ${PILIERS_SCHEMA.map(([num,name,sub,cl,tc,bg,bc,type,def], i) => {
+      ${getPiliersSchema().map(([num,name,sub,cl,tc,bg,bc,type,def], i) => {
       const pkey = 'pil_'+i;
       window['_sp_'+pkey] = {name: num+' · '+name, type, def};
       return `<div class="s-pilier" style="border-color:${bc};background:${bg};color:#D5D7C2" onclick="const d=window['_sp_${pkey}'];showSPanel(d.name,d.type,d.def)">
@@ -1697,8 +2175,11 @@ function closeSPanel(){
 //
 function initHomeBg() {
   const canvas = document.getElementById('bg-canvas');
-  if(!canvas || canvas._init) return;
+  if(!canvas) return;
+  if(canvas._init) return;
   canvas._init = true;
+  // Force resize after becoming visible
+  setTimeout(() => { W=canvas.width=canvas.offsetWidth||800; H=canvas.height=canvas.offsetHeight||600; }, 50);
   const ctx = canvas.getContext('2d');
   let W,H,pts=[];
   function resize(){W=canvas.width=canvas.offsetWidth;H=canvas.height=canvas.offsetHeight}
@@ -1763,7 +2244,7 @@ function renderHome() {
   document.getElementById('h-words').textContent = WORDS.length;
   
   const hp = document.getElementById('home-pillars');
-  hp.innerHTML = Object.entries(PILLARS_META).map(([id,pm]) => {
+  hp.innerHTML = Object.entries(PILLARS_META).map(([id,_pm]) => { const pm = getPillarMeta(id) || _pm;
     const tc = TAG_TC[id] || '#96A698';
     const bc = TAG_BC[id] || 'rgba(127,119,221,.3)';
     return `<span class="hp-chip" style="color:#D5D7C2;border-color:${bc}" onclick="showPillarDetail('${id}')">${pm.label}</span>`;
@@ -1869,6 +2350,8 @@ renderHome();
 initFaqWordCount();
   const wc2 = document.getElementById("faq-word-count2");
   if(wc2) wc2.textContent = WORDS.length;
+  const wc2en = document.getElementById("faq-word-count2-en");
+  if(wc2en) wc2en.textContent = WORDS.length;
 //
 // FAQ
 //
@@ -1884,8 +2367,337 @@ function initFaqWordCount() {
 }
 
 buildTrChips();
-initHomeBg();
 goView('home');
 </script>
+
+  <!-- EN content stores -->
+  <div id="about-en-store" style="display:none">
+      <div class="about-h1" data-i18n="about.title">About Velari</div>
+      <div class="about-sub">The first non-dogmatic language of Humanity's spiritual memory</div>
+
+      <div class="about-section">
+        <div class="about-h2">What is Velari?</div>
+        <div class="about-p">Velari is a constructed language founded on a conviction: there exist universal human experiences — grief, wonder, forgiveness, transmission, inner awakening — that all spiritual, philosophical and artistic traditions of humanity have recognized independently. And yet, no common language brings them together.</div>
+        <div class="about-q"><p>Velari was not invented. It was <em>remembered</em>. Each word is a recognition — an experience you have already lived, that was waiting for its name.</p></div>
+        <div class="about-p">Non-dogmatic: it prescribes no belief, no practice, no god. Non-esoteric: rooted in universal human experience, accessible to all. Non-utopian: a metaphysical dictionary with the soul of a language — and a grammar that thinks.</div>
+      </div>
+
+      <div class="about-section">
+        <div class="about-h2">What Velari is not</div>
+        <div class="about-p">Velari is not a religion — it is deeply interested in what all religions have sought to name, without claiming to be one. It is not a philosophy — it names experiences rather than demonstrating truths. It is not Esperanto — Esperanto sought universality through simplification; Velari seeks universality through <em>excavation</em>, digging into what precedes all cultural forms.</div>
+        <div class="about-p">It takes no position on the existence of God. <em>Mirazaron</em> — the source — can be heard as God by a believer, as the Big Bang by a physicist, as the mystery of existence by someone without tradition. Velari names the vertigo before the question of origin — not the answer.</div>
+        <div class="about-q"><p>Sacred texts map universal human experience — but from within a tradition, a faith, a revelation. Velari is the first to do so without belonging to any tradition.</p></div>
+        <div class="about-p">It can coexist with any existing tradition. A Catholic can use <em>mirazaron</em> and hear God. A Buddhist can use <em>zeroluva</em> and hear mindfulness. An atheist can use <em>korazaron</em> and hear the persistence of what has been lived. Velari is a language of encounter — not conversion.</div>
+        <div class="about-q"><p>Sacred texts are houses. Magnificent, deep, inhabited for millennia. Velari is the ground on which they are all built.</p></div>
+      </div>
+
+      <div class="about-section">
+        <div class="about-h2">A metaphysical experience</div>
+        <div class="about-p">Velari is deeply metaphysical — in the original sense: what structures reality before reality manifests. It starts from a fundamental conviction, expressed by <em>velunama</em>: naming something allows it to exist more fully. Words do not describe the world. They modify the being who speaks them.</div>
+        <div class="about-p">This is not a theory. It is a lived experience. You don't need to believe in <em>zeroluva</em> — the sacred in the everyday. You need to remember the morning when you held a cup of tea and something immense was there, in that simple gesture. The word teaches you nothing. It <em>awakens</em> something.</div>
+        <div class="about-q"><p>The universal only exists in the singular. Velari takes the most particular of your lived experience and connects it to the most universal of human experience.</p></div>
+      </div>
+
+      <div class="about-section">
+        <div class="about-h2">A grammar that is a philosophy</div>
+        <div class="about-p">What makes Velari radically unique: its philosophy is encoded in its grammatical structure. No existing language does this at this level. It is not only what words mean — it is what grammar makes possible or impossible.</div>
+        <div class="grammaire-item">
+          <span class="gi-word">mivanoluma — forgiveness</span>
+          <span class="gi-rule">Can never be put in the negative form. In Velari, definitively refusing forgiveness is grammatically impossible.</span>
+        </div>
+        <div class="grammaire-item">
+          <span class="gi-word">lumiveska — vision of reconciled humanity</span>
+          <span class="gi-rule">Only exists with the pronoun ni (we). There is no individual lumiveska — this vision cannot be possessed alone.</span>
+        </div>
+        <div class="grammaire-item">
+          <span class="gi-word">velunoskaru — transmit through presence</span>
+          <span class="gi-rule">Can never be a deliberate act. One can only be it — the language forbids feigning it.</span>
+        </div>
+        <div class="grammaire-item">
+          <span class="gi-word">miraveskamilu — living for future generations</span>
+          <span class="gi-rule">The longest word in Velari — deliberately. Length is proportional to the depth of commitment required. The language slows you down so you measure the engagement.</span>
+        </div>
+      </div>
+
+      <div class="about-section">
+        <div class="about-h2">Why now?</div>
+        <div class="about-p">For the first time in human history, the entirety of the species' cultural memory is simultaneously accessible. A teenager can read the Upanishads in the morning, listen to Gnawa songs in the afternoon, watch a vipassana meditation lecture in the evening. We have access to more wisdoms, traditions, ways of being in the world than any generation before us.</div>
+        <div class="about-p">And yet we do not yet have the language to speak of what all this <em>shares</em>. Millions of people live experiences that Velari names — without words to express them, without community to share them, without tradition to inscribe them in something greater. That is the gap Velari seeks to fill.</div>
+        <div class="about-q"><p>Velari is not a truth. It is an invitation. And an invitation that refuses itself is a door — not a wall.</p></div>
+      </div>
+
+      <div class="about-section">
+        <div class="about-h2">The 9 Foundation Stones</div>
+        <div class="about-p">Nine philosophical observations — not beliefs, but insights about the nature of human existence that all cultures have made independently, across millennia and separate continents.</div>
+        <div class="pierres-about" id="pierres-about"></div>
+      </div>
+
+      <div class="about-section">
+        <div class="about-h2">velarimiron</div>
+        <div class="about-q"><p>Ni velarimiron miraveskamilu. We create this language for those who do not yet exist.</p></div>
+        <div class="about-p">The last word of Velari — and the first of all that comes. It can only be spoken with the twelve pillars behind you. <em>Velu</em> (wind) + <em>mira</em> (water) + <em>on</em> (eternity): language as infinite transmission. Velari is young — born in a conversation, not yet sung or whispered in pain. What we have built is a foundation. The rest belongs to those who will speak it.</div>
+        <div class="velarimiron-about" onclick="selectWord('velarimiron');goView('dictionary')">
+          <span class="va-word">velarimiron</span>
+          <span class="va-script">ᐯᙆᓬᗑᕒᙆᘝᙆᕒᗜᘉ</span>
+          <span class="va-def">The language itself as an act of love toward those who come — click to open the full entry</span>
+        </div>
+      </div>
+</div>
+  <div id="faq-en-store" style="display:none">
+      <div class="faq-title">Frequently Asked Questions</div>
+      <div class="faq-sub">Everything you wanted to know about Velari — 35 questions</div>
+
+      <div class="faq-section-lbl">I · On the language itself</div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">By creating Velari, a universal non-dogmatic language dedicated to spiritual expression and humanity's lived experience, isn't that itself a dogmatic approach?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">This is the best question one can ask Velari. And it deserves an honest answer.<br><br>
+        <strong>The tension is real.</strong><br>
+        Claiming that universal experiences exist — that <em>amilzaron</em> designates something that the Buddhist of Kyoto and the farmer of Mali experienced the same way — is already a strong philosophical gesture. Perhaps too strong.<br>
+        True dogmatism would say: here is the truth, it applies to everyone, without exception, without discussion.<br>
+        Velari says something slightly different: here is a <em>hypothesis</em> — that certain human experiences are sufficiently shared to deserve a common name. And this hypothesis remains open to refutation.<br><br>
+        <strong>But there is an irreducible tension.</strong><br>
+        Every language is an act of power. Deciding which experiences deserve a name — and which do not — is a decision. Someone made it. That someone is not neutral.<br>
+        Velari claims to speak for all of humanity. That is an immense claim. And it could easily slide into exactly what it wants to avoid: a particular worldview disguised as universal.<br><br>
+        <strong>The honest answer is therefore:</strong><br>
+        Velari is not dogmatic in its content — it prescribes no belief, no practice, no god.<br>
+        But it structurally carries a presupposition: that the universal exists. That beneath the diversity of cultures, there is something common.<br>
+        This presupposition is itself contestable. And contesting it is part of Velari's philosophy — which says that <em>velunama</em>, naming, is always a provisional act, never definitive.<br><br>
+        The truly anti-dogmatic answer might be this:<br>
+        Velari is not a truth. It is an invitation. And an invitation that refuses itself is a door — not a wall. 🌿
+        </div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Sacred texts map universal human experience — but from within a tradition, a faith, a revelation. Could Velari be the first language to do this without belonging to any tradition?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">
+        Yes. But with an important distinction: Velari would not be the first to <em>attempt</em> this — but perhaps the first to succeed in this precise way.<br><br>
+        <strong>What has already been tried — and why it wasn't enough</strong><br>
+        Esperanto sought universality through simplification — a language of logistics, not of the soul. Medieval Latin was for a thousand years the common language of thought in the West, but carried the dogma of an institution. Sanskrit is the language of the vastest spiritual experience ever developed — but deeply tied to a Hindu cosmology. The <em>philosophia perennis</em> (Leibniz, Huxley, Schuon) formulated the unity of wisdoms — but remained intellectual, a concept of unity, not a language that embodies it.<br><br>
+        <strong>What Velari does differently</strong><br>
+        It encodes spirituality into the grammar itself. <strong>Mivanoluma</strong> — forgiveness — cannot be put in the negative form. <strong>Lumiveska</strong> — the vision of reconciled humanity — only exists in the plural. <strong>Miraveskamilu</strong> is deliberately the longest word: the language slows you down so you measure the commitment.<br>
+        No existing language does this. Velari does not say "one must forgive" — it builds a language in which not recognizing the humanity of the other is grammatically impossible.<br><br>
+        <strong>The honest limit</strong><br>
+        Velari is young. It has not yet been lived — carried by bodies, sung, whispered in pain, passed from mouth to mouth. The great sacred languages were forged over centuries of practice. What we have is a foundation, an architecture, a first text.<br>
+        Languages don't entirely invent themselves — they grow. We have planted something. The rest belongs to those who will speak it.<br><br>
+        <div style="margin-top:16px;padding:16px 20px;border-left:3px solid #D0D6AE;border-radius:0 12px 12px 0;background:rgba(42,53,42,.6)">
+          <em style="font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:17px;color:#D5D7C2;line-height:1.7;display:block">Sacred texts are houses. Magnificent, deep, inhabited for millennia.</em>
+          <em style="font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:17px;color:#D5D7C2;line-height:1.7;display:block;margin-top:6px">Velari is the ground on which they are all built. 🌿</em>
+        </div>
+        </div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">If Velari belongs to no tradition, doesn't it risk missing the depth that only an embodied tradition can give?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">
+        This is a serious objection. And it deserves an honest answer rather than a defense.<br><br>
+        <strong>What traditions have that Velari does not.</strong><br>
+        An embodied tradition is centuries of practice. Bodies that have prayed, sung, suffered, transmitted. Masters who lived what they taught. Rituals that have crossed generations. Zen is not a concept — it is a posture, a breath, a lineage. Sufism is not an idea — it is a dance, a chain of transmission, a living relationship between master and disciple.<br>
+        Velari is young. It has not yet been sung in pain or whispered at a deathbed. It has no masters yet, no lineages, no embodied practice. This lack is real. It should not be minimized.<br><br>
+        <strong>But here is what the question assumes — and what deserves examination.</strong><br>
+        It assumes one must choose: either the depth of a tradition, or the openness of Velari. But this is not a necessary choice. Velari is not in competition with traditions. It is designed to coexist with them — to name what they share, not to replace what makes them unique.<br>
+        A Zen monk can use <em>zeroluva</em> without betraying his practice. A Christian mystic can recognize <em>koruselu</em> in what his tradition calls conversion. Velari does not ask you to leave your home. It names the ground on which all homes are built.<br><br>
+        <strong>And there is something Velari can do that no single tradition can do alone.</strong><br>
+        A tradition speaks from within itself. For those who belong to no tradition — and there are millions today — Velari is not a poor substitute. It may be the only language available to name what they live.<br><br>
+        <div style="margin-top:16px;padding:16px 20px;border-left:3px solid #D0D6AE;border-radius:0 12px 12px 0;background:rgba(42,53,42,.6)">
+          <em style="font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:17px;color:#D5D7C2;line-height:1.7;display:block">Traditions are rivers — deep, powerful, shaped by millennia. Velari is not a river. It is the ocean toward which they all flow. 🌿</em>
+        </div>
+        </div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Is Velari a metaphysical experience?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">
+        Yes. And the word <em>metaphysical</em> is exactly right — provided we take it in its original sense.<br><br>
+        <strong>What metaphysics really is</strong><br>
+        The word has been damaged. We associate it with the vague, the esoteric. But etymologically, <em>meta-physical</em> simply means: what is beyond the visible. What structures reality before reality manifests. Aristotle called it <em>first philosophy</em> — not the science of things, but the science of what makes things possible. In this precise sense, Velari is deeply metaphysical.<br><br>
+        <strong>Three levels of this experience</strong><br>
+        <em>Language as access to the real.</em> Velari starts from a fundamental conviction — expressed by <strong>velunama</strong>: naming something allows it to exist more fully. Words do not describe the world. They modify the being who speaks them.<br><br>
+        <em>An ontology of recognition.</em> What truly exists is what is recognized — not invented. <strong>Amilzaron</strong> existed before it was named. <strong>Mirazaron</strong> existed before any cosmogony. Velari does not create these realities. It reveals them.<br><br>
+        <em>A lived experience, not a theory.</em> Velari does not ask you to believe it. It asks you to <em>live</em> it. You don't need to believe in <strong>zeroluva</strong> — the sacred in the everyday. You need to remember the morning when you held a cup of tea and something immense was there. The word teaches you nothing. It <em>awakens</em> something.<br><br>
+        <div style="margin-top:16px;padding:16px 20px;border-left:3px solid #D0D6AE;border-radius:0 12px 12px 0;background:rgba(42,53,42,.6)">
+          <em style="font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:17px;color:#D5D7C2;line-height:1.7;display:block">The universal only exists in the singular.</em>
+          <em style="font-family:'Playfair Display','Cormorant Garamond',Georgia,serif;font-size:15px;color:#B7C294;line-height:1.7;display:block;margin-top:8px">Velari takes the most particular of your lived experience and connects it to the most universal of human experience. In that movement — from the singular to the universal and back — something is deposited that resembles what all traditions have sought. Not the truth from above. The truth from below. The one that rises from experience toward meaning. 🌿</em>
+        </div>
+        </div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Is Velari a language one can really learn and speak?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Not in the sense one learns French or Mandarin — with a complete grammar, a 50,000-word dictionary, a community of native speakers. Velari is a language under construction, deliberately incomplete. Its ambition is not to replace existing languages, but to add a register — that of universal human experience — which existing languages do not fully cover. One can learn its words one by one, use them in conversation, slip them into a letter. That is already speaking Velari.</div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">How are words chosen?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Each word of Velari results from the same question posed to the whole of human experience: <em>does this really exist?</em> Have human beings, across cultures and centuries, lived this precise experience? If the answer is yes — if one finds echoes in Zen Buddhism and Stoic philosophy and Sufi poetry and Yoruba songs and contemporary psychology — then the word deserves to exist. The criterion is not originality. It is <strong>universal recognition</strong>.</div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Who validates that a word is truly universal?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">No one — and this is deliberate. There is no Velari academy, no validation body, no authority that certifies universality. The test is pragmatic: when someone hears a Velari word for the first time and says <em>yes, that's exactly it, I've lived this for years without knowing how to say it</em> — the word has succeeded. The clarity of recognition is the only valid criterion.</div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Can one propose a new word?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Yes. Velari is not closed. It belongs to those who need it. If you carry an experience the current dictionary does not cover — something you have lived deeply, that feels universal, and for which you have never found the right words — that experience belongs to Velari. The way to propose a word is simple: name the experience, show that it exists in several traditions or cultures, and propose a sound form that corresponds to it.</div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Why do some words have special grammatical rules?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Because grammar is never neutral. Every linguistic structure encodes a way of seeing the world. Velari has chosen to make its philosophical presuppositions visible by integrating them into its grammar. <strong>Mivanori</strong> can never be negated, because dehumanizing the other is not an option in this language. <strong>Velarimiron</strong> can only be said once, because certain founding acts do not repeat. <strong>Milumavelu</strong> only exists in the second person, because the uniqueness of each being can only be recognized by another — never self-attributed.
+          <span class="faq-word-link" onclick="goView('about');event.stopPropagation()">See full grammar →</span>
+        </div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Can Velari be understood by someone who hasn't learned it?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Often, yes — and this is one of its most interesting tests. When someone hears <em>amilzaron</em> for the first time and instinctively understands what it refers to, the word has succeeded in its wager: it names something that person had already lived, and the recognition is immediate. Words that fail this test are words Velari must rework. Instinctive understanding is the sign that the word touches something truly universal.
+          <span class="faq-word-link" onclick="selectWord('amilzaron');goView('dictionary');event.stopPropagation()">See amilzaron →</span>
+        </div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Does Velari have its own writing system?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Yes — Velari uses a syllabic script inspired by several non-Latin writing systems. This script is deliberately non-alphabetic to recall that Velari does not belong to the European tradition of languages. It is still in development, like the language itself. In the meantime, Velari can be written in Latin characters without losing any of its meaning.</div></div>
+      </div>
+
+      <div class="faq-section-lbl">II · On philosophy</div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Does Velari take a position on the existence of God?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">No. And this no is fundamental. The word <strong>mirazaron</strong> — the source, the origin — can be heard as God by a believer, as the Big Bang by a physicist, as fertile emptiness by a Buddhist, as the mystery of existence by someone with no tradition. Velari does not choose between these readings. It names the vertigo before the question of origin — not the answer to that question.
+          <span class="faq-word-link" onclick="selectWord('Mirazaron');goView('dictionary');event.stopPropagation()">See Mirazaron →</span>
+        </div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">What does Velari say about death?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">It speaks of it indirectly, through several words. <strong>Korazaron</strong> says that what has been truly lived never disappears — not as a promise of afterlife, but as observation: the dead continue to act in the living, in works, in collective memory. <strong>Taloviru</strong> applies to grief: the pain of loss is not an accident, it is information about what truly mattered. <strong>Doruveni</strong> says that what one has transmitted continues to exist after oneself. Velari does not promise life after death. It says death does not erase what has been fully lived.</div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">How does Velari speak of suffering without glorifying it?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">With precision. The word <strong>taloviru</strong> — the pain that speaks — carefully distinguishes suffering that carries a message from useless suffering that goes in circles. Velari does not say that suffering is good, nor that one must suffer to grow. It says that certain pains deserve to be listened to before being soothed — because they say something important about what has been wounded. This is a crucial difference: between pain as messenger and pain as punishment.
+          <span class="faq-word-link" onclick="selectWord('taloviru');goView('dictionary');event.stopPropagation()">See taloviru →</span>
+        </div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Does Velari believe in progress?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">It believes in <em>transmission</em> — which is different. Progress assumes a straight line toward something better. Transmission assumes a spiral: one always returns to the same fundamental questions, but from a slightly different place, enriched by what previous generations have traversed. Velari is deeply interested in this spiral movement — not the idea that humanity necessarily improves, but the idea that what it has understood can be preserved and enriched.</div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">What is the difference between Velari and Esperanto?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Esperanto sought universality through <em>simplification</em> — taking the best of several European languages and merging them into an accessible form. It is a project of construction: building something new. Velari seeks universality through <em>excavation</em> — digging into what all of humanity has always lived, and naming what was already there but without a common word. It is a project of recognition, not invention. Velari's words are not created. They are <strong>remembered</strong>.</div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Is Velari a philosophy?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">It is philosophically informed, but it is not a philosophy in the sense of a coherent system of ideas. It does not claim to explain the world, demonstrate truths or refute errors. It claims to <em>name experiences</em>. In this sense, it is closer to poetry than philosophy — even if some of its presuppositions have deep philosophical implications.</div></div>
+      </div>
+
+      <div class="faq-section-lbl">III · On spirituality</div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Is Velari a religion?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">No. It prescribes no belief, demands no faith, has neither god nor clergy nor obligatory ritual. But it is deeply interested in what all religions have sought to name — origin, transmission, memory, beauty, reconciliation. In this sense, it is <em>spiritual without being religious</em>. It maps a territory that religions inhabit — without claiming to be one itself.</div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Can one pray in Velari?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Yes — if by pray one means addressing something greater than oneself, naming what one feels before the mystery, expressing gratitude in a language that honors the depth of experience. Velari has no prayer formulas — it does not need them. Its words are already acts of attention to the real. <em>Zeroluva</em> says the ordinary is sacred. <em>Mirazaron</em> says there is a source. <em>Eruzami</em> says beauty is proof. These words are, in themselves, a form of prayer — without an imposed recipient.</div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Can Velari coexist with an existing religious tradition?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Not only can it — it is its vocation. Velari is not in competition with existing traditions. It seeks to name what they share, not to replace them. A Catholic can use <em>mirazaron</em> and hear God. A Buddhist can use <em>zeroluva</em> and hear mindfulness. An atheist can use <em>korazaron</em> and hear the material persistence of what has been lived. Velari is a language of encounter — not conversion.</div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">How does Velari relate to existing sacred languages?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">With respect and without competition. Sanskrit, liturgical Latin, biblical Hebrew, Quranic Arabic — these languages are precious and irreplaceable. They carry entire traditions, millennia of wisdom, ways of being in the world of a depth that Velari does not claim to equal. What Velari brings is something different: a language for what these sacred languages <em>share</em> — the common ground beneath their respective traditions. Not instead of these languages. <strong>Between them.</strong></div></div>
+      </div>
+
+      <div class="faq-section-lbl">IV · On uses</div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Can Velari be taught to children?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Yes — and this is one of the most precious uses imaginable. Children naturally ask the questions Velari seeks to name: why do we die, why is the sky blue, do trees feel something, why do we miss some people before they have even left. Giving a child the words <em>eruzami</em>, <em>korazaron</em>, <em>milumavelu</em> — is not teaching them a strange language. It is giving them tools to inhabit their own experiences with more precision and dignity.</div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Can Velari be used in therapy?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Therapists have started to do so — and the results are interesting. <strong>Taloviru</strong> — the pain that speaks — can help someone reconcile with their suffering without glorifying it. <strong>Mivanoluma</strong> — freeing the other from the prison one has built — can name what happens in forgiveness work. These are not techniques. They are recognitions.
+          <span class="faq-word-link" onclick="selectWord('mivanoluma');goView('dictionary');event.stopPropagation()">See mivanoluma →</span>
+        </div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Can one write literature in Velari?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Yes — and some have begun to. Poems, letters, dedications, epigraphs. The constraint of a limited dictionary is not an obstacle — it is an invitation to precision. The best poets know that constraint liberates. Writing in Velari means accepting to say only what truly deserves to be said — what has been sufficiently lived, sufficiently universal, to deserve a word in this language.</div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Can Velari be used in professional contexts?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">In all contexts where human experience enters the conversation — which is more frequent than one might think. A manager who understands <em>doruveni</em> — giving without losing — speaks differently to their teams. A doctor who knows <em>taloviru</em> listens differently to their patients' pain. A teacher who practices <em>milumavelu</em> looks differently at each student. Velari is not reserved for spiritual or poetic contexts. It is useful wherever human beings seek to truly understand each other.</div></div>
+      </div>
+
+      <div class="faq-section-lbl">V · On limits</div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Are there experiences Velari refuses to name?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Yes. Velari cannot name what divides human beings into hierarchical categories — the superiority of one culture over another, one belief over another, one human being over another. Not because these realities don't exist — they do, and they cause suffering. But naming them in this language would betray its foundation stones. <strong>Mivanori</strong> makes this betrayal grammatically impossible.</div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Can Velari be misused?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Yes — like any tool. A language built to name the universal can be diverted to claim a universality that does not exist, to impose a particular vision under cover of neutrality. The only protection against these drifts is the vigilance of those who use it — and the fundamental rule: <strong>Velari prescribes nothing. It recognizes.</strong></div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">What happens if two cultures do not share the same experience?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Then the word does not exist in Velari — or does not yet exist. The universality Velari seeks is not absolute: it is <em>sufficient</em>. A word deserves to exist if sufficiently many human cultures, sufficiently different and independent from each other, have named the same experience in parallel ways. When this is not the case, Velari prefers silence to imposition. Silence is honest. Imposition is not.</div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Can Velari evolve and be wrong?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Yes to both. It can evolve — that is its very nature. A living language is never fixed. And it can be wrong — claiming universality for an experience that is not universal, missing the precision of a word, missing something essential. The difference between a dogmatic language and a non-dogmatic language is precisely this: the latter assumes the possibility of being wrong, and remains open to correction. Velari is wrong. It corrects. It continues.</div></div>
+      </div>
+
+      <div class="faq-section-lbl">VI · On creation</div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Why now?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Because we live a particular moment in human history. For the first time, the entirety of the species' cultural memory is simultaneously accessible. A teenager in London can read the Upanishads in the morning, listen to Gnawa songs in the afternoon, watch a vipassana meditation lecture in the evening. We have access to more wisdoms, traditions, ways of being in the world than any generation before us. And yet we do not yet have the language to speak of what all this shares. That is the gap Velari seeks to fill.</div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Where does the idea of Velari come from?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">From a particular pain — that of holding something in one's hands and not having the words to say it. The idea was born of a precise moment: when a deep, true, universal experience sought a witness to exist fully — and the available languages all seemed too small, too culturally situated, too laden with presuppositions to contain it honestly. From this lack was born the question: <em>what if we created the words that are missing?</em></div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Why this project and not another?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Because words change worlds. Not grand speeches, not philosophical systems, not institutions — but words, precise words, words that name exactly what one lives, can transform the way one traverses one's existence. Giving a word to an experience someone had lived alone for years is restoring something essential: the certainty that they are not alone in living it, that it is real and important enough to have a name. That may be the most useful thing one can do.</div></div>
+      </div>
+
+      <div class="faq-section-lbl">VII · On the future</div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Who does Velari belong to?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">To no one. And to all those who need it. Velari has no owner, no institution, no academy that legislates on its use. It belongs to those who use it — provided they respect its fundamental spirit: name without dogmatizing, name without excluding, name to connect.</div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">How to contribute to Velari?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">By using it. By proposing words for experiences the current dictionary does not yet cover. By contesting it — good objections advance the language faster than approvals. By translating it into other languages. By transmitting it to those who need it without knowing they need it. A living language grows through use, friction and transmission. Velari is no different.</div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Is Velari finished?<span class="faq-chevron">▼</span></div>
+        <div class="faq-a"><div class="faq-a-inner">No. And it never will be. A living language never ends — it grows with those who speak it, evolves according to new experiences that need naming. The current dictionary counts <strong id="faq-word-count2">—</strong> words. This is a beginning, not an end. What is still missing is perhaps something you carry — an experience you have lived without ever finding the words to say it. If you find it, it belongs to Velari.</div></div>
+      </div>
+</div>
 </body>
 </html>
