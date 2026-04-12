@@ -316,11 +316,7 @@ body{background:#839585;color:#FFFFFF;font-family:'EB Garamond','Cormorant Garam
   .s-piliers{grid-template-columns:repeat(2,1fr)}
 }
 
-/* ── LANG SELECT ── */
-#lang-select option { background: #111E13; color: #96A698; }
-#lang-select:hover { border-color: #96A698; }
-[data-i18n] { transition: opacity .2s; }
-.lang-switching [data-i18n] { opacity: 0; }
+
 
 
 /* ── BACK BUTTON (in-content) ── */
@@ -380,10 +376,6 @@ body{background:#839585;color:#FFFFFF;font-family:'EB Garamond','Cormorant Garam
 
 <!-- TOPBAR -->
 <div id="topbar">
-  <div class="logo" onclick="goView('home')">
-    <span class="logo-script">ᐯᙆᓬᗑᕒᙆ</span>
-    Velari
-  </div>
   <div class="nav-tabs" id="nav-tabs">
     <button class="tab active" onclick="goView('home')" data-i18n="nav.home">Accueil</button>
     <button class="tab" onclick="goView('dictionary')" data-i18n="nav.dict">Dictionnaire</button>
@@ -392,13 +384,6 @@ body{background:#839585;color:#FFFFFF;font-family:'EB Garamond','Cormorant Garam
     <button class="tab" onclick="goView('translate')" data-i18n="nav.translate">Traducteur</button>
     <button class="tab" onclick="goView('about')" data-i18n="nav.about">À propos</button>
     <button class="tab" onclick="goView('faq')">FAQ</button>
-  </div>
-  <div class="word-count" id="wc"></div>
-  <div style="margin-left:12px;flex-shrink:0">
-    <select id="lang-select" onchange="setLang(this.value)" style="background:rgba(180,150,80,.1);border:1px solid rgba(180,150,80,.3);border-radius:8px;color:#96A698;font-family:var(--sans);font-size:13px;padding:5px 10px;cursor:pointer;outline:none">
-      <option value="fr">🌿 FR</option>
-      <option value="en">🌿 EN</option>
-    </select>
   </div>
 </div>
 
@@ -425,6 +410,12 @@ body{background:#839585;color:#FFFFFF;font-family:'EB Garamond','Cormorant Garam
         <div class="home-script">ᐯᙆᓬᗑᕒᙆ</div>
         <div class="home-title" data-i18n="home.title">Velari</div>
         <div class="home-sub" data-i18n="home.sub">Première langue non-dogmatique de la mémoire spirituelle de l'Humanité</div>
+        <div style="text-align:right;margin-bottom:12px">
+          <select onchange="setLang(this.value)" style="background:rgba(42,53,42,.7);border:1px solid rgba(208,214,174,.3);border-radius:20px;color:#96A698;font-family:'EB Garamond','Cormorant Garamond',Georgia,serif;font-size:13px;padding:4px 10px;cursor:pointer;outline:none">
+            <option value="fr">🇫🇷 FR</option>
+            <option value="en">🇬🇧 EN</option>
+          </select>
+        </div>
         <div class="home-quote" style="margin-bottom:32px">
           <p class="hq-text" style="font-style:italic">Les grands textes sacrés sont des maisons magnifiques, profondes, habitées depuis des millénaires.<br>Le Velari est le sol sur lequel elles sont toutes construites.</p>
         </div>
@@ -1770,7 +1761,7 @@ function renderAbout() {
 //
 function renderHome() {
   document.getElementById('h-words').textContent = WORDS.length;
-  document.getElementById('wc').textContent = WORDS.length + ' mots';
+  
   const hp = document.getElementById('home-pillars');
   hp.innerHTML = Object.entries(PILLARS_META).map(([id,pm]) => {
     const tc = TAG_TC[id] || '#96A698';
